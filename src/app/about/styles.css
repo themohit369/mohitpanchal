@@ -1,0 +1,422 @@
+/* =====================================================
+   ABOUT PAGE
+===================================================== */
+
+.about-page {
+  width: 100%;
+  overflow: hidden;
+
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.about-page-hero {
+  padding-top: clamp(120px, 12vw, 200px);
+}
+
+/* =====================================================
+   HERO TITLE
+===================================================== */
+
+.about-page-title-wrap {
+  padding: clamp(72px, 8vw, 140px) 0;
+}
+
+.about-page-title {
+  max-width: 1500px;
+
+  margin: 0;
+
+  font-size: clamp(68px, 8.3vw, 158px);
+  font-weight: 500;
+  line-height: 0.88;
+
+  letter-spacing: -0.07em;
+}
+
+/* =====================================================
+   HERO BOTTOM
+===================================================== */
+
+.about-page-hero-bottom {
+  align-items: end;
+
+  padding-bottom: var(--section-space);
+}
+
+/* IMAGE */
+
+.about-page-hero-image {
+  grid-column: 1 / span 5;
+}
+
+.about-page-image {
+  width: 100%;
+  aspect-ratio: 0.82;
+}
+
+/* INTRO */
+
+.about-page-intro {
+  grid-column: 8 / span 4;
+
+  padding-bottom: 8px;
+}
+
+.about-page-intro p {
+  margin: 0;
+
+  color: var(--color-text-soft);
+}
+
+/* =====================================================
+   STORY
+===================================================== */
+
+.about-story {
+  position: relative;
+
+  padding-top: var(--section-space);
+  padding-bottom: clamp(80px, 7vw, 120px);
+}
+
+.about-story-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+
+  gap: var(--grid-gap);
+
+  padding-top: clamp(72px, 7vw, 120px);
+}
+
+/* =====================================================
+   STORY LABEL
+===================================================== */
+
+.about-story-label {
+  grid-column: 1 / span 3;
+}
+
+.about-story-label span {
+  color: var(--color-text-muted);
+
+  font-size: var(--text-small);
+  line-height: 1.3;
+}
+
+/* =====================================================
+   STORY CONTENT
+===================================================== */
+
+.about-story-content {
+  grid-column: 5 / span 7;
+}
+
+.about-story-content h2 {
+  max-width: 980px;
+
+  margin: 0;
+
+  font-size: clamp(44px, 4.5vw, 78px);
+  font-weight: 500;
+  line-height: 0.98;
+
+  letter-spacing: -0.055em;
+}
+
+/* =====================================================
+   STORY COPY
+===================================================== */
+
+.about-story-copy {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: var(--grid-gap);
+
+  margin-top: clamp(64px, 6vw, 96px);
+  padding-top: 20px;
+
+  border-top: 1px solid var(--color-line);
+}
+
+.about-story-copy p {
+  margin: 0;
+
+  color: var(--color-text-soft);
+
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+
+  letter-spacing: var(--tracking-body);
+}
+
+.about-story-copy p:nth-child(3) {
+  grid-column: 2;
+}
+
+/* =====================================================
+   ABOUT PAGE SECTION RHYTHM
+===================================================== */
+
+/*
+  Reusable sections keep their own visual identity.
+  These overrides only control spacing when they appear
+  inside the About page flow.
+*/
+
+/* STORY → EXPERIENCE */
+
+.about-page .experience-section-about {
+  padding-top: clamp(96px, 9vw, 144px);
+  padding-bottom: clamp(120px, 10vw, 176px);
+}
+
+/* EXPERIENCE → THINGS */
+
+.about-page .things-section {
+  padding-top: clamp(112px, 10vw, 176px);
+  padding-bottom: clamp(120px, 10vw, 176px);
+}
+
+/* THINGS → IDENTITY */
+
+.about-page .identity-section {
+  padding-top: clamp(112px, 10vw, 176px);
+  padding-bottom: clamp(112px, 9vw, 160px);
+}
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1024px) {
+  /* HERO */
+
+  .about-page-title {
+    font-size: clamp(64px, 8.5vw, 96px);
+  }
+
+  .about-page-hero-image {
+    grid-column: 1 / span 5;
+  }
+
+  .about-page-intro {
+    grid-column: 7 / span 5;
+  }
+
+  /* STORY */
+
+  .about-story-content {
+    grid-column: 5 / -1;
+  }
+
+  .about-story-content h2 {
+    font-size: clamp(48px, 6vw, 70px);
+  }
+
+  /* PAGE RHYTHM */
+
+  .about-page .experience-section-about {
+    padding-top: 104px;
+    padding-bottom: 136px;
+  }
+
+  .about-page .things-section {
+    padding-top: 120px;
+    padding-bottom: 136px;
+  }
+
+  .about-page .identity-section {
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+  /* HERO */
+
+  .about-page-hero {
+    padding-top: 104px;
+  }
+
+  .about-page-title-wrap {
+    padding: 64px 0 72px;
+  }
+
+  .about-page-title {
+    font-size: clamp(52px, 15vw, 92px);
+    line-height: 0.91;
+
+    letter-spacing: -0.065em;
+  }
+
+  /* HERO BOTTOM */
+
+  .about-page-hero-bottom {
+    display: block;
+
+    padding-bottom: 96px;
+  }
+
+  .about-page-hero-image {
+    width: 82%;
+  }
+
+  .about-page-intro {
+    max-width: 520px;
+
+    margin-top: 48px;
+    margin-left: auto;
+
+    padding-bottom: 0;
+  }
+
+  /* STORY */
+
+  .about-story {
+    padding-top: 96px;
+    padding-bottom: 72px;
+  }
+
+  .about-story-grid {
+    display: block;
+
+    padding-top: 56px;
+  }
+
+  .about-story-label {
+    margin-bottom: 32px;
+  }
+
+  .about-story-content h2 {
+    font-size: clamp(38px, 10vw, 58px);
+    line-height: 1;
+  }
+
+  .about-story-copy {
+    display: block;
+
+    margin-top: 48px;
+  }
+
+  .about-story-copy p {
+    margin-bottom: 24px;
+
+    font-size: 17px;
+  }
+
+  .about-story-copy p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* PAGE RHYTHM */
+
+  .about-page .experience-section-about {
+    padding-top: 88px;
+    padding-bottom: 112px;
+  }
+
+  .about-page .things-section {
+    padding-top: 96px;
+    padding-bottom: 112px;
+  }
+
+  .about-page .identity-section {
+    padding-top: 96px;
+    padding-bottom: 96px;
+  }
+}
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+  /* HERO */
+
+  .about-page-hero {
+    padding-top: 88px;
+  }
+
+  .about-page-title-wrap {
+    padding: 56px 0 64px;
+  }
+
+  .about-page-title {
+    font-size: clamp(46px, 14vw, 66px);
+  }
+
+  .about-page-hero-image {
+    width: 100%;
+  }
+
+  .about-page-intro {
+    margin-top: 40px;
+  }
+
+  /* STORY */
+
+  .about-story {
+    padding-top: 72px;
+    padding-bottom: 56px;
+  }
+
+  .about-story-content h2 {
+    font-size: clamp(36px, 10vw, 48px);
+  }
+
+  /* PAGE RHYTHM */
+
+  .about-page .experience-section-about {
+    padding-top: 72px;
+    padding-bottom: 96px;
+  }
+
+  .about-page .things-section {
+    padding-top: 80px;
+    padding-bottom: 96px;
+  }
+
+  .about-page .identity-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+}
+
+/* =====================================================
+   MOTION HELPERS
+===================================================== */
+
+.about-title-line {
+  display: block;
+  overflow: hidden;
+
+  padding-bottom: 0.12em;
+  margin-bottom: -0.08em;
+}
+
+.about-title-line > span {
+  display: block;
+
+  padding-bottom: 0.04em;
+
+  transform-origin: left bottom;
+}
+
+.about-page-image {
+  overflow: hidden;
+}
+
+.about-page-image-inner {
+  position: absolute;
+  inset: 0;
+}

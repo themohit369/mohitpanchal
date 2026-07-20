@@ -1,0 +1,386 @@
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.portfolio-footer {
+  position: relative;
+
+  width: 100%;
+
+  padding-top: var(--section-space);
+  padding-bottom: 32px;
+
+  overflow: hidden;
+
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* =====================================================
+   MARQUEE DIVIDER
+===================================================== */
+
+.footer-marquee-divider {
+  width: 100%;
+  height: 1px;
+
+  background: var(--color-line);
+
+  transform-origin: left center;
+}
+
+/* =====================================================
+   MAIN CTA
+===================================================== */
+
+.portfolio-footer-main {
+  padding-top: clamp(80px, 8vw, 140px);
+
+  padding-bottom: clamp(80px, 7vw, 120px);
+}
+
+/* =====================================================
+   CTA LABEL
+===================================================== */
+
+.portfolio-footer-label {
+  margin: 0 0 20px;
+
+  color: var(--color-text-muted);
+
+  font-size: var(--text-small);
+  line-height: 1.2;
+}
+
+/* =====================================================
+   EMAIL MASK
+===================================================== */
+
+.portfolio-footer-email-mask {
+  width: 100%;
+
+  overflow: hidden;
+
+  padding-bottom: 0.12em;
+  margin-bottom: -0.12em;
+}
+
+/* =====================================================
+   EMAIL
+===================================================== */
+
+.portfolio-footer-email {
+  display: block;
+  width: 100%;
+  color: var(--color-text-soft);
+  font-size: clamp(28px, 5.6vw, 88px);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.045em;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  transition: color var(--duration-medium) var(--ease-premium);
+}
+
+/* =====================================================
+   EMAIL HOVER
+===================================================== */
+
+@media (hover: hover) and (pointer: fine) {
+  .portfolio-footer-email:hover {
+    color: var(--color-text);
+  }
+}
+
+/* =====================================================
+   FOOTER BOTTOM
+===================================================== */
+
+.portfolio-footer-bottom {
+  display: grid;
+
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+
+  gap: var(--grid-gap);
+
+  padding-top: 20px;
+
+  border-top: 1px solid var(--color-line);
+}
+
+/* =====================================================
+   SOCIAL LINKS
+===================================================== */
+
+.portfolio-footer-socials {
+  grid-column: 1 / span 5;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* =====================================================
+   SOCIAL LINK
+===================================================== */
+
+.portfolio-footer-link {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 24px;
+
+  padding-block: 10px;
+
+  color: var(--color-text-soft);
+
+  font-size: var(--text-small);
+  line-height: 1.2;
+
+  overflow: hidden;
+
+  transition:
+    color var(--duration-fast) var(--ease-premium),
+    padding-left var(--duration-medium) var(--ease-premium);
+}
+
+/* =====================================================
+   SOCIAL LINK LINE
+===================================================== */
+
+.portfolio-footer-link-line {
+  position: absolute;
+
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  height: 1px;
+
+  background: var(--color-line);
+
+  transform-origin: left center;
+}
+
+/* =====================================================
+   SOCIAL INDEX
+===================================================== */
+
+.portfolio-footer-social-index {
+  color: var(--color-text-muted);
+
+  font-size: var(--text-meta);
+  line-height: 1;
+
+  transition: color var(--duration-fast) var(--ease-premium);
+}
+
+/* =====================================================
+   SOCIAL HOVER
+===================================================== */
+
+@media (hover: hover) and (pointer: fine) {
+  .portfolio-footer-link:hover {
+    padding-left: 8px;
+
+    color: var(--color-text);
+  }
+
+  .portfolio-footer-link:hover .portfolio-footer-social-index {
+    color: var(--color-text-soft);
+  }
+}
+
+/* =====================================================
+   FOOTER END INFO
+===================================================== */
+
+.portfolio-footer-end {
+  grid-column: 8 / -1;
+
+  display: grid;
+
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+
+  gap: var(--grid-gap);
+
+  align-items: end;
+}
+
+/* =====================================================
+   LOCATION
+===================================================== */
+
+.portfolio-footer-location {
+  grid-column: 1 / span 2;
+
+  margin: 0;
+
+  color: var(--color-text-muted);
+
+  font-size: var(--text-meta);
+  line-height: 1.4;
+}
+
+/* =====================================================
+   COPYRIGHT
+===================================================== */
+
+.portfolio-footer-copyright {
+  grid-column: 4 / -1;
+
+  margin: 0;
+
+  color: var(--color-text-muted);
+
+  font-size: var(--text-meta);
+  line-height: 1.4;
+
+  text-align: right;
+}
+
+/* =====================================================
+   FOOTER TABLET
+===================================================== */
+
+@media (max-width: 1024px) {
+  .portfolio-footer-main {
+    padding-top: 96px;
+
+    padding-bottom: var(--space-12);
+  }
+
+  .portfolio-footer-email {
+    font-size: clamp(52px, 8vw, 100px);
+  }
+
+  .portfolio-footer-socials {
+    grid-column: 1 / span 6;
+  }
+
+  .portfolio-footer-end {
+    grid-column: 8 / -1;
+  }
+}
+
+/* =====================================================
+   FOOTER MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+  .portfolio-footer {
+    padding-top: 88px;
+    padding-bottom: 24px;
+  }
+
+  /* MAIN CTA */
+
+  .portfolio-footer-main {
+    padding-top: 72px;
+
+    padding-bottom: var(--space-10);
+  }
+
+  /* LABEL */
+
+  .portfolio-footer-label {
+    margin-bottom: 16px;
+  }
+
+  /* EMAIL */
+
+  .portfolio-footer-email {
+    font-size: clamp(36px, 10.5vw, 64px);
+
+    line-height: 0.95;
+
+    letter-spacing: -0.055em;
+  }
+
+  /* BOTTOM */
+
+  .portfolio-footer-bottom {
+    display: block;
+
+    padding-top: 16px;
+  }
+
+  /* SOCIALS */
+
+  .portfolio-footer-socials {
+    width: 100%;
+  }
+
+  .portfolio-footer-link {
+    padding-block: 14px;
+  }
+
+  /* END INFO */
+
+  .portfolio-footer-end {
+    display: flex;
+
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 24px;
+
+    margin-top: 56px;
+  }
+
+  .portfolio-footer-location,
+  .portfolio-footer-copyright {
+    width: auto;
+  }
+}
+
+/* =====================================================
+   FOOTER SMALL MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+  .portfolio-footer {
+    padding-top: 72px;
+  }
+
+  /* MAIN CTA */
+
+  .portfolio-footer-main {
+    padding-top: 64px;
+
+    padding-bottom: var(--space-8);
+  }
+
+  /* EMAIL */
+
+  .portfolio-footer-email {
+    font-size: clamp(24px, 7vw, 42px);
+
+    letter-spacing: -0.045em;
+  }
+
+  /* END INFO */
+
+  .portfolio-footer-end {
+    margin-top: 56px;
+  }
+}
+
+/* =====================================================
+   FOOTER REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-marquee-divider,
+  .portfolio-footer-email,
+  .portfolio-footer-link,
+  .portfolio-footer-link-line,
+  .portfolio-footer-end {
+    transform: none !important;
+
+    transition: none !important;
+  }
+}

@@ -1,0 +1,59 @@
+/* =====================================================
+   ACTION LINK
+===================================================== */
+
+.action-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  width: fit-content;
+
+  color: var(--color-text);
+
+  font-size: var(--text-small);
+  font-weight: 500;
+  line-height: 1.2;
+
+  text-decoration: none;
+
+  transition: color var(--duration-fast) var(--ease-premium);
+}
+
+/* =====================================================
+   VARIANTS
+===================================================== */
+
+.action-link-muted {
+  color: var(--color-text-soft);
+}
+
+/* =====================================================
+   ARROW
+===================================================== */
+
+.action-link-arrow {
+  display: inline-block;
+
+  color: var(--color-text-muted);
+
+  transition:
+    color var(--duration-fast) var(--ease-premium),
+    transform var(--duration-medium) var(--ease-premium);
+}
+
+/* =====================================================
+   HOVER
+===================================================== */
+
+@media (hover: hover) and (pointer: fine) {
+  .action-link:hover .action-link-arrow {
+    color: var(--color-text);
+
+    transform: translate(4px, -4px);
+  }
+
+  .action-link-muted:hover .action-link-arrow {
+    transform: translateY(4px);
+  }
+}

@@ -1,0 +1,76 @@
+/* =====================================================
+   DEVELOPMENT GRID OVERLAY
+===================================================== */
+
+.grid-overlay {
+  position: fixed;
+  z-index: 9999;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  pointer-events: none;
+}
+
+/* =====================================================
+   GRID CONTAINER
+   Matches .site-container geometry
+===================================================== */
+
+.grid-overlay-container {
+  display: grid;
+
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--grid-gap);
+
+  width: 100%;
+  max-width: var(--container);
+
+  height: 100%;
+
+  margin-inline: auto;
+  padding-inline: var(--page-x);
+}
+
+/* =====================================================
+   COLUMNS
+===================================================== */
+
+.grid-overlay-column {
+  height: 100%;
+
+  background: rgba(255, 80, 80, 0.055);
+
+  border-left: 1px solid rgba(255, 80, 80, 0.18);
+  border-right: 1px solid rgba(255, 80, 80, 0.18);
+}
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1024px) {
+  .grid-overlay-container {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+  }
+
+  .grid-overlay-column:nth-child(n + 9) {
+    display: none;
+  }
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+  .grid-overlay-container {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .grid-overlay-column:nth-child(n + 5) {
+    display: none;
+  }
+}

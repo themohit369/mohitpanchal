@@ -1,0 +1,281 @@
+/* =====================================================
+   ABOUT
+===================================================== */
+
+.about-section {
+  position: relative;
+
+  width: 100%;
+
+  padding-block: var(--section-space) var(--section-space-small);
+}
+
+/* =====================================================
+   ABOUT HEADING
+===================================================== */
+
+.about-heading-wrap {
+  padding-top: 64px;
+}
+
+.about-heading {
+  margin: 0;
+
+  font-size: clamp(44px, 4.5vw, 78px);
+  font-weight: 500;
+  line-height: 0.98;
+
+  letter-spacing: -0.055em;
+}
+
+.about-heading-line {
+  display: block;
+
+  overflow: hidden;
+
+  padding-bottom: 0.2em;
+  margin-bottom: -0.2em;
+}
+
+.about-heading-reveal {
+  display: block;
+
+  opacity: 1;
+
+  transform-origin: left bottom;
+}
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.about-content {
+  align-items: start;
+
+  margin-top: clamp(96px, 8vw, 140px);
+}
+
+/* =====================================================
+   IMAGE COLUMN
+===================================================== */
+
+.about-image-column {
+  grid-column: 1 / span 3;
+
+  min-width: 0;
+}
+
+/* =====================================================
+   IMAGE FRAME
+===================================================== */
+
+.about-image {
+  position: relative;
+
+  width: 100%;
+  aspect-ratio: 0.82;
+
+  overflow: hidden;
+}
+
+/* =====================================================
+   IMAGE PARALLAX LAYER
+===================================================== */
+
+.about-image-parallax {
+  position: absolute;
+
+  top: -10%;
+  right: 0;
+  bottom: -10%;
+  left: 0;
+
+  will-change: transform;
+}
+
+/* =====================================================
+   IMAGE
+===================================================== */
+
+.about-image-inner {
+  object-fit: cover;
+  object-position: center center;
+}
+
+/* =====================================================
+   COPY COLUMN
+===================================================== */
+
+.about-copy-column {
+  grid-column: 7 / span 3;
+
+  min-width: 0;
+}
+
+/* =====================================================
+   COPY
+===================================================== */
+
+.about-copy {
+  padding-top: 14px;
+
+  border-top: 1px solid var(--color-line);
+}
+
+.about-copy p {
+  margin: 0;
+
+  color: var(--color-text-soft);
+}
+
+/* =====================================================
+   ACTIONS
+===================================================== */
+
+.about-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  gap: 18px;
+
+  margin-top: 36px;
+  padding-top: 24px;
+
+  border-top: 1px solid var(--color-line);
+}
+
+/* =====================================================
+   ABOUT TABLET
+===================================================== */
+
+@media (max-width: 1024px) {
+  .about-content {
+    margin-top: clamp(80px, 6.5vw, 110px);
+  }
+
+  .about-image-column {
+    grid-column: 1 / span 4;
+  }
+
+  .about-copy-column {
+    grid-column: 7 / span 5;
+  }
+}
+
+/* =====================================================
+   ABOUT MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+  .about-section {
+    padding-block: var(--section-space) var(--section-space-small);
+  }
+
+  /* HEADING */
+
+  .about-heading-wrap {
+    padding-top: 40px;
+  }
+
+  .about-heading {
+    font-size: clamp(42px, 12.5vw, 72px);
+    line-height: 0.96;
+
+    letter-spacing: -0.055em;
+  }
+
+  .about-heading-line {
+    display: block;
+  }
+
+  .about-heading-mask {
+    overflow: hidden;
+
+    padding-bottom: 0.18em;
+    margin-bottom: -0.18em;
+  }
+
+  /* CONTENT */
+
+  .about-content {
+    display: grid;
+
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    gap: var(--grid-gap);
+
+    margin-top: clamp(56px, 4.5vw, 72px);
+  }
+
+  /* IMAGE */
+
+  .about-image-column {
+    grid-column: 1 / span 3;
+  }
+
+  .about-image {
+    aspect-ratio: 0.86;
+  }
+
+  .about-image-parallax {
+    top: -8%;
+    bottom: -8%;
+  }
+
+  /* COPY */
+
+  .about-copy-column {
+    grid-column: 2 / -1;
+
+    margin-top: 48px;
+  }
+
+  .about-copy {
+    padding-top: 16px;
+  }
+
+  /* ACTIONS */
+
+  .about-actions {
+    margin-top: 32px;
+  }
+}
+
+/* =====================================================
+   ABOUT SMALL MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+  .about-heading {
+    font-size: clamp(40px, 12vw, 58px);
+  }
+
+  .about-content {
+    margin-top: 64px;
+  }
+
+  .about-image-column {
+    grid-column: 1 / -1;
+  }
+
+  .about-copy-column {
+    grid-column: 1 / -1;
+  }
+
+  .about-image-parallax {
+    top: -6%;
+    bottom: -6%;
+  }
+}
+
+/* =====================================================
+   ABOUT REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .about-heading-reveal,
+  .about-image-parallax {
+    transform: none !important;
+  }
+}

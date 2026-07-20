@@ -1,0 +1,374 @@
+/* =====================================================
+   SERVICES
+===================================================== */
+
+.services-section {
+  position: relative;
+
+  width: 100%;
+
+  padding-block: var(--section-space) var(--section-space-small);
+}
+
+/* =====================================================
+   LAYOUT
+===================================================== */
+
+.services-layout {
+  align-items: start;
+
+  padding-top: var(--space-12);
+}
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+.services-intro {
+  grid-column: 1 / span 6;
+
+  min-width: 0;
+}
+
+/* =====================================================
+   HEADING
+===================================================== */
+
+.services-heading {
+  margin: 0;
+
+  font-size: clamp(44px, 4.5vw, 78px);
+  font-weight: 500;
+  line-height: 0.98;
+
+  letter-spacing: -0.055em;
+}
+
+/* =====================================================
+   HEADING MASK
+===================================================== */
+
+.services-heading-mask {
+  display: block;
+
+  overflow: hidden;
+
+  padding-bottom: 0.18em;
+  margin-bottom: -0.18em;
+}
+
+.services-heading-reveal {
+  display: block;
+}
+
+/* =====================================================
+   HEADING INDENT
+===================================================== */
+
+.services-heading-indent {
+  padding-left: 0;
+}
+
+/* =====================================================
+   DESCRIPTION
+===================================================== */
+
+.services-description {
+  max-width: 520px;
+
+  margin: 48px 0 0;
+
+  color: var(--color-text-soft);
+}
+
+/* =====================================================
+   SERVICES LIST
+===================================================== */
+
+.services-list {
+  grid-column: 7 / -1;
+
+  min-width: 0;
+
+  border-bottom: 1px solid var(--color-line);
+}
+
+/* =====================================================
+   SERVICE ROW
+===================================================== */
+
+.service-row {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    72px
+    minmax(0, 1fr)
+    auto;
+
+  gap: 16px;
+
+  align-items: center;
+
+  min-height: 108px;
+
+  overflow: hidden;
+
+  transition: padding-left var(--duration-medium) var(--ease-premium);
+}
+
+/* =====================================================
+   ROW DIVIDER
+===================================================== */
+
+.service-row-line {
+  position: absolute;
+
+  top: 0;
+  right: 0;
+  left: 0;
+
+  height: 1px;
+
+  background: var(--color-line);
+
+  transform-origin: left center;
+}
+
+/* =====================================================
+   SERVICE NUMBER
+===================================================== */
+
+.service-number {
+  align-self: start;
+
+  padding-top: 34px;
+
+  color: var(--color-text-muted);
+
+  font-size: var(--text-meta);
+  line-height: 1;
+}
+
+/* =====================================================
+   SERVICE TITLE
+===================================================== */
+
+.service-title {
+  margin: 0;
+
+  font-size: var(--text-card-title);
+  font-weight: 500;
+  line-height: 1;
+
+  letter-spacing: -0.045em;
+
+  transition:
+    transform 0.6s var(--ease-premium),
+    opacity 0.6s var(--ease-premium);
+}
+
+/* =====================================================
+   SERVICE ARROW
+===================================================== */
+
+.service-arrow {
+  color: var(--color-text-muted);
+
+  font-size: 18px;
+  line-height: 1;
+
+  opacity: 0;
+
+  transform: translate(-8px, 8px);
+
+  transition:
+    opacity var(--duration-fast) var(--ease-premium),
+    transform var(--duration-medium) var(--ease-premium),
+    color var(--duration-fast) var(--ease-premium);
+}
+
+/* =====================================================
+   DESKTOP HOVER
+===================================================== */
+
+@media (hover: hover) and (pointer: fine) {
+  .service-row:hover {
+    padding-left: 10px;
+  }
+
+  .service-row:hover .service-title {
+    transform: translateX(6px);
+  }
+
+  .service-row:hover .service-arrow {
+    color: var(--color-text);
+
+    opacity: 1;
+
+    transform: translate(0, 0);
+  }
+}
+
+/* =====================================================
+   SERVICES TABLET
+===================================================== */
+
+@media (max-width: 1024px) {
+  .services-layout {
+    padding-top: var(--space-10);
+  }
+
+  .services-intro {
+    grid-column: 1 / span 6;
+  }
+
+  .services-list {
+    grid-column: 7 / -1;
+  }
+
+  .service-row {
+    grid-template-columns:
+      52px
+      minmax(0, 1fr)
+      auto;
+
+    min-height: 92px;
+  }
+
+  .service-number {
+    padding-top: 29px;
+  }
+}
+
+/* =====================================================
+   SERVICES MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+  .services-layout {
+    display: block;
+
+    padding-top: 56px;
+  }
+
+  /* HEADING */
+
+  .services-heading {
+    font-size: clamp(42px, 12.5vw, 72px);
+    line-height: 0.96;
+
+    letter-spacing: -0.055em;
+  }
+
+  .services-heading-mask {
+    display: block;
+    overflow: hidden;
+
+    padding-bottom: 0.1em;
+    margin-bottom: -0.1em;
+  }
+
+  .services-heading-indent {
+    padding-left: 0;
+  }
+
+  /* DESCRIPTION */
+
+  .services-description {
+    max-width: 90%;
+
+    margin-top: 32px;
+    margin-left: 10%;
+  }
+
+  /* LIST */
+
+  .services-list {
+    margin-top: clamp(56px, 4.5vw, 72px);
+  }
+
+  /* ROW */
+
+  .service-row {
+    grid-template-columns:
+      42px
+      minmax(0, 1fr)
+      auto;
+
+    min-height: 86px;
+  }
+
+  /* NUMBER */
+
+  .service-number {
+    padding-top: 27px;
+  }
+
+  /* TITLE */
+
+  .service-title {
+    font-size: clamp(24px, 7.5vw, 34px);
+  }
+
+  /* ARROW */
+
+  .service-arrow {
+    opacity: 1;
+
+    transform: none;
+  }
+}
+
+/* =====================================================
+   SERVICES SMALL MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+  .services-heading {
+    font-size: clamp(40px, 12vw, 58px);
+  }
+
+  .services-description {
+    max-width: 100%;
+
+    margin-left: 0;
+  }
+
+  .services-list {
+    margin-top: 56px;
+  }
+
+  .service-row {
+    grid-template-columns:
+      36px
+      minmax(0, 1fr)
+      auto;
+
+    gap: 10px;
+
+    min-height: 78px;
+  }
+
+  .service-number {
+    padding-top: 24px;
+  }
+}
+
+/* =====================================================
+   SERVICES REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .services-heading-reveal,
+  .service-row,
+  .service-row-line,
+  .service-number,
+  .service-title,
+  .service-arrow {
+    transform: none !important;
+
+    transition: none !important;
+  }
+}

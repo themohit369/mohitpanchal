@@ -1,0 +1,457 @@
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero-section {
+  position: relative;
+
+  width: 100%;
+  min-height: calc(100svh - 76px);
+
+  overflow: hidden;
+
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.hero-container {
+  position: relative;
+  z-index: 2;
+
+  min-height: calc(100svh - 76px);
+
+  padding-top: 32px;
+  padding-bottom: 36px;
+}
+
+/* =====================================================
+   TITLE
+===================================================== */
+
+.hero-title {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  margin: clamp(92px, 11vh, 156px) 0 0;
+  font-size: clamp(68px, 8.3vw, 158px);
+  font-weight: 500;
+  line-height: 0.88;
+  letter-spacing: -0.068em;
+  /* text-transform: uppercase; */
+}
+
+.hero-title-line {
+  display: block;
+
+  white-space: nowrap;
+}
+
+.hero-title-line-indent {
+  padding-left: 8.333%;
+}
+.hero-title-line-indent-2 {
+  padding-left: 16.666%;
+}
+
+.hero-title-line-last {
+  padding-left: 33.333%;
+}
+
+/* =====================================================
+   BOTTOM CONTENT
+===================================================== */
+
+.hero-bottom {
+  position: absolute;
+  z-index: 4;
+
+  right: var(--page-x);
+  bottom: 22px;
+  left: var(--page-x);
+
+  max-width: calc(var(--container) - (var(--page-x) * 2));
+
+  margin-inline: auto;
+}
+
+/* DESCRIPTION */
+
+.hero-description {
+  grid-column: 1 / span 4;
+
+  padding-top: 14px;
+
+  border-top: 1px solid var(--color-line);
+}
+
+.hero-description p {
+  max-width: 390px;
+  margin: 0;
+  color: var(--color-text-soft);
+}
+
+/* ACTIONS */
+
+.hero-actions {
+  grid-column: 5 / span 3;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding-top: 14px;
+  border-top: 1px solid var(--color-line);
+}
+
+/* =====================================================
+   PORTRAIT
+===================================================== */
+
+.hero-image {
+  position: absolute;
+  z-index: 1;
+  right: clamp(-120px, -6vw, -40px);
+  bottom: 24px;
+  width: min(48vw, 840px);
+  height: 94%;
+  pointer-events: none;
+  overflow: hidden;
+  isolation: isolate;
+
+  -webkit-mask-image:
+    linear-gradient(to bottom, #000 0%, #000 84%, transparent 100%),
+    linear-gradient(
+      to right,
+      transparent 0%,
+      #000 16%,
+      #000 96%,
+      transparent 100%
+    );
+
+  -webkit-mask-composite: source-in;
+
+  mask-image:
+    linear-gradient(to bottom, #000 0%, #000 84%, transparent 100%),
+    linear-gradient(
+      to right,
+      transparent 0%,
+      #000 16%,
+      #000 96%,
+      transparent 100%
+    );
+}
+
+.hero-image-inner {
+  object-fit: contain;
+  object-position: 62% bottom;
+
+  transition:
+    filter 0.45s var(--ease-premium),
+    opacity 0.45s var(--ease-premium);
+}
+
+/* ==========================================
+   LIGHT THEME PORTRAIT
+========================================== */
+
+html[data-theme="light"] .hero-image-inner {
+  filter: brightness(1.16) contrast(0.88) saturate(0.82);
+}
+
+/* =====================================================
+   HERO PORTRAIT BOTTOM BLEND
+===================================================== */
+
+.hero-image::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  z-index: 1;
+
+  pointer-events: none;
+
+  opacity: 0;
+
+  transition: opacity 0.45s var(--ease-premium);
+
+  background: radial-gradient(
+    ellipse at 50% 100%,
+    rgba(255, 248, 240, 0.55) 0%,
+    rgba(255, 248, 240, 0.3) 20%,
+    rgba(255, 248, 240, 0.12) 38%,
+    transparent 60%
+  );
+
+  mix-blend-mode: screen;
+}
+
+html[data-theme="light"] .hero-image::before {
+  opacity: 1;
+}
+
+.hero-image::after {
+  content: "";
+
+  position: absolute;
+  inset: auto 0 0 0;
+
+  z-index: 2;
+
+  height: 18%;
+
+  pointer-events: none;
+
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    color-mix(in srgb, var(--color-bg) 12%, transparent) 55%,
+    color-mix(in srgb, var(--color-bg) 35%, transparent) 78%,
+    var(--color-bg) 100%
+  );
+}
+
+.hero-image-inner {
+  z-index: 1;
+}
+/* =====================================================
+   HERO TABLET
+===================================================== */
+
+@media (max-width: 1024px) {
+  .hero-section,
+  .hero-container {
+    min-height: 820px;
+  }
+
+  .hero-title {
+    margin-top: clamp(64px, 5.5vw, 88px);
+
+    font-size: clamp(64px, 8.5vw, 96px);
+  }
+
+  .hero-image {
+    right: -8vw;
+
+    width: 60vw;
+    height: 76%;
+  }
+
+  .hero-description {
+    grid-column: 1 / span 4;
+  }
+
+  .hero-actions {
+    grid-column: 5 / span 3;
+  }
+}
+
+/* =====================================================
+   HERO MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: auto;
+  }
+
+  .hero-container {
+    min-height: auto;
+
+    padding-top: 24px;
+    padding-bottom: 0;
+  }
+
+  /* META */
+
+  .hero-meta {
+    grid-template-columns: 1fr auto;
+  }
+
+  .hero-meta > :nth-child(2) {
+    text-align: right;
+  }
+
+  .hero-meta > :last-child {
+    display: none;
+  }
+
+  /* TITLE */
+
+  .hero-title {
+    margin-top: 64px;
+
+    font-size: clamp(52px, 15vw, 92px);
+    line-height: 0.91;
+
+    letter-spacing: -0.065em;
+  }
+
+  .hero-title-line {
+    white-space: normal;
+  }
+
+  .hero-title-line-indent {
+    padding-left: calc(
+      ((100% - (11 * var(--grid-gap))) / 12) + var(--grid-gap)
+    );
+  }
+
+  .hero-title-line-last {
+    padding-left: calc(
+      4 * ((100% - (11 * var(--grid-gap))) / 12) + 4 * var(--grid-gap)
+    );
+  }
+
+  /* IMAGE */
+
+  .hero-image {
+    position: relative;
+
+    width: 100%;
+    height: 68vh;
+
+    margin-top: 48px;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  /* BOTTOM */
+
+  .hero-bottom {
+    position: absolute;
+    z-index: 4;
+    right: var(--page-x);
+    bottom: 8px;
+    left: var(--page-x);
+    width: auto;
+    max-width: calc(var(--container) - (var(--page-x) * 2));
+
+    margin-inline: auto;
+  }
+
+  .hero-description {
+    grid-column: 1 / -1;
+  }
+
+  .hero-description p {
+    max-width: 90%;
+  }
+
+  .hero-actions {
+    grid-column: 2 / -1;
+
+    margin-top: 24px;
+  }
+}
+
+/* =====================================================
+   HERO SMALL MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+  .hero-title {
+    margin-top: 52px;
+
+    font-size: clamp(46px, 14vw, 66px);
+  }
+
+  .hero-title-line-indent {
+    padding-left: 0;
+  }
+
+  .hero-title-line-last {
+    padding-left: 18%;
+  }
+
+  .hero-image {
+    width: 118%;
+
+    margin-left: 0;
+  }
+
+  .hero-description p {
+    max-width: 100%;
+  }
+
+  .hero-actions {
+    grid-column: 1 / -1;
+  }
+}
+
+/* =====================================================
+   HERO MOTION
+===================================================== */
+
+.hero-title-mask {
+  overflow: hidden;
+  padding-bottom: 0.18em;
+  margin-bottom: -0.18em;
+}
+
+.hero-title-reveal {
+  display: block;
+
+  will-change: transform, opacity;
+
+  transform: translateZ(0);
+
+  backface-visibility: hidden;
+}
+
+.hero-image {
+  overflow: hidden;
+  opacity: 1;
+  visibility: visible;
+  isolation: isolate;
+}
+
+.hero-image-motion {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  opacity: 1;
+  visibility: visible;
+
+  transform-origin: center bottom;
+  will-change: transform;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.15) 6%,
+    rgba(0, 0, 0, 0.65) 14%,
+    #000 24%,
+    #000 100%
+  );
+
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.15) 6%,
+    rgba(0, 0, 0, 0.65) 14%,
+    #000 24%,
+    #000 100%
+  );
+}
+
+.hero-image-motion .hero-image-inner,
+.hero-image-motion img {
+  position: absolute;
+  inset: 0;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  object-fit: contain;
+  object-position: 62% bottom;
+
+  opacity: 1;
+  visibility: visible;
+}

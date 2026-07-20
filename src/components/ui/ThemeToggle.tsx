@@ -1,0 +1,66 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
+export default function ThemeToggle() {
+  const [theme, setTheme] = useState<"light" | "dark">("dark");
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
+
+    const currentTheme = savedTheme ?? "dark";
+
+    setTheme(currentTheme);
+
+    document.documentElement.setAttribute("data-theme", currentTheme);
+
+    setMounted(true);
+  }, []);
+
+  const toggleTheme = () => {
+    const nextTheme = theme === "dark" ? "light" : "dark";
+
+    setTheme(nextTheme);
+
+    document.documentElement.setAttribute("data-theme", nextTheme);
+
+    localStorage.setItem("theme", nextTheme);
+  };
+
+  if (!mounted) return null;
+
+  return (
+    <button
+      type="button"
+      className="theme-toggle"
+      onClick={toggleTheme}
+      aria-label="Toggle theme"
+      aria-pressed={theme === "light"}
+    >
+      {theme === "dark" ? (
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="7.6" fill="currentColor" />
+        </svg>
+      ) : (
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <g
+            transform="translate(1.8 1.8) scale(0.85)"
+            clipPath="url(#moonClip)"
+          >
+            <path
+              d="M12 0C10.891 0 9.822 0.162 8.803 0.444C12.629 6.377 6.777 13.94 0.022 11.572L0 12C0 18.627 5.373 24 12 24C18.627 24 24 18.627 24 12C24 5.373 18.627 0 12 0Z"
+              fill="currentColor"
+            />
+          </g>
+
+          <defs>
+            <clipPath id="moonClip">
+              <rect width="24" height="24" />
+            </clipPath>
+          </defs>
+        </svg>
+      )}
+    </button>
+  );
+}
