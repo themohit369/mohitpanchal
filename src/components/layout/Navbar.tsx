@@ -32,6 +32,8 @@ export default function Navbar() {
   const hiddenRef = useRef(false);
   const scrolledRef = useRef(false);
 
+  const ease = [0.16, 1, 0.3, 1] as const;
+
   const reveal = {
     hidden: {
       opacity: 0,
@@ -42,7 +44,7 @@ export default function Navbar() {
       y: 0,
       transition: {
         duration: 0.55,
-        ease: [0.16, 1, 0.3, 1],
+        ease,
       },
     },
   };
