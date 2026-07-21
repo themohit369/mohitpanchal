@@ -295,7 +295,7 @@
   .portfolio-footer-email {
     font-size: clamp(36px, 10.5vw, 64px);
 
-    line-height: 0.95;
+    line-height: 1.05;
 
     letter-spacing: -0.055em;
   }
