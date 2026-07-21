@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import "./navbar.css";
 
+import { motion, type Variants } from "framer-motion";
+
 import ThemeToggle from "@/components/ui/ThemeToggle";
 
 const MotionLink = motion(Link);
@@ -34,7 +36,7 @@ export default function Navbar() {
 
   const ease = [0.16, 1, 0.3, 1] as const;
 
-  const reveal = {
+  const reveal: Variants = {
     hidden: {
       opacity: 0,
       y: 10,
@@ -44,7 +46,7 @@ export default function Navbar() {
       y: 0,
       transition: {
         duration: 0.55,
-        ease,
+        ease: [0.16, 1, 0.3, 1] as const,
       },
     },
   };
