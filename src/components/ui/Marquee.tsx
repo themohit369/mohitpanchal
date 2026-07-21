@@ -21,7 +21,7 @@ export default function Marquee({
         >
           <span className="editorial-marquee-text">{children}</span>
           <span className="editorial-marquee-dot" aria-hidden="true">
-            ✴
+            •
           </span>
         </div>
       ))}
