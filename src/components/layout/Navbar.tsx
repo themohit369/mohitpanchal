@@ -1,11 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
-import "./navbar.css";
 
 import { motion, type Variants } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import "./navbar.css";
 
 import ThemeToggle from "@/components/ui/ThemeToggle";
 
