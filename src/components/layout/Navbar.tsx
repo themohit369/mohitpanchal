@@ -200,6 +200,7 @@ export default function Navbar() {
         >
           {menuOpen ? "Close" : "Menu"}
         </button>
+        <ThemeToggle />
       </motion.div>
 
       <div
