@@ -258,9 +258,8 @@ html[data-theme="light"] .hero-image::before {
 
   .hero-container {
     min-height: auto;
-
-    padding-top: 24px;
-    padding-bottom: 0;
+    padding-top: 20px;
+    padding-bottom: 48px;
   }
 
   /* META */
@@ -280,57 +279,36 @@ html[data-theme="light"] .hero-image::before {
   /* TITLE */
 
   .hero-title {
-    margin-top: 64px;
+    margin-top: 48px;
 
-    font-size: clamp(52px, 15vw, 92px);
-    line-height: 0.91;
-
-    letter-spacing: -0.065em;
+    font-size: clamp(40px, 11vw, 56px);
+    line-height: 0.95;
+    letter-spacing: -0.05em;
   }
 
   .hero-title-line {
     white-space: normal;
   }
 
-  .hero-title-line-indent {
-    padding-left: calc(
-      ((100% - (11 * var(--grid-gap))) / 12) + var(--grid-gap)
-    );
-  }
-
+  .hero-title-line-indent,
+  .hero-title-line-indent-2,
   .hero-title-line-last {
-    padding-left: calc(
-      4 * ((100% - (11 * var(--grid-gap))) / 12) + 4 * var(--grid-gap)
-    );
+    padding-left: 0;
   }
 
-  /* IMAGE */
-
-  .hero-image {
-    position: relative;
-
-    width: 100%;
-    height: 68vh;
-
-    margin-top: 48px;
-
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-  }
-
-  /* BOTTOM */
+  /* BOTTOM CONTENT */
 
   .hero-bottom {
-    position: absolute;
-    z-index: 4;
-    right: var(--page-x);
-    bottom: 8px;
-    left: var(--page-x);
-    width: auto;
-    max-width: calc(var(--container) - (var(--page-x) * 2));
+    position: relative;
 
-    margin-inline: auto;
+    right: auto;
+    left: auto;
+    bottom: auto;
+
+    width: 100%;
+    max-width: 100%;
+
+    margin-top: 40px;
   }
 
   .hero-description {
@@ -338,38 +316,54 @@ html[data-theme="light"] .hero-image::before {
   }
 
   .hero-description p {
-    max-width: 90%;
+    max-width: 100%;
   }
 
   .hero-actions {
-    grid-column: 2 / -1;
+    grid-column: 1 / -1;
 
     margin-top: 24px;
   }
-}
 
+  /* IMAGE */
+
+  .hero-image {
+    position: relative;
+
+    right: auto;
+    bottom: auto;
+
+    width: 100%;
+    height: 52vh;
+
+    margin-top: 56px;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+}
 /* =====================================================
    HERO SMALL MOBILE
 ===================================================== */
 
 @media (max-width: 480px) {
   .hero-title {
-    margin-top: 52px;
-
-    font-size: clamp(46px, 14vw, 66px);
+    margin-top: 40px;
+    font-size: clamp(36px, 10vw, 48px);
   }
 
-  .hero-title-line-indent {
+  .hero-title-line-indent,
+  .hero-title-line-indent-2,
+  .hero-title-line-last {
     padding-left: 0;
   }
 
-  .hero-title-line-last {
-    padding-left: 18%;
-  }
-
   .hero-image {
-    width: 118%;
+    width: 100%;
+    height: 46vh;
 
+    margin-top: 48px;
     margin-left: 0;
   }
 
