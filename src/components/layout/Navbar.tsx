@@ -126,8 +126,6 @@ export default function Navbar() {
           </div>
 
           <div className="editorial-right">
-            <ThemeToggle />
-
             <button
               type="button"
               className="editorial-menu-button"
@@ -135,6 +133,8 @@ export default function Navbar() {
             >
               {menuOpen ? "Close" : "Menu"}
             </button>
+
+            <ThemeToggle />
           </div>
         </div>
       </header>
