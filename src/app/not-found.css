@@ -1,0 +1,256 @@
+/* =====================================================
+   NOT FOUND
+===================================================== */
+
+.not-found-page {
+  width: 100%;
+  min-height: 100svh;
+
+  display: flex;
+  align-items: center;
+
+  background: var(--color-bg);
+
+  padding-block: var(--section-space);
+}
+
+.not-found-section {
+  padding-block: clamp(88px, 9vw, 160px);
+}
+
+/* =====================================================
+   LAYOUT
+===================================================== */
+
+.not-found-left {
+  grid-column: 1 / span 6;
+}
+
+.not-found-right {
+  grid-column: 7 / -1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  min-width: 0;
+}
+
+/* =====================================================
+   HEADING
+===================================================== */
+
+.not-found-heading {
+  margin: 0;
+
+  font-size: clamp(92px, 18vw, 240px);
+  font-weight: 500;
+
+  line-height: 0.84;
+
+  letter-spacing: -0.075em;
+}
+
+.heading-mask {
+  display: block;
+
+  overflow: hidden;
+
+  padding-bottom: 0.15em;
+  margin-bottom: -0.15em;
+}
+
+.heading-reveal {
+  display: block;
+}
+
+/* =====================================================
+   BODY
+===================================================== */
+
+.not-found-right .body-text {
+  max-width: 470px;
+
+  margin: 0;
+
+  color: var(--color-text-soft);
+
+  font-size: clamp(18px, 1.2vw, 22px);
+
+  line-height: 1.55;
+}
+
+/* =====================================================
+   ACTIONS
+===================================================== */
+
+.not-found-actions {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+
+  margin-top: 56px;
+
+  flex-wrap: wrap;
+}
+
+/* =====================================================
+   MARQUEE
+===================================================== */
+
+.editorial-marquee {
+  position: relative;
+}
+
+.editorial-marquee::before,
+.editorial-marquee::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+
+  width: 180px;
+
+  pointer-events: none;
+
+  z-index: 5;
+}
+
+.editorial-marquee::before {
+  left: 0;
+
+  background: linear-gradient(to right, var(--color-bg), transparent);
+}
+
+.editorial-marquee::after {
+  right: 0;
+
+  background: linear-gradient(to left, var(--color-bg), transparent);
+}
+
+/* =====================================================
+   PAGE REVEAL
+===================================================== */
+
+.not-found-page {
+  animation: not-found-reveal 0.9s var(--ease-premium);
+}
+
+@keyframes not-found-reveal {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* =====================================================
+   IMMERSIVE MARQUEE
+===================================================== */
+
+.editorial-marquee {
+  margin-inline: calc(var(--page-x) * -1);
+}
+
+.editorial-marquee-track {
+  animation-duration: 34s;
+}
+
+.editorial-marquee-group {
+  align-items: center;
+}
+
+.editorial-marquee-text {
+  transition:
+    opacity 0.45s var(--ease-premium),
+    transform 0.45s var(--ease-premium);
+}
+
+.editorial-marquee-dot {
+  opacity: 0.35;
+}
+
+/* pause only on desktop */
+
+@media (hover: hover) and (pointer: fine) {
+  .editorial-marquee:hover .editorial-marquee-track {
+    animation-play-state: paused;
+  }
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 1024px) {
+  .not-found-left {
+    grid-column: 1 / -1;
+  }
+
+  .not-found-right {
+    grid-column: 1 / -1;
+
+    margin-top: 56px;
+
+    max-width: 680px;
+  }
+}
+
+@media (max-width: 768px) {
+  .not-found-page {
+    min-height: 100svh;
+
+    padding-block: 80px;
+  }
+
+  .not-found-section {
+    padding-block: 72px;
+  }
+
+  .not-found-heading {
+    font-size: clamp(72px, 26vw, 140px);
+
+    line-height: 0.88;
+  }
+
+  .not-found-right .body-text {
+    font-size: 18px;
+
+    max-width: 100%;
+  }
+
+  .not-found-actions {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 22px;
+
+    margin-top: 42px;
+  }
+
+  .editorial-marquee::before,
+  .editorial-marquee::after {
+    width: 72px;
+  }
+}
+
+@media (max-width: 480px) {
+  .not-found-heading {
+    font-size: 68px;
+  }
+}
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .not-found-page {
+    animation: none;
+  }
+}
