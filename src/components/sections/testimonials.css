@@ -180,11 +180,13 @@
 ===================================================== */
 
 .testimonial-author {
-  display: grid;
+  display: flex;
 
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  align-items: center;
 
-  gap: var(--grid-gap);
+  justify-content: space-between;
+
+  gap: 32px;
 
   margin-top: clamp(56px, 4.5vw, 72px);
 
@@ -194,13 +196,32 @@
   border-top: 1px solid var(--color-line);
 }
 
+.testimonial-author-profile {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  flex: 1;
+}
+
+.testimonial-avatar {
+  width: 48px;
+  height: 48px;
+
+  border-radius: 50%;
+
+  object-fit: cover;
+
+  flex-shrink: 0;
+}
+
 /* =====================================================
    AUTHOR NAME
 ===================================================== */
 
 .testimonial-name {
-  grid-column: 1 / span 2;
-
   margin: 0;
 
   font-size: var(--text-small);
@@ -213,7 +234,20 @@
 ===================================================== */
 
 .testimonial-author-meta {
-  grid-column: 3 / -1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  text-align: right;
+
+  flex-shrink: 0;
+}
+
+.testimonial-avatar-wrap {
+  position: absolute;
+
+  right: 0;
+  bottom: 0;
 }
 
 .testimonial-author-meta p {

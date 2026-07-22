@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 
 const ease = [0.16, 1, 0.3, 1] as const;
@@ -12,6 +13,7 @@ import "../ui/action-link.css";
 
 const testimonials = [
   {
+    image: "/images/testimonials/keri-lynn-engel.png",
     quote:
       "Mohit has a great work ethic - always reliable and never missed a deadline!",
     name: "Keri Lynn Engel",
@@ -19,6 +21,7 @@ const testimonials = [
     company: "Exploding Topics",
   },
   {
+    image: "/images/testimonials/adrian-try.png",
     quote:
       "I enjoyed working with Mohit on the WPBeginner team. He consistently delivered clear, well-designed graphics that complemented the articles I and the team were writing. He stayed on schedule, was easy to work with, and always came across as approachable and responsive.",
     name: "Adrian Try",
@@ -26,6 +29,7 @@ const testimonials = [
     company: "Awesome Motive, Inc.",
   },
   {
+    image: "/images/testimonials/mohammad-shohag.png",
     quote:
       "Working with Mohit was always a great experience. He has a strong eye for design, communicates clearly, and brings a thoughtful, user-focused approach to his work. He's collaborative, reliable, and genuinely easy to work with.",
     name: "Mohammad Shohag",
@@ -33,6 +37,7 @@ const testimonials = [
     company: "SeedProd · Awesome Motive Inc.",
   },
   {
+    image: "/images/testimonials/kishan-jasani.png",
     quote:
       "I had a fantastic experience working with Mohit on our design projects. He consistently delivers creative, user-focused UI/UX solutions and always communicates clearly and professionally. Mohit's collaborative approach and attention to detail make him a pleasure to work with.",
     name: "Kishan Jasani",
@@ -317,11 +322,20 @@ export default function Testimonials() {
                 className="testimonial-author"
                 variants={reduceMotion ? undefined : authorReveal}
               >
-                <p className="testimonial-name">{testimonial.name}</p>
+                <div className="testimonial-author-profile">
+                  <Image
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    width={56}
+                    height={56}
+                    className="testimonial-avatar"
+                  />
+
+                  <p className="testimonial-name">{testimonial.name}</p>
+                </div>
 
                 <div className="testimonial-author-meta">
                   <p>{testimonial.role}</p>
-
                   <p>{testimonial.company}</p>
                 </div>
               </motion.div>

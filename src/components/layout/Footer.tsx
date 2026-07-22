@@ -306,7 +306,7 @@ export default function Footer() {
                 })
               }
             >
-              ↑
+              ⌃
             </button>
 
             <p className="portfolio-footer-copyright">
