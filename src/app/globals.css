@@ -162,6 +162,17 @@ body {
   overflow-x: hidden;
 }
 
+body.menu-open {
+  overflow: hidden;
+  height: 100dvh;
+}
+
+html.lenis-stopped,
+html.lenis-stopped body {
+  overflow: hidden;
+  height: 100dvh;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -504,4 +515,42 @@ body,
     background-color 0.25s ease,
     color 0.25s ease,
     border-color 0.25s ease;
+}
+
+/* =====================================================
+   THEME TOGGLE
+===================================================== */
+
+.theme-toggle {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: transparent;
+  border: 0;
+  color: var(--color-text);
+
+  cursor: pointer;
+
+  flex-shrink: 0;
+}
+
+.theme-toggle svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+#page-content {
+  transition:
+    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#page-content.page-menu-open {
+  transform: scale(0.985);
+  filter: blur(2px);
 }

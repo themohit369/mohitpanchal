@@ -1,234 +1,244 @@
 "use client";
 
 import Link from "next/link";
-
-import { motion, type Variants } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import { lenisInstance } from "@/components/providers/SmoothScroll";
+import ThemeToggle from "@/components/ui/ThemeToggle";
 import "./navbar.css";
 
-import ThemeToggle from "@/components/ui/ThemeToggle";
-
-const MotionLink = motion(Link);
-
 const navItems = [
-  { name: "About", href: "/about" },
-  { name: "Work", href: "/#work" },
-  { name: "Services", href: "/#services" },
-  { name: "Writing", href: "/#writing" },
-  { name: "Contact", href: "/#contact" },
-  { name: "Shop", href: "https://your-poster-website.com", external: true },
+  { number: "01", name: "About", href: "/about" },
+  { number: "02", name: "Work", href: "/#work" },
+  { number: "03", name: "Services", href: "/#services" },
+  { number: "04", name: "Writing", href: "/#writing" },
+  { number: "05", name: "Contact", href: "/#contact" },
+];
+
+const socials = [
+  {
+    name: "LinkedIn",
+    href: "https://linkedin.com/in/YOUR_USERNAME",
+  },
+  {
+    name: "Behance",
+    href: "https://behance.net/YOUR_USERNAME",
+  },
+  {
+    name: "Dribbble",
+    href: "https://dribbble.com/YOUR_USERNAME",
+  },
 ];
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  const [isHidden, setIsHidden] = useState(false);
-
-  const lastScrollY = useRef(0);
-
-  const navRef = useRef<HTMLElement>(null);
-
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  const hiddenRef = useRef(false);
-  const scrolledRef = useRef(false);
-
-  const ease = [0.16, 1, 0.3, 1] as const;
-
-  const reveal: Variants = {
-    hidden: {
-      opacity: 0,
-      y: 10,
-    },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.55,
-        ease: [0.16, 1, 0.3, 1] as const,
-      },
-    },
-  };
+  const lastY = useRef(0);
 
   useEffect(() => {
-    const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setMenuOpen(false);
-      }
-    };
-
-    document.addEventListener("keydown", handleEscape);
-
-    return () => {
-      document.removeEventListener("keydown", handleEscape);
-    };
-  }, []);
-
-  useEffect(() => {
-    const handleOutsideClick = (event: MouseEvent) => {
-      if (
-        menuOpen &&
-        navRef.current &&
-        !navRef.current.contains(event.target as Node)
-      ) {
-        setMenuOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleOutsideClick);
+    if (menuOpen) {
+      lenisInstance?.stop();
+      document.body.style.overflow = "hidden";
+    } else {
+      lenisInstance?.start();
+      document.body.style.overflow = "";
+    }
 
     return () => {
-      document.removeEventListener("mousedown", handleOutsideClick);
-    };
-  }, [menuOpen]);
-
-  useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "";
-
-    return () => {
+      lenisInstance?.start();
       document.body.style.overflow = "";
     };
   }, [menuOpen]);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (menuOpen) return;
-
-      const currentY = window.scrollY;
-      const delta = currentY - lastScrollY.current;
-
-      // ---------- Scrolled state ----------
-      const shouldBeScrolled = currentY > 24;
-
-      if (scrolledRef.current !== shouldBeScrolled) {
-        scrolledRef.current = shouldBeScrolled;
-        setIsScrolled(shouldBeScrolled);
-      }
-
-      // ---------- Always visible near top ----------
-      if (currentY <= 80) {
-        if (hiddenRef.current) {
-          hiddenRef.current = false;
-          setIsHidden(false);
-        }
-
-        lastScrollY.current = currentY;
-        return;
-      }
-
-      // ---------- Hide ----------
-      if (delta > 12 && currentY > 120) {
-        if (!hiddenRef.current) {
-          hiddenRef.current = true;
-          setIsHidden(true);
-        }
-      }
-
-      // ---------- Show ----------
-      if (delta < -12) {
-        if (hiddenRef.current) {
-          hiddenRef.current = false;
-          setIsHidden(false);
-        }
-      }
-
-      lastScrollY.current = currentY;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenuOpen(false);
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("keydown", onKey);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
+  useEffect(() => {
+    if (menuOpen) return;
+
+    const onScroll = () => {
+      const y = window.scrollY;
+
+      setScrolled(y > 24);
+
+      if (y < 80) {
+        setHidden(false);
+      } else if (y > lastY.current + 10) {
+        setHidden(true);
+      } else if (y < lastY.current - 10) {
+        setHidden(false);
+      }
+
+      lastY.current = y;
     };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => window.removeEventListener("scroll", onScroll);
   }, [menuOpen]);
 
+  useEffect(() => {
+    const page = document.getElementById("page-content");
+
+    if (!page) return;
+
+    if (menuOpen) {
+      page.classList.add("page-menu-open");
+    } else {
+      page.classList.remove("page-menu-open");
+    }
+
+    return () => page.classList.remove("page-menu-open");
+  }, [menuOpen]);
   return (
-    <header
-      ref={navRef}
-      className={`editorial-nav ${
-        isHidden ? "is-hidden" : ""
-      } ${isScrolled ? "is-scrolled" : ""}`}
-    >
-      <motion.div
-        className="editorial-nav-inner"
-        initial="hidden"
-        animate="show"
-        variants={{
-          hidden: {},
-          show: {
-            transition: {
-              staggerChildren: 0.08,
-              delayChildren: 0.08,
-            },
-          },
-        }}
+    <>
+      <header
+        className={`editorial-nav ${hidden ? "is-hidden" : ""} ${
+          scrolled ? "is-scrolled" : ""
+        }`}
       >
-        <MotionLink
-          href="/"
-          className="editorial-nav-brand"
-          variants={reveal}
-          onClick={() => setMenuOpen(false)}
-        >
-          Mohit Panchal
-          <sup>®</sup>
-        </MotionLink>
+        <div className="editorial-nav-inner">
+          <Link href="/" className="editorial-brand">
+            Mohit Panchal
+            <sup>®</sup>
+          </Link>
 
-        <motion.div className="editorial-nav-links" variants={reveal}>
-          <p className="editorial-nav-label">Quick Links</p>
+          <div className="editorial-desktop-nav">
+            <span>Quick Links</span>
 
-          <nav aria-label="Main navigation">
-            {navItems.map((item, index) => (
-              <span key={item.name}>
-                <Link href={item.href}>{item.name}</Link>
-                {index < navItems.length - 1 ? ", " : ""}
-              </span>
-            ))}
-          </nav>
-        </motion.div>
+            <nav>
+              {navItems.map((item, i) => (
+                <span key={item.name}>
+                  <Link href={item.href}>{item.name}</Link>
+                  {i !== navItems.length - 1 && ", "}
+                </span>
+              ))}
+            </nav>
+          </div>
 
-        <motion.div className="editorial-nav-info" variants={reveal}>
-          <p>Based in India</p>
+          <div className="editorial-right">
+            <ThemeToggle />
 
-          <ThemeToggle />
-        </motion.div>
-
-        <button
-          type="button"
-          className="editorial-nav-menu-button"
-          onClick={() => setMenuOpen((current) => !current)}
-          aria-expanded={menuOpen}
-          aria-controls="mobile-navigation"
-        >
-          {menuOpen ? "Close" : "Menu"}
-        </button>
-        <ThemeToggle />
-      </motion.div>
-
-      <div
-        id="mobile-navigation"
-        className={`editorial-mobile-menu ${menuOpen ? "is-open" : ""}`}
-        aria-hidden={!menuOpen}
-      >
-        <nav aria-label="Mobile navigation">
-          {navItems.map((item, index) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              onClick={() => setMenuOpen(false)}
+            <button
+              type="button"
+              className="editorial-menu-button"
+              onClick={() => setMenuOpen((v) => !v)}
             >
-              <span className="editorial-mobile-number">
-                ({String(index + 1).padStart(2, "0")})
-              </span>
+              {menuOpen ? "Close" : "Menu"}
+            </button>
+          </div>
+        </div>
+      </header>
 
-              <span className="editorial-mobile-link-name">{item.name}</span>
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.aside
+            className="mobile-menu"
+            initial={{
+              opacity: 0,
+              scale: 0.985,
+            }}
+            animate={{
+              opacity: 1,
+              scale: 1,
+            }}
+            exit={{
+              opacity: 0,
+              scale: 0.995,
+            }}
+            transition={{
+              duration: 0.35,
+              ease: [0.16, 1, 0.3, 1],
+            }}
+          >
+            <div className="mobile-menu-inner">
+              <nav>
+                {navItems.map((item, index) => (
+                  <motion.div
+                    key={item.name}
+                    initial={{ opacity: 0, y: 24 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 16 }}
+                    transition={{
+                      duration: 0.45,
+                      delay: index * 0.06,
+                      ease: [0.16, 1, 0.3, 1],
+                    }}
+                  >
+                    <Link
+                      href={item.href}
+                      onClick={() => setMenuOpen(false)}
+                      className="mobile-link"
+                    >
+                      <span>{item.number}</span>
 
-              <span className="editorial-mobile-arrow" aria-hidden="true">
-                ↗
-              </span>
-            </Link>
-          ))}
-        </nav>
-      </div>
-    </header>
+                      <strong>{item.name}</strong>
+
+                      <em>↗</em>
+                    </Link>
+                  </motion.div>
+                ))}
+              </nav>
+
+              <div className="mobile-footer">
+                <motion.div
+                  initial={{ opacity: 0, y: 24 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    delay: 0.42,
+                    duration: 0.45,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
+                >
+                  <Link
+                    href="https://your-poster-website.com"
+                    target="_blank"
+                    className="mobile-link"
+                  >
+                    <span>06</span>
+
+                    <strong>Shop</strong>
+
+                    <em>↗</em>
+                  </Link>
+                </motion.div>
+
+                <motion.div
+                  className="mobile-socials"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{
+                    delay: 0.58,
+                    duration: 0.4,
+                  }}
+                >
+                  {socials.map((item) => (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {item.name}
+                    </a>
+                  ))}
+
+                  <a href="mailto:mohitp846@gmail.com">Email</a>
+                </motion.div>
+              </div>
+            </div>
+          </motion.aside>
+        )}
+      </AnimatePresence>
+    </>
   );
 }

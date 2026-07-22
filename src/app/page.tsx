@@ -12,11 +12,11 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      <About />
       <Work />
       <Services />
-      <Testimonials />
+      <About />
       <Experience />
+      <Testimonials />
       <PosterSection />
       <WritingSection />
       <Footer />
