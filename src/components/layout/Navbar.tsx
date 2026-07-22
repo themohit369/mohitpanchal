@@ -13,6 +13,12 @@ const navItems = [
   { number: "03", name: "Services", href: "/#services" },
   { number: "04", name: "Writing", href: "/#writing" },
   { number: "05", name: "Contact", href: "/#contact" },
+  {
+    number: "06",
+    name: "Shop",
+    href: "https://your-poster-website.com",
+    external: true,
+  },
 ];
 
 const socials = [
@@ -108,8 +114,7 @@ export default function Navbar() {
       >
         <div className="editorial-nav-inner">
           <Link href="/" className="editorial-brand">
-            Mohit Panchal
-            <sup>®</sup>
+            Mò墨熙<sup>®</sup>
           </Link>
 
           <div className="editorial-desktop-nav">
@@ -178,6 +183,8 @@ export default function Navbar() {
                       href={item.href}
                       onClick={() => setMenuOpen(false)}
                       className="mobile-link"
+                      target={item.external ? "_blank" : undefined}
+                      rel={item.external ? "noopener noreferrer" : undefined}
                     >
                       <span>{item.number}</span>
 
@@ -190,28 +197,6 @@ export default function Navbar() {
               </nav>
 
               <div className="mobile-footer">
-                <motion.div
-                  initial={{ opacity: 0, y: 24 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{
-                    delay: 0.42,
-                    duration: 0.45,
-                    ease: [0.16, 1, 0.3, 1],
-                  }}
-                >
-                  <Link
-                    href="https://your-poster-website.com"
-                    target="_blank"
-                    className="mobile-link"
-                  >
-                    <span>06</span>
-
-                    <strong>Shop</strong>
-
-                    <em>↗</em>
-                  </Link>
-                </motion.div>
-
                 <motion.div
                   className="mobile-socials"
                   initial={{ opacity: 0 }}
