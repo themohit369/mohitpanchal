@@ -24,15 +24,15 @@ const navItems = [
 const socials = [
   {
     name: "LinkedIn",
-    href: "https://linkedin.com/in/YOUR_USERNAME",
+    href: "https://www.linkedin.com/in/mohitpanchal/",
   },
   {
     name: "Behance",
-    href: "https://behance.net/YOUR_USERNAME",
+    href: "https://www.behance.net/mohituix/",
   },
   {
     name: "Dribbble",
-    href: "https://dribbble.com/YOUR_USERNAME",
+    href: "https://dribbble.com/mohitpanchal",
   },
 ];
 

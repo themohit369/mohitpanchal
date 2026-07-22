@@ -15,19 +15,19 @@ const EMAIL = "mohitp846@gmail.com";
 const socialLinks = [
   {
     label: "LinkedIn",
-    href: "#",
+    href: "https://www.linkedin.com/in/mohitpanchal/",
   },
   {
     label: "Dribbble",
-    href: "#",
+    href: "https://dribbble.com/mohitpanchal",
   },
   {
     label: "Behance",
-    href: "#",
+    href: "https://www.behance.net/mohituix/",
   },
   {
     label: "Instagram",
-    href: "#",
+    href: "https://www.instagram.com/themohit369/",
   },
 ];
 
