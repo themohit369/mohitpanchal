@@ -124,7 +124,7 @@ export default function Navbar() {
               {navItems.map((item, i) => (
                 <span key={item.name}>
                   <Link href={item.href}>{item.name}</Link>
-                  {i !== navItems.length - 1 && ", "}
+                  {i !== navItems.length - 1 && " · "}
                 </span>
               ))}
             </nav>

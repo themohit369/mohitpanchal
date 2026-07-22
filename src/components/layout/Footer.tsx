@@ -296,6 +296,19 @@ export default function Footer() {
               Working worldwide
             </p>
 
+            <button
+              type="button"
+              className="portfolio-footer-top"
+              onClick={() =>
+                window.scrollTo({
+                  top: 0,
+                  behavior: "smooth",
+                })
+              }
+            >
+              ↑
+            </button>
+
             <p className="portfolio-footer-copyright">
               © 2026 Mohit Panchal.
               <br />
