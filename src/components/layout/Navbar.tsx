@@ -114,7 +114,7 @@ export default function Navbar() {
       >
         <div className="editorial-nav-inner">
           <Link href="/" className="editorial-brand">
-            Mò墨熙<sup>®</sup>
+            Mòhit Panchal<sup>®</sup>
           </Link>
 
           <div className="editorial-desktop-nav">
