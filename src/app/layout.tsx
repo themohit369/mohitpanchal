@@ -5,7 +5,6 @@ import SiteChrome from "@/components/layout/SiteChrome";
 import SmoothScroll from "@/components/providers/SmoothScroll";
 
 import "./globals.css";
-import CursorDot from "@/components/ui/CursorDot";
 
 const bdoGrotesk = localFont({
   src: [
@@ -46,7 +45,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={bdoGrotesk.variable}>
       <body>
-        <CursorDot />
         <SmoothScroll />
         <SiteChrome />
         {children}

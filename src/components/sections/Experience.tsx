@@ -193,7 +193,7 @@ export default function Experience({ variant = "home" }: ExperienceProps) {
                     className="experience-about-heading-wrap"
                     variants={reduceMotion ? undefined : fadeUp}
                   >
-                    <h2 className="experience-heading experience-about-heading">
+                    <h2 className="section-heading">
                       A decade of learning by designing and building.
                     </h2>
                   </motion.div>

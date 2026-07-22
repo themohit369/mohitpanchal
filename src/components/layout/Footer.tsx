@@ -144,7 +144,6 @@ export default function Footer() {
       ===================================================== */}
 
       <Marquee
-        href={mailtoLink}
         ariaLabel="Contact me about a project"
         className="footer-marquee"
       >

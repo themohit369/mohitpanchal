@@ -25,26 +25,21 @@
 
 .about-faq-header {
   align-items: end;
-
   padding-top: clamp(72px, 7vw, 112px);
   padding-bottom: clamp(88px, 8vw, 136px);
 }
 
 .about-faq-heading {
   grid-column: 1 / span 8;
-
   margin: 0;
-
   font-size: clamp(44px, 4.5vw, 78px);
   font-weight: 500;
   line-height: 0.98;
-
   letter-spacing: -0.055em;
 }
 
 .about-faq-heading span {
   display: block;
-  padding-left: 0;
 }
 
 .about-faq-intro {
