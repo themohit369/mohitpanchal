@@ -8,11 +8,9 @@ import ThemeToggle from "@/components/ui/ThemeToggle";
 import "./navbar.css";
 
 const navItems = [
-  { number: "01", name: "About", href: "/about" },
-  { number: "02", name: "Work", href: "/#work" },
-  { number: "03", name: "Services", href: "/#services" },
-  { number: "04", name: "Writing", href: "/#writing" },
-  { number: "05", name: "Contact", href: "/#contact" },
+  { number: "01", name: "Work", href: "/#work" },
+  { number: "02", name: "About", href: "/about" },
+  { number: "03", name: "Contact", href: "/#contact" },
 ];
 
 const socials = [
@@ -165,8 +163,6 @@ export default function Navbar() {
                       href={item.href}
                       onClick={() => setMenuOpen(false)}
                       className="mobile-link"
-                      target={item.external ? "_blank" : undefined}
-                      rel={item.external ? "noopener noreferrer" : undefined}
                     >
                       <span>{item.number}</span>
 

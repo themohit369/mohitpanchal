@@ -41,6 +41,11 @@ const projects = [
   },
 ];
 
+type ProjectCardProps = {
+  project: (typeof projects)[number];
+  index: number;
+};
+
 function ProjectCard({ project, index }: ProjectCardProps) {
   const projectRef = useRef<HTMLElement>(null);
   const reduceMotion = useReducedMotion();
