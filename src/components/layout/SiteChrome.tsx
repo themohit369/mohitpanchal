@@ -8,13 +8,6 @@ import GridOverlay from "@/components/layout/GridOverlay";
 export default function SiteChrome() {
   const pathname = usePathname();
 
-  const isPosterShop =
-    pathname === "/posters" || pathname.startsWith("/posters/");
-
-  if (isPosterShop) {
-    return null;
-  }
-
   return (
     <>
       <Navbar />

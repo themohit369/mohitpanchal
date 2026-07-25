@@ -183,22 +183,23 @@
 ===================================================== */
 
 .work-project-info {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 24px;
-
-  padding-top: 14px;
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  gap: 28px;
+  align-items: start;
+  padding-top: 28px;
 }
 
 .work-project-info h3 {
   margin: 0;
 
-  font-size: var(--text-card-title);
-  font-weight: 500;
-  line-height: 1;
+  font-size: clamp(18px, 1.1vw, 18px);
 
-  letter-spacing: -0.045em;
+  line-height: 1.2;
+
+  font-weight: 500;
+
+  letter-spacing: -0.02em;
 }
 
 .work-project-info span {
@@ -212,6 +213,23 @@
   line-height: 1;
 }
 
+.work-project-copy {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.work-project-copy p {
+  margin: 0;
+
+  color: var(--color-text-muted);
+
+  font-size: var(--text-meta);
+
+  line-height: 1.4;
+}
 /* =====================================================
    WORK TABLET
 ===================================================== */
@@ -416,4 +434,26 @@
   .work-view-all p {
     max-width: 100%;
   }
+}
+
+.work-project-arrow {
+  align-self: start;
+
+  padding-top: 2px;
+
+  font-size: 22px;
+
+  line-height: 1;
+
+  transition: transform 0.5s var(--ease-premium);
+}
+
+.work-project:hover .work-project-arrow {
+  transform: translate(6px, -6px);
+}
+
+.work-project-year {
+  padding-top: 2px;
+
+  align-self: start;
 }

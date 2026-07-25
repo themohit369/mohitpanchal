@@ -4,10 +4,8 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 import Experience from "@/components/sections/Experience";
-import ThingsIUseSection from "@/components/content/ThingsIUseSection";
 import IdentityCodeSection from "@/components/content/IdentityCodeSection";
 import Footer from "@/components/layout/Footer";
-import AboutFAQ from "@/components/about/AboutFAQ";
 
 import "./styles.css";
 
@@ -165,29 +163,7 @@ export default function AboutPage() {
           {/* STORY GRID */}
 
           <div className="about-story-grid">
-            <motion.div
-              initial={{
-                opacity: 0,
-                y: 24,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              viewport={{
-                once: true,
-                amount: 0.4,
-              }}
-              transition={{
-                duration: 0.7,
-                ease,
-              }}
-              className="about-story-label"
-            >
-              <span>How I think about design</span>
-            </motion.div>
-
-            <div className="about-story-content">
+            <div className="about-story-content full-width">
               {/* STORY HEADING */}
 
               <motion.h2
@@ -235,22 +211,19 @@ export default function AboutPage() {
                 className="about-story-copy"
               >
                 <p>
-                  Over the past 10+ years, I&apos;ve worked across digital
-                  products, SaaS platforms and web experiences. My work sits
-                  between product thinking, interface design and a practical
-                  understanding of how ideas are built.
+                  Over the last decade, I’ve worked across startups, SaaS
+                  products and digital platforms, helping transform complex
+                  ideas into experiences that feel intuitive, purposeful and
+                  easy to use. My work combines product thinking, interface
+                  design and a deep focus on clarity.
                 </p>
 
                 <p>
-                  I enjoy simplifying complex systems, finding structure in
-                  messy problems and turning ideas into experiences that feel
-                  natural to use.
-                </p>
-
-                <p>
-                  Outside client and product work, I explore writing, visual
-                  design, psychology and the systems that shape how people think
-                  and behave.
+                  Beyond designing interfaces, I enjoy understanding how people
+                  think, behave and make decisions. That curiosity shapes every
+                  project I work on, allowing me to create products that are not
+                  only visually refined but also meaningful, usable and built to
+                  last.
                 </p>
               </motion.div>
             </div>
@@ -259,9 +232,9 @@ export default function AboutPage() {
       </section>
 
       <Experience variant="about" />
-      <ThingsIUseSection />
+
       <IdentityCodeSection />
-      <AboutFAQ />
+
       <Footer />
     </main>
   );

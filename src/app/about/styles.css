@@ -87,10 +87,10 @@
 .about-story-grid {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
-
-  gap: var(--grid-gap);
-
+  column-gap: clamp(24px, 2vw, 40px);
+  row-gap: 0;
   padding-top: clamp(72px, 7vw, 120px);
+  align-items: start;
 }
 
 /* =====================================================
@@ -98,7 +98,7 @@
 ===================================================== */
 
 .about-story-label {
-  grid-column: 1 / span 3;
+  grid-column: 1 / span 2;
 }
 
 .about-story-label span {
@@ -112,19 +112,17 @@
    STORY CONTENT
 ===================================================== */
 
-.about-story-content {
-  grid-column: 5 / span 7;
+.about-story-content.full-width {
+  grid-column: 1 / -1;
 }
-
 .about-story-content h2 {
-  max-width: 980px;
+  max-width: 70%;
 
   margin: 0;
 
   font-size: clamp(44px, 4.5vw, 78px);
   font-weight: 500;
   line-height: 0.98;
-
   letter-spacing: -0.055em;
 }
 
@@ -134,12 +132,11 @@
 
 .about-story-copy {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--grid-gap);
 
-  gap: var(--grid-gap);
-
-  margin-top: clamp(64px, 6vw, 96px);
-  padding-top: 20px;
+  margin-top: 56px;
+  padding-top: 32px;
 
   border-top: 1px solid var(--color-line);
 }
@@ -150,13 +147,16 @@
   color: var(--color-text-soft);
 
   font-size: var(--text-body);
-  line-height: var(--leading-body);
-
+  line-height: 1.75;
   letter-spacing: var(--tracking-body);
 }
 
-.about-story-copy p:nth-child(3) {
-  grid-column: 2;
+.about-story-copy p:first-child {
+  grid-column: 1 / span 5;
+}
+
+.about-story-copy p:last-child {
+  grid-column: 7 / span 5;
 }
 
 /* =====================================================
@@ -212,7 +212,7 @@
   /* STORY */
 
   .about-story-content {
-    grid-column: 5 / -1;
+    grid-column: 5 / span 7;
   }
 
   .about-story-content h2 {
@@ -308,10 +308,22 @@
     margin-top: 48px;
   }
 
-  .about-story-copy p {
-    margin-bottom: 24px;
+  .about-story-copy p:first-child {
+    grid-column: 1 / span 6;
+  }
 
-    font-size: 17px;
+  .about-story-copy p:last-child {
+    grid-column: 8 / span 5;
+  }
+
+  .about-story-copy p {
+    margin: 0;
+
+    color: var(--color-text-soft);
+
+    font-size: var(--text-body);
+    line-height: 1.7;
+    max-width: none;
   }
 
   .about-story-copy p:last-child {

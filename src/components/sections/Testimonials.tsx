@@ -225,7 +225,6 @@ export default function Testimonials() {
               }}
             >
               {/* TOP DIVIDER */}
-
               <motion.div
                 className="testimonial-item-line"
                 initial={
@@ -247,98 +246,43 @@ export default function Testimonials() {
                   ease,
                 }}
               />
-
               {/* TOP */}
-
-              <div className="testimonial-top">
-                <motion.span
-                  className="testimonial-index"
-                  initial={
-                    reduceMotion
-                      ? false
-                      : {
-                          opacity: 0,
-                          y: 8,
-                        }
-                  }
-                  whileInView={{
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  viewport={{
-                    once: true,
-                    amount: 0.5,
-                  }}
-                  transition={{
-                    duration: 0.65,
-                    delay: 0.08,
-                    ease,
-                  }}
-                >
-                  ({String(index + 1).padStart(2, "0")})
-                </motion.span>
-
-                <motion.span
-                  className="testimonial-mark"
-                  aria-hidden="true"
-                  initial={
-                    reduceMotion
-                      ? false
-                      : {
-                          opacity: 0,
-                          scale: 0.9,
-                        }
-                  }
-                  whileInView={{
-                    opacity: 1,
-                    scale: 1,
-                  }}
-                  viewport={{
-                    once: true,
-                    amount: 0.5,
-                  }}
-                  transition={{
-                    duration: 0.75,
-                    delay: 0.1,
-                    ease,
-                  }}
-                >
-                  “
-                </motion.span>
-              </div>
-
-              {/* QUOTE */}
-
-              <motion.blockquote
-                className="testimonial-quote"
-                variants={reduceMotion ? undefined : quoteReveal}
-              >
-                {testimonial.quote}
-              </motion.blockquote>
-
-              {/* AUTHOR */}
-
               <motion.div
-                className="testimonial-author"
+                className="testimonial-header"
                 variants={reduceMotion ? undefined : authorReveal}
               >
                 <div className="testimonial-author-profile">
                   <Image
                     src={testimonial.image}
                     alt={testimonial.name}
-                    width={56}
-                    height={56}
+                    width={72}
+                    height={72}
                     className="testimonial-avatar"
                   />
 
                   <p className="testimonial-name">{testimonial.name}</p>
                 </div>
 
-                <div className="testimonial-author-meta">
-                  <p>{testimonial.role}</p>
-                  <p>{testimonial.company}</p>
-                </div>
+                <span className="testimonial-mark" aria-hidden="true">
+                  “
+                </span>
               </motion.div>
+              {/* QUOTE */}
+              <motion.blockquote
+                className="testimonial-quote"
+                variants={reduceMotion ? undefined : quoteReveal}
+              >
+                {testimonial.quote}
+              </motion.blockquote>
+              <motion.div
+                className="testimonial-footer"
+                variants={reduceMotion ? undefined : authorReveal}
+              >
+                <p>{testimonial.role}</p>
+
+                <p>{testimonial.company}</p>
+              </motion.div>
+              {/* AUTHOR */}
             </motion.article>
           ))}
         </div>

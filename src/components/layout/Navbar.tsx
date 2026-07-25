@@ -13,12 +13,6 @@ const navItems = [
   { number: "03", name: "Services", href: "/#services" },
   { number: "04", name: "Writing", href: "/#writing" },
   { number: "05", name: "Contact", href: "/#contact" },
-  {
-    number: "06",
-    name: "Shop",
-    href: "https://your-poster-website.com",
-    external: true,
-  },
 ];
 
 const socials = [

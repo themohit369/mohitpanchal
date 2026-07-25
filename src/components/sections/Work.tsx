@@ -19,29 +19,27 @@ const ease = [0.16, 1, 0.3, 1] as const;
 
 const projects = [
   {
-    number: "01",
+    year: "2026",
     title: "PowerPack Elements",
+    category: "WordPress Plugin",
     image: "/images/work/project-1.jpg",
     href: "/work/powerpack-elements",
   },
   {
-    number: "02",
+    year: "2025",
     title: "Max Addons for Bricks",
+    category: "Bricks Builder",
     image: "/images/work/project-1.jpg",
     href: "#",
   },
   {
-    number: "03",
+    year: "2024",
     title: "SaaS Platform",
+    category: "Product Design",
     image: "/images/work/project-1.jpg",
     href: "#",
   },
 ];
-
-type ProjectCardProps = {
-  project: (typeof projects)[number];
-  index: number;
-};
 
 function ProjectCard({ project, index }: ProjectCardProps) {
   const projectRef = useRef<HTMLElement>(null);
@@ -106,6 +104,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
       </Link>
 
       <motion.div
+        className="work-project-info"
         initial={
           reduceMotion
             ? false
@@ -127,11 +126,16 @@ function ProjectCard({ project, index }: ProjectCardProps) {
           delay: 0.12,
           ease,
         }}
-        className="work-project-info"
       >
-        <h3>{project.title}</h3>
+        <span className="work-project-year">{project.year}</span>
 
-        <span>({project.number})</span>
+        <div className="work-project-copy">
+          <h3>{project.title}</h3>
+
+          <p>{project.category}</p>
+        </div>
+
+        <span className="work-project-arrow">↗</span>
       </motion.div>
     </motion.article>
   );
@@ -232,7 +236,11 @@ export default function Work() {
       >
         <div className="work-project-grid">
           {projects.map((project, index) => (
-            <ProjectCard key={project.number} project={project} index={index} />
+            <ProjectCard
+              key={`${project.title}-${project.year}`}
+              project={project}
+              index={index}
+            />
           ))}
         </div>
         {/* CTA */}

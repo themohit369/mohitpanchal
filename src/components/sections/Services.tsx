@@ -220,44 +220,48 @@ export default function WhatIDo() {
                   }}
                 />
 
-                {/* NUMBER */}
+                <div className="service-content">
+                  {/* NUMBER */}
 
-                <motion.span
-                  className="service-number"
-                  initial={
-                    reduceMotion
-                      ? false
-                      : {
-                          opacity: 0,
-                          y: 10,
-                        }
-                  }
-                  whileInView={{
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  viewport={{
-                    once: true,
-                    amount: 0.5,
-                  }}
-                  transition={{
-                    duration: 0.65,
-                    delay: 0.08,
-                    ease,
-                  }}
-                >
-                  ({String(index + 1).padStart(2, "0")})
-                </motion.span>
+                  <motion.span
+                    className="service-number"
+                    initial={
+                      reduceMotion
+                        ? false
+                        : {
+                            opacity: 0,
+                            y: 10,
+                          }
+                    }
+                    whileInView={{
+                      opacity: 1,
+                      y: 0,
+                    }}
+                    viewport={{
+                      once: true,
+                      amount: 0.5,
+                    }}
+                    transition={{
+                      duration: 0.65,
+                      delay: 0.08,
+                      ease,
+                    }}
+                  >
+                    ({String(index + 1).padStart(2, "0")})
+                  </motion.span>
 
-                {/* TITLE */}
+                  <div className="service-main">
+                    {/* TITLE */}
 
-                <h3 className="service-title">{service}</h3>
+                    <h3 className="service-title">{service}</h3>
 
-                {/* ARROW */}
+                    {/* ARROW */}
 
-                <span className="service-arrow" aria-hidden="true">
-                  ↗
-                </span>
+                    <span className="service-arrow" aria-hidden="true">
+                      ↗
+                    </span>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>

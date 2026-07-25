@@ -1,10 +1,10 @@
 "use client";
 
 import { motion, useReducedMotion, type Variants } from "framer-motion";
-
-const ease = [0.16, 1, 0.3, 1] as const;
 import "./experience.css";
 import "../ui/action-link.css";
+
+const ease = [0.16, 1, 0.3, 1] as const;
 
 /* =====================================================
    DATA
@@ -111,6 +111,21 @@ const rowVariants: Variants = {
 
 export default function Experience({ variant = "home" }: ExperienceProps) {
   const isAbout = variant === "about";
+  const content = isAbout
+    ? {
+        meta: "Career timeline",
+        label: "",
+        heading: "A decade of learning by designing and building.",
+        summary:
+          "My experience spans product design, UI/UX, web experiences and design systems, with every role shaping how I think about clarity, structure and useful digital products.",
+      }
+    : {
+        meta: "Selected Experience",
+        label: "",
+        heading: "10+ years of designing digital experiences.",
+        summary:
+          "Working across product design, UI/UX, design systems and front-end thinking to turn complex problems into simple, useful digital products.",
+      };
 
   const reduceMotion = useReducedMotion();
 
@@ -153,7 +168,7 @@ export default function Experience({ variant = "home" }: ExperienceProps) {
 
           <span>(2016 — Present)</span>
 
-          <span>{isAbout ? "Career timeline" : "Selected Experience"}</span>
+          <span>{content.meta}</span>
         </motion.div>
 
         {/* =====================================================
@@ -182,108 +197,65 @@ export default function Experience({ variant = "home" }: ExperienceProps) {
 
               {isAbout ? (
                 <>
-                  <motion.p
-                    className="experience-about-label meta-text"
-                    variants={reduceMotion ? undefined : fadeUp}
-                  >
-                    Where I&apos;ve worked
-                  </motion.p>
-
                   <motion.div
                     className="experience-about-heading-wrap"
                     variants={reduceMotion ? undefined : fadeUp}
                   >
-                    <h2 className="section-heading">
-                      A decade of learning by designing and building.
-                    </h2>
-                  </motion.div>
-
-                  <motion.p
-                    className="body-text experience-summary"
-                    variants={reduceMotion ? undefined : fadeUp}
-                  >
-                    My experience spans product design, UI/UX, web experiences
-                    and design systems, with every role shaping how I think
-                    about clarity, structure and useful digital products.
-                  </motion.p>
-
-                  <motion.div
-                    className="experience-resume"
-                    variants={reduceMotion ? undefined : fadeUp}
-                  >
-                    <a
-                      href="/resume.pdf"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="action-link"
-                    >
-                      <span>View resume</span>
-
-                      <span className="action-link-arrow">↗</span>
-                    </a>
+                    <h2 className="experience-heading">{content.heading}</h2>
                   </motion.div>
                 </>
               ) : (
-                /* ===============================================
-                   HOME VARIANT
-                =============================================== */
-
-                <>
-                  <h2 className="experience-heading">
-                    <span className="experience-heading-mask">
-                      <motion.span
-                        className="experience-heading-reveal"
-                        variants={reduceMotion ? undefined : headingLine}
-                      >
-                        10+ years of
-                      </motion.span>
-                    </span>
-
-                    <span className="experience-heading-mask">
-                      <motion.span
-                        className="experience-heading-reveal"
-                        variants={reduceMotion ? undefined : headingLine}
-                      >
-                        designing digital
-                      </motion.span>
-                    </span>
-
-                    <span className="experience-heading-mask">
-                      <motion.span
-                        className="experience-heading-reveal"
-                        variants={reduceMotion ? undefined : headingLine}
-                      >
-                        experiences.
-                      </motion.span>
-                    </span>
-                  </h2>
-
-                  <motion.p
-                    className="body-text experience-summary"
-                    variants={reduceMotion ? undefined : fadeUp}
-                  >
-                    Working across product design, UI/UX, design systems, and
-                    front-end thinking to turn complex problems into simple,
-                    useful digital products.
-                  </motion.p>
-
-                  <motion.div
-                    className="experience-resume"
-                    variants={reduceMotion ? undefined : fadeUp}
-                  >
-                    <a
-                      href="/resume.pdf"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="action-link"
+                <h2 className="experience-heading">
+                  <span className="experience-heading-mask">
+                    <motion.span
+                      className="experience-heading-reveal"
+                      variants={reduceMotion ? undefined : headingLine}
                     >
-                      <span>View resume</span>
+                      10+ years of
+                    </motion.span>
+                  </span>
 
-                      <span className="action-link-arrow">↗</span>
-                    </a>
-                  </motion.div>
-                </>
+                  <span className="experience-heading-mask">
+                    <motion.span
+                      className="experience-heading-reveal"
+                      variants={reduceMotion ? undefined : headingLine}
+                    >
+                      designing digital
+                    </motion.span>
+                  </span>
+
+                  <span className="experience-heading-mask">
+                    <motion.span
+                      className="experience-heading-reveal"
+                      variants={reduceMotion ? undefined : headingLine}
+                    >
+                      experiences.
+                    </motion.span>
+                  </span>
+                </h2>
               )}
+
+              <motion.p
+                className="body-text experience-summary"
+                variants={reduceMotion ? undefined : fadeUp}
+              >
+                {content.summary}
+              </motion.p>
+
+              <motion.div
+                className="experience-resume"
+                variants={reduceMotion ? undefined : fadeUp}
+              >
+                <a
+                  href="/resume.pdf"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="action-link"
+                >
+                  <span>View resume</span>
+                  <span className="action-link-arrow">↗</span>
+                </a>
+              </motion.div>
             </motion.div>
           </div>
 
