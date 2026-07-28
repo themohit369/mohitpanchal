@@ -100,7 +100,7 @@
 .service-row {
   position: relative;
 
-  padding: clamp(28px, 2.2vw, 36px) 0;
+  padding: 20px;
 
   overflow: hidden;
 
@@ -131,7 +131,6 @@
 
 .service-number {
   margin: 0;
-
   color: var(--color-text-muted);
   font-size: var(--text-meta);
   line-height: 1;
@@ -292,7 +291,7 @@
   /* NUMBER */
 
   .service-number {
-    padding-top: 27px;
+    padding-top: 0;
   }
 
   /* TITLE */
@@ -340,10 +339,6 @@
 
     min-height: 78px;
   }
-
-  .service-number {
-    padding-top: 24px;
-  }
 }
 
 /* =====================================================
@@ -358,8 +353,6 @@
   .service-title,
   .service-arrow {
     transform: none !important;
-
-    transition: none !important;
   }
 }
 

@@ -14,10 +14,10 @@ const projects = [
     number: "01",
     title: "PowerPack Elements",
     category: "Product Design",
-    year: "2023",
+    year: "2025",
     description:
       "Premium Elementor addon focused on building scalable product experiences for designers and agencies.",
-    image: "/images/work/project-1.jpg",
+    image: "/images/work/project-1.png",
     href: "/work/powerpack-elements",
   },
   {
@@ -27,7 +27,7 @@ const projects = [
     year: "2025",
     description:
       "Brand identity and marketing website for a premium Bricks Builder addon.",
-    image: "/images/work/project-2.jpg",
+    image: "/images/work/project-2.png",
     href: "/work/max-addons",
   },
   {
@@ -37,18 +37,8 @@ const projects = [
     year: "2024",
     description:
       "Identity design for a contemporary apparel brand built around simplicity and confidence.",
-    image: "/images/work/project-3.jpg",
+    image: "/images/work/project-3.png",
     href: "/work/the-drip-line",
-  },
-  {
-    number: "04",
-    title: "Gayatri Engineering",
-    category: "Brand Identity + Website",
-    year: "2026",
-    description:
-      "Brand identity and website for an engineering and heavy fabrication company.",
-    image: "/images/work/project-4.jpg",
-    href: "/work/gayatri-engineering",
   },
 ];
 

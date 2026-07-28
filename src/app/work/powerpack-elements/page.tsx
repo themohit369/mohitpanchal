@@ -89,7 +89,7 @@ export default function PowerPackElementsPage() {
               className="case-hero-image media-frame"
             >
               <Image
-                src="/images/work/project-1.jpg"
+                src="/images/work/project-1.png"
                 alt="PowerPack Elements"
                 fill
                 priority

@@ -22,22 +22,22 @@ const projects = [
     year: "2026",
     title: "PowerPack Elements",
     category: "WordPress Plugin",
-    image: "/images/work/project-1.jpg",
+    image: "/images/work/project-1.png",
     href: "/work/powerpack-elements",
+  },
+  {
+    year: "2024",
+    title: "Tshirt Brand Logo",
+    category: "Product Design",
+    image: "/images/work/project-3.png",
+    href: "/work/the-drip-line",
   },
   {
     year: "2025",
     title: "Max Addons for Bricks",
     category: "Bricks Builder",
-    image: "/images/work/project-1.jpg",
-    href: "#",
-  },
-  {
-    year: "2024",
-    title: "SaaS Platform",
-    category: "Product Design",
-    image: "/images/work/project-1.jpg",
-    href: "#",
+    image: "/images/work/project-2.png",
+    href: "/work/max-addons",
   },
 ];
 

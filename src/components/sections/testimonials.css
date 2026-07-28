@@ -333,7 +333,7 @@
   .testimonial-quote {
     max-width: 100%;
 
-    font-size: clamp(20px, 5.8vw, 24px);
+    font-size: 18px;
     line-height: 1.3;
   }
 }

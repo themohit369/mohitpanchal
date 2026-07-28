@@ -216,7 +216,7 @@ export default function Hero() {
             }}
           >
             <a href="#contact" className="action-link">
-              <span>Let's work together</span>
+              <span>Let&apos;s work together</span>
               <span className="action-link-arrow">↗</span>
             </a>
 

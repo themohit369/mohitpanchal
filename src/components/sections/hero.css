@@ -129,6 +129,7 @@
     );
 
   -webkit-mask-composite: source-in;
+  mask-composite: source-in;
 
   mask-image:
     linear-gradient(to bottom, #000 0%, #000 84%, transparent 100%),
