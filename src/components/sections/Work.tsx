@@ -19,23 +19,23 @@ const ease = [0.16, 1, 0.3, 1] as const;
 
 const projects = [
   {
-    year: "2026",
+    year: "2025",
     title: "PowerPack Elements",
-    category: "WordPress Plugin",
+    category: "WordPress Plugin Website",
     image: "/images/work/project-1.png",
     href: "/work/powerpack-elements",
   },
   {
     year: "2024",
-    title: "Tshirt Brand Logo",
-    category: "Product Design",
+    title: "The Drip Line",
+    category: "Logo Design",
     image: "/images/work/project-3.png",
     href: "/work/the-drip-line",
   },
   {
     year: "2025",
     title: "Max Addons for Bricks",
-    category: "Bricks Builder",
+    category: "WordPress Plugin Website",
     image: "/images/work/project-2.png",
     href: "/work/max-addons",
   },

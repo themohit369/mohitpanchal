@@ -47,7 +47,7 @@ export default function PowerPackElementsPage() {
             >
               <div className="case-meta-item">
                 <span>Year</span>
-                <strong>2023</strong>
+                <strong>2025</strong>
               </div>
 
               <div className="case-meta-item">
@@ -69,11 +69,6 @@ export default function PowerPackElementsPage() {
                 <span>Company</span>
                 <strong>Freelance</strong>
               </div>
-
-              <a href="#overview" className="action-link">
-                Explore Project
-                <span className="hero-action-arrow">↓</span>
-              </a>
             </motion.aside>
 
             {/* RIGHT */}
@@ -167,7 +162,7 @@ export default function PowerPackElementsPage() {
 
             <div className="case-story-image media-frame">
               <Image
-                src="/images/work/project-1.jpg"
+                src="/images/work/project-1.png"
                 alt="PowerPack"
                 fill
                 className="object-cover"
@@ -193,7 +188,7 @@ export default function PowerPackElementsPage() {
           <div className="case-outcome-grid">
             <div className="case-outcome-image media-frame">
               <Image
-                src="/images/work/project-1.jpg"
+                src="/images/work/project-1.png"
                 alt=""
                 fill
                 className="object-cover"
