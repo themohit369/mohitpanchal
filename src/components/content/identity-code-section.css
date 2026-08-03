@@ -70,7 +70,7 @@
 
   margin: 0;
 
-  font-size: clamp(52px, 5.4vw, 96px);
+  font-size: clamp(44px, 4.5vw, 78px);
   font-weight: 500;
   line-height: 0.92;
 
@@ -216,7 +216,7 @@
   .identity-title {
     max-width: 560px;
 
-    font-size: clamp(48px, 6vw, 72px);
+    font-size: clamp(44px, 4.5vw, 78px);
   }
 
   .identity-statement {
@@ -263,7 +263,7 @@
   .identity-title {
     max-width: 100%;
 
-    font-size: clamp(48px, 13vw, 72px);
+    font-size: clamp(44px, 4.5vw, 78px);
     line-height: 0.94;
 
     letter-spacing: -0.06em;
@@ -313,7 +313,7 @@
 
 @media (max-width: 480px) {
   .identity-title {
-    font-size: clamp(44px, 13vw, 62px);
+    font-size: clamp(44px, 4.5vw, 78px);
   }
 
   .identity-statement,

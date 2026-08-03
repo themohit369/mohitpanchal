@@ -1,14 +1,8 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion, useReducedMotion, type Variants } from "framer-motion";
-
-import Marquee from "@/components/ui/Marquee";
-
 import "./footer.css";
-
-/* =====================================================
-   CONSTANTS
-===================================================== */
 
 const EMAIL = "mohitp846@gmail.com";
 
@@ -33,32 +27,36 @@ const socialLinks = [
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
-/* =====================================================
-   MOTION VARIANTS
-===================================================== */
-
-const emailReveal: Variants = {
+const reveal: Variants = {
   hidden: {
-    y: "110%",
+    opacity: 0,
+    y: 22,
   },
-
   visible: {
-    y: "0%",
-
+    opacity: 1,
+    y: 0,
     transition: {
-      duration: 1.1,
+      duration: 0.8,
       ease,
+    },
+  },
+};
+
+const stagger: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.06,
     },
   },
 };
 
 const socialContainer: Variants = {
   hidden: {},
-
   visible: {
     transition: {
-      staggerChildren: 0.08,
-      delayChildren: 0.08,
+      staggerChildren: 0.07,
     },
   },
 };
@@ -66,174 +64,134 @@ const socialContainer: Variants = {
 const socialRow: Variants = {
   hidden: {
     opacity: 0,
-    y: 20,
+    y: 16,
   },
-
   visible: {
     opacity: 1,
     y: 0,
-
     transition: {
-      duration: 0.75,
+      duration: 0.7,
       ease,
     },
   },
 };
 
-const endInfo: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 20,
-  },
-
-  visible: {
-    opacity: 1,
-    y: 0,
-
-    transition: {
-      duration: 0.8,
-      delay: 0.2,
-      ease,
-    },
-  },
-};
-
-/* =====================================================
-   COMPONENT
-===================================================== */
+function getIndiaTime() {
+  return new Intl.DateTimeFormat("en-US", {
+    timeZone: "Asia/Kolkata",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: true,
+  }).format(new Date());
+}
 
 export default function Footer() {
   const reduceMotion = useReducedMotion();
+  const [localTime, setLocalTime] = useState("");
+
+  useEffect(() => {
+    const updateTime = () => {
+      setLocalTime(getIndiaTime());
+    };
+
+    updateTime();
+
+    const interval = window.setInterval(updateTime, 1000);
+
+    return () => window.clearInterval(interval);
+  }, []);
 
   const mailtoLink = `mailto:${EMAIL}?subject=${encodeURIComponent(
     "Work Enquiry",
   )}`;
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: reduceMotion ? "auto" : "smooth",
+    });
+  };
+
   return (
     <footer id="contact" className="portfolio-footer">
-      {/* =====================================================
-          TOP DIVIDER
-      ===================================================== */}
-
       <div className="site-container">
         <motion.div
-          className="footer-marquee-divider"
-          initial={
-            reduceMotion
-              ? false
-              : {
-                  scaleX: 0,
-                }
-          }
-          whileInView={{
-            scaleX: 1,
-          }}
-          viewport={{
-            once: true,
-            amount: 0.6,
-          }}
+          className="footer-top-line"
+          initial={reduceMotion ? false : { scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true, amount: 0.7 }}
           transition={{
             duration: 1.1,
             ease,
           }}
         />
-      </div>
 
-      {/* =====================================================
-          CONTACT MARQUEE
-      ===================================================== */}
-
-      <Marquee
-        ariaLabel="Contact me about a project"
-        className="footer-marquee"
-      >
-        Have a project in mind? Let&apos;s talk
-      </Marquee>
-
-      {/* =====================================================
-          FOOTER CONTENT
-      ===================================================== */}
-
-      <div className="site-container">
-        {/* =====================================================
-            EMAIL CTA
-        ===================================================== */}
-
-        <div className="portfolio-footer-main">
-          <motion.p
-            className="portfolio-footer-label"
-            initial={
-              reduceMotion
-                ? false
-                : {
-                    opacity: 0,
-                    y: 18,
-                  }
-            }
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            viewport={{
-              once: true,
-              amount: 0.6,
-            }}
-            transition={{
-              duration: 0.7,
-              ease,
-            }}
+        <motion.div
+          className="footer-contact"
+          variants={reduceMotion ? undefined : stagger}
+          initial={reduceMotion ? false : "hidden"}
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          <motion.h2
+            className="footer-heading"
+            variants={reduceMotion ? undefined : reveal}
           >
-            Send me a message
-          </motion.p>
+            Let&apos;s work together.
+          </motion.h2>
 
-          <div className="portfolio-footer-email-mask">
-            <motion.a
-              href={mailtoLink}
-              className="portfolio-footer-email"
-              initial={
-                reduceMotion
-                  ? false
-                  : {
-                      opacity: 0,
-                    }
-              }
-              whileInView={{
-                opacity: 1,
-              }}
-              viewport={{
-                once: true,
-                amount: 0.2,
-              }}
-              transition={{
-                duration: 1,
-                delay: 0.08,
-                ease,
-              }}
+          <motion.div
+            className="footer-email-row"
+            variants={reduceMotion ? undefined : reveal}
+          >
+            <a href={mailtoLink} className="footer-email">
+              <span className="footer-email-text">{EMAIL}</span>
+
+              <span className="footer-email-arrow" aria-hidden="true">
+                ↗
+              </span>
+            </a>
+
+            <button
+              type="button"
+              className="footer-back-top"
+              onClick={scrollToTop}
+              aria-label="Back to top"
             >
-              {EMAIL}
-            </motion.a>
-          </div>
-        </div>
+              <span className="footer-back-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M12 19V5" />
+                  <path d="M6.5 10.5L12 5L17.5 10.5" />
+                </svg>
+              </span>
+            </button>
+          </motion.div>
+        </motion.div>
 
-        {/* =====================================================
-            FOOTER BOTTOM
-        ===================================================== */}
+        <motion.div
+          className="footer-bottom-line"
+          initial={reduceMotion ? false : { scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true, amount: 0.7 }}
+          transition={{
+            duration: 1.1,
+            ease,
+          }}
+        />
 
-        <div className="portfolio-footer-bottom">
-          {/* =====================================================
-              SOCIAL LINKS
-          ===================================================== */}
-
+        <div className="footer-bottom">
           <motion.nav
-            className="portfolio-footer-socials"
+            className="footer-socials"
             aria-label="Social links"
             variants={reduceMotion ? undefined : socialContainer}
             initial={reduceMotion ? false : "hidden"}
             whileInView="visible"
-            viewport={{
-              once: true,
-              amount: 0.2,
-            }}
+            viewport={{ once: true, amount: 0.2 }}
           >
             {socialLinks.map((social, index) => (
               <motion.a
@@ -241,75 +199,47 @@ export default function Footer() {
                 href={social.href}
                 target="_blank"
                 rel="noreferrer"
-                className="portfolio-footer-link"
+                className="footer-social-link"
                 variants={reduceMotion ? undefined : socialRow}
               >
                 <span>{social.label}</span>
 
-                <span className="portfolio-footer-social-index">
+                <span className="footer-social-index">
                   ({String(index + 1).padStart(2, "0")})
                 </span>
 
-                <motion.span
-                  className="portfolio-footer-link-line"
-                  initial={
-                    reduceMotion
-                      ? false
-                      : {
-                          scaleX: 0,
-                        }
-                  }
-                  whileInView={{
-                    scaleX: 1,
-                  }}
-                  viewport={{
-                    once: true,
-                    amount: 0.5,
-                  }}
-                  transition={{
-                    duration: 0.9,
-                    delay: index * 0.06,
-                    ease,
-                  }}
-                />
+                <span className="footer-social-line" />
               </motion.a>
             ))}
           </motion.nav>
 
-          {/* =====================================================
-              END INFO
-          ===================================================== */}
-
           <motion.div
-            className="portfolio-footer-end"
-            variants={reduceMotion ? undefined : endInfo}
-            initial={reduceMotion ? false : "hidden"}
-            whileInView="visible"
-            viewport={{
-              once: true,
-              amount: 0.5,
+            className="footer-meta"
+            initial={reduceMotion ? false : { opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{
+              duration: 0.8,
+              delay: 0.12,
+              ease,
             }}
           >
-            <p className="portfolio-footer-location">
-              Based in India
-              <br />
-              Working worldwide
-            </p>
+            <div className="footer-location">
+              <p>
+                India
+                {localTime && (
+                  <>
+                    <span className="footer-time-separator"> · </span>
 
-            <button
-              type="button"
-              className="portfolio-footer-top"
-              onClick={() =>
-                window.scrollTo({
-                  top: 0,
-                  behavior: "smooth",
-                })
-              }
-            >
-              ⌃
-            </button>
+                    <span className="footer-time">{localTime}</span>
+                  </>
+                )}
+              </p>
 
-            <p className="portfolio-footer-copyright">
+              <p>Working worldwide</p>
+            </div>
+
+            <p className="footer-copyright">
               © 2026 Mohit Panchal.
               <br />
               All rights reserved.
