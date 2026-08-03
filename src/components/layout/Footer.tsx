@@ -240,9 +240,8 @@ export default function Footer() {
             </div>
 
             <p className="footer-copyright">
-              © 2026 Mohit Panchal.
-              <br />
               All rights reserved.
+              <br />© 2026 Mohit Panchal.
             </p>
           </motion.div>
         </div>

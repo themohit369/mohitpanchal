@@ -9,10 +9,10 @@
      LIGHT THEME
   ===================================================== */
 
-  --color-bg: #f6f4ef;
-  --color-surface: #fcfbf8;
+  --color-bg: #ffffff;
+  --color-surface: #fafafa;
 
-  --color-text: #1d1c1a;
+  --color-text: #090909;
   --color-text-soft: rgba(29, 28, 26, 0.72);
   --color-text-muted: rgba(29, 28, 26, 0.48);
 
