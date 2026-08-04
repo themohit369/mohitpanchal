@@ -127,6 +127,7 @@ html[data-theme="dark"] {
 
 html {
   scroll-behavior: auto;
+  background: var(--color-bg);
 }
 
 html.lenis,
@@ -548,4 +549,33 @@ body,
 #page-content.page-menu-open {
   transform: scale(0.985);
   filter: blur(2px);
+}
+
+/* =====================================================
+   INITIAL PAGE REVEAL
+===================================================== */
+
+body {
+  animation: page-reveal 1.35s var(--ease-premium) both;
+  will-change: opacity, transform;
+}
+
+@keyframes page-reveal {
+  0%,
+  25% {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body {
+    animation: none;
+    transform: none;
+  }
 }

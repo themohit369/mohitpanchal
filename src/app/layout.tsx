@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Script from "next/script";
-
+import PageLoader from "@/components/layout/PageLoader";
 import SiteChrome from "@/components/layout/SiteChrome";
 import SmoothScroll from "@/components/providers/SmoothScroll";
-
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
@@ -34,7 +33,7 @@ const bdoGrotesk = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mohitpanchal.vercel.app/"), // Change after your domain is live
+  metadataBase: new URL("https://mohitpanchal.vercel.app/"),
 
   title: {
     default: "Mohit Panchal | Product Designer",
@@ -98,7 +97,9 @@ export const metadata: Metadata = {
 
   icons: {
     icon: [
-      { url: "/favicon.ico" },
+      {
+        url: "/favicon.ico",
+      },
       {
         url: "/favicon-light.png",
         media: "(prefers-color-scheme: light)",
@@ -120,10 +121,62 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={bdoGrotesk.variable}>
+    <html lang="en" className={bdoGrotesk.variable} suppressHydrationWarning>
+      <head>
+        {/* =====================================================
+            INITIAL THEME
+            Runs before first paint to prevent theme flash
+        ===================================================== */}
+
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function () {
+                try {
+                  var theme = localStorage.getItem("theme") || "dark";
+
+                  if (theme !== "light" && theme !== "dark") {
+                    theme = "dark";
+                  }
+
+                  document.documentElement.setAttribute(
+                    "data-theme",
+                    theme
+                  );
+
+                  document.documentElement.style.backgroundColor =
+                    theme === "dark"
+                      ? "#0b0b0b"
+                      : "#ffffff";
+
+                  document.documentElement.style.colorScheme =
+                    theme;
+                } catch (e) {
+                  document.documentElement.setAttribute(
+                    "data-theme",
+                    "dark"
+                  );
+
+                  document.documentElement.style.backgroundColor =
+                    "#0b0b0b";
+
+                  document.documentElement.style.colorScheme =
+                    "dark";
+                }
+              })();
+            `,
+          }}
+        />
+      </head>
+
       <body>
+        <PageLoader />
         <SmoothScroll />
         <SiteChrome />
+
+        {/* =====================================================
+            STRUCTURED DATA
+        ===================================================== */}
 
         <script
           type="application/ld+json"
@@ -145,19 +198,39 @@ export default function RootLayout({
             }),
           }}
         />
+
         {children}
+
+        {/* =====================================================
+            ANALYTICS
+        ===================================================== */}
+
         <GoogleAnalytics gaId="G-GQXNW3SC4F" />
+
         <SpeedInsights />
+
         <Analytics />
+
+        {/* =====================================================
+            MICROSOFT CLARITY
+        ===================================================== */}
 
         <Script id="microsoft-clarity" strategy="afterInteractive">
           {`
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "xqmsnrq5nv");
-  `}
+            (function(c,l,a,r,i,t,y){
+              c[a]=c[a]||function(){
+                (c[a].q=c[a].q||[]).push(arguments)
+              };
+
+              t=l.createElement(r);
+              t.async=1;
+              t.src="https://www.clarity.ms/tag/"+i;
+
+              y=l.getElementsByTagName(r)[0];
+              y.parentNode.insertBefore(t,y);
+
+            })(window, document, "clarity", "script", "xqmsnrq5nv");
+          `}
         </Script>
       </body>
     </html>

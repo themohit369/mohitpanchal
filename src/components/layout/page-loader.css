@@ -1,0 +1,196 @@
+/* =====================================================
+   PAGE LOADER
+===================================================== */
+
+.page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+
+  width: 100%;
+  height: 100dvh;
+
+  overflow: hidden;
+  overscroll-behavior: none;
+
+  background: #0b0b0b;
+  color: #f5f5f3;
+
+  transform: translate3d(0, 0, 0);
+
+  isolation: isolate;
+  pointer-events: all;
+  touch-action: none;
+
+  will-change: transform;
+}
+
+/* =====================================================
+   PROGRESS
+===================================================== */
+
+.page-loader-progress {
+  position: absolute;
+
+  right: clamp(24px, 5vw, 80px);
+
+  bottom: calc(
+    clamp(28px, 4vw, 64px) +
+      (var(--loader-progress) * (100dvh - clamp(190px, 16vw, 290px)))
+  );
+
+  display: flex;
+  align-items: flex-start;
+
+  opacity: var(--loader-opacity);
+
+  font-variant-numeric: tabular-nums;
+
+  transition:
+    bottom 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.28s ease;
+
+  will-change: bottom, opacity;
+}
+
+/* =====================================================
+   NUMBER
+===================================================== */
+
+.page-loader-number {
+  display: block;
+
+  min-width: 2.05ch;
+
+  font-size: clamp(72px, 10vw, 180px);
+  font-weight: 500;
+  line-height: 0.78;
+
+  letter-spacing: -0.075em;
+
+  text-align: right;
+}
+
+/* =====================================================
+   PERCENT
+===================================================== */
+
+.page-loader-percent {
+  display: block;
+
+  margin-top: 0.05em;
+  margin-left: 10px;
+
+  color: #777;
+
+  font-size: clamp(16px, 1.5vw, 24px);
+  font-weight: 400;
+  line-height: 1;
+}
+
+/* =====================================================
+   HELLO / SMILE
+===================================================== */
+
+.page-loader-final {
+  opacity: 1;
+}
+
+.page-loader-final-text {
+  display: block;
+
+  font-size: clamp(72px, 10vw, 180px);
+  font-weight: 500;
+  line-height: 0.78;
+
+  letter-spacing: -0.075em;
+  white-space: nowrap;
+
+  animation: loader-final-in 0.5s var(--ease-premium) both;
+}
+
+@keyframes loader-final-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =====================================================
+   EXIT
+===================================================== */
+
+.page-loader-exit {
+  transform: translate3d(0, -100%, 0);
+
+  transition: transform 1.05s var(--ease-premium);
+}
+
+.page-loader-exit .page-loader-progress {
+  opacity: 0;
+
+  transition: opacity 0.25s ease;
+}
+
+/* =====================================================
+   PAGE LOCK
+===================================================== */
+
+html {
+  scrollbar-gutter: stable;
+}
+
+html.is-loading,
+body.is-loading {
+  overflow: hidden !important;
+  overscroll-behavior: none;
+}
+
+body.is-loading {
+  touch-action: none;
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+  .page-loader-progress {
+    right: 24px;
+
+    bottom: calc(28px + (var(--loader-progress) * (100dvh - 170px)));
+  }
+
+  .page-loader-number,
+  .page-loader-final-text {
+    font-size: clamp(68px, 24vw, 110px);
+  }
+
+  .page-loader-percent {
+    margin-left: 6px;
+    font-size: 15px;
+  }
+}
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .page-loader-progress {
+    transition: none;
+  }
+
+  .page-loader-final-text {
+    animation: none;
+  }
+
+  .page-loader-exit {
+    transition-duration: 0.25s;
+  }
+}
