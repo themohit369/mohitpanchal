@@ -116,6 +116,43 @@ export default function Footer() {
   return (
     <footer id="contact" className="portfolio-footer">
       <div className="site-container">
+        {/* =====================================================
+            LOCATION + CONTACT
+        ===================================================== */}
+
+        <motion.div
+          className="footer-info"
+          initial={reduceMotion ? false : { opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.35 }}
+          transition={{
+            duration: 0.8,
+            ease,
+          }}
+        >
+          <div className="footer-info-block">
+            <span className="footer-info-label">Location</span>
+
+            <p>
+              Kota, Rajasthan
+              <br />
+              India · 324001
+            </p>
+          </div>
+
+          <div className="footer-info-block">
+            <span className="footer-info-label">Contact</span>
+
+            <a href="tel:+919825916417">+91 97991 60923</a>
+
+            <a href="mailto:mohitp846@gmail.com">mohitp846@gmail.com</a>
+          </div>
+        </motion.div>
+
+        {/* =====================================================
+            EXISTING FOOTER
+        ===================================================== */}
+
         <motion.div
           className="footer-top-line"
           initial={reduceMotion ? false : { scaleX: 0 }}

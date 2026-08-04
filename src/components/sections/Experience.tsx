@@ -226,7 +226,7 @@ export default function Experience({ variant = "home" }: ExperienceProps) {
 
             <div className="experience-resume">
               <a
-                href="/resume.pdf"
+                href="/mohit-panchal-resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="action-link"
