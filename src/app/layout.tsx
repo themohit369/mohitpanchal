@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Script from "next/script";
-import PageLoader from "@/components/layout/PageLoader";
 import SiteChrome from "@/components/layout/SiteChrome";
 import SmoothScroll from "@/components/providers/SmoothScroll";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
+import PageLoader from "@/components/layout/PageLoader";
 
 import "./globals.css";
 

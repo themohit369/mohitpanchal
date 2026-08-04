@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useState, type CSSProperties } from "react";
-
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import "./page-loader.css";
 
 type LoaderStage = "progress" | "hello" | "smile" | "exit";
@@ -11,24 +10,22 @@ export default function PageLoader() {
   const [stage, setStage] = useState<LoaderStage>("progress");
   const [showLoader, setShowLoader] = useState(true);
 
+  const timers = useRef<number[]>([]);
+
   useEffect(() => {
     const html = document.documentElement;
     const body = document.body;
 
+    /* =====================================================
+       LOCK PAGE
+    ===================================================== */
+
     html.classList.add("is-loading");
     body.classList.add("is-loading");
 
-    const preventScroll = (event: Event) => {
-      event.preventDefault();
-    };
-
-    window.addEventListener("wheel", preventScroll, {
-      passive: false,
-    });
-
-    window.addEventListener("touchmove", preventScroll, {
-      passive: false,
-    });
+    /* =====================================================
+       PROGRESS
+    ===================================================== */
 
     let current = 0;
 
@@ -41,28 +38,32 @@ export default function PageLoader() {
 
         window.clearInterval(interval);
 
-        // 99% → hello!
-        window.setTimeout(() => {
-          setStage("hello");
-        }, 350);
+        timers.current.push(
+          window.setTimeout(() => {
+            setStage("hello");
+          }, 350),
+        );
 
-        // hello! → :)
-        window.setTimeout(() => {
-          setStage("smile");
-        }, 1100);
+        timers.current.push(
+          window.setTimeout(() => {
+            setStage("smile");
+          }, 1100),
+        );
 
-        // smile hold → curtain exit
-        window.setTimeout(() => {
-          setStage("exit");
+        timers.current.push(
+          window.setTimeout(() => {
+            setStage("exit");
+          }, 1800),
+        );
 
-          html.classList.remove("is-loading");
-          body.classList.remove("is-loading");
-        }, 1800);
+        timers.current.push(
+          window.setTimeout(() => {
+            html.classList.remove("is-loading");
+            body.classList.remove("is-loading");
 
-        // remove loader
-        window.setTimeout(() => {
-          setShowLoader(false);
-        }, 2900);
+            setShowLoader(false);
+          }, 2900),
+        );
 
         return;
       }
@@ -73,11 +74,14 @@ export default function PageLoader() {
     return () => {
       window.clearInterval(interval);
 
+      timers.current.forEach((timer) => {
+        window.clearTimeout(timer);
+      });
+
+      timers.current = [];
+
       html.classList.remove("is-loading");
       body.classList.remove("is-loading");
-
-      window.removeEventListener("wheel", preventScroll);
-      window.removeEventListener("touchmove", preventScroll);
     };
   }, []);
 

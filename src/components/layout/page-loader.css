@@ -13,8 +13,8 @@
   overflow: hidden;
   overscroll-behavior: none;
 
-  background: #0b0b0b;
-  color: #f5f5f3;
+  background: var(--color-bg);
+  color: var(--color-text);
 
   transform: translate3d(0, 0, 0);
 
@@ -23,6 +23,28 @@
   touch-action: none;
 
   will-change: transform;
+}
+
+/* =====================================================
+   LOADER THEME
+===================================================== */
+
+html[data-theme="dark"] .page-loader {
+  background: #0b0b0b;
+  color: #f5f5f3;
+}
+
+html[data-theme="dark"] .page-loader-percent {
+  color: #777;
+}
+
+html[data-theme="light"] .page-loader {
+  background: #ffffff;
+  color: #111111;
+}
+
+html[data-theme="light"] .page-loader-percent {
+  color: #999999;
 }
 
 /* =====================================================
@@ -81,7 +103,7 @@
   margin-top: 0.05em;
   margin-left: 10px;
 
-  color: #777;
+  color: var(--color-text-muted);
 
   font-size: clamp(16px, 1.5vw, 24px);
   font-weight: 400;
@@ -148,11 +170,7 @@ html {
 html.is-loading,
 body.is-loading {
   overflow: hidden !important;
-  overscroll-behavior: none;
-}
-
-body.is-loading {
-  touch-action: none;
+  overscroll-behavior: none !important;
 }
 
 /* =====================================================

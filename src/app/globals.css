@@ -552,30 +552,33 @@ body,
 }
 
 /* =====================================================
-   INITIAL PAGE REVEAL
+   SCROLLBAR
 ===================================================== */
 
-body {
-  animation: page-reveal 1.35s var(--ease-premium) both;
-  will-change: opacity, transform;
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-line-strong) var(--color-bg);
 }
 
-@keyframes page-reveal {
-  0%,
-  25% {
-    opacity: 0;
-    transform: translateY(28px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  body {
-    animation: none;
-    transform: none;
-  }
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-line-strong);
+  border: 2px solid var(--color-bg);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--color-bg);
 }
