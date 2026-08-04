@@ -146,7 +146,10 @@ export default function WorkPage() {
 
       <section className="work-page-hero">
         <div className="site-container">
-          <h1 className="work-page-heading">Selected Work</h1>
+          <h1 className="work-page-heading">
+            Selected
+            <br /> Work
+          </h1>
         </div>
       </section>
 

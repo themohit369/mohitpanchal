@@ -1,30 +1,47 @@
 /* ==========================================================
-   WORK PAGE
-========================================================== */
-
-.work-page {
-  width: 100%;
-  background: var(--color-bg);
-  color: var(--color-text);
-  overflow: hidden;
-}
-
-/* ==========================================================
-   HERO
+   WORK PAGE HERO
 ========================================================== */
 
 .work-page-hero {
-  padding-top: clamp(140px, 12vw, 200px);
+  padding-top: clamp(120px, 12vw, 200px);
 }
 
 .work-page-heading {
   margin: 0;
-  padding: clamp(72px, 7vw, 112px) 0;
+  padding: clamp(72px, 8vw, 140px) 0;
 
-  font-size: clamp(72px, 9.5vw, 168px);
+  font-size: clamp(68px, 8.3vw, 158px);
   font-weight: 500;
-  line-height: 0.88;
-  letter-spacing: -0.07em;
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+
+  white-space: nowrap;
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width: 768px) {
+  .work-page-hero {
+    padding-top: calc(var(--section-space) * 0.6);
+  }
+
+  .work-page-heading {
+    padding: 40px 0;
+
+    font-size: clamp(42px, 12.5vw, 72px);
+    line-height: 0.96;
+    letter-spacing: -0.055em;
+
+    white-space: normal;
+  }
+}
+
+@media (max-width: 480px) {
+  .work-page-heading {
+    font-size: clamp(40px, 12vw, 58px);
+  }
 }
 
 /* ==========================================================
