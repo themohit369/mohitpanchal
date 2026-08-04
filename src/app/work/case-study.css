@@ -230,14 +230,11 @@
 
 .case-next-link h2 {
   max-width: 1500px;
-
   margin: 18px 0 0;
   padding-bottom: 0.08em;
-
-  font-size: clamp(68px, 8.3vw, 158px);
+  font-size: clamp(44px, 4.5vw, 78px);
   font-weight: 500;
-  line-height: 0.88;
-
+  line-height: 1;
   letter-spacing: -0.07em;
 }
 
