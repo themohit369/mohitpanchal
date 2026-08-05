@@ -5,12 +5,22 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { lenisInstance } from "@/components/providers/SmoothScroll";
 import ThemeToggle from "@/components/ui/ThemeToggle";
+
 import "./navbar.css";
 
 const navItems = [
-  { number: "01", name: "Work", href: "/#work" },
-  { number: "02", name: "About", href: "/about" },
-  { number: "03", name: "Contact", href: "/#contact" },
+  {
+    name: "Work",
+    href: "/#work",
+  },
+  {
+    name: "About",
+    href: "/about",
+  },
+  {
+    name: "Contact",
+    href: "/#contact",
+  },
 ];
 
 const socials = [
@@ -19,19 +29,34 @@ const socials = [
     href: "https://www.linkedin.com/in/mohitpanchal/",
   },
   {
+    name: "Dribbble",
+    href: "https://dribbble.com/mohitpanchal",
+  },
+  {
     name: "Behance",
     href: "https://www.behance.net/mohituix/",
   },
   {
-    name: "Dribbble",
-    href: "https://dribbble.com/mohitpanchal",
+    name: "Instagram",
+    href: "https://www.instagram.com/themohit369/",
   },
 ];
+
+function getIndiaTime() {
+  return new Intl.DateTimeFormat("en-US", {
+    timeZone: "Asia/Kolkata",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: true,
+  }).format(new Date());
+}
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [localTime, setLocalTime] = useState("");
 
   const lastY = useRef(0);
 
@@ -52,12 +77,16 @@ export default function Navbar() {
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setMenuOpen(false);
+      if (e.key === "Escape") {
+        setMenuOpen(false);
+      }
     };
 
     window.addEventListener("keydown", onKey);
 
-    return () => window.removeEventListener("keydown", onKey);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+    };
   }, []);
 
   useEffect(() => {
@@ -79,9 +108,13 @@ export default function Navbar() {
       lastY.current = y;
     };
 
-    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("scroll", onScroll, {
+      passive: true,
+    });
 
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
   }, [menuOpen]);
 
   useEffect(() => {
@@ -95,8 +128,25 @@ export default function Navbar() {
       page.classList.remove("page-menu-open");
     }
 
-    return () => page.classList.remove("page-menu-open");
+    return () => {
+      page.classList.remove("page-menu-open");
+    };
   }, [menuOpen]);
+
+  useEffect(() => {
+    const updateTime = () => {
+      setLocalTime(getIndiaTime());
+    };
+
+    updateTime();
+
+    const interval = window.setInterval(updateTime, 1000);
+
+    return () => {
+      window.clearInterval(interval);
+    };
+  }, []);
+
   return (
     <>
       <header
@@ -127,6 +177,8 @@ export default function Navbar() {
               type="button"
               className="editorial-menu-button"
               onClick={() => setMenuOpen((v) => !v)}
+              aria-expanded={menuOpen}
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
             >
               {menuOpen ? "Close" : "Menu"}
             </button>
@@ -140,22 +192,46 @@ export default function Navbar() {
         {menuOpen && (
           <motion.aside
             className="mobile-menu"
-            initial={{ opacity: 0, y: -16 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+            initial={{
+              opacity: 0,
+              y: -16,
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+            }}
+            exit={{
+              opacity: 0,
+              y: -12,
+            }}
+            transition={{
+              duration: 0.45,
+              ease: [0.16, 1, 0.3, 1],
+            }}
           >
             <div className="mobile-menu-inner">
-              <nav>
+              {/* PRIMARY NAV */}
+
+              <nav className="mobile-primary-nav">
                 {navItems.map((item, index) => (
                   <motion.div
+                    className="mobile-nav-item"
                     key={item.name}
-                    initial={{ opacity: 0, y: 24 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 16 }}
+                    initial={{
+                      opacity: 0,
+                      y: 20,
+                    }}
+                    animate={{
+                      opacity: 1,
+                      y: 0,
+                    }}
+                    exit={{
+                      opacity: 0,
+                      y: 12,
+                    }}
                     transition={{
                       duration: 0.45,
-                      delay: index * 0.06,
+                      delay: index * 0.055,
                       ease: [0.16, 1, 0.3, 1],
                     }}
                   >
@@ -164,40 +240,126 @@ export default function Navbar() {
                       onClick={() => setMenuOpen(false)}
                       className="mobile-link"
                     >
-                      <span>{item.number}</span>
+                      <span className="mobile-link-dot" />
 
                       <strong>{item.name}</strong>
 
-                      <em>↗</em>
+                      <span className="mobile-link-arrow" aria-hidden="true">
+                        ↗
+                      </span>
                     </Link>
                   </motion.div>
                 ))}
-              </nav>
 
-              <div className="mobile-footer">
                 <motion.div
-                  className="mobile-socials"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
+                  className="mobile-nav-item"
+                  initial={{
+                    opacity: 0,
+                    y: 20,
+                  }}
+                  animate={{
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  exit={{
+                    opacity: 0,
+                    y: 12,
+                  }}
                   transition={{
-                    delay: 0.58,
-                    duration: 0.4,
+                    duration: 0.45,
+                    delay: navItems.length * 0.055,
+                    ease: [0.16, 1, 0.3, 1],
                   }}
                 >
-                  {socials.map((item) => (
+                  <a
+                    href="/mohit-panchal-resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mobile-link"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    <span className="mobile-link-dot" />
+
+                    <strong>Resume</strong>
+
+                    <span className="mobile-link-arrow" aria-hidden="true">
+                      ↗
+                    </span>
+                  </a>
+                </motion.div>
+              </nav>
+
+              {/* SOCIAL */}
+
+              <motion.div
+                className="mobile-social-section"
+                initial={{
+                  opacity: 0,
+                  y: 16,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  delay: 0.28,
+                  duration: 0.5,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+              >
+                <span className="mobile-social-heading">Social</span>
+
+                <nav className="mobile-socials" aria-label="Social links">
+                  {socials.map((social, index) => (
                     <a
-                      key={item.name}
-                      href={item.href}
+                      key={social.name}
+                      href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
+                      className="mobile-social-link"
                     >
-                      {item.name}
+                      <span>{social.name}</span>
+
+                      <span className="mobile-social-index">
+                        ({String(index + 1).padStart(2, "0")})
+                      </span>
+
+                      <span className="mobile-social-line" />
                     </a>
                   ))}
+                </nav>
+              </motion.div>
 
-                  <a href="mailto:mohitp846@gmail.com">Email</a>
-                </motion.div>
-              </div>
+              {/* LOCATION */}
+
+              <motion.div
+                className="mobile-menu-location"
+                initial={{
+                  opacity: 0,
+                  y: 12,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  delay: 0.38,
+                  duration: 0.5,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+              >
+                <p>
+                  India
+                  {localTime && (
+                    <>
+                      <span className="mobile-time-separator"> · </span>
+                      <span className="mobile-time">{localTime}</span>
+                    </>
+                  )}
+                </p>
+
+                <p>Working worldwide</p>
+              </motion.div>
             </div>
           </motion.aside>
         )}
