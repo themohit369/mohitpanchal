@@ -2,6 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { motion, useReducedMotion, type Variants } from "framer-motion";
+
+import Marquee from "@/components/ui/Marquee";
+
 import "./footer.css";
 
 const EMAIL = "mohitp846@gmail.com";
@@ -115,6 +118,12 @@ export default function Footer() {
 
   return (
     <footer id="contact" className="portfolio-footer">
+      <Marquee
+        ariaLabel="Contact me about a project"
+        className="footer-marquee"
+      >
+        Have a project in mind? Let&apos;s talk
+      </Marquee>
       <div className="site-container">
         {/* =====================================================
             LOCATION + CONTACT

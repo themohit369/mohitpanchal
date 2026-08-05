@@ -218,16 +218,7 @@ export default function PowerPackElementsPage() {
         </div>
       </section>
 
-      <NextProject
-        title={
-          <>
-            Max Addons
-            <br />
-            for Bricks
-          </>
-        }
-        href="/work/max-addons"
-      />
+      <NextProject />
 
       <Footer />
     </main>

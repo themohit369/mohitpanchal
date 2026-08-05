@@ -44,7 +44,7 @@
   grid-template-columns: repeat(12, minmax(0, 1fr));
   column-gap: var(--grid-gap);
   row-gap: clamp(88px, 7vw, 128px);
-  margin-top: clamp(88px, 7vw, 120px);
+  margin-top: var(--section-meta-gap);
 }
 
 /* =====================================================
@@ -237,7 +237,7 @@
 
   .testimonials-grid {
     row-gap: clamp(96px, 8vw, 132px);
-    margin-top: clamp(88px, 8vw, 120px);
+    margin-top: var(--section-meta-gap);
   }
 
   .testimonial-item-1,

@@ -230,16 +230,7 @@ export default function MaxAddonsPage() {
           </div>
         </div>
       </section>
-      <NextProject
-        title={
-          <>
-            The Drip
-            <br />
-            Line
-          </>
-        }
-        href="/work/the-drip-line"
-      />
+      <NextProject />
       <Footer />
     </main>
   );

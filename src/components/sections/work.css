@@ -19,7 +19,7 @@
 ===================================================== */
 
 .work-intro {
-  padding-top: clamp(56px, 4.5vw, 72px);
+  padding-top: var(--section-meta-gap);
 }
 
 .work-intro-content {

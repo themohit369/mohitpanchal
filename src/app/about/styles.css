@@ -14,7 +14,7 @@
 ===================================================== */
 
 .about-page-hero {
-  padding-top: clamp(120px, 12vw, 200px);
+  padding-top: var(--section-space);
 }
 
 /* =====================================================
@@ -22,7 +22,7 @@
 ===================================================== */
 
 .about-page-title-wrap {
-  padding: clamp(72px, 8vw, 140px) 0;
+  padding: var(--section-meta-gap) 0 var(--section-space-small);
 }
 
 .about-page-title {
@@ -77,14 +77,13 @@
 
 .about-story {
   position: relative;
-  padding-top: var(--section-space);
-  padding-bottom: clamp(80px, 7vw, 120px);
+  padding-block: var(--section-space);
 }
 
 .about-story-grid {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
-  column-gap: clamp(24px, 2vw, 40px);
+  column-gap: var(--grid-gap);
   row-gap: 0;
   padding-top: 0;
   align-items: start;
@@ -132,8 +131,8 @@
   grid-template-columns: repeat(12, minmax(0, 1fr));
   column-gap: var(--grid-gap);
 
-  margin-top: 56px;
-  padding-top: 32px;
+  margin-top: var(--section-meta-gap);
+  padding-top: 20px;
 
   border-top: 1px solid var(--color-line);
 }
@@ -168,23 +167,10 @@
 
 /* STORY → EXPERIENCE */
 
-.about-page .experience-section-about {
-  padding-top: clamp(96px, 9vw, 144px);
-  padding-bottom: clamp(120px, 10vw, 176px);
-}
-
-/* EXPERIENCE → THINGS */
-
-.about-page .things-section {
-  padding-top: clamp(112px, 10vw, 176px);
-  padding-bottom: clamp(120px, 10vw, 176px);
-}
-
-/* THINGS → IDENTITY */
-
+.about-page .experience-section-about,
+.about-page .things-section,
 .about-page .identity-section {
-  padding-top: clamp(112px, 10vw, 176px);
-  padding-bottom: clamp(112px, 9vw, 160px);
+  padding-block: var(--section-space);
 }
 
 /* =====================================================
@@ -215,23 +201,6 @@
   .about-story-content h2 {
     font-size: clamp(48px, 6vw, 70px);
   }
-
-  /* PAGE RHYTHM */
-
-  .about-page .experience-section-about {
-    padding-top: 104px;
-    padding-bottom: 136px;
-  }
-
-  .about-page .things-section {
-    padding-top: 120px;
-    padding-bottom: 136px;
-  }
-
-  .about-page .identity-section {
-    padding-top: 120px;
-    padding-bottom: 120px;
-  }
 }
 
 /* =====================================================
@@ -242,11 +211,11 @@
   /* HERO */
 
   .about-page-hero {
-    padding-top: 104px;
+    padding-top: var(--section-space-small);
   }
 
   .about-page-title-wrap {
-    padding: 64px 0 72px;
+    padding: var(--section-meta-gap) 0 var(--section-space-small);
   }
 
   .about-page-title {
@@ -260,7 +229,7 @@
 
   .about-page-hero-bottom {
     display: block;
-    padding-bottom: 96px;
+    padding-bottom: var(--section-space);
   }
 
   .about-page-hero-image {
@@ -279,17 +248,16 @@
   /* STORY */
 
   .about-story {
-    padding-top: 96px;
-    padding-bottom: 72px;
+    padding-block: var(--section-space);
   }
 
   .about-story-grid {
     display: block;
-    padding-top: 56px;
+    padding-top: 0;
   }
 
   .about-story-label {
-    margin-bottom: 32px;
+    margin-bottom: 20px;
   }
 
   .about-story-content h2 {
@@ -299,8 +267,7 @@
 
   .about-story-copy {
     display: block;
-
-    margin-top: 48px;
+    margin-top: var(--section-meta-gap);
   }
 
   .about-story-copy p:first-child {
@@ -324,23 +291,6 @@
   .about-story-copy p:last-child {
     margin-bottom: 0;
   }
-
-  /* PAGE RHYTHM */
-
-  .about-page .experience-section-about {
-    padding-top: 88px;
-    padding-bottom: 112px;
-  }
-
-  .about-page .things-section {
-    padding-top: 96px;
-    padding-bottom: 112px;
-  }
-
-  .about-page .identity-section {
-    padding-top: 96px;
-    padding-bottom: 96px;
-  }
 }
 
 /* =====================================================
@@ -349,14 +299,6 @@
 
 @media (max-width: 480px) {
   /* HERO */
-
-  .about-page-hero {
-    padding-top: 88px;
-  }
-
-  .about-page-title-wrap {
-    padding: 56px 0 64px;
-  }
 
   .about-page-title {
     font-size: clamp(46px, 14vw, 66px);
@@ -370,32 +312,8 @@
     margin-top: 40px;
   }
 
-  /* STORY */
-
-  .about-story {
-    padding-top: 72px;
-    padding-bottom: 56px;
-  }
-
   .about-story-content h2 {
     font-size: clamp(36px, 10vw, 48px);
-  }
-
-  /* PAGE RHYTHM */
-
-  .about-page .experience-section-about {
-    padding-top: 72px;
-    padding-bottom: 96px;
-  }
-
-  .about-page .things-section {
-    padding-top: 80px;
-    padding-bottom: 96px;
-  }
-
-  .about-page .identity-section {
-    padding-top: 80px;
-    padding-bottom: 80px;
   }
 }
 

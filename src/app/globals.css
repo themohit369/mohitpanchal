@@ -377,10 +377,9 @@ button {
   display: block;
   width: 100%;
   overflow: hidden;
-
   padding-block: 60px 32px;
-
-  color: var(--color-text);
+  /* color: var(--color-text); */
+  color: var(--color-text-soft);
 }
 
 .editorial-marquee-track {

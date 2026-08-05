@@ -23,14 +23,22 @@
   background: var(--color-line);
   transform-origin: left center;
 }
+/* =====================================================
+   MARQUEE
+===================================================== */
+
+.portfolio-footer .footer-marquee {
+  margin-top: var(--section-meta-gap);
+  margin-bottom: var(--section-meta-gap);
+}
 
 /* =====================================================
    CONTACT
 ===================================================== */
 
 .footer-contact {
-  padding-top: clamp(76px, 7vw, 112px);
-  padding-bottom: clamp(84px, 7vw, 120px);
+  padding-top: var(--section-meta-gap);
+  padding-bottom: var(--section-meta-gap);
 }
 
 /* =====================================================
