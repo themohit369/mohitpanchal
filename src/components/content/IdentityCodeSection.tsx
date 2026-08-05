@@ -148,7 +148,7 @@ export default function IdentityCodeSection() {
             {/* PREVIEW */}
 
             <motion.a
-              href="/the-identity-code-preview-edition.pdf"
+              href="/images/book/the-identity-code-preview-edition.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="identity-preview-link"
@@ -203,7 +203,7 @@ export default function IdentityCodeSection() {
           >
             <div className="identity-book-cover">
               <Image
-                src="/images/identity-code/identity-code-cover.jpg"
+                src="/images/book/cover.png"
                 alt="The Identity Code book cover"
                 fill
                 priority={false}
