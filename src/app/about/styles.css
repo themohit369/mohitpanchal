@@ -5,7 +5,6 @@
 .about-page {
   width: 100%;
   overflow: hidden;
-
   background: var(--color-bg);
   color: var(--color-text);
 }
@@ -44,7 +43,6 @@
 
 .about-page-hero-bottom {
   align-items: end;
-
   padding-bottom: var(--section-space);
 }
 
@@ -79,7 +77,6 @@
 
 .about-story {
   position: relative;
-
   padding-top: var(--section-space);
   padding-bottom: clamp(80px, 7vw, 120px);
 }
@@ -89,7 +86,7 @@
   grid-template-columns: repeat(12, minmax(0, 1fr));
   column-gap: clamp(24px, 2vw, 40px);
   row-gap: 0;
-  padding-top: clamp(72px, 7vw, 120px);
+  padding-top: 0;
   align-items: start;
 }
 
@@ -263,7 +260,6 @@
 
   .about-page-hero-bottom {
     display: block;
-
     padding-bottom: 96px;
   }
 
@@ -289,7 +285,6 @@
 
   .about-story-grid {
     display: block;
-
     padding-top: 56px;
   }
 

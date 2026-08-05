@@ -4,7 +4,6 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 import "./identity-code-section.css";
-import "../ui/action-link.css";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -41,40 +40,18 @@ export default function IdentityCodeSection() {
         </motion.div>
 
         {/* =====================================================
-            MAIN CONTENT
+            MAIN GRID
         ===================================================== */}
 
         <div className="identity-grid">
           {/* CONTENT */}
 
           <div className="identity-content">
-            <motion.span
-              className="identity-label"
-              initial={{
-                opacity: 0,
-                y: 16,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              viewport={{
-                once: true,
-                amount: 0.8,
-              }}
-              transition={{
-                duration: 0.7,
-                ease,
-              }}
-            >
-              A book I&apos;m writing
-            </motion.span>
-
             <motion.h2
               className="identity-title"
               initial={{
                 opacity: 0,
-                y: 36,
+                y: 28,
               }}
               whileInView={{
                 opacity: 1,
@@ -85,7 +62,7 @@ export default function IdentityCodeSection() {
                 amount: 0.35,
               }}
               transition={{
-                duration: 0.9,
+                duration: 0.85,
                 ease,
               }}
             >
@@ -96,7 +73,7 @@ export default function IdentityCodeSection() {
               className="identity-statement"
               initial={{
                 opacity: 0,
-                y: 24,
+                y: 20,
               }}
               whileInView={{
                 opacity: 1,
@@ -108,7 +85,7 @@ export default function IdentityCodeSection() {
               }}
               transition={{
                 duration: 0.8,
-                delay: 0.06,
+                delay: 0.05,
                 ease,
               }}
             >
@@ -121,7 +98,7 @@ export default function IdentityCodeSection() {
               className="identity-description"
               initial={{
                 opacity: 0,
-                y: 24,
+                y: 18,
               }}
               whileInView={{
                 opacity: 1,
@@ -133,7 +110,7 @@ export default function IdentityCodeSection() {
               }}
               transition={{
                 duration: 0.8,
-                delay: 0.12,
+                delay: 0.1,
                 ease,
               }}
             >
@@ -142,11 +119,13 @@ export default function IdentityCodeSection() {
               repeated reality.
             </motion.p>
 
+            {/* STATUS */}
+
             <motion.div
               className="identity-status"
               initial={{
                 opacity: 0,
-                y: 16,
+                y: 14,
               }}
               whileInView={{
                 opacity: 1,
@@ -158,59 +137,80 @@ export default function IdentityCodeSection() {
               }}
               transition={{
                 duration: 0.7,
-                delay: 0.16,
+                delay: 0.14,
                 ease,
               }}
             >
               <span className="identity-status-dot" />
-              <span>Currently writing</span>
+              <span>Currently writing · Coming soon</span>
             </motion.div>
+
+            {/* PREVIEW */}
+
+            <motion.a
+              href="/the-identity-code-preview-edition.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="identity-preview-link"
+              initial={{
+                opacity: 0,
+                y: 14,
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+              viewport={{
+                once: true,
+                amount: 0.7,
+              }}
+              transition={{
+                duration: 0.7,
+                delay: 0.18,
+                ease,
+              }}
+            >
+              <span>Read preview edition</span>
+              <span className="identity-preview-arrow" aria-hidden="true">
+                ↗
+              </span>
+            </motion.a>
           </div>
 
-          {/* BOOK COVER */}
+          {/* =====================================================
+              BOOK
+          ===================================================== */}
 
           <motion.div
             className="identity-book"
             initial={{
               opacity: 0,
-              y: 56,
-              rotate: 1.5,
+              y: 36,
             }}
             whileInView={{
               opacity: 1,
               y: 0,
-              rotate: 0,
             }}
             viewport={{
               once: true,
               amount: 0.2,
             }}
             transition={{
-              duration: 1,
-              delay: 0.1,
+              duration: 0.95,
+              delay: 0.08,
               ease,
             }}
           >
-            <motion.div
-              className="identity-book-cover"
-              whileHover={{
-                rotateY: -1,
-                rotateZ: 0.25,
-                y: -6,
-              }}
-              transition={{
-                duration: 0.6,
-                ease,
-              }}
-            >
+            <div className="identity-book-cover">
               <Image
                 src="/images/identity-code/identity-code-cover.jpg"
                 alt="The Identity Code book cover"
                 fill
-                sizes="(max-width: 768px) 82vw, 420px"
+                priority={false}
+                sizes="(max-width: 768px) 86vw, (max-width: 1024px) 34vw, 410px"
                 className="identity-book-image"
               />
-            </motion.div>
+            </div>
           </motion.div>
         </div>
 

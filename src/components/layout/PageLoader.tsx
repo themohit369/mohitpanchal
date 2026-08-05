@@ -108,8 +108,6 @@ export default function PageLoader() {
             <span className="page-loader-number">
               {String(progress).padStart(2, "0")}
             </span>
-
-            <span className="page-loader-percent">%</span>
           </>
         ) : (
           <span key={stage} className="page-loader-final-text">

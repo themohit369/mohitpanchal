@@ -13,7 +13,7 @@
 ===================================================== */
 
 .testimonials-heading-wrap {
-  padding-top: clamp(64px, 5.5vw, 88px);
+  padding-top: 0;
 }
 
 .testimonials-heading {
@@ -232,7 +232,7 @@
 
 @media (max-width: 1024px) {
   .testimonials-heading-wrap {
-    padding-top: clamp(56px, 4.5vw, 72px);
+    padding-top: 0;
   }
 
   .testimonials-grid {
@@ -270,7 +270,7 @@
 
 @media (max-width: 768px) {
   .testimonials-heading-wrap {
-    padding-top: 48px;
+    padding-top: 0;
   }
 
   .testimonials-heading {

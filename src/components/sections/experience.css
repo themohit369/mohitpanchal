@@ -16,10 +16,8 @@
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
   column-gap: var(--grid-gap);
-
   align-items: end;
-
-  padding-top: clamp(72px, 6vw, 104px);
+  padding-top: 0;
   padding-bottom: clamp(80px, 7vw, 120px);
 }
 

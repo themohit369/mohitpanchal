@@ -111,7 +111,6 @@
   grid-template-columns: 4fr 8fr;
   gap: clamp(40px, 5vw, 80px);
   align-items: start;
-  margin-top: 72px;
 }
 
 .case-story-block {
@@ -155,7 +154,7 @@
 ========================================================== */
 
 .case-outcome-simple {
-  padding: var(--section-space) 0;
+  padding: 0 0 var(--section-space);
 }
 
 .case-outcome-grid {
@@ -163,7 +162,6 @@
   grid-template-columns: 7fr 5fr;
   gap: clamp(40px, 6vw, 90px);
   align-items: center;
-  margin-top: 72px;
 }
 
 .case-outcome-image {
@@ -211,7 +209,7 @@
 ========================================================== */
 
 .case-next-project {
-  padding: 160px 0;
+  padding: 0 0 160px;
 }
 
 .case-next-project .section-line {
@@ -320,16 +318,18 @@
     font-size: 22px;
   }
 
-  .case-story,
-  .case-outcome-simple {
+  .case-story {
     padding: 88px 0;
+  }
+
+  .case-outcome-simple {
+    padding: 0 0 88px;
   }
 
   .case-story-grid,
   .case-outcome-grid {
     grid-template-columns: 1fr;
     gap: 48px;
-    margin-top: 48px;
   }
 
   .case-story-block {
@@ -357,7 +357,7 @@
   }
 
   .case-next-project {
-    padding: 90px 0;
+    padding: 0 0 90px;
   }
 
   .case-next-link {

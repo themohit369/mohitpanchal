@@ -95,6 +95,10 @@
 
   --scale-hover: 1.02;
   --scale-active: 0.985;
+
+  /* SECTION META */
+
+  --section-meta-gap: clamp(48px, 4vw, 60px);
 }
 
 /* =====================================================
@@ -294,22 +298,14 @@ button {
 
 .section-meta {
   display: grid;
-
   grid-template-columns: repeat(3, minmax(0, 1fr));
-
   align-items: center;
-
   padding-block: 12px;
-
+  margin-bottom: var(--section-meta-gap);
   border-top: 1px solid var(--color-line);
-
   color: var(--color-text-soft);
-
   font-size: var(--text-meta);
-
   line-height: 1.2;
-  /* 
-  text-transform: uppercase; */
 }
 
 .section-meta > :nth-child(2) {
@@ -382,7 +378,7 @@ button {
   width: 100%;
   overflow: hidden;
 
-  padding-block: 28px 32px;
+  padding-block: 60px 32px;
 
   color: var(--color-text);
 }

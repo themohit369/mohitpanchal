@@ -176,10 +176,6 @@
    SHARED SECTION META
 ===================================================== */
 
-.work-section-meta {
-  margin-bottom: clamp(72px, 7vw, 112px);
-}
-
 /* =====================================================
    IDENTITY SECTION
 ===================================================== */
@@ -495,10 +491,6 @@
     font-size: 18px;
   }
 
-  .work-section-meta {
-    margin-bottom: 48px;
-  }
-
   .work-identity-container {
     padding-bottom: 88px;
   }
@@ -577,10 +569,6 @@
   .work-identity-grid,
   .work-gallery-grid {
     gap: 48px;
-  }
-
-  .work-section-meta {
-    margin-bottom: 40px;
   }
 
   .work-gallery-info {

@@ -4,9 +4,7 @@
 
 .about-section {
   position: relative;
-
   width: 100%;
-
   padding-block: var(--section-space) var(--section-space-small);
 }
 
@@ -15,7 +13,7 @@
 ===================================================== */
 
 .about-heading-wrap {
-  padding-top: 64px;
+  padding-top: 0;
 }
 
 .about-heading {
@@ -175,7 +173,7 @@
   /* HEADING */
 
   .about-heading-wrap {
-    padding-top: 40px;
+    padding-top: 0;
   }
 
   .about-heading {

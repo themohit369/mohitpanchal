@@ -9,12 +9,10 @@
 .work-page-heading {
   margin: 0;
   padding: clamp(72px, 8vw, 140px) 0;
-
   font-size: clamp(68px, 8.3vw, 158px);
   font-weight: 500;
   line-height: 0.98;
   letter-spacing: -0.055em;
-
   white-space: nowrap;
 }
 
