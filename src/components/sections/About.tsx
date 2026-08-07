@@ -221,7 +221,7 @@ export default function About() {
               className="about-copy"
             >
               <p className="body-text">
-                Over the past 8+ years, I&apos;ve helped startups, SaaS
+                Over the past 10+ years, I&apos;ve helped startups, SaaS
                 companies, and product teams design digital experiences that
                 feel effortless, intentional, and meaningful. My approach
                 combines product thinking, interface craft, and front-end

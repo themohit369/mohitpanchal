@@ -67,7 +67,7 @@ export default function MaxAddonsPage() {
 
               <div className="case-meta-item">
                 <span>Company</span>
-                <strong>Freelance</strong>
+                <strong>Max Addons</strong>
               </div>
             </motion.aside>
 
@@ -84,7 +84,7 @@ export default function MaxAddonsPage() {
               className="case-hero-image media-frame"
             >
               <Image
-                src="/images/work/project-2.png"
+                src="/images/work/project-2.webp"
                 alt="MaxAddons for Bricks"
                 fill
                 priority
@@ -175,7 +175,7 @@ export default function MaxAddonsPage() {
 
             <div className="case-story-image media-frame">
               <Image
-                src="/images/work/maxaddons/story.jpg"
+                src="/images/work/max-addons-case-study-story.webp"
                 alt="Max Addons Brand Identity"
                 fill
                 className="object-cover"
@@ -201,7 +201,7 @@ export default function MaxAddonsPage() {
           <div className="case-outcome-grid">
             <div className="case-outcome-image media-frame">
               <Image
-                src="/images/work/maxaddons/project-2.png"
+                src="/images/work/max-addons-case-study-outcome.webp"
                 alt="Max Addons Website"
                 fill
                 className="object-cover"

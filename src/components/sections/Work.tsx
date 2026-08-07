@@ -51,7 +51,7 @@ const identityWork = [
   {
     title: "The Drip Line",
     category: "Logo Design · Brand Identity",
-    image: "/images/work/the-drip-line-logo-img_1_5x-1-scaled.webp",
+    image: "/images/work/the-drip-line-logo.webp",
   },
   {
     title: "Power Pack Elements",

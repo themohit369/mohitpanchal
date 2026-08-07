@@ -192,7 +192,7 @@ export default function Footer() {
             variants={reduceMotion ? undefined : reveal}
           >
             <a href={mailtoLink} className="footer-email">
-              <span className="footer-email-text">{EMAIL}</span>
+              <span className="footer-email-text">Drop me a line</span>
 
               <span className="footer-email-arrow" aria-hidden="true">
                 ↗
@@ -288,7 +288,7 @@ export default function Footer() {
             <p className="footer-copyright">
               © 2026 Mohit Panchal.
               <br />
-              Designed in India with love & care ♥
+              Designed in India with Love ♥
             </p>
           </motion.div>
         </div>

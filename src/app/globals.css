@@ -415,7 +415,7 @@ button {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  color: var(--color-text-muted);
+  color: var(--color-text);
   font-size: 3em;
   line-height: 1;
 }

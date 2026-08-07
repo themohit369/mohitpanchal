@@ -67,7 +67,7 @@ export default function PowerPackElementsPage() {
 
               <div className="case-meta-item">
                 <span>Company</span>
-                <strong>Freelance</strong>
+                <strong>IdeaBox Creations</strong>
               </div>
             </motion.aside>
 
@@ -162,7 +162,7 @@ export default function PowerPackElementsPage() {
 
             <div className="case-story-image media-frame">
               <Image
-                src="/images/work/ppe-case-study-image-1.webp"
+                src="/images/work/ppe-case-study-story.webp"
                 alt="PowerPack"
                 fill
                 className="object-cover"
@@ -188,7 +188,7 @@ export default function PowerPackElementsPage() {
           <div className="case-outcome-grid">
             <div className="case-outcome-image media-frame">
               <Image
-                src="/images/work/ppe-case-study-image-2.webp"
+                src="/images/work/ppe-case-study-outcome.webp"
                 alt=""
                 fill
                 className="object-cover"
