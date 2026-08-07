@@ -14,7 +14,7 @@ const caseStudies = [
     year: "2026",
     title: "PowerPack Elements",
     category: "Product Design + UX/UI",
-    image: "/images/work/project-1.png",
+    image: "/images/work/project-1.webp",
     href: "/work/powerpack-elements",
   },
   {
@@ -22,7 +22,7 @@ const caseStudies = [
     year: "2026",
     title: "Max Addons for Bricks",
     category: "Product Design + UX/UI",
-    image: "/images/work/project-2.png",
+    image: "/images/work/project-2.webp",
     href: "/work/max-addons",
   },
 ];
@@ -36,11 +36,13 @@ const identityWork = [
     title: "Max Addons",
     category: "Logo Design + Brand Identity",
     image: "/images/work/max-addons-logo-img_1_5x-1-scaled.webp",
+    href: "/work/max-addons",
   },
   {
     title: "The Drip Line",
     category: "Logo Design + Brand Identity",
     image: "/images/work/project-3.png",
+    href: "/work/the-drip-line",
   },
 ];
 
@@ -50,69 +52,64 @@ const identityWork = [
 
 const webWork = [
   {
-    title: "PowerPack Elements",
-    category: "Product Website + UI",
-    image: "/images/work/ppe-web-temp-img_1_5x-scaled.webp",
-  },
-  {
-    title: "PowerPack WooCommerce",
-    category: "Website Design + UI",
-    image: "/images/work/ppe-web-temp-img-scaled.webp",
-  },
-  {
-    title: "Max Addons",
-    category: "Product Website + UI",
-    image: "/images/work/max-addons-web-temp-img_1_5x-scaled.webp",
-  },
-  {
     title: "PowerPack Anniversary",
     category: "Campaign Website",
     image: "/images/work/ppe-bday-temp-img_1_5x-scaled.webp",
+    href: "/work/powerpack-anniversary",
   },
   {
     title: "Black Friday",
     category: "Campaign Design + UI",
     image: "/images/work/bf-ppe-temp-img_1_5x-scaled.webp",
+    href: "/work/black-friday",
   },
   {
     title: "Design Agency",
     category: "Website Design",
     image: "/images/work/des-agency-temp-img_1_5x-scaled.webp",
+    href: "/work/design-agency",
   },
   {
     title: "Digital Marketing",
     category: "Website Design",
     image: "/images/work/digi-temp-img_1_5x-scaled.webp",
+    href: "/work/digital-marketing",
   },
   {
     title: "Builder",
     category: "Website Design",
     image: "/images/work/builder-temp-img_1_5x-scaled.webp",
+    href: "/work/builder",
   },
   {
     title: "Furniture",
     category: "E-commerce Website",
     image: "/images/work/furniture-temp-img_1_5x-scaled.webp",
+    href: "/work/furniture",
   },
   {
     title: "Fitness",
     category: "Website Design",
     image: "/images/work/gym-temp-img_1_5x-scaled.webp",
+    href: "/work/fitness",
   },
   {
     title: "Home Space",
     category: "Website Design",
     image: "/images/work/home-space-temp-img_1_5x-scaled.webp",
+    href: "/work/home-space",
   },
   {
     title: "Jewellery",
     category: "E-commerce Website",
     image: "/images/work/jewellery-temp-img_1_5x-scaled.webp",
+    href: "/work/jewellery",
   },
   {
     title: "Food & Restaurant",
     category: "Website Design",
     image: "/images/work/pizza-temp-img_1_5x-scaled.webp",
+    href: "/work/food-restaurant",
   },
 ];
 
@@ -252,7 +249,7 @@ export default function WorkPage() {
 
         <div className="section-meta work-section-meta">
           <span>Selected Web Work</span>
-          <span>(05 — 17)</span>
+          <span>(05 — 16)</span>
           <span>Website Design + UI</span>
         </div>
 
@@ -290,7 +287,7 @@ export default function WorkPage() {
 
         <div className="section-meta work-section-meta">
           <span>Design Explorations</span>
-          <span>(18 — 19)</span>
+          <span>(17 — 18)</span>
           <span>Visual + Web Design</span>
         </div>
 

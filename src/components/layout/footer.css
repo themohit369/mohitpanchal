@@ -5,7 +5,7 @@
 .portfolio-footer {
   position: relative;
   width: 100%;
-  padding-top: var(--section-space);
+  /* padding-top: var(--section-space); */
   padding-bottom: 40px;
   overflow: hidden;
   background: var(--color-bg);
@@ -473,7 +473,7 @@
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
   gap: var(--grid-gap);
-  padding-bottom: 20px;
+  padding-bottom: var(--section-meta-gap);
 }
 
 .footer-info-block {

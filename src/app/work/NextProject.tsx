@@ -6,14 +6,14 @@ const projects = [
     year: "2025",
     title: "PowerPack Elements",
     category: "Product Design · UX/UI",
-    image: "/images/work/project-1.png",
+    image: "/images/work/project-1.webp",
     href: "/work/powerpack-elements",
   },
   {
     year: "2025",
     title: "Max Addons for Bricks",
     category: "Product Design · UX/UI",
-    image: "/images/work/project-2.png",
+    image: "/images/work/project-2.webp",
     href: "/work/max-addons",
   },
 ];

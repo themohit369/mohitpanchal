@@ -84,7 +84,7 @@ export default function PowerPackElementsPage() {
               className="case-hero-image media-frame"
             >
               <Image
-                src="/images/work/project-1.png"
+                src="/images/work/project-1.webp"
                 alt="PowerPack Elements"
                 fill
                 priority
@@ -162,7 +162,7 @@ export default function PowerPackElementsPage() {
 
             <div className="case-story-image media-frame">
               <Image
-                src="/images/work/project-1.png"
+                src="/images/work/ppe-case-study-image-1.webp"
                 alt="PowerPack"
                 fill
                 className="object-cover"
@@ -188,7 +188,7 @@ export default function PowerPackElementsPage() {
           <div className="case-outcome-grid">
             <div className="case-outcome-image media-frame">
               <Image
-                src="/images/work/project-1.png"
+                src="/images/work/ppe-case-study-image-2.webp"
                 alt=""
                 fill
                 className="object-cover"

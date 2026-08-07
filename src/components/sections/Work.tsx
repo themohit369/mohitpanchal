@@ -26,14 +26,14 @@ const caseStudies = [
     year: "2025",
     title: "PowerPack Elements",
     category: "Product Design · UX/UI",
-    image: "/images/work/project-1.png",
+    image: "/images/work/project-1.webp",
     href: "/work/powerpack-elements",
   },
   {
     year: "2025",
     title: "Max Addons for Bricks",
     category: "Product Design · UX/UI",
-    image: "/images/work/project-2.png",
+    image: "/images/work/project-2.webp",
     href: "/work/max-addons",
   },
 ];
@@ -52,6 +52,11 @@ const identityWork = [
     title: "The Drip Line",
     category: "Logo Design · Brand Identity",
     image: "/images/work/the-drip-line-logo-img_1_5x-1-scaled.webp",
+  },
+  {
+    title: "Power Pack Elements",
+    category: "Logo Design",
+    image: "/images/work/powerpack-logo.webp",
   },
 ];
 
