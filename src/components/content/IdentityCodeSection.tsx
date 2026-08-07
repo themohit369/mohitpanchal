@@ -203,7 +203,7 @@ export default function IdentityCodeSection() {
           >
             <div className="identity-book-cover">
               <Image
-                src="/images/book/cover.png"
+                src="/images/book/cover.webp"
                 alt="The Identity Code book cover"
                 fill
                 priority={false}
