@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
     },
 
-    sitemap: "https://mohitpanchal.com/sitemap.xml",
+    sitemap: "https://mohitpanchal.vercel.app/sitemap.xml",
   };
 }

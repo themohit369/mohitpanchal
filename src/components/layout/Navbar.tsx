@@ -11,7 +11,7 @@ import "./navbar.css";
 const navItems = [
   {
     name: "Work",
-    href: "/#work",
+    href: "/work",
   },
   {
     name: "About",
@@ -19,7 +19,7 @@ const navItems = [
   },
   {
     name: "Contact",
-    href: "/#contact",
+    href: "/contact",
   },
 ];
 

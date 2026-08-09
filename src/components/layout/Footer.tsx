@@ -26,6 +26,14 @@ const socialLinks = [
     label: "Instagram",
     href: "https://www.instagram.com/themohit369/",
   },
+  {
+    label: "Contra",
+    href: "https://contra.com/mohitpanchal",
+  },
+  {
+    label: "GitHub",
+    href: "https://github.com/themohit369",
+  },
 ];
 
 const ease = [0.16, 1, 0.3, 1] as const;
@@ -119,7 +127,8 @@ export default function Footer() {
   return (
     <footer id="contact" className="portfolio-footer">
       <Marquee
-        ariaLabel="Contact me about a project"
+        href="mailto:mohitp846@gmail.com?subject=Work%20Enquiry"
+        ariaLabel="Contact Mohit about a project"
         className="footer-marquee"
       >
         Have a project in mind? Let&apos;s talk
@@ -152,7 +161,7 @@ export default function Footer() {
           <div className="footer-info-block">
             <span className="footer-info-label">Contact</span>
 
-            <a href="tel:+919825916417">+91 97991 60923</a>
+            <a href="tel:+919799160923">+91 97991 60923</a>
 
             <a href="mailto:mohitp846@gmail.com">mohitp846@gmail.com</a>
           </div>

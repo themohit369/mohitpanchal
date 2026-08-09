@@ -46,7 +46,7 @@ const identityWork = [
   {
     title: "Max Addons",
     category: "Logo Design · Brand Identity",
-    image: "/images/work/max-addons-logo-img_1_5x-1-scaled.webp",
+    image: "/images/work/max-addons-logo.webp",
   },
   {
     title: "The Drip Line",
@@ -54,7 +54,7 @@ const identityWork = [
     image: "/images/work/the-drip-line-logo.webp",
   },
   {
-    title: "Power Pack Elements",
+    title: "PowerPack Elements",
     category: "Logo Design",
     image: "/images/work/powerpack-logo.webp",
   },
@@ -325,7 +325,7 @@ export default function Work() {
           }}
         >
           <span>Selected Work</span>
-          <span>(01 — 09)</span>
+          <span>(01 — 10)</span>
           <span>UI/UX + Visual Design</span>
         </motion.div>
       </div>
@@ -424,7 +424,7 @@ export default function Work() {
           }}
         >
           <span>Identity & Visual Work</span>
-          <span>(03 — 04)</span>
+          <span>(03 — 05)</span>
           <span>Logo Design + Brand Identity</span>
         </motion.div>
 
@@ -466,7 +466,7 @@ export default function Work() {
           }}
         >
           <span>Selected Web Work</span>
-          <span>(05 — 09)</span>
+          <span>(06 — 10)</span>
           <span>Website Design + UI</span>
         </motion.div>
 

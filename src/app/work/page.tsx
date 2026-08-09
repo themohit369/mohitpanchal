@@ -11,7 +11,7 @@ import Footer from "@/components/layout/Footer";
 const caseStudies = [
   {
     number: "01",
-    year: "2026",
+    year: "2025",
     title: "PowerPack Elements",
     category: "Product Design + UX/UI",
     image: "/images/work/project-1.webp",
@@ -19,7 +19,7 @@ const caseStudies = [
   },
   {
     number: "02",
-    year: "2026",
+    year: "2025",
     title: "Max Addons for Bricks",
     category: "Product Design + UX/UI",
     image: "/images/work/project-2.webp",
@@ -35,7 +35,7 @@ const identityWork = [
   {
     title: "Max Addons",
     category: "Logo Design + Brand Identity",
-    image: "/images/work/max-addons-logo-img_1_5x-1-scaled.webp",
+    image: "/images/work/max-addons-logo.webp",
     href: "/work/max-addons",
   },
   {
@@ -45,7 +45,7 @@ const identityWork = [
     href: "/work/the-drip-line",
   },
   {
-    title: "Power Pack Elements",
+    title: "PowerPack Elements",
     category: "Logo Design",
     image: "/images/work/powerpack-logo.webp",
   },
@@ -216,7 +216,7 @@ export default function WorkPage() {
 
         <div className="section-meta work-section-meta">
           <span>Identity & Visual Work</span>
-          <span>(03 — 04)</span>
+          <span>(03 — 05)</span>
           <span>Logo Design + Brand Identity</span>
         </div>
 
@@ -254,7 +254,7 @@ export default function WorkPage() {
 
         <div className="section-meta work-section-meta">
           <span>Selected Web Work</span>
-          <span>(05 — 16)</span>
+          <span>(06 — 15)</span>
           <span>Website Design + UI</span>
         </div>
 
@@ -292,7 +292,7 @@ export default function WorkPage() {
 
         <div className="section-meta work-section-meta">
           <span>Design Explorations</span>
-          <span>(17 — 18)</span>
+          <span>(16 — 17)</span>
           <span>Visual + Web Design</span>
         </div>
 
