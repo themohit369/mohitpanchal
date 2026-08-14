@@ -176,7 +176,11 @@ function CaseStudyCard({ project, index }: CaseStudyCardProps) {
         ease,
       }}
     >
-      <Link href={project.href} className="media-frame work-project-image">
+      <Link
+        href={project.href}
+        aria-label={`View ${project.title} product design case study`}
+        className="media-frame work-project-image"
+      >
         <motion.div
           className="work-project-image-motion"
           style={{
@@ -197,7 +201,11 @@ function CaseStudyCard({ project, index }: CaseStudyCardProps) {
         </motion.div>
       </Link>
 
-      <div className="work-project-info">
+      <Link
+        href={project.href}
+        className="work-project-info"
+        aria-label={`Read the ${project.title} case study`}
+      >
         <span className="work-project-year">{project.year}</span>
 
         <div className="work-project-copy">
@@ -205,8 +213,10 @@ function CaseStudyCard({ project, index }: CaseStudyCardProps) {
           <p>{project.category}</p>
         </div>
 
-        <span className="work-project-arrow">↗</span>
-      </div>
+        <span className="work-project-arrow" aria-hidden="true">
+          ↗
+        </span>
+      </Link>
     </motion.article>
   );
 }
@@ -222,6 +232,24 @@ type IdentityCardProps = {
 
 function IdentityCard({ project, index }: IdentityCardProps) {
   const reduceMotion = useReducedMotion();
+  const hasLivePage = project.href !== "#";
+
+  const imageContent = (
+    <Image
+      src={project.image}
+      alt={project.alt}
+      fill
+      sizes="(max-width: 768px) 100vw, 50vw"
+      className="work-identity-image-inner"
+    />
+  );
+
+  const infoContent = (
+    <>
+      <h3>{project.title}</h3>
+      <span>{project.category}</span>
+    </>
+  );
 
   return (
     <motion.article
@@ -248,20 +276,29 @@ function IdentityCard({ project, index }: IdentityCardProps) {
         ease,
       }}
     >
-      <div className="media-frame work-identity-image">
-        <Image
-          src={project.image}
-          alt={project.alt}
-          fill
-          sizes="(max-width: 768px) 100vw, 50vw"
-          className="work-identity-image-inner"
-        />
-      </div>
+      {hasLivePage ? (
+        <Link
+          href={project.href}
+          aria-label={`View ${project.title} design work`}
+          className="media-frame work-identity-image"
+        >
+          {imageContent}
+        </Link>
+      ) : (
+        <div className="media-frame work-identity-image">{imageContent}</div>
+      )}
 
-      <div className="work-gallery-info">
-        <h3>{project.title}</h3>
-        <span>{project.category}</span>
-      </div>
+      {hasLivePage ? (
+        <Link
+          href={project.href}
+          className="work-gallery-info"
+          aria-label={`View ${project.title} design work`}
+        >
+          {infoContent}
+        </Link>
+      ) : (
+        <div className="work-gallery-info">{infoContent}</div>
+      )}
     </motion.article>
   );
 }

@@ -55,7 +55,7 @@ const identityWork = [
     category: "Logo Design + Brand Identity",
     image: "/images/work/logos/the-drip-line-logo.webp",
     alt: "The Drip Line logo and brand identity design by Mohit Panchal",
-    href: "/work/the-drip-line",
+    href: "#",
   },
   {
     title: "PowerPack Elements",
@@ -341,7 +341,11 @@ export default function WorkPage() {
                 />
               </Link>
 
-              <div className="work-project-info">
+              <Link
+                href={project.href}
+                className="work-project-info"
+                aria-label={`Read the ${project.title} case study`}
+              >
                 <span className="work-project-year">{project.year}</span>
 
                 <div className="work-project-copy">
@@ -349,8 +353,10 @@ export default function WorkPage() {
                   <p>{project.category}</p>
                 </div>
 
-                <span className="work-project-arrow">↗</span>
-              </div>
+                <span className="work-project-arrow" aria-hidden="true">
+                  ↗
+                </span>
+              </Link>
             </motion.article>
           ))}
         </div>
@@ -407,28 +413,60 @@ export default function WorkPage() {
         </motion.div>
 
         <div className="work-identity-grid">
-          {identityWork.map((project, index) => (
-            <motion.article
-              key={project.title}
-              className={`work-identity-item work-identity-item-${index + 1}`}
-              {...cardMotion(index)}
-            >
-              <div className="media-frame work-identity-image">
-                <Image
-                  src={project.image}
-                  alt={project.alt}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="work-identity-image-inner"
-                />
-              </div>
+          {identityWork.map((project, index) => {
+            const hasLivePage = project.href !== "#";
 
-              <div className="work-gallery-info">
+            const imageContent = (
+              <Image
+                src={project.image}
+                alt={project.alt}
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="work-identity-image-inner"
+              />
+            );
+
+            const infoContent = (
+              <>
                 <h3>{project.title}</h3>
                 <span>{project.category}</span>
-              </div>
-            </motion.article>
-          ))}
+              </>
+            );
+
+            return (
+              <motion.article
+                key={project.title}
+                className={`work-identity-item work-identity-item-${index + 1}`}
+                {...cardMotion(index)}
+              >
+                {hasLivePage ? (
+                  <Link
+                    href={project.href}
+                    aria-label={`View ${project.title} design work`}
+                    className="media-frame work-identity-image"
+                  >
+                    {imageContent}
+                  </Link>
+                ) : (
+                  <div className="media-frame work-identity-image">
+                    {imageContent}
+                  </div>
+                )}
+
+                {hasLivePage ? (
+                  <Link
+                    href={project.href}
+                    className="work-gallery-info"
+                    aria-label={`View ${project.title} design work`}
+                  >
+                    {infoContent}
+                  </Link>
+                ) : (
+                  <div className="work-gallery-info">{infoContent}</div>
+                )}
+              </motion.article>
+            );
+          })}
         </div>
       </section>
 

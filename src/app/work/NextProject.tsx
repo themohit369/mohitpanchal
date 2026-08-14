@@ -37,6 +37,7 @@ export default function NextProject() {
             <article className="case-more-work-card" key={project.title}>
               <Link
                 href={project.href}
+                aria-label={`View ${project.title} case study`}
                 className="media-frame case-more-work-image"
               >
                 <Image
@@ -48,7 +49,11 @@ export default function NextProject() {
                 />
               </Link>
 
-              <Link href={project.href} className="case-more-work-info">
+              <Link
+                href={project.href}
+                className="case-more-work-info"
+                aria-label={`Read the ${project.title} case study`}
+              >
                 <span className="case-more-work-year">{project.year}</span>
 
                 <div className="case-more-work-copy">
