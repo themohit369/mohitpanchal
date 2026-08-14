@@ -52,7 +52,7 @@ export default function MaxAddonsPage() {
 
               <div className="case-meta-item">
                 <span>Role</span>
-                <strong>Product & Brand Designer</strong>
+                <strong>Product + Brand Designer</strong>
               </div>
 
               <div className="case-meta-item">
@@ -85,7 +85,7 @@ export default function MaxAddonsPage() {
             >
               <Image
                 src="/images/work/project-2.webp"
-                alt="MaxAddons for Bricks"
+                alt="Max Addons for Bricks product branding and website design"
                 fill
                 priority
                 sizes="(max-width:768px)100vw,70vw"
@@ -98,10 +98,12 @@ export default function MaxAddonsPage() {
 
           <div id="overview" className="case-summary">
             <p>
-              Max Addons for Bricks is a premium Bricks Builder addon. I
-              designed the brand identity and marketing website, creating a
-              modern, scalable experience that clearly communicates the product
-              and its value.
+              Max Addons for Bricks is a Bricks Builder addon designed to extend
+              the website-building experience with additional elements and
+              tools. I worked across product positioning, brand identity, and
+              the marketing website to create a clear visual system that made
+              the product easier to understand and more consistent across its
+              digital touchpoints.
             </p>
           </div>
         </div>
@@ -114,7 +116,7 @@ export default function MaxAddonsPage() {
         <div className="site-container">
           <div className="section-meta">
             <span>The Story</span>
-            <span>Challenge • Solution • Design</span>
+            <span>Brand Challenge • UX Solution • Design System</span>
             <span>01</span>
           </div>
 
@@ -129,11 +131,12 @@ export default function MaxAddonsPage() {
                 </h2>
 
                 <p>
-                  Max Addons entered the Bricks Builder ecosystem as a new
-                  product, making it essential to establish a distinctive visual
-                  identity while presenting a growing collection of features in
-                  a way that felt clear, approachable and trustworthy for
-                  designers, developers and agencies.
+                  As a newer product in the Bricks Builder ecosystem, Max Addons
+                  needed to communicate credibility quickly while explaining a
+                  growing set of features to designers, developers, and
+                  agencies. The challenge was to build a recognizable identity
+                  without making the product feel visually complicated or
+                  difficult to evaluate.
                 </p>
               </article>
 
@@ -146,12 +149,12 @@ export default function MaxAddonsPage() {
                 </h2>
 
                 <p>
-                  I designed a complete visual identity and translated it into a
-                  modern marketing website that balanced aesthetics with
-                  usability. Clear information hierarchy, reusable UI components
-                  and consistent visual patterns helped communicate the
-                  product's value while making feature discovery simple and
-                  intuitive.
+                  I created a visual identity and carried it into the marketing
+                  website through a clearer information hierarchy, reusable UI
+                  components, and consistent interaction patterns. The goal was
+                  to help visitors understand what Max Addons offers, discover
+                  relevant features faster, and move through the site with less
+                  friction.
                 </p>
               </article>
 
@@ -164,11 +167,11 @@ export default function MaxAddonsPage() {
                 </h2>
 
                 <p>
-                  Every decision was made with scalability in mind, from the
-                  logo and visual language to reusable interface components and
-                  responsive page layouts. The result was a cohesive system that
-                  could evolve alongside the product while maintaining a
-                  consistent experience across every touchpoint.
+                  The identity, interface components, and responsive page
+                  layouts were designed as one connected system. That made it
+                  easier to keep the brand consistent as new pages and product
+                  features were added, while giving the marketing experience
+                  enough flexibility to evolve with the product.
                 </p>
               </article>
             </div>
@@ -176,7 +179,7 @@ export default function MaxAddonsPage() {
             <div className="case-story-image media-frame">
               <Image
                 src="/images/work/max-addons-case-study-story.webp"
-                alt="Max Addons Brand Identity"
+                alt="Max Addons for Bricks brand identity and UI design system"
                 fill
                 className="object-cover"
                 sizes="100vw"
@@ -202,7 +205,7 @@ export default function MaxAddonsPage() {
             <div className="case-outcome-image media-frame">
               <Image
                 src="/images/work/max-addons-case-study-outcome.webp"
-                alt="Max Addons Website"
+                alt="Max Addons for Bricks marketing website and responsive UI design"
                 fill
                 className="object-cover"
               />
@@ -214,11 +217,11 @@ export default function MaxAddonsPage() {
               </h2>
 
               <p>
-                The final outcome combined branding, user experience and
-                marketing into one cohesive experience. The project established
-                a recognizable identity, improved feature communication and
-                delivered a scalable website that reflects the quality and
-                ambition of the product.
+                The final experience brought the brand, product messaging, and
+                website UI into one consistent system. It created a clearer way
+                to present features, strengthened the visual identity, and gave
+                the product a reusable design foundation for future marketing
+                pages and content.
               </p>
 
               <ul>

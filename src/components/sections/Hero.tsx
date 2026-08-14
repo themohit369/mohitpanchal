@@ -16,15 +16,15 @@ const heroEase = [0.16, 1, 0.3, 1] as const;
 
 const titleLines = [
   {
-    text: "UX/UI + Front-end",
+    text: "Product Designer +",
     className: "",
   },
   {
-    text: "Designer.",
+    text: "UI/UX Designer.",
     className: "",
   },
   {
-    text: "I design great",
+    text: "I design digital",
     className: "hero-title-line-indent-2",
   },
   {
@@ -67,13 +67,6 @@ export default function Hero() {
     [0, 0.55, 1],
     [1, 1.02, 1.05],
   );
-
-  /*
-    Portrait stays fully visible through most of the Hero.
-
-    Fade begins late and never reaches absolute zero while
-    the Hero is still contributing to the viewport transition.
-  */
 
   const imageOpacity = useTransform(
     scrollYProgress,
@@ -187,9 +180,10 @@ export default function Hero() {
             }}
           >
             <p className="body-text">
-              I design intuitive interfaces, scalable systems, and
-              conversion-focused experiences that help products grow with
-              clarity and confidence.
+              I enjoy turning complex product ideas into digital experiences
+              that feel simple and useful. I work across UI/UX, design systems,
+              and front-end prototyping, collaborating with startups and product
+              teams worldwide.
             </p>
           </motion.div>
 
@@ -268,7 +262,7 @@ export default function Hero() {
         >
           <Image
             src="/images/hero/mohit-hero.png"
-            alt="Portrait of Mohit Panchal"
+            alt="Mohit Panchal, Mohit Panchal Designer, product and UI/UX designer"
             fill
             priority
             sizes="(max-width: 768px) 100vw, 52vw"

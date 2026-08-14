@@ -6,7 +6,7 @@
 
 :root {
   /* =====================================================
-     LIGHT THEME
+     01 — COLOR
   ===================================================== */
 
   --color-bg: #ffffff;
@@ -19,17 +19,116 @@
   --color-line: rgba(29, 28, 26, 0.08);
   --color-line-strong: rgba(29, 28, 26, 0.18);
 
-  /* EXISTING VARIABLE COMPATIBILITY */
+  /* =====================================================
+     02 — FONT FAMILIES
 
-  --bg-dark: var(--color-bg);
-  --bg-light: var(--color-bg);
+     BDO Grotesk is the single portfolio typeface.
+     Display and reading roles stay separate through size,
+     line-height, tracking and weight — not font-family.
+  ===================================================== */
 
-  --text-dark: var(--color-text);
-  --text-primary: var(--color-text);
-  --text-secondary: var(--color-text-soft);
-  --text-muted: var(--color-text-muted);
+  --font-display: var(--font-bdo), sans-serif;
+  --font-body: var(--font-bdo), sans-serif;
 
-  /* FLUID SPACING SYSTEM */
+  /* =====================================================
+     03 — TYPOGRAPHY ROLES
+
+     HOME HERO        = homepage only
+     PAGE HERO        = About / Work page titles
+     PROJECT HERO     = case-study titles
+     SECTION HEADING  = major section headings
+     SUBHEADING       = Challenge / Solution / Process etc.
+     HEADING SMALL    = cards / smaller headings
+     LEAD             = important intro copy
+     BODY             = reading copy
+     SMALL            = secondary information
+     META             = labels / years / counters
+  ===================================================== */
+
+  --text-hero-home: clamp(68px, 8.3vw, 158px);
+  --text-hero-page: clamp(56px, 7.2vw, 126px);
+  --text-hero-project: clamp(52px, 6.8vw, 118px);
+
+  --text-section-heading: clamp(44px, 4.5vw, 78px);
+  --text-subheading: clamp(34px, 3vw, 58px);
+  --text-heading-small: clamp(24px, 2.2vw, 42px);
+
+  --text-lead: clamp(22px, 1.8vw, 34px);
+  --text-body: clamp(16px, 1vw, 18px);
+  --text-small: clamp(13px, 0.8vw, 15px);
+  --text-meta: clamp(11px, 0.65vw, 12px);
+
+  /* =====================================================
+     04 — FONT WEIGHTS
+  ===================================================== */
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-bold: 700;
+
+  /* =====================================================
+     05 — LINE HEIGHT
+  ===================================================== */
+
+  --leading-hero-home: 0.88;
+  --leading-hero-page: 0.9;
+  --leading-hero-project: 0.9;
+
+  --leading-section: 0.98;
+  --leading-subheading: 0.96;
+  --leading-heading-small: 1.05;
+
+  --leading-lead: 1.3;
+  --leading-body: 1.45;
+  --leading-small: 1.3;
+  --leading-meta: 1.2;
+
+  /* =====================================================
+     06 — LETTER SPACING
+  ===================================================== */
+
+  --tracking-hero-home: -0.068em;
+  --tracking-hero-page: -0.065em;
+  --tracking-hero-project: -0.06em;
+
+  --tracking-section: -0.055em;
+  --tracking-subheading: -0.05em;
+  --tracking-heading-small: -0.035em;
+
+  --tracking-lead: -0.025em;
+  --tracking-body: -0.02em;
+  --tracking-small: 0;
+  --tracking-meta: 0;
+
+  /* =====================================================
+     07 — BASE SPACING UNITS
+
+     4px base rhythm. These are primitives.
+  ===================================================== */
+
+  --unit-0: 0;
+  --unit-1: 4px;
+  --unit-2: 8px;
+  --unit-3: 12px;
+  --unit-4: 16px;
+  --unit-5: 20px;
+  --unit-6: 24px;
+  --unit-8: 32px;
+  --unit-10: 40px;
+  --unit-12: 48px;
+  --unit-14: 56px;
+  --unit-16: 64px;
+  --unit-20: 80px;
+  --unit-24: 96px;
+  --unit-30: 120px;
+  --unit-40: 160px;
+
+  /* =====================================================
+     08 — EXISTING FLUID SPACING
+
+     Values are preserved so the current visual design
+     does not suddenly change during migration.
+  ===================================================== */
 
   --space-1: 8px;
   --space-2: clamp(12px, 1vw, 16px);
@@ -44,39 +143,97 @@
   --space-20: clamp(96px, 10vw, 160px);
   --space-24: clamp(120px, 12vw, 192px);
 
-  /* LAYOUT */
+  /* =====================================================
+     09 — SEMANTIC SPACING
+  ===================================================== */
 
-  --container: 1600px;
+  --space-inline-xs: var(--unit-2);
+  --space-inline-sm: var(--unit-3);
+  --space-inline-md: var(--unit-4);
+  --space-inline-lg: var(--unit-6);
+
+  --space-content-xs: var(--space-2);
+  --space-content-sm: var(--space-3);
+  --space-content-md: var(--space-4);
+  --space-content-lg: var(--space-6);
+  --space-content-xl: var(--space-8);
+
+  --space-section-sm: clamp(64px, 6vw, 120px);
+  --space-section-md: clamp(80px, 8vw, 152px);
+  --space-section-lg: clamp(96px, 10vw, 192px);
+
+  /* =====================================================
+     10 — LAYOUT
+  ===================================================== */
+
+  --container-max: 1600px;
+  --container: var(--container-max);
+
   --page-x: clamp(20px, 2.5vw, 48px);
 
-  --section-space: clamp(96px, 10vw, 192px);
-  --section-space-small: clamp(64px, 6vw, 120px);
-
+  --grid-columns: 12;
   --grid-gap: clamp(16px, 1.65vw, 32px);
 
-  /* TYPE SCALE */
+  --section-space: var(--space-section-lg);
+  --section-space-small: var(--space-section-sm);
+  --section-meta-gap: clamp(48px, 4vw, 60px);
 
-  --text-meta: clamp(10px, 0.65vw, 12px);
-  --text-small: clamp(13px, 0.8vw, 15px);
-  --text-body: clamp(16px, 1vw, 18px);
+  /* =====================================================
+     11 — CONTENT MEASURE
+  ===================================================== */
 
-  --text-card-title: clamp(24px, 2.2vw, 42px);
-  --text-section: clamp(56px, 8vw, 154px);
-  --text-display: clamp(72px, 13vw, 250px);
+  --measure-body: 62ch;
+  --measure-lead: 48ch;
+  --measure-heading: 20ch;
+  --measure-narrow: 42ch;
+  --measure-supporting-copy: 36ch;
 
-  /* LINE HEIGHT */
+  /* =====================================================
+     12 — BORDERS
+  ===================================================== */
 
-  --leading-tight: 0.88;
-  --leading-heading: 0.95;
-  --leading-body: 1.45;
+  --border-width: 1px;
+  --border-subtle: var(--border-width) solid var(--color-line);
+  --border-strong: var(--border-width) solid var(--color-line-strong);
 
-  /* LETTER SPACING */
+  /* =====================================================
+     13 — RADIUS
 
-  --tracking-display: -0.075em;
-  --tracking-heading: -0.055em;
-  --tracking-body: -0.02em;
+     Sharp by default to preserve your current visual style.
+  ===================================================== */
 
-  /* MOTION */
+  --radius-none: 0;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+  --radius-round: 50%;
+
+  /* =====================================================
+     14 — CONTROL / ICON SIZES
+  ===================================================== */
+
+  --control-sm: 36px;
+  --control-md: 44px;
+  --control-lg: 52px;
+  --tap-target: 44px;
+
+  --icon-sm: 16px;
+  --icon-md: 20px;
+  --icon-lg: 24px;
+
+  /* =====================================================
+     15 — IMAGE RATIOS
+  ===================================================== */
+
+  --ratio-wide: 16 / 9;
+  --ratio-landscape: 4 / 3;
+  --ratio-portrait: 4 / 5;
+  --ratio-square: 1 / 1;
+
+  /* =====================================================
+     16 — MOTION
+  ===================================================== */
 
   --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
 
@@ -84,21 +241,1122 @@
   --duration-medium: 500ms;
   --duration-slow: 800ms;
 
-  /* MOTION DISTANCE */
-
   --motion-xs: 4px;
   --motion-sm: 8px;
   --motion-md: 16px;
   --motion-lg: 24px;
 
-  /* SCALE */
-
   --scale-hover: 1.02;
   --scale-active: 0.985;
 
-  /* SECTION META */
+  /* =====================================================
+     17 — Z INDEX
+  ===================================================== */
 
-  --section-meta-gap: clamp(48px, 4vw, 60px);
+  --z-base: 0;
+  --z-content: 10;
+  --z-navbar: 50;
+  --z-overlay: 80;
+  --z-menu: 90;
+  --z-modal: 100;
+
+  /* =====================================================
+     18 — GLOBAL SHELL / HERO COMPONENT TOKENS
+
+     These preserve the current Hero composition exactly.
+     Responsive overrides live below so desktop / tablet /
+     mobile can be tuned centrally from this file.
+  ===================================================== */
+
+  --navbar-height: 76px;
+
+  --hero-section-min-height: 100svh;
+  --hero-container-min-height: calc(100svh - var(--navbar-height));
+  --hero-container-padding-top: 36px;
+  --hero-container-padding-bottom: 36px;
+
+  --hero-title-margin-top: clamp(92px, 11vh, 156px);
+  --hero-title-size: var(--text-hero-home);
+  --hero-title-leading: var(--leading-hero-home);
+  --hero-title-tracking: var(--tracking-hero-home);
+
+  --hero-bottom-offset: 22px;
+  --hero-bottom-margin-top: 0px;
+
+  --hero-rule-padding-top: 14px;
+  --hero-actions-gap: var(--unit-3);
+  --hero-copy-max-width: 390px;
+
+  --hero-image-right: clamp(-120px, -6vw, -40px);
+  --hero-image-bottom: var(--unit-6);
+  --hero-image-width: min(48vw, 840px);
+  --hero-image-height: 94%;
+  --hero-image-object-position: 62% bottom;
+  --hero-image-blend-height: 18%;
+
+  --hero-theme-transition: 450ms;
+
+  /* =====================================================
+     19 — ABOUT SECTION TOKENS
+
+     Homepage About section only. These mirror the current
+     component values so migration does not change the design.
+  ===================================================== */
+
+  --about-section-padding-top: var(--section-space);
+  --about-section-padding-bottom: var(--section-space-small);
+
+  --about-heading-size: var(--text-section-heading);
+  --about-heading-weight: var(--weight-medium);
+  --about-heading-leading: var(--leading-section);
+  --about-heading-tracking: var(--tracking-section);
+  --about-heading-mask-padding: 0.2em;
+  --about-heading-mask-offset: -0.2em;
+
+  --about-content-columns: var(--grid-columns);
+  --about-content-margin-top: var(--section-meta-gap);
+
+  --about-image-column: 1 / span 3;
+  --about-image-ratio: 0.82;
+  --about-image-parallax-top: -10%;
+  --about-image-parallax-bottom: -10%;
+
+  --about-copy-column: 7 / span 4;
+  --about-copy-margin-top: 0px;
+  --about-copy-padding-top: 14px;
+
+  --about-actions-gap: 18px;
+  --about-actions-margin-top: var(--unit-8);
+  --about-actions-padding-top: var(--unit-5);
+
+  /* =====================================================
+     20 — WORK SECTION TOKENS
+
+     Homepage Selected Work only. All spacing, sizing,
+     image ratios, grid positions and type details are
+     controlled here so work.css stays structural.
+  ===================================================== */
+
+  --work-section-padding-top: var(--section-space);
+
+  --work-divider-size: var(--border-width);
+
+  --work-intro-padding-top: var(--section-meta-gap);
+  --work-intro-copy-column: 7 / span 4;
+  --work-intro-copy-max-width: 520px;
+
+  --work-featured-padding-top: clamp(120px, 11vw, 180px);
+  --work-featured-padding-bottom: clamp(120px, 10vw, 160px);
+
+  --work-project-1-column: 1 / span 7;
+  --work-project-2-column: 9 / -1;
+  --work-project-image-ratio: 3 / 2;
+
+  --work-project-image-motion-inset: -6% 0;
+  --work-project-image-motion-height: 112%;
+  --work-project-image-scale: 1.015;
+  --work-project-image-hover-scale: 1.055;
+  --work-image-transition-duration: 1100ms;
+
+  --work-project-info-columns: 80px 1fr auto;
+  --work-project-info-gap: 28px;
+  --work-project-info-padding-top: 28px;
+
+  --work-project-year-padding-top: 3px;
+  --work-project-copy-gap: var(--unit-2);
+
+  --work-project-title-size: 18px;
+  --work-project-title-weight: var(--weight-medium);
+  --work-project-title-leading: 1.2;
+  --work-project-title-tracking: -0.02em;
+  --work-project-meta-leading: 1.4;
+
+  --work-project-arrow-padding-top: 1px;
+  --work-project-arrow-size: 22px;
+  --work-project-arrow-hover-x: 6px;
+  --work-project-arrow-hover-y: -6px;
+
+  --work-project-title-hover-opacity: 0.62;
+  --work-project-title-hover-x: 5px;
+
+  --work-identity-padding-bottom: clamp(120px, 11vw, 180px);
+  --work-identity-item-1-column: 1 / span 7;
+  --work-identity-item-2-column: 9 / -1;
+  --work-identity-item-3-column: 2 / span 5;
+  --work-identity-stagger-margin-top: clamp(96px, 9vw, 150px);
+
+  --work-identity-image-ratio: 3 / 2;
+  --work-identity-image-scale: 1.001;
+  --work-identity-image-hover-scale: 1.035;
+
+  --work-gallery-info-gap: var(--unit-6);
+  --work-gallery-info-padding-top: var(--unit-5);
+  --work-gallery-title-size: 18px;
+  --work-gallery-title-weight: var(--weight-medium);
+  --work-gallery-title-leading: 1.25;
+  --work-gallery-title-tracking: -0.02em;
+  --work-gallery-meta-padding-top: 3px;
+  --work-gallery-meta-leading: 1.3;
+  --work-gallery-title-hover-opacity: 0.62;
+  --work-gallery-title-hover-x: var(--motion-xs);
+
+  --work-gallery-padding-bottom: var(--section-space);
+  --work-gallery-row-gap: clamp(110px, 11vw, 180px);
+
+  --work-gallery-item-1-column: 1 / span 7;
+  --work-gallery-item-2-column: 9 / -1;
+  --work-gallery-item-3-column: 2 / span 5;
+  --work-gallery-item-4-column: 8 / -1;
+  --work-gallery-item-5-column: 1 / span 7;
+
+  --work-gallery-item-2-margin-top: clamp(100px, 10vw, 170px);
+  --work-gallery-item-4-margin-top: clamp(56px, 6vw, 100px);
+
+  --work-gallery-image-ratio: 3 / 2;
+  --work-gallery-image-scale: 1.001;
+  --work-gallery-image-hover-scale: 1.035;
+
+  --work-view-all-gap: var(--unit-10);
+  --work-view-all-padding-top: clamp(120px, 11vw, 180px);
+  --work-view-all-padding-bottom: var(--unit-14);
+  --work-view-all-copy-max-width: 480px;
+  --work-view-all-copy-leading: 1.6;
+
+  --work-mobile-stack-gap: var(--unit-14);
+
+  /* =====================================================
+     21 — EXPERIENCE SECTION TOKENS
+
+     Home + About experience section. Values mirror the
+     current component so migration does not change the
+     desktop / tablet / mobile composition.
+  ===================================================== */
+
+  --experience-section-padding: var(--section-space);
+
+  --experience-header-heading-column: 1 / span 6;
+  --experience-header-copy-column: 7 / span 4;
+  --experience-header-padding-top: 0px;
+  --experience-header-padding-bottom: var(--section-meta-gap);
+  --experience-header-copy-padding-bottom: 6px;
+
+  --experience-heading-max-width: 680px;
+  --experience-heading-size: var(--text-section-heading);
+  --experience-heading-weight: var(--weight-medium);
+  --experience-heading-leading: 0.98;
+  --experience-heading-tracking: -0.06em;
+  --experience-heading-mask-padding: 0.18em;
+  --experience-heading-mask-offset: -0.18em;
+
+  --experience-summary-max-width: 100%;
+  --experience-resume-margin-top: var(--unit-8);
+
+  --experience-item-padding-block: var(--unit-5);
+  --experience-item-min-height: 0px;
+
+  --experience-company-column: 1 / span 6;
+  --experience-company-name-size: 28px;
+  --experience-company-name-weight: var(--weight-medium);
+  --experience-company-name-leading: 1.15;
+  --experience-company-name-tracking: -0.03em;
+
+  --experience-role-margin-top: 7px;
+  --experience-row-secondary-leading: 1.4;
+
+  --experience-period-column: 9 / -1;
+  --experience-period-size: var(--text-small);
+  --experience-period-weight: var(--weight-medium);
+
+  --experience-hover-translate-x: 6px;
+  --experience-hover-period-opacity: 0.55;
+
+  --experience-about-heading-max-width: 720px;
+  --experience-about-summary-max-width: 100%;
+
+  --experience-mobile-item-gap: var(--unit-6);
+  --experience-mobile-header-copy-max-width: 460px;
+  --experience-mobile-copy-margin-top: var(--unit-8);
+  --experience-mobile-copy-margin-left: 25%;
+  --experience-mobile-role-max-width: 100%;
+
+  /* =====================================================
+     22 — TESTIMONIALS SECTION TOKENS
+
+     Homepage testimonials only. Values mirror the current
+     component exactly so migration does not change the
+     desktop / tablet / mobile composition.
+  ===================================================== */
+
+  --testimonials-section-padding: var(--section-space);
+
+  --testimonials-heading-size: var(--text-section-heading);
+  --testimonials-heading-weight: var(--weight-medium);
+  --testimonials-heading-leading: 0.98;
+  --testimonials-heading-tracking: -0.055em;
+  --testimonials-heading-mask-padding: 0.12em;
+  --testimonials-heading-mask-offset: -0.12em;
+
+  --testimonials-grid-row-gap: clamp(88px, 7vw, 128px);
+  --testimonials-grid-margin-top: var(--section-meta-gap);
+
+  --testimonial-item-1-column: 1 / span 5;
+  --testimonial-item-2-column: 8 / -1;
+  --testimonial-item-3-column: 2 / span 5;
+  --testimonial-item-4-column: 8 / -1;
+  --testimonial-item-2-margin-top: clamp(72px, 6vw, 104px);
+  --testimonial-item-4-margin-top: clamp(64px, 5vw, 88px);
+
+  --testimonial-header-min-height: 88px;
+  --testimonial-header-padding-block: var(--unit-5);
+
+  --testimonial-profile-gap: 14px;
+  --testimonial-avatar-size: 48px;
+
+  --testimonial-name-size: 16px;
+  --testimonial-name-weight: var(--weight-medium);
+  --testimonial-name-leading: 1.2;
+  --testimonial-name-tracking: -0.015em;
+
+  --testimonial-mark-width: var(--unit-14);
+  --testimonial-mark-height: var(--unit-12);
+  --testimonial-mark-size: clamp(64px, 4.5vw, 82px);
+  --testimonial-mark-leading: 0.78;
+  --testimonial-mark-tracking: -0.07em;
+
+  --testimonial-quote-max-width: 660px;
+  --testimonial-quote-padding-top: clamp(24px, 2.2vw, 34px);
+  --testimonial-quote-padding-bottom: clamp(40px, 3.2vw, 52px);
+  --testimonial-quote-size: clamp(25px, 1.65vw, 30px);
+  --testimonial-quote-leading: 1.22;
+  --testimonial-quote-tracking: -0.035em;
+
+  --testimonial-footer-padding-top: 18px;
+  --testimonial-footer-gap: var(--grid-gap);
+  --testimonial-footer-size: clamp(11px, 0.72vw, 13px);
+  --testimonial-footer-leading: 1.4;
+
+  --testimonial-hover-mark-y: -3px;
+  --testimonial-hover-avatar-scale: 1.04;
+
+  --testimonial-mobile-item-gap: clamp(72px, 12vw, 96px);
+
+  /* =====================================================
+     23 — CASE STUDY TOKENS
+
+     Shared by PowerPack + Max Addons. These values mirror
+     the current case-study.css exactly so tokenization does
+     not redesign either page.
+  ===================================================== */
+
+  --case-section-padding: var(--section-space);
+
+  --case-title-max-width: 1500px;
+  --case-title-margin-top: var(--section-meta-gap);
+  --case-title-margin-bottom: var(--section-meta-gap);
+  --case-title-padding-bottom: 0.08em;
+  --case-title-size: clamp(68px, 8.3vw, 158px);
+  --case-title-weight: var(--weight-medium);
+  --case-title-leading: 0.88;
+  --case-title-tracking: -0.07em;
+
+  --case-sidebar-column: 1 / span 3;
+  --case-sidebar-sticky-top: var(--unit-30);
+
+  --case-meta-gap: var(--unit-6);
+  --case-meta-padding-block: var(--unit-3);
+  --case-meta-leading: 1.2;
+  --case-meta-strong-weight: var(--weight-medium);
+  --case-meta-action-margin-top: 28px;
+
+  --case-hero-image-column: 5 / span 8;
+  --case-hero-image-ratio: 16 / 11;
+
+  --case-summary-margin-top: var(--section-space-small);
+  --case-summary-padding-top: var(--unit-5);
+  --case-summary-copy-column: 5 / span 6;
+  --case-summary-size: clamp(24px, 2vw, 38px);
+  --case-summary-leading: 1.35;
+  --case-summary-tracking: -0.03em;
+
+  --case-story-copy-column: 1 / span 4;
+  --case-story-block-margin-bottom: var(--section-space-small);
+  --case-story-block-padding-top: var(--unit-5);
+  --case-story-heading-margin-top: var(--unit-5);
+  --case-story-heading-margin-bottom: var(--unit-6);
+  --case-story-heading-size: var(--text-subheading);
+  --case-story-heading-weight: var(--weight-medium);
+  --case-story-heading-leading: var(--leading-subheading);
+  --case-story-heading-tracking: var(--tracking-subheading);
+  --case-story-copy-max-width: 540px;
+
+  --case-story-image-column: 5 / span 8;
+  --case-story-image-sticky-top: var(--unit-30);
+  --case-story-image-height: 80vh;
+  --case-story-image-min-height: 620px;
+
+  --case-outcome-image-column: 1 / span 7;
+  --case-outcome-image-ratio: var(--ratio-landscape);
+  --case-outcome-copy-column: 9 / span 4;
+  --case-outcome-heading-size: clamp(42px, 4vw, 72px);
+  --case-outcome-heading-weight: var(--weight-medium);
+  --case-outcome-heading-leading: 0.95;
+  --case-outcome-heading-tracking: -0.05em;
+  --case-outcome-copy-max-width: 560px;
+  --case-outcome-copy-margin-top: var(--unit-6);
+  --case-outcome-list-margin-top: var(--unit-8);
+  --case-outcome-list-item-padding-block: var(--unit-3);
+  --case-outcome-list-leading: 1.3;
+
+  --case-more-grid-columns: repeat(2, minmax(0, 1fr));
+  --case-more-grid-gap: var(--grid-gap);
+  --case-more-grid-margin-top: var(--section-meta-gap);
+
+  --case-more-image-ratio: 16 / 10;
+  --case-more-image-scale: 1;
+  --case-more-image-hover-scale: 1.025;
+  --case-more-image-transition-duration: var(--duration-slow);
+
+  --case-more-info-columns: 72px minmax(0, 1fr) auto;
+  --case-more-info-gap: var(--unit-6);
+  --case-more-info-padding-block: var(--unit-5);
+  --case-more-year-padding-top: 2px;
+  --case-more-title-size: clamp(20px, 1.55vw, 26px);
+  --case-more-title-weight: var(--weight-medium);
+  --case-more-title-leading: 1.05;
+  --case-more-title-tracking: -0.035em;
+  --case-more-description-margin-top: 7px;
+  --case-more-description-leading: 1.25;
+  --case-more-arrow-padding-top: 1px;
+  --case-more-arrow-size: 22px;
+  --case-more-arrow-hover-x: var(--motion-xs);
+  --case-more-arrow-hover-y: calc(var(--motion-xs) * -1);
+
+  /* =====================================================
+     24 — FOOTER TOKENS
+
+     Values mirror the current footer.css exactly. Footer
+     structure stays local; visual sizing/spacing is global.
+  ===================================================== */
+
+  --footer-padding-top: 0px;
+  --footer-padding-bottom: var(--unit-10);
+
+  --footer-rule-size: var(--border-width);
+  --footer-back-border: var(--border-subtle);
+  --footer-back-radius: var(--radius-round);
+
+  --footer-email-color-duration: 400ms;
+  --footer-email-arrow-duration: 500ms;
+  --footer-back-color-duration: 350ms;
+  --footer-back-transform-duration: 450ms;
+
+  --footer-marquee-margin-block: var(--section-meta-gap);
+  --footer-contact-padding-top: var(--section-meta-gap);
+  --footer-contact-padding-bottom: var(--section-meta-gap);
+
+  --footer-heading-max-width: 1000px;
+  --footer-heading-size: clamp(44px, 4.5vw, 78px);
+  --footer-heading-weight: var(--weight-medium);
+  --footer-heading-leading: 0.98;
+  --footer-heading-tracking: -0.055em;
+
+  --footer-email-row-gap: var(--unit-12);
+  --footer-email-row-margin-top: var(--unit-3);
+
+  --footer-email-gap: clamp(14px, 1.4vw, 26px);
+  --footer-email-size: clamp(44px, 4.5vw, 78px);
+  --footer-email-weight: var(--weight-medium);
+  --footer-email-leading: 1.02;
+  --footer-email-tracking: -0.055em;
+  --footer-email-arrow-margin-top: 0.08em;
+  --footer-email-arrow-size: 0.42em;
+  --footer-email-arrow-hover-x: 5px;
+  --footer-email-arrow-hover-y: -5px;
+
+  --footer-back-size: var(--control-md);
+  --footer-back-svg-size: 17px;
+  --footer-back-stroke-width: 1.5;
+  --footer-back-hover-y: -3px;
+
+  --footer-bottom-line-margin-bottom: var(--unit-5);
+
+  --footer-socials-column: 1 / span 5;
+  --footer-social-link-gap: var(--unit-6);
+  --footer-social-link-padding-block: 10px;
+  --footer-social-link-leading: 1.2;
+  --footer-social-hover-padding-left: var(--unit-2);
+
+  --footer-meta-column: 8 / -1;
+  --footer-meta-leading: 1.4;
+  --footer-meta-size: var(--text-meta);
+
+  --footer-info-padding-bottom: var(--section-meta-gap);
+  --footer-info-location-column: 1 / span 3;
+  --footer-info-contact-column: 8 / -1;
+  --footer-info-label-margin-bottom: 14px;
+  --footer-info-copy-leading: 1.55;
+
+  --footer-mobile-meta-gap: var(--unit-6);
+  --footer-mobile-meta-margin-top: var(--unit-10);
+  --footer-mobile-info-gap: var(--unit-8);
+  --footer-mobile-info-padding-bottom: var(--unit-12);
+
+  /* =====================================================
+     25 — SHARED UI TOKENS
+
+     Shared controls keep their current visual values, but
+     can now be tuned from one place.
+  ===================================================== */
+
+  /* Action links */
+  --action-link-gap: 10px;
+  --action-link-size: var(--text-small);
+  --action-link-weight: var(--weight-medium);
+  --action-link-leading: 1.2;
+  --action-link-arrow-hover-x: var(--motion-xs);
+  --action-link-arrow-hover-y: calc(var(--motion-xs) * -1);
+  --action-link-muted-arrow-hover-y: var(--motion-xs);
+
+  /* Theme toggle */
+  --theme-toggle-size: var(--tap-target);
+  --theme-toggle-icon-size: 18px;
+
+  /* Keyboard focus */
+  --focus-ring-width: 1px;
+  --focus-ring-offset: 3px;
+  --focus-ring-color: var(--color-text);
+
+  /* Marquee */
+  --marquee-padding-top: 60px;
+  --marquee-padding-bottom: 60px;
+  --marquee-duration: 38s;
+  --marquee-group-gap: clamp(28px, 2.5vw, 48px);
+  --marquee-text-size: var(--text-hero-home);
+  --marquee-text-leading: 0.9;
+  --marquee-text-tracking: -0.065em;
+  --marquee-dot-size: 3em;
+
+  /* Page/menu transition */
+  --page-menu-transition-duration: 450ms;
+  --page-menu-scale: 0.985;
+  --page-menu-blur: 2px;
+
+  /* Scrollbar */
+  --scrollbar-size: 8px;
+
+  /* =====================================================
+     26 — NOT FOUND PAGE
+  ===================================================== */
+
+  --not-found-content-padding-block: clamp(60px, 7vw, 110px);
+  --not-found-inner-max-width: 760px;
+  --not-found-copy-max-width: 620px;
+  --not-found-actions-gap: calc(var(--unit-6) + var(--unit-1));
+  --not-found-actions-margin-top: var(--unit-14);
+  --not-found-marquee-duration: 30s;
+  --not-found-mobile-content-padding-block: 90px;
+  --not-found-mobile-actions-gap: 18px;
+  --not-found-mobile-actions-margin-top: var(--unit-10);
+
+  /* =====================================================
+     27 — LEGACY ALIASES
+
+     Keep these temporarily so existing component CSS
+     continues to work while we migrate file-by-file.
+  ===================================================== */
+
+  --bg-dark: var(--color-bg);
+  --bg-light: var(--color-bg);
+
+  --text-dark: var(--color-text);
+  --text-primary: var(--color-text);
+  --text-secondary: var(--color-text-soft);
+  --text-muted: var(--color-text-muted);
+
+  --text-card-title: var(--text-heading-small);
+  --text-section: var(--text-section-heading);
+  --text-display: var(--text-hero-home);
+
+  --leading-tight: var(--leading-hero-home);
+  --leading-heading: var(--leading-section);
+
+  --tracking-display: var(--tracking-hero-home);
+  --tracking-heading: var(--tracking-section);
+}
+
+/* =====================================================
+   HERO RESPONSIVE TOKENS
+
+   Component spacing / typography is controlled here.
+   Structural layout changes remain in hero.css.
+===================================================== */
+
+@media (max-width: 1024px) {
+  :root {
+    --hero-section-min-height: 820px;
+    --hero-container-min-height: 820px;
+
+    --hero-title-margin-top: clamp(64px, 5.5vw, 88px);
+    --hero-title-size: clamp(64px, 8.5vw, 96px);
+
+    --hero-image-right: -8vw;
+    --hero-image-width: 60vw;
+    --hero-image-height: 76%;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --hero-section-min-height: auto;
+    --hero-container-min-height: auto;
+
+    --hero-container-padding-top: 88px;
+    --hero-container-padding-bottom: var(--unit-6);
+
+    --hero-title-margin-top: var(--unit-6);
+    --hero-title-size: clamp(40px, 11vw, 56px);
+    --hero-title-leading: 0.95;
+    --hero-title-tracking: -0.05em;
+
+    --hero-bottom-margin-top: var(--unit-10);
+
+    --hero-image-right: auto;
+    --hero-image-bottom: auto;
+    --hero-image-width: 100%;
+    --hero-image-height: 52vh;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --hero-title-margin-top: var(--unit-10);
+    --hero-title-size: clamp(36px, 10vw, 48px);
+    --hero-image-height: 40vh;
+  }
+}
+
+/* =====================================================
+   ABOUT RESPONSIVE TOKENS
+
+   Same breakpoint behavior as the original about.css.
+===================================================== */
+
+@media (max-width: 1024px) {
+  :root {
+    --about-content-margin-top: clamp(80px, 6.5vw, 110px);
+    --about-image-column: 1 / span 4;
+    --about-copy-column: 7 / span 5;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --about-heading-size: clamp(42px, 12.5vw, 72px);
+    --about-heading-leading: 0.96;
+    --about-heading-mask-padding: 0.18em;
+    --about-heading-mask-offset: -0.18em;
+
+    --about-content-columns: 4;
+    --about-content-margin-top: var(--section-meta-gap);
+
+    --about-image-column: 1 / span 3;
+    --about-image-ratio: 0.86;
+    --about-image-parallax-top: -8%;
+    --about-image-parallax-bottom: -8%;
+
+    --about-copy-column: 2 / -1;
+    --about-copy-margin-top: var(--unit-12);
+    --about-copy-padding-top: var(--unit-4);
+
+    --about-actions-margin-top: var(--unit-8);
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --about-heading-size: clamp(40px, 12vw, 58px);
+    --about-content-margin-top: var(--unit-16);
+
+    --about-image-column: 1 / -1;
+    --about-image-parallax-top: -6%;
+    --about-image-parallax-bottom: -6%;
+
+    --about-copy-column: 1 / -1;
+  }
+}
+
+/* =====================================================
+   WORK RESPONSIVE TOKENS
+
+   Structural switches remain in work.css. Visual values
+   stay centralized here for desktop / tablet / mobile.
+===================================================== */
+
+@media (max-width: 1024px) {
+  :root {
+    --work-intro-copy-column: 6 / span 6;
+
+    --work-featured-padding-top: var(--unit-30);
+    --work-featured-padding-bottom: var(--unit-30);
+
+    --work-project-info-columns: var(--unit-14) 1fr auto;
+    --work-project-info-gap: var(--unit-5);
+
+    --work-identity-padding-bottom: var(--unit-30);
+    --work-identity-item-1-column: 1 / span 7;
+    --work-identity-item-2-column: 9 / -1;
+    --work-identity-item-3-column: 1 / span 5;
+    --work-identity-stagger-margin-top: var(--unit-20);
+
+    --work-gallery-row-gap: 100px;
+    --work-gallery-item-1-column: 1 / span 7;
+    --work-gallery-item-2-column: 9 / -1;
+    --work-gallery-item-3-column: 1 / span 5;
+    --work-gallery-item-4-column: 7 / -1;
+    --work-gallery-item-5-column: 1 / span 7;
+    --work-gallery-item-2-margin-top: var(--unit-20);
+    --work-gallery-item-4-margin-top: var(--unit-12);
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --work-intro-padding-top: var(--unit-12);
+    --work-intro-copy-column: 2 / -1;
+
+    --work-featured-padding-top: var(--space-12);
+    --work-featured-padding-bottom: 88px;
+
+    --work-project-image-ratio: var(--ratio-landscape);
+    --work-project-info-columns: 1fr auto;
+    --work-project-info-gap: var(--unit-3);
+    --work-project-info-padding-top: var(--unit-3);
+    --work-project-copy-gap: 3px;
+    --work-project-arrow-size: 18px;
+
+    --work-identity-padding-bottom: 88px;
+    --work-identity-image-ratio: var(--ratio-landscape);
+
+    --work-gallery-image-ratio: var(--ratio-landscape);
+    --work-gallery-info-padding-top: var(--unit-3);
+    --work-gallery-title-size: 17px;
+
+    --work-mobile-stack-gap: var(--unit-14);
+
+    --work-view-all-gap: var(--unit-4);
+    --work-view-all-padding-top: 88px;
+    --work-view-all-padding-bottom: var(--unit-12);
+    --work-view-all-copy-max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --work-intro-copy-column: 1 / -1;
+    --work-featured-padding-top: var(--space-10);
+
+    --work-mobile-stack-gap: var(--unit-12);
+
+    --work-gallery-info-gap: var(--unit-1);
+    --work-gallery-meta-padding-top: 0px;
+  }
+}
+
+/* =====================================================
+   EXPERIENCE RESPONSIVE TOKENS
+
+   Structural switches remain in experience.css. Visual
+   values stay centralized here at each breakpoint.
+===================================================== */
+
+@media (max-width: 1024px) {
+  :root {
+    --experience-header-padding-top: clamp(64px, 5.5vw, 88px);
+    --experience-header-padding-bottom: clamp(72px, 7vw, 96px);
+
+    --experience-header-heading-column: 1 / span 6;
+    --experience-header-copy-column: 7 / span 5;
+
+    --experience-company-column: 1 / span 7;
+    --experience-period-column: 9 / -1;
+
+    --experience-company-name-size: 24px;
+    --experience-item-min-height: 108px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --experience-section-padding: var(--section-space-small);
+
+    --experience-header-padding-top: var(--unit-14);
+    --experience-header-padding-bottom: 72px;
+    --experience-header-copy-padding-bottom: 0px;
+
+    --experience-heading-max-width: 94%;
+    --experience-heading-size: clamp(42px, 12.5vw, 72px);
+    --experience-heading-leading: 0.96;
+    --experience-heading-tracking: -0.055em;
+
+    --experience-summary-max-width: 100%;
+    --experience-resume-margin-top: var(--unit-6);
+
+    --experience-mobile-copy-margin-top: var(--unit-8);
+    --experience-mobile-copy-margin-left: 25%;
+
+    --experience-item-padding-block: var(--unit-5);
+    --experience-item-min-height: 0px;
+    --experience-mobile-item-gap: var(--unit-6);
+    --experience-mobile-header-copy-max-width: 460px;
+
+    --experience-company-name-size: 24px;
+    --experience-role-margin-top: 6px;
+
+    --experience-period-size: var(--text-meta);
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --experience-header-padding-top: var(--unit-14);
+    --experience-header-padding-bottom: var(--unit-16);
+
+    --experience-heading-max-width: 100%;
+    --experience-heading-size: clamp(40px, 12vw, 58px);
+
+    --experience-summary-max-width: 100%;
+    --experience-mobile-copy-margin-left: 0px;
+
+    --experience-company-name-size: clamp(22px, 5.5vw, 24px);
+    --experience-company-name-leading: 1.25;
+    --experience-mobile-role-max-width: 85%;
+  }
+}
+
+/* =====================================================
+   TESTIMONIALS RESPONSIVE TOKENS
+
+   Structural switches remain in testimonials.css. Visual
+   values stay centralized here at each breakpoint.
+===================================================== */
+
+@media (max-width: 1024px) {
+  :root {
+    --testimonials-grid-row-gap: clamp(96px, 8vw, 132px);
+
+    --testimonial-item-1-column: 1 / span 6;
+    --testimonial-item-2-column: 7 / -1;
+    --testimonial-item-3-column: 1 / span 6;
+    --testimonial-item-4-column: 7 / -1;
+
+    --testimonial-item-2-margin-top: clamp(48px, 5vw, 72px);
+    --testimonial-item-4-margin-top: clamp(40px, 4vw, 64px);
+
+    --testimonial-quote-size: clamp(22px, 2.5vw, 27px);
+    --testimonial-quote-leading: 1.28;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --testimonials-heading-size: clamp(42px, 12.5vw, 72px);
+    --testimonials-heading-leading: 0.96;
+    --testimonials-heading-tracking: -0.055em;
+    --testimonials-heading-mask-padding: 0.14em;
+    --testimonials-heading-mask-offset: -0.14em;
+
+    --testimonials-grid-margin-top: var(--space-12);
+
+    --testimonial-mobile-item-gap: clamp(72px, 12vw, 96px);
+
+    --testimonial-header-min-height: 82px;
+    --testimonial-header-padding-block: 18px;
+
+    --testimonial-avatar-size: 44px;
+    --testimonial-name-size: 17px;
+
+    --testimonial-mark-width: var(--unit-12);
+    --testimonial-mark-height: 44px;
+    --testimonial-mark-size: 62px;
+
+    --testimonial-quote-max-width: 94%;
+    --testimonial-quote-padding-top: 18px;
+    --testimonial-quote-padding-bottom: 36px;
+    --testimonial-quote-size: clamp(22px, 6vw, 26px);
+    --testimonial-quote-leading: 1.3;
+
+    --testimonial-footer-padding-top: var(--unit-4);
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --testimonials-heading-size: clamp(40px, 12vw, 58px);
+    --testimonials-grid-margin-top: var(--space-10);
+
+    --testimonial-mobile-item-gap: var(--unit-16);
+
+    --testimonial-header-min-height: 76px;
+    --testimonial-header-padding-block: var(--unit-4);
+
+    --testimonial-profile-gap: var(--unit-3);
+    --testimonial-avatar-size: var(--unit-10);
+    --testimonial-name-size: 16px;
+
+    --testimonial-mark-width: 42px;
+    --testimonial-mark-height: var(--unit-10);
+    --testimonial-mark-size: 56px;
+
+    --testimonial-quote-max-width: 100%;
+    --testimonial-quote-padding-top: var(--unit-4);
+    --testimonial-quote-padding-bottom: 30px;
+    --testimonial-quote-size: 18px;
+    --testimonial-quote-leading: 1.35;
+    --testimonial-quote-tracking: -0.015em;
+
+    --testimonial-footer-gap: var(--unit-1);
+  }
+}
+
+/* =====================================================
+   CASE STUDY RESPONSIVE TOKENS
+
+   Structural switches remain in case-study.css. Visual
+   values stay centralized here for all case studies.
+===================================================== */
+
+@media (max-width: 1024px) {
+  :root {
+    --case-title-size: clamp(64px, 8.5vw, 96px);
+
+    --case-sidebar-column: 1 / span 4;
+    --case-hero-image-column: 5 / span 8;
+    --case-summary-copy-column: 5 / span 8;
+
+    --case-story-copy-column: 1 / span 5;
+    --case-story-image-column: 6 / span 7;
+    --case-story-image-min-height: 540px;
+
+    --case-outcome-image-column: 1 / span 7;
+    --case-outcome-copy-column: 8 / span 5;
+
+    --case-more-info-columns: 56px minmax(0, 1fr) auto;
+    --case-more-info-gap: 18px;
+    --case-more-title-size: clamp(19px, 2vw, 24px);
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --case-title-margin-top: var(--section-meta-gap);
+    --case-title-margin-bottom: var(--section-space-small);
+    --case-title-padding-bottom: 0.1em;
+    --case-title-size: clamp(52px, 15vw, 92px);
+    --case-title-leading: 0.91;
+    --case-title-tracking: -0.065em;
+
+    --case-meta-gap: var(--unit-6);
+
+    --case-hero-image-ratio: var(--ratio-portrait);
+    --case-summary-size: 22px;
+
+    --case-story-block-margin-bottom: var(--unit-12);
+    --case-story-heading-size: 34px;
+    --case-story-image-height: auto;
+    --case-story-image-min-height: 0px;
+
+    --case-outcome-image-ratio: var(--ratio-portrait);
+    --case-outcome-heading-size: 42px;
+
+    --case-more-grid-columns: 1fr;
+    --case-more-grid-gap: var(--section-space-small);
+    --case-more-image-ratio: var(--ratio-landscape);
+    --case-more-info-columns: 52px minmax(0, 1fr) auto;
+    --case-more-info-gap: var(--unit-4);
+    --case-more-info-padding-block: var(--unit-5);
+    --case-more-title-size: 22px;
+    --case-more-description-margin-top: 6px;
+    --case-more-arrow-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --case-title-size: clamp(46px, 14vw, 66px);
+    --case-meta-gap: var(--unit-4);
+
+    --case-story-heading-size: 32px;
+    --case-outcome-heading-size: 38px;
+
+    --case-more-info-columns: 44px minmax(0, 1fr) auto;
+    --case-more-info-gap: var(--unit-3);
+    --case-more-title-size: 20px;
+    --case-more-arrow-size: 18px;
+  }
+}
+
+/* =====================================================
+   FOOTER RESPONSIVE TOKENS
+
+   Structural switches remain in footer.css. These values
+   exactly mirror the original desktop/tablet/mobile CSS.
+===================================================== */
+
+@media (max-width: 1024px) {
+  :root {
+    --footer-contact-padding-top: var(--unit-20);
+    --footer-contact-padding-bottom: var(--unit-24);
+
+    --footer-heading-size: clamp(48px, 6.5vw, 72px);
+    --footer-email-size: clamp(34px, 5vw, 56px);
+
+    --footer-socials-column: 1 / span 6;
+    --footer-meta-column: 8 / -1;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --footer-padding-top: var(--unit-24);
+    --footer-padding-bottom: var(--unit-10);
+
+    --footer-contact-padding-top: var(--unit-16);
+    --footer-contact-padding-bottom: 72px;
+
+    --footer-heading-max-width: 520px;
+    --footer-heading-size: clamp(42px, 10.5vw, 58px);
+    --footer-heading-leading: 0.98;
+    --footer-heading-tracking: -0.05em;
+
+    --footer-email-row-gap: var(--unit-5);
+    --footer-email-row-margin-top: 28px;
+    --footer-email-gap: 10px;
+    --footer-email-size: clamp(28px, 7.6vw, 46px);
+    --footer-email-leading: 1.05;
+
+    --footer-back-size: var(--unit-10);
+    --footer-bottom-line-margin-bottom: var(--unit-4);
+    --footer-social-link-padding-block: 14px;
+
+    --footer-mobile-meta-gap: var(--unit-6);
+    --footer-mobile-meta-margin-top: var(--unit-10);
+
+    --footer-mobile-info-gap: var(--unit-8);
+    --footer-mobile-info-padding-bottom: var(--unit-12);
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --footer-padding-top: 72px;
+    --footer-padding-bottom: var(--unit-5);
+
+    --footer-contact-padding-top: var(--unit-14);
+    --footer-contact-padding-bottom: var(--unit-16);
+
+    --footer-heading-max-width: 340px;
+    --footer-heading-size: clamp(38px, 10vw, 48px);
+    --footer-heading-leading: 0.98;
+    --footer-heading-tracking: -0.045em;
+
+    --footer-email-row-gap: 14px;
+    --footer-email-row-margin-top: 28px;
+    --footer-email-size: clamp(23px, 6.6vw, 32px);
+    --footer-email-tracking: -0.04em;
+
+    --footer-back-size: 38px;
+
+    --footer-mobile-meta-gap: var(--unit-5);
+    --footer-mobile-meta-margin-top: var(--unit-10);
+    --footer-mobile-info-gap: var(--unit-8);
+    --footer-mobile-info-padding-bottom: var(--unit-10);
+  }
+}
+
+/* =====================================================
+   25 — NAVBAR TOKENS
+
+   Original navbar values preserved exactly.
+   Desktop/mobile behaviour remains unchanged.
+===================================================== */
+
+:root {
+  --nav-focus-width: 2px;
+  --nav-focus-offset: 4px;
+
+  --nav-z: 1000;
+  --nav-menu-z: 999;
+  --nav-height: 72px;
+
+  --nav-transition-transform: 450ms;
+  --nav-transition-surface: 350ms;
+  --nav-transition-fast: 250ms;
+
+  --nav-blur: 30px;
+  --nav-menu-blur: 28px;
+
+  --nav-brand-size: 15px;
+  --nav-brand-tracking: -0.02em;
+  --nav-brand-mark-size: 9px;
+
+  --nav-desktop-gap: 18px;
+  --nav-desktop-size: 13px;
+  --nav-link-underline-offset: -4px;
+
+  --nav-right-gap: 12px;
+
+  --nav-menu-max-width: 640px;
+  --nav-menu-gutter: 48px;
+  --nav-menu-padding-top: 92px;
+  --nav-menu-padding-bottom: 32px;
+
+  --nav-mobile-dot-column: 6px;
+  --nav-mobile-link-gap: 16px;
+  --nav-mobile-link-padding: 20px;
+  --nav-mobile-link-size: clamp(18px, 4.8vw, 22px);
+  --nav-mobile-link-leading: 1.15;
+  --nav-mobile-link-tracking: -0.025em;
+  --nav-mobile-arrow-size: 14px;
+  --nav-mobile-hover-indent: 8px;
+
+  --nav-social-margin-top: 56px;
+  --nav-social-heading-margin-bottom: 20px;
+  --nav-social-gap: 24px;
+  --nav-social-link-padding: 14px;
+
+  --nav-location-padding-top: 48px;
+  --nav-location-size: clamp(11px, 0.72vw, 13px);
+  --nav-location-leading: 1.4;
+
+  --nav-mobile-small-gutter: 40px;
+  --nav-mobile-small-padding-top: 84px;
+  --nav-mobile-small-padding-bottom: 24px;
+  --nav-mobile-small-link-size: 18px;
+  --nav-mobile-small-social-margin-top: 48px;
+  --nav-mobile-small-location-padding-top: 40px;
+
+  /* Navbar surface / micro-interaction tokens */
+  --nav-surface-bg-mix: 82%;
+  --nav-surface-saturation: 180%;
+  --nav-surface-border-mix: 8%;
+  --nav-surface-highlight-opacity: 0.7;
+  --nav-surface-highlight: rgba(255, 255, 255, 0.08);
+  --nav-surface-highlight-clear: rgba(255, 255, 255, 0);
+  --nav-surface-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.04), inset 0 1px rgba(255, 255, 255, 0.08);
+  --nav-menu-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 20px 60px rgba(0, 0, 0, 0.18);
+
+  --nav-brand-hover-shift: 3px;
+  --nav-grid-dot-size: 6px;
+  --nav-grid-dot-active-size: 5px;
+  --nav-grid-state-min-width: 18px;
+  --nav-mobile-arrow-hover-transform: translate(3px, -3px);
+
+  /* Grid overlay */
+  --grid-overlay-line: rgba(20, 20, 20, 0.12);
+  --grid-overlay-line-soft: rgba(20, 20, 20, 0.045);
+  --grid-overlay-baseline: 96px;
 }
 
 /* =====================================================
@@ -123,6 +1381,9 @@ html[data-theme="dark"] {
   --text-primary: var(--color-text);
   --text-secondary: var(--color-text-soft);
   --text-muted: var(--color-text-muted);
+
+  --grid-overlay-line: rgba(255, 255, 255, 0.12);
+  --grid-overlay-line-soft: rgba(255, 255, 255, 0.045);
 }
 
 /* =====================================================
@@ -157,9 +1418,9 @@ body {
   background: var(--color-bg);
   color: var(--color-text);
 
-  font-family: var(--font-bdo), sans-serif;
-  font-weight: 400;
-
+  font-family: var(--font-body);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-body);
   letter-spacing: var(--tracking-body);
 
   overflow-x: hidden;
@@ -176,7 +1437,9 @@ html.lenis-stopped body {
   height: 100dvh;
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -185,7 +1448,10 @@ a {
   text-decoration: none;
 }
 
-button {
+button,
+input,
+textarea,
+select {
   font: inherit;
 }
 
@@ -196,6 +1462,36 @@ button {
     background-color var(--duration-fast) var(--ease-premium),
     border-color var(--duration-fast) var(--ease-premium),
     transform var(--duration-fast) var(--ease-premium);
+}
+
+/* =====================================================
+   FONT ROLE UTILITIES
+===================================================== */
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+/* Existing expressive headings stay on BDO during migration. */
+.hero-title,
+.about-page-title,
+.work-page-heading,
+.case-title,
+.about-heading,
+.about-story-content h2,
+.experience-heading,
+.testimonials-heading,
+.footer-heading,
+.footer-email,
+.identity-title,
+.case-story-block h2,
+.case-outcome-copy h2,
+.case-more-work-copy h2 {
+  font-family: var(--font-display);
 }
 
 /* =====================================================
@@ -224,45 +1520,105 @@ button {
 
 .site-grid {
   display: grid;
-
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-
+  grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
   gap: var(--grid-gap);
 }
 
 /* =====================================================
-   TYPOGRAPHY
+   TYPOGRAPHY UTILITIES
 ===================================================== */
 
-.meta-text {
-  font-size: var(--text-meta);
-  font-weight: 400;
-  line-height: 1.2;
-  letter-spacing: 0;
-  /* text-transform: uppercase; */
+.home-hero-heading,
+.display-heading {
+  margin: 0;
+
+  font-family: var(--font-display);
+  font-size: var(--text-hero-home);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-hero-home);
+  letter-spacing: var(--tracking-hero-home);
 }
 
-.body-text {
-  font-size: var(--text-body);
-  line-height: var(--leading-body);
-  letter-spacing: var(--tracking-body);
+.page-hero-heading {
+  margin: 0;
+
+  font-family: var(--font-display);
+  font-size: var(--text-hero-page);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-hero-page);
+  letter-spacing: var(--tracking-hero-page);
+}
+
+.project-hero-heading {
+  margin: 0;
+
+  font-family: var(--font-display);
+  font-size: var(--text-hero-project);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-hero-project);
+  letter-spacing: var(--tracking-hero-project);
 }
 
 .section-heading {
   margin: 0;
-  font-size: var(--text-section);
-  font-weight: 500;
-  line-height: var(--leading-heading);
-  letter-spacing: var(--tracking-heading);
+
+  font-family: var(--font-display);
+  font-size: var(--text-section-heading);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-section);
+  letter-spacing: var(--tracking-section);
 }
 
-.display-heading {
+.subheading {
   margin: 0;
 
-  font-size: var(--text-display);
-  font-weight: 500;
-  line-height: var(--leading-tight);
-  letter-spacing: var(--tracking-display);
+  font-family: var(--font-display);
+  font-size: var(--text-subheading);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-subheading);
+  letter-spacing: var(--tracking-subheading);
+}
+
+.heading-small {
+  margin: 0;
+
+  font-family: var(--font-display);
+  font-size: var(--text-heading-small);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-heading-small);
+  letter-spacing: var(--tracking-heading-small);
+}
+
+.lead-text {
+  font-family: var(--font-body);
+  font-size: var(--text-lead);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-lead);
+  letter-spacing: var(--tracking-lead);
+}
+
+.body-text {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-body);
+  letter-spacing: var(--tracking-body);
+}
+
+.small-text {
+  font-family: var(--font-body);
+  font-size: var(--text-small);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-small);
+  letter-spacing: var(--tracking-small);
+}
+
+.meta-text {
+  font-family: var(--font-body);
+  font-size: var(--text-meta);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-meta);
+  letter-spacing: var(--tracking-meta);
 }
 
 /* =====================================================
@@ -283,8 +1639,7 @@ button {
 
 .section-line {
   width: 100%;
-  height: 1px;
-
+  height: var(--border-width);
   background: var(--color-line);
 }
 
@@ -300,12 +1655,17 @@ button {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   align-items: center;
-  padding-block: 12px;
+
+  padding-block: var(--unit-3);
   margin-bottom: var(--section-meta-gap);
-  border-top: 1px solid var(--color-line);
+
+  border-top: var(--border-subtle);
+
   color: var(--color-text-soft);
+
+  font-family: var(--font-body);
   font-size: var(--text-meta);
-  line-height: 1.2;
+  line-height: var(--leading-meta);
 }
 
 .section-meta > :nth-child(2) {
@@ -331,14 +1691,22 @@ button {
 }
 
 /* =====================================================
+   KEYBOARD FOCUS
+===================================================== */
+
+a:focus-visible,
+button:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+}
+
+/* =====================================================
    IMAGE BEHAVIOUR
 ===================================================== */
 
 .media-frame {
   position: relative;
-
   overflow: hidden;
-
   background: var(--color-surface);
 }
 
@@ -364,7 +1732,6 @@ button {
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-
     transition-duration: 0.01ms !important;
   }
 }
@@ -377,9 +1744,11 @@ button {
   display: block;
   width: 100%;
   overflow: hidden;
-  padding-block: 60px 60px;
+
+  padding-top: var(--marquee-padding-top);
+  padding-bottom: var(--marquee-padding-bottom);
+
   color: var(--color-text);
-  /* color: var(--color-text-soft); */
 }
 
 .editorial-marquee-track {
@@ -390,24 +1759,27 @@ button {
   backface-visibility: hidden;
   transform: translate3d(0, 0, 0);
 
-  animation: editorial-marquee-scroll 38s linear infinite;
+  animation: editorial-marquee-scroll var(--marquee-duration) linear infinite;
 }
 
 .editorial-marquee-group {
   display: flex;
   align-items: center;
   flex-shrink: 0;
-  gap: clamp(28px, 2.5vw, 48px);
-  padding-right: clamp(28px, 2.5vw, 48px);
+
+  gap: var(--marquee-group-gap);
+  padding-right: var(--marquee-group-gap);
 }
 
 .editorial-marquee-text {
   flex-shrink: 0;
   white-space: nowrap;
-  font-size: clamp(68px, 8.3vw, 158px);
-  font-weight: 500;
-  line-height: 0.9;
-  letter-spacing: -0.065em;
+
+  font-family: var(--font-display);
+  font-size: var(--marquee-text-size);
+  font-weight: var(--weight-medium);
+  line-height: var(--marquee-text-leading);
+  letter-spacing: var(--marquee-text-tracking);
 }
 
 .editorial-marquee-dot {
@@ -415,8 +1787,11 @@ button {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+
   color: var(--color-text);
-  font-size: 3em;
+
+  font-family: var(--font-display);
+  font-size: var(--marquee-dot-size);
   line-height: 1;
 }
 
@@ -436,57 +1811,38 @@ button {
   }
 }
 
+a.editorial-marquee:focus-visible .editorial-marquee-track {
+  animation-play-state: paused;
+}
+
 @media (max-width: 1024px) {
-  .editorial-marquee {
-    padding-block: 24px 28px;
-  }
-
-  .editorial-marquee-track {
-    animation-duration: 34s;
-  }
-
-  .editorial-marquee-text {
-    font-size: clamp(64px, 9vw, 110px);
+  :root {
+    --marquee-padding-top: 24px;
+    --marquee-padding-bottom: 28px;
+    --marquee-duration: 34s;
+    --marquee-text-size: clamp(64px, 9vw, 110px);
   }
 }
 
 @media (max-width: 768px) {
-  .editorial-marquee {
-    padding-block: 22px 26px;
-  }
-
-  .editorial-marquee-track {
-    animation-duration: 26s;
-  }
-
-  .editorial-marquee-group {
-    gap: 24px;
-    padding-right: 24px;
-  }
-
-  .editorial-marquee-text {
-    font-size: clamp(52px, 14vw, 82px);
-    letter-spacing: -0.055em;
+  :root {
+    --marquee-padding-top: 22px;
+    --marquee-padding-bottom: 26px;
+    --marquee-duration: 26s;
+    --marquee-group-gap: var(--unit-6);
+    --marquee-text-size: clamp(52px, 14vw, 82px);
+    --marquee-text-tracking: -0.055em;
   }
 }
 
 @media (max-width: 480px) {
-  .editorial-marquee {
-    padding-block: 20px 24px;
-  }
-
-  .editorial-marquee-track {
-    animation-duration: 24s;
-  }
-
-  .editorial-marquee-group {
-    gap: 20px;
-    padding-right: 20px;
-  }
-
-  .editorial-marquee-text {
-    font-size: 52px;
-    letter-spacing: -0.05em;
+  :root {
+    --marquee-padding-top: 20px;
+    --marquee-padding-bottom: 24px;
+    --marquee-duration: 24s;
+    --marquee-group-gap: var(--unit-5);
+    --marquee-text-size: 52px;
+    --marquee-text-tracking: -0.05em;
   }
 }
 
@@ -512,34 +1868,43 @@ body,
 ===================================================== */
 
 .theme-toggle {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
 
+  width: var(--theme-toggle-size);
+  height: var(--theme-toggle-size);
+  padding: 0;
+
   background: transparent;
   border: 0;
+  border-radius: var(--radius-round);
   color: var(--color-text);
 
   cursor: pointer;
-
   flex-shrink: 0;
 }
 
 .theme-toggle svg {
-  width: 18px;
-  height: 18px;
   display: block;
+  width: var(--theme-toggle-icon-size);
+  height: var(--theme-toggle-icon-size);
+}
+
+.theme-toggle:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
 }
 
 #page-content {
   transition:
-    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
-    filter 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    transform var(--page-menu-transition-duration) var(--ease-premium),
+    filter var(--page-menu-transition-duration) var(--ease-premium);
 }
 
 #page-content.page-menu-open {
-  transform: scale(0.985);
-  filter: blur(2px);
+  transform: scale(var(--page-menu-scale));
+  filter: blur(var(--page-menu-blur));
 }
 
 /* =====================================================
@@ -552,8 +1917,8 @@ html {
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: var(--scrollbar-size);
+  height: var(--scrollbar-size);
 }
 
 ::-webkit-scrollbar-track {
@@ -563,7 +1928,7 @@ html {
 ::-webkit-scrollbar-thumb {
   background: var(--color-line-strong);
   border: 2px solid var(--color-bg);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -572,4 +1937,482 @@ html {
 
 ::-webkit-scrollbar-corner {
   background: var(--color-bg);
+}
+
+/* =====================================================
+   26 — ABOUT PAGE TOKENS
+
+   Internal page hierarchy:
+   Home Hero > Page Hero > Section Heading > Body.
+   Layout geometry mirrors the existing About page.
+===================================================== */
+
+:root {
+  /* Page hero */
+  --about-page-hero-padding-top: var(--section-space);
+  --about-page-title-wrap-padding-top: var(--section-meta-gap);
+  --about-page-title-wrap-padding-bottom: var(--section-space-small);
+
+  --about-page-title-max-width: 1500px;
+  --about-page-title-size: var(--text-hero-page);
+  --about-page-title-weight: var(--weight-medium);
+  --about-page-title-leading: var(--leading-hero-page);
+  --about-page-title-tracking: var(--tracking-hero-page);
+
+  --about-page-title-mask-padding: 0.12em;
+  --about-page-title-mask-offset: -0.08em;
+  --about-page-title-inner-padding: 0.04em;
+
+  /* Hero image + intro */
+  --about-page-hero-bottom-padding: var(--section-space);
+  --about-page-image-column: 1 / span 5;
+  --about-page-image-width: 100%;
+  --about-page-image-ratio: 0.82;
+
+  --about-page-intro-column: 8 / span 4;
+  --about-page-intro-max-width: none;
+  --about-page-intro-margin-top: 0px;
+  --about-page-intro-padding-bottom: var(--unit-2);
+
+  /* Story */
+  --about-page-story-padding: var(--section-space);
+  --about-page-story-columns: 12;
+  --about-page-story-heading-max-width: 70%;
+  --about-page-story-heading-size: var(--text-section-heading);
+  --about-page-story-heading-weight: var(--weight-medium);
+  --about-page-story-heading-leading: var(--leading-section);
+  --about-page-story-heading-tracking: var(--tracking-section);
+
+  --about-page-story-copy-margin-top: var(--section-meta-gap);
+  --about-page-story-copy-padding-top: var(--unit-5);
+  --about-page-story-copy-leading: 1.75;
+  --about-page-story-copy-first-column: 1 / span 5;
+  --about-page-story-copy-last-column: 7 / span 5;
+
+  --about-page-story-label-margin-bottom: var(--unit-5);
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --about-page-title-size: clamp(60px, 8.2vw, 92px);
+
+    --about-page-image-column: 1 / span 5;
+    --about-page-intro-column: 7 / span 5;
+
+    --about-page-story-heading-size: clamp(48px, 6vw, 70px);
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --about-page-hero-padding-top: var(--section-space-small);
+
+    --about-page-title-size: clamp(48px, 14vw, 82px);
+    --about-page-title-leading: 0.91;
+    --about-page-title-tracking: -0.065em;
+
+    --about-page-image-width: 82%;
+
+    --about-page-intro-max-width: 520px;
+    --about-page-intro-margin-top: var(--unit-12);
+    --about-page-intro-padding-bottom: 0px;
+
+    --about-page-story-heading-size: clamp(38px, 10vw, 58px);
+    --about-page-story-heading-leading: 1;
+    --about-page-story-heading-max-width: 100%;
+
+    --about-page-story-copy-leading: 1.7;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --about-page-title-size: clamp(44px, 13.5vw, 62px);
+    --about-page-image-width: 100%;
+    --about-page-intro-margin-top: var(--unit-10);
+    --about-page-story-heading-size: clamp(36px, 10vw, 48px);
+  }
+}
+
+/* =====================================================
+   27 — WORK ARCHIVE PAGE TOKENS
+
+   Internal-page hierarchy mirrors /about:
+   Home Hero > Page Hero > Section Heading > Card Title.
+   Shared project-card visuals continue to come from the
+   Work section tokens above.
+===================================================== */
+
+:root {
+  /* Page hero */
+  --work-page-hero-padding-top: var(--section-space);
+
+  --work-page-title-padding-top: var(--section-meta-gap);
+  --work-page-title-padding-bottom: var(--section-space-small);
+  --work-page-title-size: var(--text-hero-page);
+  --work-page-title-weight: var(--weight-medium);
+  --work-page-title-leading: var(--leading-hero-page);
+  --work-page-title-tracking: var(--tracking-hero-page);
+  --work-page-title-white-space: nowrap;
+
+  /* Page-specific section rhythm */
+  --work-page-projects-padding-top: var(--unit-0);
+  --work-page-gallery-padding-bottom: var(--unit-0);
+  --work-page-explorations-padding-top: var(--section-space);
+  --work-page-bottom-divider-margin-top: var(--section-space);
+
+  /* Archive continuation — cards 06–13 */
+  --work-page-item-6-column: 9 / -1;
+  --work-page-item-6-margin-top: clamp(100px, 10vw, 170px);
+
+  --work-page-item-7-column: 2 / span 5;
+
+  --work-page-item-8-column: 9 / -1;
+  --work-page-item-8-margin-top: clamp(100px, 10vw, 170px);
+
+  --work-page-item-9-column: 1 / span 7;
+
+  --work-page-item-10-column: 9 / -1;
+  --work-page-item-10-margin-top: clamp(100px, 10vw, 170px);
+
+  --work-page-item-11-column: 2 / span 5;
+
+  --work-page-item-12-column: 9 / -1;
+  --work-page-item-12-margin-top: clamp(100px, 10vw, 170px);
+
+  --work-page-item-13-column: 1 / span 7;
+}
+
+@media (max-width: 1024px) {
+  :root {
+    /* Match the internal About page hero hierarchy. */
+    --work-page-title-size: clamp(60px, 8.2vw, 92px);
+
+    --work-page-item-6-column: 9 / -1;
+    --work-page-item-6-margin-top: var(--unit-20);
+
+    --work-page-item-7-column: 1 / span 5;
+
+    --work-page-item-8-column: 7 / -1;
+    --work-page-item-8-margin-top: var(--unit-12);
+
+    --work-page-item-9-column: 1 / span 7;
+
+    --work-page-item-10-column: 9 / -1;
+    --work-page-item-10-margin-top: var(--unit-20);
+
+    --work-page-item-11-column: 1 / span 5;
+
+    --work-page-item-12-column: 7 / -1;
+    --work-page-item-12-margin-top: var(--unit-12);
+
+    --work-page-item-13-column: 1 / span 7;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --work-page-hero-padding-top: var(--section-space-small);
+
+    --work-page-title-size: clamp(48px, 14vw, 82px);
+    --work-page-title-leading: 0.91;
+    --work-page-title-tracking: var(--tracking-hero-page);
+    --work-page-title-white-space: normal;
+
+    /* Archive cards join the same single-column stack as 01–05. */
+    --work-page-item-6-column: auto;
+    --work-page-item-6-margin-top: var(--unit-0);
+    --work-page-item-7-column: auto;
+    --work-page-item-8-column: auto;
+    --work-page-item-8-margin-top: var(--unit-0);
+    --work-page-item-9-column: auto;
+    --work-page-item-10-column: auto;
+    --work-page-item-10-margin-top: var(--unit-0);
+    --work-page-item-11-column: auto;
+    --work-page-item-12-column: auto;
+    --work-page-item-12-margin-top: var(--unit-0);
+    --work-page-item-13-column: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --work-page-title-size: clamp(44px, 13.5vw, 62px);
+  }
+}
+
+/* =====================================================
+   28 — IDENTITY CODE SECTION TOKENS
+
+   Book / writing section. Values intentionally mirror the
+   existing component so this migration is visual-neutral.
+   Component CSS now consumes these tokens instead of owning
+   arbitrary spacing, sizing and motion values.
+===================================================== */
+
+:root {
+  --identity-section-padding-top: var(--section-space);
+  --identity-section-padding-bottom: var(--section-space);
+
+  --identity-content-column: 1 / span 6;
+  --identity-content-z: 2;
+
+  --identity-title-max-width: 620px;
+  --identity-title-size: clamp(42px, 3.8vw, 64px);
+  --identity-title-weight: var(--weight-medium);
+  --identity-title-leading: 0.96;
+  --identity-title-tracking: -0.055em;
+
+  --identity-statement-max-width: 540px;
+  --identity-statement-margin-top: clamp(36px, 3vw, 48px);
+  --identity-statement-size: clamp(22px, 1.65vw, 28px);
+  --identity-statement-weight: var(--weight-medium);
+  --identity-statement-leading: 1.16;
+  --identity-statement-tracking: -0.03em;
+
+  --identity-description-max-width: 460px;
+  --identity-description-margin-top: var(--unit-6);
+
+  --identity-status-gap: 10px;
+  --identity-status-margin-top: 28px;
+  --identity-status-dot-size: 7px;
+  --identity-status-leading: 1.2;
+
+  --identity-preview-max-width: 460px;
+  --identity-preview-margin-top: var(--unit-8);
+  --identity-preview-padding-block: 14px;
+  --identity-preview-weight: var(--weight-medium);
+  --identity-preview-leading: 1.2;
+  --identity-preview-transition-duration: 300ms;
+  --identity-preview-transition-ease: ease;
+  --identity-preview-arrow-size: 0.9em;
+  --identity-preview-arrow-duration: 350ms;
+  --identity-preview-arrow-x: 3px;
+  --identity-preview-arrow-y: -3px;
+
+  --identity-book-column: 8 / span 5;
+  --identity-book-max-width: 410px;
+  --identity-book-ratio: 1080 / 1382;
+  --identity-book-rotation: -0.5deg;
+  --identity-book-hover-y: -5px;
+  --identity-book-motion-duration: 600ms;
+
+  --identity-footer-line-margin-top: var(--section-space-small);
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --identity-content-column: 1 / span 7;
+    --identity-book-column: 9 / span 4;
+
+    --identity-title-max-width: 540px;
+    --identity-title-size: clamp(40px, 4.8vw, 58px);
+
+    --identity-statement-max-width: 480px;
+    --identity-statement-size: clamp(21px, 2.5vw, 27px);
+
+    --identity-description-max-width: 430px;
+    --identity-preview-max-width: 430px;
+    --identity-book-max-width: 340px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --identity-section-padding-top: var(--section-space-small);
+    --identity-section-padding-bottom: var(--section-space);
+
+    --identity-title-max-width: 100%;
+    --identity-title-size: clamp(40px, 11vw, 56px);
+    --identity-title-leading: 0.96;
+    --identity-title-tracking: -0.05em;
+
+    --identity-statement-max-width: 92%;
+    --identity-statement-margin-top: var(--unit-8);
+    --identity-statement-size: clamp(22px, 5.8vw, 27px);
+    --identity-statement-mobile-offset: 8%;
+
+    --identity-description-max-width: 92%;
+    --identity-description-margin-top: 22px;
+    --identity-description-mobile-offset: 8%;
+
+    --identity-status-margin-top: 26px;
+    --identity-status-mobile-offset: 8%;
+
+    --identity-preview-max-width: 92%;
+    --identity-preview-margin-top: 28px;
+    --identity-preview-mobile-offset: 8%;
+
+    --identity-book-margin-top: clamp(52px, 14vw, 68px);
+    --identity-book-mobile-width: min(82vw, 360px);
+    --identity-book-hover-y: 0px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --identity-title-size: clamp(38px, 11vw, 50px);
+
+    --identity-statement-max-width: 100%;
+    --identity-statement-mobile-offset: 0%;
+
+    --identity-description-max-width: 100%;
+    --identity-description-mobile-offset: 0%;
+
+    --identity-status-mobile-offset: 0%;
+
+    --identity-preview-max-width: 100%;
+    --identity-preview-mobile-offset: 0%;
+
+    --identity-book-margin-top: 52px;
+    --identity-book-mobile-width: 88vw;
+  }
+}
+
+/* =====================================================
+   FINAL SYSTEM RESPONSIVE TOKENS
+===================================================== */
+
+@media (max-width: 768px) {
+  :root {
+    --grid-overlay-baseline: 64px;
+  }
+}
+
+/* =====================================================
+   32 — RESPONSIVE TYPOGRAPHY AUTHORITY
+
+   One hierarchy across every page:
+   Home Hero > Page Hero > Project Hero > Section >
+   Subheading > Small Heading > Lead > Body > Meta.
+
+   Component-specific typography variables below point to
+   these semantic roles so the hierarchy cannot drift.
+===================================================== */
+
+:root {
+  /* Home / internal / project heroes */
+  --hero-title-size: var(--text-hero-home);
+  --hero-title-leading: var(--leading-hero-home);
+  --hero-title-tracking: var(--tracking-hero-home);
+
+  --about-page-title-size: var(--text-hero-page);
+  --about-page-title-leading: var(--leading-hero-page);
+  --about-page-title-tracking: var(--tracking-hero-page);
+
+  --work-page-title-size: var(--text-hero-page);
+  --work-page-title-leading: var(--leading-hero-page);
+  --work-page-title-tracking: var(--tracking-hero-page);
+
+  --case-title-size: var(--text-hero-project);
+  --case-title-leading: var(--leading-hero-project);
+  --case-title-tracking: var(--tracking-hero-project);
+
+  /* Major section headings */
+  --about-heading-size: var(--text-section-heading);
+  --about-heading-leading: var(--leading-section);
+  --about-heading-tracking: var(--tracking-section);
+
+  --experience-heading-size: var(--text-section-heading);
+  --experience-heading-leading: var(--leading-section);
+  --experience-heading-tracking: var(--tracking-section);
+
+  --testimonials-heading-size: var(--text-section-heading);
+  --testimonials-heading-leading: var(--leading-section);
+  --testimonials-heading-tracking: var(--tracking-section);
+
+  --footer-heading-size: var(--text-section-heading);
+  --footer-heading-leading: var(--leading-section);
+  --footer-heading-tracking: var(--tracking-section);
+
+  --about-page-story-heading-size: var(--text-section-heading);
+  --about-page-story-heading-leading: var(--leading-section);
+
+  /* Case-study hierarchy */
+  --case-story-heading-size: var(--text-subheading);
+  --case-story-heading-leading: var(--leading-subheading);
+  --case-story-heading-tracking: var(--tracking-subheading);
+
+  --case-outcome-heading-size: var(--text-section-heading);
+  --case-outcome-heading-leading: var(--leading-section);
+  --case-outcome-heading-tracking: var(--tracking-section);
+
+  /* Identity is a content feature, not a page hero. */
+  --identity-title-size: var(--text-subheading);
+  --identity-title-leading: var(--leading-subheading);
+  --identity-title-tracking: var(--tracking-subheading);
+}
+
+/* Tablet retains the editorial scale while keeping levels distinct. */
+@media (max-width: 1024px) {
+  :root {
+    --text-hero-home: clamp(64px, 8.5vw, 96px);
+    --text-hero-page: clamp(58px, 8vw, 88px);
+    --text-hero-project: clamp(54px, 7.4vw, 80px);
+
+    --text-section-heading: clamp(42px, 5.6vw, 62px);
+    --text-subheading: clamp(32px, 4vw, 46px);
+    --text-heading-small: clamp(23px, 2.8vw, 32px);
+    --text-lead: clamp(21px, 2.3vw, 28px);
+
+    --leading-hero-home: 0.9;
+    --leading-hero-page: 0.91;
+    --leading-hero-project: 0.92;
+
+    --tracking-hero-home: -0.064em;
+    --tracking-hero-page: -0.06em;
+    --tracking-hero-project: -0.055em;
+  }
+}
+
+/* Mobile keeps Home Hero clearly dominant without oversized sections. */
+@media (max-width: 768px) {
+  :root {
+    --text-hero-home: clamp(54px, 11.5vw, 88px);
+    --text-hero-page: clamp(48px, 10vw, 76px);
+    --text-hero-project: clamp(46px, 9.2vw, 70px);
+
+    --text-section-heading: clamp(40px, 7.5vw, 58px);
+    --text-subheading: clamp(32px, 5.5vw, 44px);
+    --text-heading-small: clamp(22px, 3.8vw, 30px);
+    --text-lead: clamp(20px, 3.4vw, 26px);
+
+    --leading-hero-home: 0.93;
+    --leading-hero-page: 0.93;
+    --leading-hero-project: 0.94;
+    --leading-section: 0.98;
+    --leading-subheading: 1;
+
+    --tracking-hero-home: -0.055em;
+    --tracking-hero-page: -0.055em;
+    --tracking-hero-project: -0.05em;
+    --tracking-section: -0.05em;
+    --tracking-subheading: -0.04em;
+  }
+}
+
+/* Small mobile: same hierarchy, tighter composition. */
+@media (max-width: 480px) {
+  :root {
+    --text-hero-home: clamp(50px, 11.5vw, 58px);
+    --text-hero-page: clamp(46px, 10vw, 52px);
+    --text-hero-project: clamp(44px, 9.2vw, 50px);
+
+    --text-section-heading: clamp(38px, 7.5vw, 44px);
+    --text-subheading: clamp(30px, 5.5vw, 36px);
+    --text-heading-small: clamp(21px, 3.8vw, 26px);
+    --text-lead: clamp(19px, 3.4vw, 23px);
+
+    --leading-hero-home: 0.94;
+    --leading-hero-page: 0.94;
+    --leading-hero-project: 0.95;
+    --leading-section: 1;
+    --leading-subheading: 1.02;
+
+    --tracking-hero-home: -0.05em;
+    --tracking-hero-page: -0.05em;
+    --tracking-hero-project: -0.045em;
+    --tracking-section: -0.045em;
+    --tracking-subheading: -0.035em;
+  }
 }

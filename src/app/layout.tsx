@@ -1,13 +1,17 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Script from "next/script";
+
 import SiteChrome from "@/components/layout/SiteChrome";
 import SmoothScroll from "@/components/providers/SmoothScroll";
+
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 
 import "./globals.css";
+
+const SITE_URL = "https://mohitpanchal.vercel.app";
 
 const bdoGrotesk = localFont({
   src: [
@@ -32,73 +36,60 @@ const bdoGrotesk = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mohitpanchal.vercel.app/"),
+  metadataBase: new URL(SITE_URL),
 
   title: {
-    default: "Mohit Panchal | Product Designer",
+    default: "Mohit Panchal — Product Designer & UI/UX Designer",
     template: "%s | Mohit Panchal",
   },
 
   description:
-    "Portfolio of Mohit Panchal, a Product Designer and UX/UI Designer crafting intuitive digital products, design systems, and user experiences.",
+    "Mohit Panchal is a Product Designer and UI/UX Designer creating SaaS products, design systems, websites, and digital experiences for teams worldwide.",
 
-  keywords: [
-    "Mohit Panchal",
-    "Product Designer",
-    "UX Designer",
-    "UI Designer",
-    "Design Systems",
-    "Portfolio",
-    "Figma",
-    "Interaction Design",
-    "User Experience",
-    "India",
-  ],
-
-  authors: [{ name: "Mohit Panchal" }],
+  authors: [{ name: "Mohit Panchal", url: SITE_URL }],
   creator: "Mohit Panchal",
   publisher: "Mohit Panchal",
 
   robots: {
     index: true,
     follow: true,
-  },
-
-  alternates: {
-    canonical: "/",
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
 
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://mohitpanchal.vercel.app/",
     siteName: "Mohit Panchal",
-    title: "Mohit Panchal | Product Designer",
+    title: "Mohit Panchal — Product Designer & UI/UX Designer",
     description:
-      "Portfolio of Mohit Panchal showcasing product design, UX, UI, design systems and case studies.",
+      "Product Designer and UI/UX Designer creating SaaS products, design systems, websites, and digital experiences for teams worldwide.",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Mohit Panchal Portfolio",
+        alt: "Mohit Panchal — Product Designer and UI/UX Designer",
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Mohit Panchal | Product Designer",
+    title: "Mohit Panchal — Product Designer & UI/UX Designer",
     description:
-      "Portfolio of Mohit Panchal showcasing product design, UX, UI and design systems.",
+      "Product Designer and UI/UX Designer creating digital products and experiences for teams worldwide.",
     images: ["/og-image.jpg"],
   },
 
   icons: {
     icon: [
-      {
-        url: "/favicon.ico",
-      },
+      { url: "/favicon.ico" },
       {
         url: "/favicon-light.png",
         media: "(prefers-color-scheme: light)",
@@ -114,6 +105,54 @@ export const metadata: Metadata = {
   manifest: "/site.webmanifest",
 };
 
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": `${SITE_URL}/#person`,
+  name: "Mohit Panchal",
+  url: SITE_URL,
+  image: `${SITE_URL}/images/about/about-image.png`,
+  jobTitle: "Product Designer & UI/UX Designer",
+  description:
+    "Product Designer and UI/UX Designer based in India, working with startups, SaaS teams, and digital products worldwide.",
+  knowsAbout: [
+    "Product Design",
+    "UI Design",
+    "User Experience Design",
+    "Design Systems",
+    "SaaS Product Design",
+    "Web Design",
+    "Brand Identity",
+    "Graphic Design",
+    "Front-end Design",
+    "Front-end Prototyping",
+    "React",
+    "Next.js",
+    "AI-assisted Design Workflows",
+  ],
+  sameAs: [
+    "https://www.linkedin.com/in/mohitpanchal",
+    "https://dribbble.com/mohitpanchal",
+    "https://gravatar.com/mohituix",
+    "https://profiles.wordpress.org/mohitpanchal/",
+    "https://github.com/mohitpanc",
+    "https://x.com/mohituix",
+  ],
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${SITE_URL}/#website`,
+  url: SITE_URL,
+  name: "Mohit Panchal",
+  alternateName: "Mohit Panchal Portfolio",
+  inLanguage: "en",
+  publisher: {
+    "@id": `${SITE_URL}/#person`,
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -122,11 +161,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={bdoGrotesk.variable} suppressHydrationWarning>
       <head>
-        {/* =====================================================
-            INITIAL THEME
-            Runs before first paint to prevent theme flash
-        ===================================================== */}
-
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -148,8 +182,7 @@ export default function RootLayout({
                       ? "#0b0b0b"
                       : "#ffffff";
 
-                  document.documentElement.style.colorScheme =
-                    theme;
+                  document.documentElement.style.colorScheme = theme;
                 } catch (e) {
                   document.documentElement.setAttribute(
                     "data-theme",
@@ -159,8 +192,7 @@ export default function RootLayout({
                   document.documentElement.style.backgroundColor =
                     "#0b0b0b";
 
-                  document.documentElement.style.colorScheme =
-                    "dark";
+                  document.documentElement.style.colorScheme = "dark";
                 }
               })();
             `,
@@ -169,49 +201,28 @@ export default function RootLayout({
       </head>
 
       <body>
-        <SmoothScroll />
-        <SiteChrome />
-
-        {/* =====================================================
-            STRUCTURED DATA
-        ===================================================== */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(personJsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Person",
-              name: "Mohit Panchal",
-              jobTitle: "Product Designer",
-              url: "https://mohitpanchal.vercel.app",
-              image: "https://mohitpanchal.vercel.app/og-image.jpg",
-              description:
-                "Product Designer specializing in UX, UI and Design Systems.",
-              sameAs: [
-                "https://www.linkedin.com/in/mohitpanchal/",
-                "https://dribbble.com/mohitpanchal",
-                "https://www.behance.net/mohituix/",
-              ],
-            }),
+            __html: JSON.stringify(websiteJsonLd).replace(/</g, "\\u003c"),
           }}
         />
 
+        <SmoothScroll />
+        <SiteChrome />
+
         {children}
 
-        {/* =====================================================
-            ANALYTICS
-        ===================================================== */}
-
         <GoogleAnalytics gaId="G-GQXNW3SC4F" />
-
         <SpeedInsights />
-
         <Analytics />
-
-        {/* =====================================================
-            MICROSOFT CLARITY
-        ===================================================== */}
 
         <Script id="microsoft-clarity" strategy="afterInteractive">
           {`

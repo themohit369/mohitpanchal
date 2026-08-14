@@ -74,19 +74,13 @@ export default function About() {
           className="section-meta"
         >
           <span>About</span>
-
-          <span>Independent Designer</span>
-
-          <span>Based in India</span>
+          <span>Product + UI/UX Designer</span>
+          <span>India / Worldwide</span>
         </motion.div>
 
         {/* =====================================================
             HEADING
         ===================================================== */}
-
-        {/* =====================================================
-    HEADING
-===================================================== */}
 
         <motion.div
           className="about-heading-wrap"
@@ -178,7 +172,7 @@ export default function About() {
               >
                 <Image
                   src="/images/about/about-image.png"
-                  alt="Portrait of Mohit Panchal"
+                  alt="Portrait of Mohit Panchal, Mohit Panchal designer, product and UI/UX designer"
                   fill
                   sizes="
                     (max-width: 480px) 100vw,
@@ -224,9 +218,10 @@ export default function About() {
                 Over the past 10+ years, I&apos;ve helped startups, SaaS
                 companies, and product teams design digital experiences that
                 feel effortless, intentional, and meaningful. My approach
-                combines product thinking, interface craft, and front-end
-                awareness to create experiences that not only look good but also
-                perform in the real world.
+                combines product thinking, UI/UX design, interface craft, and
+                front-end awareness to create products that work clearly in the
+                real world. I&apos;m based in India and open to remote product
+                design roles and select freelance collaborations worldwide.
               </p>
             </motion.div>
 
@@ -269,7 +264,8 @@ export default function About() {
                 rel="noopener noreferrer"
                 className="action-link action-link-muted"
               >
-                <span className="action-link-arrow">View Resume</span>
+                <span>View Resume</span>
+                <span className="action-link-arrow">↗</span>
               </a>
             </motion.div>
           </div>

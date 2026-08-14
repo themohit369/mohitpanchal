@@ -1,8 +1,17 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { motion, useReducedMotion } from "framer-motion";
+
 import "@/components/sections/work.css";
 import "./work-page.css";
+
 import Footer from "@/components/layout/Footer";
+
+const ease = [0.16, 1, 0.3, 1] as const;
+
+const heroLines = ["Selected", "Work"];
 
 /* =====================================================
    CASE STUDIES
@@ -13,16 +22,18 @@ const caseStudies = [
     number: "01",
     year: "2025",
     title: "PowerPack Elements",
-    category: "Product Design + UX/UI",
+    category: "Product Design + UI/UX Design",
     image: "/images/work/project-1.webp",
+    alt: "PowerPack Elements product design and UI/UX case study",
     href: "/work/powerpack-elements",
   },
   {
     number: "02",
     year: "2025",
     title: "Max Addons for Bricks",
-    category: "Product Design + UX/UI",
+    category: "Product Design + UI/UX Design",
     image: "/images/work/project-2.webp",
+    alt: "Max Addons for Bricks product design and UI/UX case study",
     href: "/work/max-addons",
   },
 ];
@@ -35,19 +46,44 @@ const identityWork = [
   {
     title: "Max Addons",
     category: "Logo Design + Brand Identity",
-    image: "/images/work/max-addons-logo.webp",
+    image: "/images/work/logos/max-addons-logo.webp",
+    alt: "Max Addons logo and brand identity design by Mohit Panchal",
     href: "/work/max-addons",
   },
   {
     title: "The Drip Line",
     category: "Logo Design + Brand Identity",
-    image: "/images/work/the-drip-line-logo.webp",
+    image: "/images/work/logos/the-drip-line-logo.webp",
+    alt: "The Drip Line logo and brand identity design by Mohit Panchal",
     href: "/work/the-drip-line",
   },
   {
     title: "PowerPack Elements",
-    category: "Logo Design",
-    image: "/images/work/powerpack-logo.webp",
+    category: "Logo Design + Visual Identity",
+    image: "/images/work/logos/powerpack-logo.webp",
+    alt: "PowerPack Elements logo and visual identity design by Mohit Panchal",
+    href: "/work/powerpack-elements",
+  },
+  {
+    title: "WPFomify",
+    category: "Logo Design + Visual Identity",
+    image: "/images/work/logos/wpfomify-logo.webp",
+    alt: "WPFomify logo and visual identity design by Mohit Panchal",
+    href: "#",
+  },
+  {
+    title: "SmartDocs",
+    category: "Logo Design + Visual Identity",
+    image: "/images/work/logos/smart-docs-logo.webp",
+    alt: "SmartDocs logo and visual identity design by Mohit Panchal",
+    href: "#",
+  },
+  {
+    title: "OxyExtended",
+    category: "Logo Design + Visual Identity",
+    image: "/images/work/logos/oxyextended-logo.webp",
+    alt: "OxyExtended logo and visual identity design by Mohit Panchal",
+    href: "#",
   },
 ];
 
@@ -60,60 +96,70 @@ const webWork = [
     title: "PowerPack Anniversary",
     category: "Campaign Website",
     image: "/images/work/ppe-bday-temp-img_1_5x-scaled.webp",
+    alt: "PowerPack Anniversary campaign website and UI design",
     href: "/work/powerpack-anniversary",
   },
   {
     title: "Black Friday",
     category: "Campaign Design + UI",
     image: "/images/work/bf-ppe-temp-img_1_5x-scaled.webp",
+    alt: "Black Friday campaign website and UI design",
     href: "/work/black-friday",
   },
   {
     title: "Design Agency",
     category: "Website Design",
     image: "/images/work/des-agency-temp-img_1_5x-scaled.webp",
+    alt: "Design agency website design project",
     href: "/work/design-agency",
   },
   {
     title: "Digital Marketing",
     category: "Website Design",
     image: "/images/work/digi-temp-img_1_5x-scaled.webp",
+    alt: "Digital marketing website design project",
     href: "/work/digital-marketing",
   },
   {
     title: "Builder",
     category: "Website Design",
     image: "/images/work/builder-temp-img_1_5x-scaled.webp",
+    alt: "Builder website design and user interface project",
     href: "/work/builder",
   },
   {
     title: "Furniture",
     category: "E-commerce Website",
     image: "/images/work/furniture-temp-img_1_5x-scaled.webp",
+    alt: "Furniture e-commerce website design project",
     href: "/work/furniture",
   },
   {
     title: "Fitness",
     category: "Website Design",
     image: "/images/work/gym-temp-img_1_5x-scaled.webp",
+    alt: "Fitness website design project",
     href: "/work/fitness",
   },
   {
     title: "Home Space",
     category: "Website Design",
     image: "/images/work/home-space-temp-img_1_5x-scaled.webp",
+    alt: "Home Space website design project",
     href: "/work/home-space",
   },
   {
     title: "Jewellery",
     category: "E-commerce Website",
     image: "/images/work/jewellery-temp-img_1_5x-scaled.webp",
+    alt: "Jewellery e-commerce website design project",
     href: "/work/jewellery",
   },
   {
     title: "Food & Restaurant",
     category: "Website Design",
     image: "/images/work/pizza-temp-img_1_5x-scaled.webp",
+    alt: "Food and restaurant website design project",
     href: "/work/food-restaurant",
   },
 ];
@@ -127,11 +173,13 @@ const explorations = [
     title: "Web Exploration 01",
     category: "Visual + Web Design",
     image: "/images/work/section-1-temp-img_1_5x-scaled.webp",
+    alt: "Visual and web design exploration 01",
   },
   {
     title: "Web Exploration 02",
     category: "Visual + Web Design",
     image: "/images/work/section-2-temp-img_1_5x-scaled.webp",
+    alt: "Visual and web design exploration 02",
   },
 ];
 
@@ -140,6 +188,33 @@ const explorations = [
 ===================================================== */
 
 export default function WorkPage() {
+  const reduceMotion = useReducedMotion();
+
+  const cardMotion = (index: number) => ({
+    initial: reduceMotion
+      ? false
+      : {
+          opacity: 0,
+          y: 56,
+        },
+
+    whileInView: {
+      opacity: 1,
+      y: 0,
+    },
+
+    viewport: {
+      once: true,
+      amount: 0.15,
+    },
+
+    transition: {
+      duration: reduceMotion ? 0 : 1.1,
+      delay: reduceMotion ? 0 : Math.min(index * 0.08, 0.24),
+      ease,
+    },
+  });
+
   return (
     <main className="work-page">
       {/* =====================================================
@@ -148,10 +223,45 @@ export default function WorkPage() {
 
       <section className="work-page-hero">
         <div className="site-container">
-          <h1 className="work-page-heading">
-            Selected
-            <br /> Work
-          </h1>
+          <motion.div
+            className="work-page-heading-wrap"
+            initial="hidden"
+            animate="visible"
+          >
+            <h1 className="work-page-heading">
+              {heroLines.map((line, index) => (
+                <span key={line} className="work-page-heading-line">
+                  <motion.span
+                    className="work-page-heading-reveal"
+                    variants={{
+                      hidden: reduceMotion
+                        ? {
+                            y: "0%",
+                            opacity: 1,
+                          }
+                        : {
+                            y: "105%",
+                            opacity: 1,
+                          },
+
+                      visible: {
+                        y: "0%",
+                        opacity: 1,
+
+                        transition: {
+                          duration: reduceMotion ? 0 : 1.05,
+                          delay: reduceMotion ? 0 : index * 0.1,
+                          ease,
+                        },
+                      },
+                    }}
+                  >
+                    {line}
+                  </motion.span>
+                </span>
+              ))}
+            </h1>
+          </motion.div>
         </div>
       </section>
 
@@ -160,27 +270,66 @@ export default function WorkPage() {
       ===================================================== */}
 
       <section className="site-container work-projects-container work-page-projects">
-        <div className="work-divider" />
+        <motion.div
+          className="work-divider"
+          initial={reduceMotion ? false : { scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{
+            once: true,
+            amount: 0.8,
+          }}
+          transition={{
+            duration: reduceMotion ? 0 : 0.9,
+            ease,
+          }}
+          style={{
+            transformOrigin: "left center",
+          }}
+        />
 
-        <div className="section-meta work-section-meta">
-          <span>Product & UX/UI</span>
+        <motion.div
+          initial={
+            reduceMotion
+              ? false
+              : {
+                  opacity: 0,
+                  y: 20,
+                }
+          }
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+            amount: 0.6,
+          }}
+          transition={{
+            duration: reduceMotion ? 0 : 0.7,
+            ease,
+          }}
+          className="section-meta work-section-meta"
+        >
+          <span>Product Design & UI/UX</span>
           <span>(01 — 02)</span>
-          <span>Case Studies</span>
-        </div>
+          <span>Product Design Case Studies</span>
+        </motion.div>
 
         <div className="work-project-grid">
           {caseStudies.map((project, index) => (
-            <article
+            <motion.article
               key={project.title}
               className={`work-project work-project-${index + 1}`}
+              {...cardMotion(index)}
             >
               <Link
                 href={project.href}
+                aria-label={`View ${project.title} product design and UI/UX case study`}
                 className="media-frame work-project-image"
               >
                 <Image
                   src={project.image}
-                  alt={project.title}
+                  alt={project.alt}
                   fill
                   priority={index === 0}
                   sizes={
@@ -202,7 +351,7 @@ export default function WorkPage() {
 
                 <span className="work-project-arrow">↗</span>
               </div>
-            </article>
+            </motion.article>
           ))}
         </div>
       </section>
@@ -212,24 +361,62 @@ export default function WorkPage() {
       ===================================================== */}
 
       <section className="site-container work-identity-container">
-        <div className="work-divider" />
+        <motion.div
+          className="work-divider"
+          initial={reduceMotion ? false : { scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{
+            once: true,
+            amount: 0.8,
+          }}
+          transition={{
+            duration: reduceMotion ? 0 : 0.9,
+            ease,
+          }}
+          style={{
+            transformOrigin: "left center",
+          }}
+        />
 
-        <div className="section-meta work-section-meta">
-          <span>Identity & Visual Work</span>
-          <span>(03 — 05)</span>
-          <span>Logo Design + Brand Identity</span>
-        </div>
+        <motion.div
+          initial={
+            reduceMotion
+              ? false
+              : {
+                  opacity: 0,
+                  y: 20,
+                }
+          }
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+            amount: 0.6,
+          }}
+          transition={{
+            duration: reduceMotion ? 0 : 0.7,
+            ease,
+          }}
+          className="section-meta work-section-meta"
+        >
+          <span>Brand Identity & Graphic Design</span>
+          <span>(03 — 08)</span>
+          <span>Logo Design + Visual Identity</span>
+        </motion.div>
 
         <div className="work-identity-grid">
           {identityWork.map((project, index) => (
-            <article
+            <motion.article
               key={project.title}
               className={`work-identity-item work-identity-item-${index + 1}`}
+              {...cardMotion(index)}
             >
               <div className="media-frame work-identity-image">
                 <Image
                   src={project.image}
-                  alt={project.title}
+                  alt={project.alt}
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="work-identity-image-inner"
@@ -240,7 +427,7 @@ export default function WorkPage() {
                 <h3>{project.title}</h3>
                 <span>{project.category}</span>
               </div>
-            </article>
+            </motion.article>
           ))}
         </div>
       </section>
@@ -250,24 +437,62 @@ export default function WorkPage() {
       ===================================================== */}
 
       <section className="site-container work-gallery-container work-page-gallery">
-        <div className="work-divider" />
+        <motion.div
+          className="work-divider"
+          initial={reduceMotion ? false : { scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{
+            once: true,
+            amount: 0.8,
+          }}
+          transition={{
+            duration: reduceMotion ? 0 : 0.9,
+            ease,
+          }}
+          style={{
+            transformOrigin: "left center",
+          }}
+        />
 
-        <div className="section-meta work-section-meta">
-          <span>Selected Web Work</span>
-          <span>(06 — 15)</span>
-          <span>Website Design + UI</span>
-        </div>
+        <motion.div
+          initial={
+            reduceMotion
+              ? false
+              : {
+                  opacity: 0,
+                  y: 20,
+                }
+          }
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+            amount: 0.6,
+          }}
+          transition={{
+            duration: reduceMotion ? 0 : 0.7,
+            ease,
+          }}
+          className="section-meta work-section-meta"
+        >
+          <span>Web Design & UI Projects</span>
+          <span>(09 — 18)</span>
+          <span>Website Design + Digital UI</span>
+        </motion.div>
 
         <div className="work-gallery-grid">
           {webWork.map((project, index) => (
-            <article
+            <motion.article
               key={project.title}
               className={`work-gallery-item work-gallery-item-${index + 1}`}
+              {...cardMotion(index)}
             >
               <div className="media-frame work-gallery-image">
                 <Image
                   src={project.image}
-                  alt={project.title}
+                  alt={project.alt}
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="work-gallery-image-inner"
@@ -278,7 +503,7 @@ export default function WorkPage() {
                 <h3>{project.title}</h3>
                 <span>{project.category}</span>
               </div>
-            </article>
+            </motion.article>
           ))}
         </div>
       </section>
@@ -288,24 +513,62 @@ export default function WorkPage() {
       ===================================================== */}
 
       <section className="site-container work-gallery-container work-page-explorations">
-        <div className="work-divider" />
+        <motion.div
+          className="work-divider"
+          initial={reduceMotion ? false : { scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{
+            once: true,
+            amount: 0.8,
+          }}
+          transition={{
+            duration: reduceMotion ? 0 : 0.9,
+            ease,
+          }}
+          style={{
+            transformOrigin: "left center",
+          }}
+        />
 
-        <div className="section-meta work-section-meta">
-          <span>Design Explorations</span>
-          <span>(16 — 17)</span>
+        <motion.div
+          initial={
+            reduceMotion
+              ? false
+              : {
+                  opacity: 0,
+                  y: 20,
+                }
+          }
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+            amount: 0.6,
+          }}
+          transition={{
+            duration: reduceMotion ? 0 : 0.7,
+            ease,
+          }}
+          className="section-meta work-section-meta"
+        >
+          <span>Visual & Graphic Design Explorations</span>
+          <span>(19 — 20)</span>
           <span>Visual + Web Design</span>
-        </div>
+        </motion.div>
 
         <div className="work-gallery-grid">
           {explorations.map((project, index) => (
-            <article
+            <motion.article
               key={project.title}
               className={`work-gallery-item work-gallery-item-${index + 1}`}
+              {...cardMotion(index)}
             >
               <div className="media-frame work-gallery-image">
                 <Image
                   src={project.image}
-                  alt={project.title}
+                  alt={project.alt}
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="work-gallery-image-inner"
@@ -316,11 +579,26 @@ export default function WorkPage() {
                 <h3>{project.title}</h3>
                 <span>{project.category}</span>
               </div>
-            </article>
+            </motion.article>
           ))}
         </div>
 
-        <div className="work-divider work-page-bottom-divider" />
+        <motion.div
+          className="work-divider work-page-bottom-divider"
+          initial={reduceMotion ? false : { scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{
+            once: true,
+            amount: 0.8,
+          }}
+          transition={{
+            duration: reduceMotion ? 0 : 0.9,
+            ease,
+          }}
+          style={{
+            transformOrigin: "left center",
+          }}
+        />
       </section>
 
       <Footer />

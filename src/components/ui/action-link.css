@@ -5,15 +5,16 @@
 .action-link {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: var(--action-link-gap);
 
   width: fit-content;
 
   color: var(--color-text);
 
-  font-size: var(--text-small);
-  font-weight: 500;
-  line-height: 1.2;
+  font-family: var(--font-body);
+  font-size: var(--action-link-size);
+  font-weight: var(--action-link-weight);
+  line-height: var(--action-link-leading);
 
   text-decoration: none;
 
@@ -50,10 +51,13 @@
   .action-link:hover .action-link-arrow {
     color: var(--color-text);
 
-    transform: translate(4px, -4px);
+    transform: translate(
+      var(--action-link-arrow-hover-x),
+      var(--action-link-arrow-hover-y)
+    );
   }
 
   .action-link-muted:hover .action-link-arrow {
-    transform: translateY(4px);
+    transform: translateY(var(--action-link-muted-arrow-hover-y));
   }
 }

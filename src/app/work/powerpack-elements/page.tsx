@@ -52,7 +52,7 @@ export default function PowerPackElementsPage() {
 
               <div className="case-meta-item">
                 <span>Role</span>
-                <strong>UI/UX Designer</strong>
+                <strong>Product + UI/UX Designer</strong>
               </div>
 
               <div className="case-meta-item">
@@ -85,7 +85,7 @@ export default function PowerPackElementsPage() {
             >
               <Image
                 src="/images/work/project-1.webp"
-                alt="PowerPack Elements"
+                alt="PowerPack Elements Elementor product design interface"
                 fill
                 priority
                 sizes="(max-width:768px)100vw,70vw"
@@ -98,10 +98,11 @@ export default function PowerPackElementsPage() {
 
           <div id="overview" className="case-summary">
             <p>
-              PowerPack Elements is a premium Elementor addon built for
-              designers and agencies. My focus was improving usability, visual
-              consistency, interaction quality and creating a more scalable
-              product experience across the plugin.
+              PowerPack Elements is an Elementor addon by IdeaBox Creations,
+              built around a large library of widgets and customization
+              controls. I worked on the product and UI/UX experience to make
+              interactions clearer, improve interface consistency, and create
+              reusable patterns that could scale as the plugin grew.
             </p>
           </div>
         </div>
@@ -114,7 +115,7 @@ export default function PowerPackElementsPage() {
         <div className="site-container">
           <div className="section-meta">
             <span>The Story</span>
-            <span>Challenge • Solution • Design</span>
+            <span>Product Challenge • UX Solution • UI System</span>
             <span>01</span>
           </div>
 
@@ -126,10 +127,11 @@ export default function PowerPackElementsPage() {
                 <h2>Making a powerful Elementor plugin feel simple to use.</h2>
 
                 <p>
-                  PowerPack Elements offers a large collection of widgets and
-                  customization options. As the product expanded, maintaining
-                  clarity and consistency across the experience became the
-                  primary design challenge.
+                  As PowerPack expanded across more widgets, settings, and
+                  customization options, the experience needed to stay easy to
+                  understand. The core challenge was reducing interface
+                  inconsistency without limiting the flexibility that Elementor
+                  users expect.
                 </p>
               </article>
 
@@ -141,9 +143,11 @@ export default function PowerPackElementsPage() {
                 </h2>
 
                 <p>
-                  I focused on simplifying interactions, improving hierarchy,
-                  standardising components and designing reusable interface
-                  patterns that could scale across the entire product.
+                  I approached repeated controls, states, and interaction
+                  patterns as one connected system instead of designing each
+                  interface in isolation. That meant simplifying hierarchy,
+                  standardising reusable components, and making common actions
+                  more predictable across the product.
                 </p>
               </article>
 
@@ -153,9 +157,11 @@ export default function PowerPackElementsPage() {
                 <h2>Product thinking with implementation in mind.</h2>
 
                 <p>
-                  Every screen was designed with development constraints,
-                  scalability and long-term consistency in mind rather than
-                  visual polish alone.
+                  The UI was designed with Elementor behaviour, development
+                  constraints, responsive states, and long-term maintainability
+                  in mind. Visual polish mattered, but the bigger goal was a
+                  product system that designers and developers could work with
+                  consistently.
                 </p>
               </article>
             </div>
@@ -163,7 +169,7 @@ export default function PowerPackElementsPage() {
             <div className="case-story-image media-frame">
               <Image
                 src="/images/work/ppe-case-study-story.webp"
-                alt="PowerPack"
+                alt="PowerPack Elements UI/UX design system and Elementor interface"
                 fill
                 className="object-cover"
                 sizes="100vw"
@@ -189,7 +195,7 @@ export default function PowerPackElementsPage() {
             <div className="case-outcome-image media-frame">
               <Image
                 src="/images/work/ppe-case-study-outcome.webp"
-                alt=""
+                alt="PowerPack Elements final product interface and reusable UI patterns"
                 fill
                 className="object-cover"
               />
@@ -201,9 +207,11 @@ export default function PowerPackElementsPage() {
               </h2>
 
               <p>
-                This project strengthened my understanding of designing scalable
-                products where consistency, usability and implementation are
-                just as important as visual design.
+                The project helped establish a more consistent way to think
+                about hierarchy, reusable UI patterns, and implementation across
+                a growing Elementor product. It also reinforced how closely
+                product design, design systems, and front-end constraints need
+                to work together.
               </p>
 
               <ul>

@@ -1,12 +1,15 @@
 /* =====================================================
    HERO
+
+   Typography, spacing, borders and responsive sizing are
+   controlled from globals.css design-system tokens.
 ===================================================== */
 
 .hero-section {
   position: relative;
 
   width: 100%;
-  min-height: 100svh;
+  min-height: var(--hero-section-min-height);
 
   overflow: hidden;
 
@@ -18,10 +21,10 @@
   position: relative;
   z-index: 2;
 
-  min-height: calc(100svh - 76px);
+  min-height: var(--hero-container-min-height);
 
-  padding-top: 36px;
-  padding-bottom: 36px;
+  padding-top: var(--hero-container-padding-top);
+  padding-bottom: var(--hero-container-padding-bottom);
 }
 
 /* =====================================================
@@ -31,24 +34,26 @@
 .hero-title {
   position: relative;
   z-index: 1;
+
   width: 100%;
-  margin: clamp(92px, 11vh, 156px) 0 0;
-  font-size: clamp(68px, 8.3vw, 158px);
-  font-weight: 500;
-  line-height: 0.88;
-  letter-spacing: -0.068em;
-  /* text-transform: uppercase; */
+  margin: var(--hero-title-margin-top) 0 0;
+
+  font-family: var(--font-display);
+  font-size: var(--hero-title-size);
+  font-weight: var(--weight-medium);
+  line-height: var(--hero-title-leading);
+  letter-spacing: var(--hero-title-tracking);
 }
 
 .hero-title-line {
   display: block;
-
   white-space: nowrap;
 }
 
 .hero-title-line-indent {
   padding-left: 8.333%;
 }
+
 .hero-title-line-indent-2 {
   padding-left: 16.666%;
 }
@@ -66,7 +71,7 @@
   z-index: 1;
 
   right: var(--page-x);
-  bottom: 22px;
+  bottom: var(--hero-bottom-offset);
   left: var(--page-x);
 
   max-width: calc(var(--container) - (var(--page-x) * 2));
@@ -79,15 +84,21 @@
 .hero-description {
   grid-column: 1 / span 4;
 
-  padding-top: 14px;
-
-  border-top: 1px solid var(--color-line);
+  padding-top: var(--hero-rule-padding-top);
+  border-top: var(--border-subtle);
 }
 
 .hero-description p {
-  max-width: 390px;
+  max-width: var(--hero-copy-max-width);
   margin: 0;
+
   color: var(--color-text-soft);
+
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-body);
+  letter-spacing: var(--tracking-body);
 }
 
 /* ACTIONS */
@@ -98,9 +109,10 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 12px;
-  padding-top: 14px;
-  border-top: 1px solid var(--color-line);
+  gap: var(--hero-actions-gap);
+
+  padding-top: var(--hero-rule-padding-top);
+  border-top: var(--border-subtle);
 }
 
 /* =====================================================
@@ -110,10 +122,13 @@
 .hero-image {
   position: absolute;
   z-index: 1;
-  right: clamp(-120px, -6vw, -40px);
-  bottom: 24px;
-  width: min(48vw, 840px);
-  height: 94%;
+
+  right: var(--hero-image-right);
+  bottom: var(--hero-image-bottom);
+
+  width: var(--hero-image-width);
+  height: var(--hero-image-height);
+
   pointer-events: none;
   overflow: hidden;
   isolation: isolate;
@@ -143,12 +158,14 @@
 }
 
 .hero-image-inner {
+  z-index: 1;
+
   object-fit: contain;
-  object-position: 62% bottom;
+  object-position: var(--hero-image-object-position);
 
   transition:
-    filter 0.45s var(--ease-premium),
-    opacity 0.45s var(--ease-premium);
+    filter var(--hero-theme-transition) var(--ease-premium),
+    opacity var(--hero-theme-transition) var(--ease-premium);
 }
 
 /* ==========================================
@@ -168,14 +185,12 @@ html[data-theme="light"] .hero-image-inner {
 
   position: absolute;
   inset: 0;
-
   z-index: 1;
 
   pointer-events: none;
-
   opacity: 0;
 
-  transition: opacity 0.45s var(--ease-premium);
+  transition: opacity var(--hero-theme-transition) var(--ease-premium);
 
   background: radial-gradient(
     ellipse at 50% 100%,
@@ -197,10 +212,9 @@ html[data-theme="light"] .hero-image::before {
 
   position: absolute;
   inset: auto 0 0 0;
-
   z-index: 2;
 
-  height: 18%;
+  height: var(--hero-image-blend-height);
 
   pointer-events: none;
 
@@ -213,30 +227,11 @@ html[data-theme="light"] .hero-image::before {
   );
 }
 
-.hero-image-inner {
-  z-index: 1;
-}
 /* =====================================================
    HERO TABLET
 ===================================================== */
 
 @media (max-width: 1024px) {
-  .hero-section,
-  .hero-container {
-    min-height: 820px;
-  }
-
-  .hero-title {
-    margin-top: clamp(64px, 5.5vw, 88px);
-    font-size: clamp(64px, 8.5vw, 96px);
-  }
-
-  .hero-image {
-    right: -8vw;
-    width: 60vw;
-    height: 76%;
-  }
-
   .hero-description {
     grid-column: 1 / span 4;
   }
@@ -251,16 +246,6 @@ html[data-theme="light"] .hero-image::before {
 ===================================================== */
 
 @media (max-width: 768px) {
-  .hero-section {
-    min-height: auto;
-  }
-
-  .hero-container {
-    min-height: auto;
-    padding-top: 88px;
-    padding-bottom: 24px;
-  }
-
   /* META */
 
   .hero-meta {
@@ -276,13 +261,6 @@ html[data-theme="light"] .hero-image::before {
   }
 
   /* TITLE */
-
-  .hero-title {
-    margin-top: 24px;
-    font-size: clamp(40px, 11vw, 56px);
-    line-height: 0.95;
-    letter-spacing: -0.05em;
-  }
 
   .hero-title-line {
     white-space: normal;
@@ -300,16 +278,17 @@ html[data-theme="light"] .hero-image::before {
     position: relative;
 
     right: auto;
-    left: auto;
     bottom: auto;
+    left: auto;
 
     width: 100%;
     max-width: 100%;
 
-    margin-top: 40px;
+    margin-top: var(--hero-bottom-margin-top);
   }
 
-  .hero-description {
+  .hero-description,
+  .hero-actions {
     grid-column: 1 / -1;
   }
 
@@ -317,33 +296,22 @@ html[data-theme="light"] .hero-image::before {
     max-width: 100%;
   }
 
-  .hero-actions {
-    grid-column: 1 / -1;
-  }
-
   /* IMAGE */
 
   .hero-image {
     position: relative;
-    right: auto;
-    bottom: auto;
-    width: 100%;
-    height: 52vh;
+
     display: flex;
     justify-content: center;
     align-items: flex-end;
   }
 }
+
 /* =====================================================
    HERO SMALL MOBILE
 ===================================================== */
 
 @media (max-width: 480px) {
-  .hero-title {
-    margin-top: 40px;
-    font-size: clamp(36px, 10vw, 48px);
-  }
-
   .hero-title-line-indent,
   .hero-title-line-indent-2,
   .hero-title-line-last {
@@ -351,8 +319,6 @@ html[data-theme="light"] .hero-image::before {
   }
 
   .hero-image {
-    width: 100%;
-    height: 40vh;
     margin-left: 0;
   }
 
@@ -371,6 +337,7 @@ html[data-theme="light"] .hero-image::before {
 
 .hero-title-mask {
   overflow: hidden;
+
   padding-bottom: 0.18em;
   margin-bottom: -0.18em;
 }
@@ -381,15 +348,12 @@ html[data-theme="light"] .hero-image::before {
   will-change: transform, opacity;
 
   transform: translateZ(0);
-
   backface-visibility: hidden;
 }
 
 .hero-image {
-  overflow: hidden;
   opacity: 1;
   visibility: visible;
-  isolation: isolate;
 }
 
 .hero-image-motion {
@@ -405,6 +369,7 @@ html[data-theme="light"] .hero-image::before {
 
   transform-origin: center bottom;
   will-change: transform;
+
   -webkit-mask-image: linear-gradient(
     to right,
     transparent 0%,
@@ -433,7 +398,7 @@ html[data-theme="light"] .hero-image::before {
   height: 100% !important;
 
   object-fit: contain;
-  object-position: 62% bottom;
+  object-position: var(--hero-image-object-position);
 
   opacity: 1;
   visibility: visible;

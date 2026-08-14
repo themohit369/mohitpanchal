@@ -1,8 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { useEffect, useMemo, useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 
 import "./not-found.css";
 import "@/components/ui/action-link.css";
@@ -18,40 +17,24 @@ const marqueeItems = [
   "Page Not Found",
 ];
 
-const COLS = 36;
-const ROWS = 14;
-
 export default function NotFound() {
   const reduceMotion = useReducedMotion();
 
-  const [showPixels, setShowPixels] = useState(true);
-
-  useEffect(() => {
-    if (reduceMotion) return;
-
-    const timer = setTimeout(() => {
-      setShowPixels(false);
-    }, 1450);
-
-    return () => clearTimeout(timer);
-  }, [reduceMotion]);
-
-  const pixels = useMemo(
-    () => Array.from({ length: COLS * ROWS }, (_, index) => index),
-    [],
-  );
+  const duration = reduceMotion ? 0 : 0.8;
+  const introDelay = reduceMotion ? 0 : 0.25;
+  const copyDelay = reduceMotion ? 0 : 0.45;
+  const actionsDelay = reduceMotion ? 0 : 0.6;
 
   return (
     <main className="not-found-page">
       <div className="site-container">
         <div className="section-line" />
 
-        {/* ======================================
-            MARQUEE
-        ====================================== */}
-
-        <section className="editorial-marquee nf-marquee">
-          <div className="editorial-marquee-track">
+        <section
+          className="editorial-marquee nf-marquee"
+          aria-label="404 Page Not Found"
+        >
+          <div className="editorial-marquee-track" aria-hidden="true">
             {[0, 1].map((group) => (
               <div key={group} className="editorial-marquee-group">
                 {marqueeItems.map((item, index) => (
@@ -73,41 +56,38 @@ export default function NotFound() {
         <section className="not-found-content">
           <motion.div
             className="not-found-inner"
-            initial={{ opacity: 0 }}
+            initial={reduceMotion ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.25 }}
+            transition={{ duration, delay: introDelay, ease }}
           >
             <motion.p
               className="not-found-copy body-text"
-              initial={{ opacity: 0, y: 24 }}
+              initial={reduceMotion ? false : { opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.8,
-                delay: 0.45,
-                ease: [0.22, 1, 0.36, 1],
-              }}
+              transition={{ duration, delay: copyDelay, ease }}
             >
-              The page you're looking for doesn't exist or has been moved.
+              The page you&apos;re looking for doesn&apos;t exist or has been
+              moved.
             </motion.p>
 
             <motion.div
               className="not-found-actions"
-              initial={{ opacity: 0, y: 24 }}
+              initial={reduceMotion ? false : { opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.8,
-                delay: 0.6,
-                ease: [0.22, 1, 0.36, 1],
-              }}
+              transition={{ duration, delay: actionsDelay, ease }}
             >
               <Link href="/" className="action-link">
                 <span>Back Home</span>
-                <span className="action-link-arrow">↗</span>
+                <span className="action-link-arrow" aria-hidden="true">
+                  ↗
+                </span>
               </Link>
 
               <Link href="/#work" className="action-link">
                 <span>Selected Work</span>
-                <span className="action-link-arrow">↗</span>
+                <span className="action-link-arrow" aria-hidden="true">
+                  ↗
+                </span>
               </Link>
             </motion.div>
           </motion.div>

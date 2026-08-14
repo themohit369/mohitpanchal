@@ -1,120 +1,153 @@
 /* ==========================================================
-   WORK PAGE HERO
+   WORK ARCHIVE PAGE
+
+   Shared cards, grids, imagery and card typography live in
+   src/components/sections/work.css.
+
+   This file controls archive-specific page hierarchy,
+   continuation geometry and page-level motion masking.
+========================================================== */
+
+/* ==========================================================
+   PAGE HERO
 ========================================================== */
 
 .work-page-hero {
-  padding-top: var(--section-space-small);
+  padding-top: var(--work-page-hero-padding-top);
 }
+
+/* ==========================================================
+   HEADING WRAPPER
+========================================================== */
+
+.work-page-heading-wrap {
+  width: 100%;
+}
+
+/* ==========================================================
+   PAGE HEADING
+========================================================== */
 
 .work-page-heading {
   margin: 0;
-  padding: var(--section-meta-gap) 0 var(--section-space-small);
-  font-size: clamp(68px, 8.3vw, 158px);
-  font-weight: 500;
-  line-height: 0.98;
-  letter-spacing: -0.055em;
-  white-space: nowrap;
+
+  padding: var(--work-page-title-padding-top) 0
+    var(--work-page-title-padding-bottom);
+
+  color: var(--color-text);
+
+  font-family: var(--font-display);
+  font-size: var(--work-page-title-size);
+  font-weight: var(--work-page-title-weight);
+
+  line-height: var(--work-page-title-leading);
+  letter-spacing: var(--work-page-title-tracking);
+
+  white-space: var(--work-page-title-white-space);
 }
 
 /* ==========================================================
-   RESPONSIVE
+   HEADING MASK
 ========================================================== */
 
-@media (max-width: 768px) {
-  .work-page-hero {
-    padding-top: calc(var(--section-space) * 0.6);
-  }
+.work-page-heading-line {
+  display: block;
 
-  .work-page-heading {
-    padding: var(--section-meta-gap) 0 var(--section-space-small);
-    font-size: clamp(42px, 12.5vw, 72px);
-    line-height: 0.96;
-    letter-spacing: -0.055em;
-    white-space: normal;
-  }
-}
+  overflow: hidden;
 
-@media (max-width: 480px) {
-  .work-page-heading {
-    font-size: clamp(40px, 12vw, 58px);
-  }
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
 }
 
 /* ==========================================================
-   PAGE-SPECIFIC SECTION SPACING
+   HEADING REVEAL
+========================================================== */
+
+.work-page-heading-reveal {
+  display: block;
+
+  opacity: 1;
+
+  transform-origin: left bottom;
+
+  will-change: transform;
+}
+
+/* ==========================================================
+   PAGE-SPECIFIC SECTION RHYTHM
 ========================================================== */
 
 .work-page-projects {
-  padding-top: 0;
+  padding-top: var(--work-page-projects-padding-top);
 }
 
 .work-page-gallery {
-  padding-bottom: 0;
+  padding-bottom: var(--work-page-gallery-padding-bottom);
 }
 
 .work-page-explorations {
-  padding-top: var(--section-space);
+  padding-top: var(--work-page-explorations-padding-top);
 }
 
 .work-page-bottom-divider {
-  margin-top: var(--section-space);
+  margin-top: var(--work-page-bottom-divider-margin-top);
 }
 
 /* ==========================================================
-   EXTRA WEB PROJECTS
+   EXTRA WEB PROJECTS — ARCHIVE CONTINUATION
 
-   work.css already handles items 01–05.
-   Archive continues the same alternating rhythm.
+   Homepage work.css defines cards 01–05.
+   Archive continues the same asymmetric rhythm.
 ========================================================== */
 
-.work-page-gallery .work-gallery-item-6,
-.work-page-gallery .work-gallery-item-8,
-.work-page-gallery .work-gallery-item-10,
-.work-page-gallery .work-gallery-item-12 {
-  grid-column: 9 / -1;
-  margin-top: clamp(100px, 10vw, 170px);
+.work-page-gallery .work-gallery-item-6 {
+  grid-column: var(--work-page-item-6-column);
+
+  margin-top: var(--work-page-item-6-margin-top);
 }
 
-.work-page-gallery .work-gallery-item-7,
+.work-page-gallery .work-gallery-item-7 {
+  grid-column: var(--work-page-item-7-column);
+}
+
+.work-page-gallery .work-gallery-item-8 {
+  grid-column: var(--work-page-item-8-column);
+
+  margin-top: var(--work-page-item-8-margin-top);
+}
+
+.work-page-gallery .work-gallery-item-9 {
+  grid-column: var(--work-page-item-9-column);
+}
+
+.work-page-gallery .work-gallery-item-10 {
+  grid-column: var(--work-page-item-10-column);
+
+  margin-top: var(--work-page-item-10-margin-top);
+}
+
 .work-page-gallery .work-gallery-item-11 {
-  grid-column: 2 / span 5;
+  grid-column: var(--work-page-item-11-column);
 }
 
-.work-page-gallery .work-gallery-item-9,
+.work-page-gallery .work-gallery-item-12 {
+  grid-column: var(--work-page-item-12-column);
+
+  margin-top: var(--work-page-item-12-margin-top);
+}
+
 .work-page-gallery .work-gallery-item-13 {
-  grid-column: 1 / span 7;
+  grid-column: var(--work-page-item-13-column);
 }
 
 /* ==========================================================
-   TABLET
+   MOTION PERFORMANCE
 ========================================================== */
 
-@media (max-width: 1024px) {
-  .work-page-heading {
-    font-size: clamp(68px, 11vw, 110px);
-  }
-
-  .work-page-gallery .work-gallery-item-6,
-  .work-page-gallery .work-gallery-item-10 {
-    grid-column: 9 / -1;
-    margin-top: 80px;
-  }
-
-  .work-page-gallery .work-gallery-item-7,
-  .work-page-gallery .work-gallery-item-11 {
-    grid-column: 1 / span 5;
-  }
-
-  .work-page-gallery .work-gallery-item-8,
-  .work-page-gallery .work-gallery-item-12 {
-    grid-column: 7 / -1;
-    margin-top: 48px;
-  }
-
-  .work-page-gallery .work-gallery-item-9,
-  .work-page-gallery .work-gallery-item-13 {
-    grid-column: 1 / span 7;
-  }
+.work-project,
+.work-identity-item,
+.work-gallery-item {
+  will-change: transform, opacity;
 }
 
 /* ==========================================================
@@ -122,21 +155,34 @@
 ========================================================== */
 
 @media (max-width: 768px) {
-  .work-page-hero {
-    padding-top: var(--section-space-small);
-  }
+  /*
+   * Shared work.css switches the gallery to a vertical
+   * mobile stack. Remove archive-only desktop staggering.
+   */
 
-  .work-page-heading {
-    padding: var(--section-meta-gap) 0 var(--section-space-small);
+  .work-page-gallery .work-gallery-item-6,
+  .work-page-gallery .work-gallery-item-7,
+  .work-page-gallery .work-gallery-item-8,
+  .work-page-gallery .work-gallery-item-9,
+  .work-page-gallery .work-gallery-item-10,
+  .work-page-gallery .work-gallery-item-11,
+  .work-page-gallery .work-gallery-item-12,
+  .work-page-gallery .work-gallery-item-13 {
+    width: 100%;
 
-    font-size: clamp(56px, 17vw, 82px);
-    line-height: 0.92;
-    letter-spacing: -0.055em;
-
-    white-space: normal;
+    margin-top: 0;
   }
 }
 
 /* ==========================================================
-   SMALL MOBILE
+   REDUCED MOTION
 ========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .work-page-heading-reveal,
+  .work-project,
+  .work-identity-item,
+  .work-gallery-item {
+    will-change: auto;
+  }
+}

@@ -1,41 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
-
 import "./grid-overlay.css";
 
-export default function GridOverlay() {
-  const [visible, setVisible] = useState(false);
+type GridOverlayProps = {
+  visible: boolean;
+};
 
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-
-    if (params.get("grid") === "true") {
-      setVisible(true);
-    }
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-      const target = event.target as HTMLElement;
-
-      const isTyping =
-        target.tagName === "INPUT" ||
-        target.tagName === "TEXTAREA" ||
-        target.isContentEditable;
-
-      if (isTyping) return;
-
-      if (event.key.toLowerCase() === "g") {
-        setVisible((current) => !current);
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, []);
-
+export default function GridOverlay({ visible }: GridOverlayProps) {
   if (!visible) return null;
 
   return (

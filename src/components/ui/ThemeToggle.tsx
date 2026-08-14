@@ -2,41 +2,42 @@
 
 import { useEffect, useState } from "react";
 
+type Theme = "light" | "dark";
+
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState<"light" | "dark">("dark");
+  const [theme, setTheme] = useState<Theme>("dark");
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
-
+    const savedTheme = localStorage.getItem("theme") as Theme | null;
     const currentTheme = savedTheme ?? "dark";
 
     setTheme(currentTheme);
-
     document.documentElement.setAttribute("data-theme", currentTheme);
-
     setMounted(true);
   }, []);
 
   const toggleTheme = () => {
-    const nextTheme = theme === "dark" ? "light" : "dark";
+    const nextTheme: Theme = theme === "dark" ? "light" : "dark";
 
     setTheme(nextTheme);
-
     document.documentElement.setAttribute("data-theme", nextTheme);
-
     localStorage.setItem("theme", nextTheme);
   };
 
-  if (!mounted) return null;
+  if (!mounted) {
+    return <span className="theme-toggle" aria-hidden="true" />;
+  }
+
+  const nextThemeLabel = theme === "dark" ? "light" : "dark";
 
   return (
     <button
       type="button"
       className="theme-toggle"
       onClick={toggleTheme}
-      aria-label="Toggle theme"
-      aria-pressed={theme === "light"}
+      aria-label={`Switch to ${nextThemeLabel} theme`}
+      title={`Switch to ${nextThemeLabel} theme`}
     >
       {theme === "dark" ? (
         <svg viewBox="0 0 24 24" aria-hidden="true">

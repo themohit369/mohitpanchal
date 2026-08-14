@@ -19,7 +19,7 @@ const navItems = [
   },
   {
     name: "Contact",
-    href: "/contact",
+    href: "/#contact",
   },
 ];
 
@@ -52,7 +52,12 @@ function getIndiaTime() {
   }).format(new Date());
 }
 
-export default function Navbar() {
+type NavbarProps = {
+  gridVisible: boolean;
+  onToggleGrid: () => void;
+};
+
+export default function Navbar({ gridVisible, onToggleGrid }: NavbarProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -173,6 +178,24 @@ export default function Navbar() {
           </div>
 
           <div className="editorial-right">
+            <button
+              type="button"
+              className={`editorial-grid-toggle ${
+                gridVisible ? "is-active" : ""
+              }`}
+              onClick={onToggleGrid}
+              aria-pressed={gridVisible}
+              aria-keyshortcuts="G"
+              aria-label={gridVisible ? "Hide layout grid" : "Show layout grid"}
+              title="Toggle layout grid (G)"
+            >
+              <span>Grid</span>
+              <span className="editorial-grid-toggle-dot" aria-hidden="true" />
+              <span className="editorial-grid-toggle-state" aria-hidden="true">
+                {gridVisible ? "On" : "Off"}
+              </span>
+            </button>
+
             <button
               type="button"
               className="editorial-menu-button"

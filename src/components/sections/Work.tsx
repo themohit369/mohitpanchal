@@ -27,6 +27,7 @@ const caseStudies = [
     title: "PowerPack Elements",
     category: "Product Design · UX/UI",
     image: "/images/work/project-1.webp",
+    alt: "PowerPack Elements product design and UI/UX case study by Mohit Panchal",
     href: "/work/powerpack-elements",
   },
   {
@@ -34,6 +35,7 @@ const caseStudies = [
     title: "Max Addons for Bricks",
     category: "Product Design · UX/UI",
     image: "/images/work/project-2.webp",
+    alt: "Max Addons for Bricks product design and UI/UX case study by Mohit Panchal",
     href: "/work/max-addons",
   },
 ];
@@ -44,19 +46,46 @@ const caseStudies = [
 
 const identityWork = [
   {
+    title: "PowerPack Elements",
+    category: "Logo Design · Visual Identity",
+    image: "/images/work/logos/powerpack-logo.webp",
+    alt: "PowerPack Elements logo and visual identity design by Mohit Panchal",
+    href: "/work/powerpack-elements",
+  },
+  {
     title: "Max Addons",
     category: "Logo Design · Brand Identity",
-    image: "/images/work/max-addons-logo.webp",
+    image: "/images/work/logos/max-addons-logo.webp",
+    alt: "Max Addons logo and brand identity design by Mohit Panchal",
+    href: "/work/max-addons",
   },
   {
     title: "The Drip Line",
     category: "Logo Design · Brand Identity",
-    image: "/images/work/the-drip-line-logo.webp",
+    image: "/images/work/logos/the-drip-line-logo.webp",
+    alt: "The Drip Line logo and brand identity design by Mohit Panchal",
+    href: "#",
   },
   {
-    title: "PowerPack Elements",
-    category: "Logo Design",
-    image: "/images/work/powerpack-logo.webp",
+    title: "WPFomify",
+    category: "Logo Design · Visual Identity",
+    image: "/images/work/logos/wpfomify-logo.webp",
+    alt: "WPFomify logo and visual identity design by Mohit Panchal",
+    href: "#",
+  },
+  {
+    title: "SmartDocs",
+    category: "Logo Design · Visual Identity",
+    image: "/images/work/logos/smart-docs-logo.webp",
+    alt: "SmartDocs logo and visual identity design by Mohit Panchal",
+    href: "#",
+  },
+  {
+    title: "OxyExtended",
+    category: "Logo Design · Visual Identity",
+    image: "/images/work/logos/oxyextended-logo.webp",
+    alt: "OxyExtended logo and visual identity design by Mohit Panchal",
+    href: "#",
   },
 ];
 
@@ -151,7 +180,7 @@ function CaseStudyCard({ project, index }: CaseStudyCardProps) {
         >
           <Image
             src={project.image}
-            alt={project.title}
+            alt={project.alt}
             fill
             sizes={
               index === 0
@@ -217,7 +246,7 @@ function IdentityCard({ project, index }: IdentityCardProps) {
       <div className="media-frame work-identity-image">
         <Image
           src={project.image}
-          alt={project.title}
+          alt={project.alt}
           fill
           sizes="(max-width: 768px) 100vw, 50vw"
           className="work-identity-image-inner"
@@ -325,8 +354,8 @@ export default function Work() {
           }}
         >
           <span>Selected Work</span>
-          <span>(01 — 10)</span>
-          <span>UI/UX + Visual Design</span>
+          <span>(01 — 13)</span>
+          <span>Product, UI/UX + Brand Design</span>
         </motion.div>
       </div>
 
@@ -423,8 +452,8 @@ export default function Work() {
             ease,
           }}
         >
-          <span>Identity & Visual Work</span>
-          <span>(03 — 05)</span>
+          <span>Brand Identity & Graphic Design</span>
+          <span>(03 — 08)</span>
           <span>Logo Design + Brand Identity</span>
         </motion.div>
 
@@ -466,7 +495,7 @@ export default function Work() {
           }}
         >
           <span>Selected Web Work</span>
-          <span>(06 — 10)</span>
+          <span>(09 — 13)</span>
           <span>Website Design + UI</span>
         </motion.div>
 
