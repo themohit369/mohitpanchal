@@ -84,7 +84,7 @@ export default function PowerPackElementsPage() {
               className="case-hero-image media-frame"
             >
               <Image
-                src="/images/work/project-1.webp"
+                src="/images/work/case-studies/powerpack-elements-product-design.webp"
                 alt="PowerPack Elements Elementor product design interface"
                 fill
                 priority
@@ -168,7 +168,7 @@ export default function PowerPackElementsPage() {
 
             <div className="case-story-image media-frame">
               <Image
-                src="/images/work/ppe-case-study-story.webp"
+                src="/images/work/case-studies/powerpack-elements-ui-ux-story.webp"
                 alt="PowerPack Elements UI/UX design system and Elementor interface"
                 fill
                 className="object-cover"
@@ -194,7 +194,7 @@ export default function PowerPackElementsPage() {
           <div className="case-outcome-grid">
             <div className="case-outcome-image media-frame">
               <Image
-                src="/images/work/ppe-case-study-outcome.webp"
+                src="/images/work/case-studies/powerpack-elements-final-ui.webp"
                 alt="PowerPack Elements final product interface and reusable UI patterns"
                 fill
                 className="object-cover"

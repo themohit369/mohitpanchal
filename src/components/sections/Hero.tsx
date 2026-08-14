@@ -262,7 +262,7 @@ export default function Hero() {
         >
           <Image
             src="/images/hero/mohit-hero.png"
-            alt="Mohit Panchal, Mohit Panchal Designer, product and UI/UX designer"
+            alt="Mohit Panchal, product and UI/UX designer"
             fill
             priority
             sizes="(max-width: 768px) 100vw, 52vw"

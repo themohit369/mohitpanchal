@@ -210,7 +210,7 @@ export default function Testimonials() {
                 <div className="testimonial-author-profile">
                   <Image
                     src={testimonial.image}
-                    alt={testimonial.name}
+                    alt=""
                     width={56}
                     height={56}
                     className="testimonial-avatar"

@@ -26,7 +26,7 @@ const caseStudies = [
     year: "2025",
     title: "PowerPack Elements",
     category: "Product Design · UX/UI",
-    image: "/images/work/project-1.webp",
+    image: "/images/work/case-studies/powerpack-elements-product-design.webp",
     alt: "PowerPack Elements product design and UI/UX case study by Mohit Panchal",
     href: "/work/powerpack-elements",
   },
@@ -34,7 +34,7 @@ const caseStudies = [
     year: "2025",
     title: "Max Addons for Bricks",
     category: "Product Design · UX/UI",
-    image: "/images/work/project-2.webp",
+    image: "/images/work/case-studies/max-addons-product-design.webp",
     alt: "Max Addons for Bricks product design and UI/UX case study by Mohit Panchal",
     href: "/work/max-addons",
   },
@@ -97,27 +97,32 @@ const webWork = [
   {
     title: "Home Space",
     category: "Website Design",
-    image: "/images/work/home-space-temp-img_1_5x-scaled.webp",
+    image: "/images/work/templates/home-space-website.webp",
+    alt: "Home Space website design by Mohit Panchal",
   },
   {
     title: "Furniture",
     category: "Website Design",
-    image: "/images/work/furniture-temp-img_1_5x-scaled.webp",
+    image: "/images/work/templates/furniture-ecommerce-website.webp",
+    alt: "Furniture website design by Mohit Panchal",
   },
   {
     title: "Design Agency",
     category: "Website Design",
-    image: "/images/work/des-agency-temp-img_1_5x-scaled.webp",
+    image: "/images/work/templates/design-agency-website.webp",
+    alt: "Design agency website design by Mohit Panchal",
   },
   {
     title: "Digital Marketing",
     category: "Website Design",
-    image: "/images/work/digi-temp-img_1_5x-scaled.webp",
+    image: "/images/work/templates/digital-marketing-website.webp",
+    alt: "Digital marketing website design by Mohit Panchal",
   },
   {
     title: "Builder / Real Estate",
     category: "Website Design",
-    image: "/images/work/builder-temp-img_1_5x-scaled.webp",
+    image: "/images/work/templates/builder-real-estate-website.webp",
+    alt: "Builder and real estate website design by Mohit Panchal",
   },
 ];
 
@@ -301,7 +306,7 @@ function WebWorkCard({ project, index }: WebWorkCardProps) {
       <div className="media-frame work-gallery-image">
         <Image
           src={project.image}
-          alt={project.title}
+          alt={project.alt}
           fill
           sizes="(max-width: 768px) 100vw, 50vw"
           className="work-gallery-image-inner"

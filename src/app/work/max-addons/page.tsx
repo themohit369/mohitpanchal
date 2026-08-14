@@ -84,7 +84,7 @@ export default function MaxAddonsPage() {
               className="case-hero-image media-frame"
             >
               <Image
-                src="/images/work/project-2.webp"
+                src="/images/work/case-studies/max-addons-product-design.webp"
                 alt="Max Addons for Bricks product branding and website design"
                 fill
                 priority
@@ -178,7 +178,7 @@ export default function MaxAddonsPage() {
 
             <div className="case-story-image media-frame">
               <Image
-                src="/images/work/max-addons-case-study-story.webp"
+                src="/images/work/case-studies/max-addons-brand-ui-story.webp"
                 alt="Max Addons for Bricks brand identity and UI design system"
                 fill
                 className="object-cover"
@@ -204,7 +204,7 @@ export default function MaxAddonsPage() {
           <div className="case-outcome-grid">
             <div className="case-outcome-image media-frame">
               <Image
-                src="/images/work/max-addons-case-study-outcome.webp"
+                src="/images/work/case-studies/max-addons-final-website-ui.webp"
                 alt="Max Addons for Bricks marketing website and responsive UI design"
                 fill
                 className="object-cover"

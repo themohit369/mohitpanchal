@@ -6,14 +6,16 @@ const projects = [
     year: "2025",
     title: "PowerPack Elements",
     category: "Product Design · UX/UI",
-    image: "/images/work/project-1.webp",
+    image: "/images/work/case-studies/powerpack-elements-product-design.webp",
+    alt: "PowerPack Elements product design and UI/UX case study",
     href: "/work/powerpack-elements",
   },
   {
     year: "2025",
     title: "Max Addons for Bricks",
     category: "Product Design · UX/UI",
-    image: "/images/work/project-2.webp",
+    image: "/images/work/case-studies/max-addons-product-design.webp",
+    alt: "Max Addons for Bricks product design and UI/UX case study",
     href: "/work/max-addons",
   },
 ];
@@ -39,7 +41,7 @@ export default function NextProject() {
               >
                 <Image
                   src={project.image}
-                  alt={project.title}
+                  alt={project.alt}
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="case-more-work-image-inner"

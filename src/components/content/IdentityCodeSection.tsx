@@ -204,7 +204,7 @@ export default function IdentityCodeSection() {
             <div className="identity-book-cover">
               <Image
                 src="/images/book/cover.webp"
-                alt="The Identity Code book cover"
+                alt="The Identity Code book cover by Mohit Panchal"
                 fill
                 priority={false}
                 sizes="(max-width: 768px) 86vw, (max-width: 1024px) 34vw, 410px"
