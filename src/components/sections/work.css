@@ -244,6 +244,7 @@
 
 .work-identity-image {
   position: relative;
+  display: block;
   width: 100%;
   aspect-ratio: var(--work-identity-image-ratio);
   overflow: hidden;
@@ -273,6 +274,8 @@
   align-items: flex-start;
   gap: var(--work-gallery-info-gap);
   padding-top: var(--work-gallery-info-padding-top);
+  color: inherit;
+  text-decoration: none;
 }
 
 .work-gallery-info h3 {
