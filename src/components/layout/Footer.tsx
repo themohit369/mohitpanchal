@@ -1,10 +1,9 @@
 "use client";
 
+import Script from "next/script";
 import { useEffect, useState } from "react";
 import { motion, useReducedMotion, type Variants } from "framer-motion";
-
 import Marquee from "@/components/ui/Marquee";
-
 import "./footer.css";
 
 const EMAIL = "mohitp846@gmail.com";
@@ -26,10 +25,7 @@ const socialLinks = [
     label: "Instagram",
     href: "https://www.instagram.com/themohit369/",
   },
-  {
-    label: "Contra",
-    href: "https://contra.com/mohitpanchal",
-  },
+
   {
     label: "GitHub",
     href: "https://github.com/themohit369",
@@ -227,6 +223,20 @@ export default function Footer() {
             </button>
           </motion.div>
         </motion.div>
+
+        <div className="pb-14">
+          <div
+            className="contra-hire-me-button"
+            data-analyticsuserid="fc8cd262-e37e-4703-83bf-ceed58c9f6dd"
+            data-theme="light"
+            data-username="mohitpanchal"
+          />
+          <Script
+            async
+            src="https://contra.com/static/embed/sdk.js"
+            charSet="utf-8"
+          />
+        </div>
 
         <motion.div
           className="footer-bottom-line"
