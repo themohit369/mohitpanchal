@@ -189,6 +189,22 @@
    SOCIALS
 ===================================================== */
 
+.contra-dark {
+  display: none;
+}
+
+.contra-light {
+  display: block;
+}
+
+[data-theme="dark"] .contra-light {
+  display: none;
+}
+
+[data-theme="dark"] .contra-dark {
+  display: block;
+}
+
 .footer-socials {
   grid-column: var(--footer-socials-column);
   display: flex;

@@ -225,12 +225,24 @@ export default function Footer() {
         </motion.div>
 
         <div className="pb-14">
-          <div
-            className="contra-hire-me-button"
-            data-analyticsuserid="fc8cd262-e37e-4703-83bf-ceed58c9f6dd"
-            data-theme="light"
-            data-username="mohitpanchal"
-          />
+          <div className="contra-light">
+            <div
+              className="contra-hire-me-button"
+              data-analyticsuserid="fc8cd262-e37e-4703-83bf-ceed58c9f6dd"
+              data-theme="light"
+              data-username="mohitpanchal"
+            />
+          </div>
+
+          <div className="contra-dark">
+            <div
+              className="contra-hire-me-button"
+              data-analyticsuserid="fc8cd262-e37e-4703-83bf-ceed58c9f6dd"
+              data-theme="dark"
+              data-username="mohitpanchal"
+            />
+          </div>
+
           <Script
             async
             src="https://contra.com/static/embed/sdk.js"
