@@ -152,9 +152,9 @@ export default function Footer() {
             <span className="footer-info-label">Location</span>
 
             <p>
-              Kota, Rajasthan
+              Udaipur, Rajasthan
               <br />
-              India · 324001
+              India · 313001
             </p>
           </div>
 
