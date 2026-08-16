@@ -161,7 +161,11 @@ export default function Navbar({ gridVisible, onToggleGrid }: NavbarProps) {
         }`}
       >
         <div className="editorial-nav-inner">
-          <Link href="/" className="editorial-brand">
+          <Link
+            href="/"
+            className="editorial-brand"
+            aria-label="Mohit Panchal — Home"
+          >
             <img
               src="/mohit-dark.svg"
               alt="Mohit Panchal"
