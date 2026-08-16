@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { lenisInstance } from "@/components/providers/SmoothScroll";
@@ -161,7 +162,21 @@ export default function Navbar({ gridVisible, onToggleGrid }: NavbarProps) {
       >
         <div className="editorial-nav-inner">
           <Link href="/" className="editorial-brand">
-            Mòhit Panchal<sup>®</sup>
+            <img
+              src="/mohit-dark.svg"
+              alt="Mohit Panchal"
+              className="logo-dark"
+              width={48}
+              height={48}
+            />
+
+            <img
+              src="/mohit-light.svg"
+              alt=""
+              className="logo-light"
+              width={48}
+              height={48}
+            />
           </Link>
 
           <div className="editorial-desktop-nav">

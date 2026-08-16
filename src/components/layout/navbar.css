@@ -84,13 +84,10 @@ button:focus-visible {
 
 .editorial-brand {
   color: var(--color-text);
-
   font-size: var(--nav-brand-size);
   font-weight: var(--weight-medium);
   letter-spacing: var(--nav-brand-tracking);
-
   text-decoration: none;
-
   transition:
     opacity var(--nav-transition-surface) ease,
     transform var(--nav-transition-surface) var(--ease-premium);
@@ -104,8 +101,23 @@ button:focus-visible {
 .editorial-brand sup {
   position: relative;
   top: -0.4em;
-
   font-size: var(--nav-brand-mark-size);
+}
+
+.logo-dark {
+  display: block;
+}
+
+.logo-light {
+  display: none;
+}
+
+[data-theme="dark"] .logo-dark {
+  display: none;
+}
+
+[data-theme="dark"] .logo-light {
+  display: block;
 }
 
 /* ===========================
