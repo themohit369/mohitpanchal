@@ -88,11 +88,12 @@
 
 .work-project-image-motion {
   position: absolute;
-  inset: var(--work-project-image-motion-inset);
+  inset: 0;
   width: 100%;
-  height: var(--work-project-image-motion-height);
+  height: 100%;
   will-change: transform;
 }
+
 
 .work-project-image-inner {
   object-fit: cover;
