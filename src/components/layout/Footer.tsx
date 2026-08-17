@@ -224,7 +224,10 @@ export default function Footer() {
           </motion.div>
         </motion.div>
 
-        <div className="pb-14">
+        <motion.div
+          className="pb-14"
+          variants={reduceMotion ? undefined : reveal}
+        >
           <div className="contra-light">
             <div
               className="contra-hire-me-button"
@@ -248,7 +251,7 @@ export default function Footer() {
             src="https://contra.com/static/embed/sdk.js"
             charSet="utf-8"
           />
-        </div>
+        </motion.div>
 
         <motion.div
           className="footer-bottom-line"

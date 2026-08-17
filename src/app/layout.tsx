@@ -158,38 +158,37 @@ export default function RootLayout({
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              (function () {
-                try {
-                  var theme = localStorage.getItem("theme") || "dark";
+      (function () {
+        try {
+          var savedTheme = localStorage.getItem("theme");
 
-                  if (theme !== "light" && theme !== "dark") {
-                    theme = "dark";
-                  }
+          var theme =
+            savedTheme === "light" || savedTheme === "dark"
+              ? savedTheme
+              : window.matchMedia("(prefers-color-scheme: dark)").matches
+                ? "dark"
+                : "light";
 
-                  document.documentElement.setAttribute(
-                    "data-theme",
-                    theme
-                  );
+          document.documentElement.setAttribute("data-theme", theme);
 
-                  document.documentElement.style.backgroundColor =
-                    theme === "dark"
-                      ? "#0b0b0b"
-                      : "#ffffff";
+          document.documentElement.style.backgroundColor =
+            theme === "dark" ? "#0b0b0b" : "#ffffff";
 
-                  document.documentElement.style.colorScheme = theme;
-                } catch (e) {
-                  document.documentElement.setAttribute(
-                    "data-theme",
-                    "dark"
-                  );
+          document.documentElement.style.colorScheme = theme;
+        } catch (e) {
+          var theme = window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
 
-                  document.documentElement.style.backgroundColor =
-                    "#0b0b0b";
+          document.documentElement.setAttribute("data-theme", theme);
 
-                  document.documentElement.style.colorScheme = "dark";
-                }
-              })();
-            `,
+          document.documentElement.style.backgroundColor =
+            theme === "dark" ? "#0b0b0b" : "#ffffff";
+
+          document.documentElement.style.colorScheme = theme;
+        }
+      })();
+    `,
           }}
         />
       </head>
