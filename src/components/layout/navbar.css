@@ -12,12 +12,8 @@ button:focus-visible {
   position: fixed;
   inset: 0 0 auto;
   z-index: var(--nav-z);
-
-  transition:
-    transform var(--nav-transition-transform) var(--ease-premium),
-    background var(--nav-transition-surface) ease,
-    backdrop-filter var(--nav-transition-surface) ease;
-
+  background: var(--color-bg);
+  transition: transform var(--nav-transition-transform) var(--ease-premium);
   pointer-events: none;
 }
 
@@ -26,41 +22,7 @@ button:focus-visible {
 }
 
 .editorial-nav.is-scrolled {
-  background: color-mix(
-    in srgb,
-    var(--color-bg) var(--nav-surface-bg-mix),
-    transparent
-  );
-
-  backdrop-filter: blur(var(--nav-blur)) saturate(var(--nav-surface-saturation));
-  -webkit-backdrop-filter: blur(var(--nav-blur))
-    saturate(var(--nav-surface-saturation));
-
-  border-bottom: var(--border-width) solid
-    color-mix(
-      in srgb,
-      var(--color-text) var(--nav-surface-border-mix),
-      transparent
-    );
-
-  box-shadow: var(--nav-surface-shadow);
-}
-
-.editorial-nav.is-scrolled::before {
-  content: "";
-
-  position: absolute;
-  inset: 0;
-
-  pointer-events: none;
-
-  background: linear-gradient(
-    to bottom,
-    var(--nav-surface-highlight),
-    var(--nav-surface-highlight-clear)
-  );
-
-  opacity: var(--nav-surface-highlight-opacity);
+  background: var(--color-surface);
 }
 
 .editorial-nav-inner {
