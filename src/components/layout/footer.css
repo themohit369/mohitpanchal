@@ -186,7 +186,7 @@
 }
 
 /* =====================================================
-   SOCIALS
+   CONTRA BUTTON
 ===================================================== */
 
 .contra-dark {
@@ -205,6 +205,14 @@
   display: block;
 }
 
+.contra-hire-me-button {
+  transform: scale(0.8);
+  transform-origin: left center;
+}
+
+/* =====================================================
+   SOCIALS
+===================================================== */
 .footer-socials {
   grid-column: var(--footer-socials-column);
   display: flex;
