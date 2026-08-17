@@ -313,35 +313,14 @@ button:focus-visible {
   display: grid;
   grid-template-columns: var(--nav-mobile-dot-column) minmax(0, 1fr) auto;
   align-items: center;
-
   column-gap: var(--nav-mobile-link-gap);
-
   width: 100%;
-
   padding-block: var(--nav-mobile-link-padding);
-
   color: var(--color-text);
-
   text-decoration: none;
-
   transition:
     color var(--duration-fast) var(--ease-premium),
     padding-left var(--duration-medium) var(--ease-premium);
-}
-
-.mobile-link-dot {
-  width: var(--nav-grid-dot-active-size);
-  height: var(--nav-grid-dot-active-size);
-
-  border-radius: var(--radius-round);
-
-  background: currentColor;
-
-  opacity: 0.45;
-
-  transition:
-    opacity var(--duration-fast) var(--ease-premium),
-    transform var(--duration-medium) var(--ease-premium);
 }
 
 .mobile-link strong {
@@ -351,20 +330,6 @@ button:focus-visible {
   font-weight: var(--weight-medium);
   line-height: var(--nav-mobile-link-leading);
   letter-spacing: var(--nav-mobile-link-tracking);
-}
-
-.mobile-link-arrow {
-  justify-self: end;
-
-  color: var(--color-text-muted);
-
-  font-size: var(--nav-mobile-arrow-size);
-  font-weight: var(--weight-regular);
-  line-height: 1;
-
-  transition:
-    color var(--duration-fast) var(--ease-premium),
-    transform var(--duration-medium) var(--ease-premium);
 }
 
 @media (hover: hover) and (pointer: fine) {

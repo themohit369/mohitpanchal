@@ -282,13 +282,7 @@ export default function Navbar({ gridVisible, onToggleGrid }: NavbarProps) {
                       onClick={() => setMenuOpen(false)}
                       className="mobile-link"
                     >
-                      <span className="mobile-link-dot" />
-
                       <strong>{item.name}</strong>
-
-                      <span className="mobile-link-arrow" aria-hidden="true">
-                        ↗
-                      </span>
                     </Link>
                   </motion.div>
                 ))}
@@ -320,13 +314,7 @@ export default function Navbar({ gridVisible, onToggleGrid }: NavbarProps) {
                     className="mobile-link"
                     onClick={() => setMenuOpen(false)}
                   >
-                    <span className="mobile-link-dot" />
-
                     <strong>Resume</strong>
-
-                    <span className="mobile-link-arrow" aria-hidden="true">
-                      ↗
-                    </span>
                   </a>
                 </motion.div>
               </nav>
