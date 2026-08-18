@@ -233,7 +233,7 @@ export default function Navbar({ gridVisible, onToggleGrid }: NavbarProps) {
             className="mobile-menu"
             initial={{
               opacity: 0,
-              y: -16,
+              y: -20,
             }}
             animate={{
               opacity: 1,
@@ -241,7 +241,7 @@ export default function Navbar({ gridVisible, onToggleGrid }: NavbarProps) {
             }}
             exit={{
               opacity: 0,
-              y: -12,
+              y: -20,
             }}
             transition={{
               duration: 0.45,
@@ -249,77 +249,10 @@ export default function Navbar({ gridVisible, onToggleGrid }: NavbarProps) {
             }}
           >
             <div className="mobile-menu-inner">
-              {/* PRIMARY NAV */}
-
-              <nav className="mobile-primary-nav">
-                {navItems.map((item, index) => (
-                  <motion.div
-                    className="mobile-nav-item"
-                    key={item.name}
-                    initial={{
-                      opacity: 0,
-                      y: 20,
-                    }}
-                    animate={{
-                      opacity: 1,
-                      y: 0,
-                    }}
-                    exit={{
-                      opacity: 0,
-                      y: 12,
-                    }}
-                    transition={{
-                      duration: 0.45,
-                      delay: index * 0.055,
-                      ease: [0.16, 1, 0.3, 1],
-                    }}
-                  >
-                    <Link
-                      href={item.href}
-                      onClick={() => setMenuOpen(false)}
-                      className="mobile-link"
-                    >
-                      <strong>{item.name}</strong>
-                    </Link>
-                  </motion.div>
-                ))}
-
-                <motion.div
-                  className="mobile-nav-item"
-                  initial={{
-                    opacity: 0,
-                    y: 20,
-                  }}
-                  animate={{
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  exit={{
-                    opacity: 0,
-                    y: 12,
-                  }}
-                  transition={{
-                    duration: 0.45,
-                    delay: navItems.length * 0.055,
-                    ease: [0.16, 1, 0.3, 1],
-                  }}
-                >
-                  <a
-                    href="/mohit-panchal-resume.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mobile-link"
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    <strong>Resume</strong>
-                  </a>
-                </motion.div>
-              </nav>
-
-              {/* SOCIAL */}
+              {/* INTRO */}
 
               <motion.div
-                className="mobile-social-section"
+                className="mobile-menu-intro"
                 initial={{
                   opacity: 0,
                   y: 16,
@@ -329,33 +262,146 @@ export default function Navbar({ gridVisible, onToggleGrid }: NavbarProps) {
                   y: 0,
                 }}
                 transition={{
-                  delay: 0.28,
-                  duration: 0.5,
-                  ease: [0.16, 1, 0.3, 1],
+                  delay: 0.1,
+                  duration: 0.45,
                 }}
               >
-                <span className="mobile-social-heading">Social</span>
+                <p>Independent designer</p>
+                <p>Working globally</p>
+              </motion.div>
 
-                <nav className="mobile-socials" aria-label="Social links">
+              {/* LINKS */}
+
+              <nav className="mobile-primary-nav">
+                {[
+                  {
+                    name: "About",
+                    href: "/about",
+                  },
+                  {
+                    name: "Work",
+                    href: "/work",
+                  },
+                  {
+                    name: "Contact",
+                    href: "/#contact",
+                  },
+                  {
+                    name: "Resume",
+                    href: "/mohit-panchal-resume.pdf",
+                  },
+                ].map((item, index) => (
+                  <motion.div
+                    key={item.name}
+                    className="mobile-nav-item"
+                    initial={{
+                      opacity: 0,
+                      y: 25,
+                    }}
+                    animate={{
+                      opacity: 1,
+                      y: 0,
+                    }}
+                    transition={{
+                      delay: 0.18 + index * 0.06,
+                      duration: 0.45,
+                      ease: [0.16, 1, 0.3, 1],
+                    }}
+                  >
+                    {item.name === "Resume" ? (
+                      <a
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mobile-link"
+                      >
+                        <strong>{item.name}</strong>
+                      </a>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        onClick={() => setMenuOpen(false)}
+                        className="mobile-link"
+                      >
+                        <strong>{item.name}</strong>
+                      </Link>
+                    )}
+                  </motion.div>
+                ))}
+              </nav>
+
+              {/* SOCIAL */}
+
+              <motion.div
+                className="mobile-social-section"
+                initial={{
+                  opacity: 0,
+                  y: 20,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  delay: 0.5,
+                  duration: 0.45,
+                }}
+              >
+                <span className="mobile-social-heading">Social Links</span>
+
+                <nav className="mobile-socials">
                   {socials.map((social, index) => (
-                    <a
+                    <motion.a
                       key={social.name}
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="mobile-social-link"
+                      initial={{
+                        opacity: 0,
+                        y: 12,
+                      }}
+                      animate={{
+                        opacity: 1,
+                        y: 0,
+                      }}
+                      transition={{
+                        delay: 0.55 + index * 0.05,
+                        duration: 0.35,
+                      }}
                     >
                       <span>{social.name}</span>
 
                       <span className="mobile-social-index">
                         ({String(index + 1).padStart(2, "0")})
                       </span>
-
-                      <span className="mobile-social-line" />
-                    </a>
+                    </motion.a>
                   ))}
                 </nav>
               </motion.div>
+
+              {/* CONTRA */}
+
+              <motion.a
+                href="https://contra.com/mohitpanchal"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mobile-contra-button"
+                initial={{
+                  opacity: 0,
+                  y: 15,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  delay: 0.75,
+                  duration: 0.45,
+                }}
+              >
+                ✨ Hire Me on Contra
+              </motion.a>
 
               {/* LOCATION */}
 
@@ -363,23 +409,23 @@ export default function Navbar({ gridVisible, onToggleGrid }: NavbarProps) {
                 className="mobile-menu-location"
                 initial={{
                   opacity: 0,
-                  y: 12,
+                  y: 15,
                 }}
                 animate={{
                   opacity: 1,
                   y: 0,
                 }}
                 transition={{
-                  delay: 0.38,
-                  duration: 0.5,
-                  ease: [0.16, 1, 0.3, 1],
+                  delay: 0.85,
+                  duration: 0.45,
                 }}
               >
                 <p>
                   India
                   {localTime && (
                     <>
-                      <span className="mobile-time-separator"> · </span>
+                      <span className="mobile-time-separator">{" · "}</span>
+
                       <span className="mobile-time">{localTime}</span>
                     </>
                   )}

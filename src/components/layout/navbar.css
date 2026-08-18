@@ -536,3 +536,66 @@ button:focus-visible {
     transition: none !important;
   }
 }
+
+.mobile-close-button {
+  display: flex;
+
+  padding: 0;
+  margin-bottom: 80px;
+
+  border: 0;
+  background: transparent;
+
+  color: var(--color-text);
+
+  cursor: pointer;
+}
+
+.mobile-menu-intro {
+  margin-bottom: 60px;
+
+  color: var(--color-text-muted);
+
+  font-size: var(--text-small);
+}
+
+.mobile-menu-intro p {
+  margin: 0;
+}
+
+.mobile-link {
+  display: flex;
+
+  width: 100%;
+
+  padding-block: 10px;
+
+  color: var(--color-text);
+
+  text-decoration: none;
+}
+
+.mobile-link strong {
+  font-size: clamp(48px, 12vw, 72px);
+  font-weight: var(--weight-medium);
+  line-height: 0.95;
+}
+
+.mobile-contra-button {
+  margin-top: 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 64px;
+
+  border-radius: 999px;
+
+  background: var(--color-text);
+  color: var(--color-bg);
+
+  text-decoration: none;
+
+  font-size: 18px;
+}
