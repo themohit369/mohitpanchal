@@ -375,33 +375,12 @@ export default function Navbar({ gridVisible, onToggleGrid }: NavbarProps) {
                       <span className="mobile-social-index">
                         ({String(index + 1).padStart(2, "0")})
                       </span>
+
+                      <span className="mobile-social-line" />
                     </motion.a>
                   ))}
                 </nav>
               </motion.div>
-
-              {/* CONTRA */}
-
-              <motion.a
-                href="https://contra.com/mohitpanchal"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mobile-contra-button"
-                initial={{
-                  opacity: 0,
-                  y: 15,
-                }}
-                animate={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                transition={{
-                  delay: 0.75,
-                  duration: 0.45,
-                }}
-              >
-                ✨ Hire Me on Contra
-              </motion.a>
 
               {/* LOCATION */}
 

@@ -552,10 +552,8 @@ button:focus-visible {
 }
 
 .mobile-menu-intro {
-  margin-bottom: 60px;
-
+  margin-bottom: 32px;
   color: var(--color-text-muted);
-
   font-size: var(--text-small);
 }
 
@@ -579,23 +577,4 @@ button:focus-visible {
   font-size: clamp(48px, 12vw, 72px);
   font-weight: var(--weight-medium);
   line-height: 0.95;
-}
-
-.mobile-contra-button {
-  margin-top: 60px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  height: 64px;
-
-  border-radius: 999px;
-
-  background: var(--color-text);
-  color: var(--color-bg);
-
-  text-decoration: none;
-
-  font-size: 18px;
 }
