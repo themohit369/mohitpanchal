@@ -170,16 +170,16 @@ export default function Navbar({ gridVisible, onToggleGrid }: NavbarProps) {
               src="/mohit-dark.svg"
               alt="Mohit Panchal"
               className="logo-dark"
-              width={40}
-              height={40}
+              width={32}
+              height={32}
             />
 
             <img
               src="/mohit-light.svg"
               alt=""
               className="logo-light"
-              width={40}
-              height={40}
+              width={32}
+              height={32}
             />
           </Link>
 
