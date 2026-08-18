@@ -233,20 +233,14 @@ button:focus-visible {
     transform var(--duration-fast) var(--ease-premium);
 }
 
+.editorial-grid-toggle.is-active {
+  color: var(--color-text-soft);
+}
+
 .editorial-grid-toggle.is-active .editorial-grid-toggle-dot {
   background: currentColor;
   opacity: 1;
   transform: scale(1.08);
-}
-
-.editorial-grid-toggle-state {
-  min-width: var(--nav-grid-state-min-width);
-  color: var(--color-text-muted);
-  font-variant-numeric: tabular-nums;
-}
-
-.editorial-grid-toggle.is-active .editorial-grid-toggle-state {
-  color: var(--color-text-soft);
 }
 
 /* ===========================
@@ -470,10 +464,6 @@ button:focus-visible {
 =========================== */
 
 @media (max-width: 1024px) {
-  .editorial-grid-toggle-state {
-    display: none;
-  }
-
   .editorial-nav-inner {
     grid-template-columns: 1fr auto auto;
     align-items: center;

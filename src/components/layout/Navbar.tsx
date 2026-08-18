@@ -210,9 +210,6 @@ export default function Navbar({ gridVisible, onToggleGrid }: NavbarProps) {
             >
               <span>Grid</span>
               <span className="editorial-grid-toggle-dot" aria-hidden="true" />
-              <span className="editorial-grid-toggle-state" aria-hidden="true">
-                {gridVisible ? "On" : "Off"}
-              </span>
             </button>
 
             <button
