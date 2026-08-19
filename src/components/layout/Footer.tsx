@@ -245,12 +245,6 @@ export default function Footer() {
               data-username="mohitpanchal"
             />
           </div>
-
-          <Script
-            async
-            src="https://contra.com/static/embed/sdk.js"
-            charSet="utf-8"
-          />
         </motion.div>
 
         <motion.div

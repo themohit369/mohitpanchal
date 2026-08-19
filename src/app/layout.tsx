@@ -194,29 +194,30 @@ export default function RootLayout({
       </head>
 
       <body>
+        <Script
+          id="contra-sdk"
+          src="https://contra.com/static/embed/sdk.js"
+          strategy="afterInteractive"
+          charSet="utf-8"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(personJsonLd).replace(/</g, "\\u003c"),
           }}
         />
-
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(websiteJsonLd).replace(/</g, "\\u003c"),
           }}
         />
-
         <SmoothScroll />
         <SiteChrome />
-
         {children}
-
         <GoogleAnalytics gaId="G-GQXNW3SC4F" />
         <SpeedInsights />
         <Analytics />
-
         <Script id="microsoft-clarity" strategy="afterInteractive">
           {`
             (function(c,l,a,r,i,t,y){
