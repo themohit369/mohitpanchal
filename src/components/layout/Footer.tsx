@@ -1,9 +1,8 @@
 "use client";
 
-import Script from "next/script";
-import { useEffect, useState } from "react";
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 import Marquee from "@/components/ui/Marquee";
+import { useIndiaTime } from "@/lib/time";
 import "./footer.css";
 
 const EMAIL = "mohitp846@gmail.com";
@@ -83,31 +82,9 @@ const socialRow: Variants = {
   },
 };
 
-function getIndiaTime() {
-  return new Intl.DateTimeFormat("en-US", {
-    timeZone: "Asia/Kolkata",
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit",
-    hour12: true,
-  }).format(new Date());
-}
-
 export default function Footer() {
   const reduceMotion = useReducedMotion();
-  const [localTime, setLocalTime] = useState("");
-
-  useEffect(() => {
-    const updateTime = () => {
-      setLocalTime(getIndiaTime());
-    };
-
-    updateTime();
-
-    const interval = window.setInterval(updateTime, 1000);
-
-    return () => window.clearInterval(interval);
-  }, []);
+  const localTime = useIndiaTime();
 
   const mailtoLink = `mailto:${EMAIL}?subject=${encodeURIComponent(
     "Work Enquiry",

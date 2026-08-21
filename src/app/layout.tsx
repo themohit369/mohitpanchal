@@ -11,7 +11,7 @@ import { Analytics } from "@vercel/analytics/react";
 
 import "./globals.css";
 
-const SITE_URL = "https://mohitpanchal.vercel.app";
+import { SITE_URL, personJsonLd, websiteJsonLd } from "@/lib/site";
 
 const bdoGrotesk = localFont({
   src: [
@@ -99,53 +99,7 @@ export const metadata: Metadata = {
   manifest: "/site.webmanifest",
 };
 
-const personJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "@id": `${SITE_URL}/#person`,
-  name: "Mohit Panchal",
-  url: SITE_URL,
-  image: `${SITE_URL}/images/about/about-image.png`,
-  jobTitle: "Product Designer & UI/UX Designer",
-  description:
-    "Product Designer and UI/UX Designer based in India, working with startups, SaaS teams, and digital products worldwide.",
-  knowsAbout: [
-    "Product Design",
-    "UI Design",
-    "User Experience Design",
-    "Design Systems",
-    "SaaS Product Design",
-    "Web Design",
-    "Brand Identity",
-    "Graphic Design",
-    "Front-end Design",
-    "Front-end Prototyping",
-    "React",
-    "Next.js",
-    "AI-assisted Design Workflows",
-  ],
-  sameAs: [
-    "https://www.linkedin.com/in/mohitpanchal",
-    "https://dribbble.com/mohitpanchal",
-    "https://gravatar.com/mohituix",
-    "https://profiles.wordpress.org/mohitpanchal/",
-    "https://github.com/mohitpanc",
-    "https://x.com/mohituix",
-  ],
-};
 
-const websiteJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "@id": `${SITE_URL}/#website`,
-  url: SITE_URL,
-  name: "Mohit Panchal",
-  alternateName: "Mohit Panchal Portfolio",
-  inLanguage: "en",
-  publisher: {
-    "@id": `${SITE_URL}/#person`,
-  },
-};
 
 export default function RootLayout({
   children,

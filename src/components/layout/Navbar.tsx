@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { lenisInstance } from "@/components/providers/SmoothScroll";
 import ThemeToggle from "@/components/ui/ThemeToggle";
+import { useIndiaTime } from "@/lib/time";
 
 import "./navbar.css";
 
@@ -43,16 +44,6 @@ const socials = [
   },
 ];
 
-function getIndiaTime() {
-  return new Intl.DateTimeFormat("en-US", {
-    timeZone: "Asia/Kolkata",
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit",
-    hour12: true,
-  }).format(new Date());
-}
-
 type NavbarProps = {
   gridVisible: boolean;
   onToggleGrid: () => void;
@@ -62,7 +53,7 @@ export default function Navbar({ gridVisible, onToggleGrid }: NavbarProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [localTime, setLocalTime] = useState("");
+  const localTime = useIndiaTime();
 
   const lastY = useRef(0);
 
@@ -139,19 +130,7 @@ export default function Navbar({ gridVisible, onToggleGrid }: NavbarProps) {
     };
   }, [menuOpen]);
 
-  useEffect(() => {
-    const updateTime = () => {
-      setLocalTime(getIndiaTime());
-    };
-
-    updateTime();
-
-    const interval = window.setInterval(updateTime, 1000);
-
-    return () => {
-      window.clearInterval(interval);
-    };
-  }, []);
+  // Removed localTime interval and state in favor of centralized useIndiaTime hook
 
   return (
     <>
@@ -166,7 +145,7 @@ export default function Navbar({ gridVisible, onToggleGrid }: NavbarProps) {
             className="editorial-brand"
             aria-label="Mohit Panchal — Home"
           >
-            <img
+            <Image
               src="/mohit-dark.svg"
               alt="Mohit Panchal"
               className="logo-dark"
@@ -174,7 +153,7 @@ export default function Navbar({ gridVisible, onToggleGrid }: NavbarProps) {
               height={32}
             />
 
-            <img
+            <Image
               src="/mohit-light.svg"
               alt=""
               className="logo-light"

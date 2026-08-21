@@ -13,42 +13,7 @@ const ease = [0.16, 1, 0.3, 1] as const;
 
 const titleLines = ["Designer,", "builder & curious", "human."];
 
-const profilePageJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "ProfilePage",
-  "@id": "https://mohitpanchal.vercel.app/about/#profile",
-  url: "https://mohitpanchal.vercel.app/about",
-  name: "About Mohit Panchal — Product Designer & UI/UX Designer",
-  mainEntity: {
-    "@type": "Person",
-    "@id": "https://mohitpanchal.vercel.app/#person",
-    name: "Mohit Panchal",
-    url: "https://mohitpanchal.vercel.app",
-    image: "https://mohitpanchal.vercel.app/images/about/about-image.png",
-    jobTitle: "Product Designer & UI/UX Designer",
-    description:
-      "Product Designer and UI/UX Designer based in India, working with startups, SaaS teams, and digital products worldwide.",
-    knowsAbout: [
-      "Product Design",
-      "UI Design",
-      "User Experience Design",
-      "Design Systems",
-      "SaaS Product Design",
-      "Web Design",
-      "Brand Identity",
-      "Graphic Design",
-      "Front-end Design",
-    ],
-    sameAs: [
-      "https://www.linkedin.com/in/mohitpanchal",
-      "https://dribbble.com/mohitpanchal",
-      "https://gravatar.com/mohituix",
-      "https://profiles.wordpress.org/mohitpanchal/",
-      "https://github.com/mohitpanc",
-      "https://x.com/mohituix",
-    ],
-  },
-};
+import { profilePageJsonLd } from "@/lib/site";
 
 export default function AboutPage() {
   return (

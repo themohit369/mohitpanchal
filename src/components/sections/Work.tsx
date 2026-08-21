@@ -14,117 +14,8 @@ import {
 } from "framer-motion";
 
 import Marquee from "@/components/ui/Marquee";
-
-const ease = [0.16, 1, 0.3, 1] as const;
-
-/* =====================================================
-   FEATURED CASE STUDIES
-===================================================== */
-
-const caseStudies = [
-  {
-    year: "2025",
-    title: "PowerPack Elements",
-    category: "Product Design · UX/UI",
-    image: "/images/work/case-studies/powerpack-elements-product-design.webp",
-    alt: "PowerPack Elements product design and UI/UX case study by Mohit Panchal",
-    href: "/work/powerpack-elements",
-  },
-  {
-    year: "2025",
-    title: "Max Addons for Bricks",
-    category: "Product Design · UX/UI",
-    image: "/images/work/case-studies/max-addons-product-design.webp",
-    alt: "Max Addons for Bricks product design and UI/UX case study by Mohit Panchal",
-    href: "/work/max-addons",
-  },
-];
-
-/* =====================================================
-   IDENTITY WORK
-===================================================== */
-
-const identityWork = [
-  {
-    title: "PowerPack Elements",
-    category: "Logo Design · Visual Identity",
-    image: "/images/work/logos/powerpack-logo.webp",
-    alt: "PowerPack Elements logo and visual identity design by Mohit Panchal",
-    href: "/work/powerpack-elements",
-  },
-  {
-    title: "Max Addons",
-    category: "Logo Design · Brand Identity",
-    image: "/images/work/logos/max-addons-logo.webp",
-    alt: "Max Addons logo and brand identity design by Mohit Panchal",
-    href: "/work/max-addons",
-  },
-  {
-    title: "The Drip Line",
-    category: "Logo Design · Brand Identity",
-    image: "/images/work/logos/the-drip-line-logo.webp",
-    alt: "The Drip Line logo and brand identity design by Mohit Panchal",
-    href: "#",
-  },
-  {
-    title: "WPFomify",
-    category: "Logo Design · Visual Identity",
-    image: "/images/work/logos/wpfomify-logo.webp",
-    alt: "WPFomify logo and visual identity design by Mohit Panchal",
-    href: "#",
-  },
-  {
-    title: "SmartDocs",
-    category: "Logo Design · Visual Identity",
-    image: "/images/work/logos/smart-docs-logo.webp",
-    alt: "SmartDocs logo and visual identity design by Mohit Panchal",
-    href: "#",
-  },
-  {
-    title: "OxyExtended",
-    category: "Logo Design · Visual Identity",
-    image: "/images/work/logos/oxyextended-logo.webp",
-    alt: "OxyExtended logo and visual identity design by Mohit Panchal",
-    href: "#",
-  },
-];
-
-/* =====================================================
-   SELECTED WEB WORK
-===================================================== */
-
-const webWork = [
-  {
-    title: "Home Space",
-    category: "Website Design",
-    image: "/images/work/templates/home-space-website.webp",
-    alt: "Home Space website design by Mohit Panchal",
-  },
-  {
-    title: "Furniture",
-    category: "Website Design",
-    image: "/images/work/templates/furniture-ecommerce-website.webp",
-    alt: "Furniture website design by Mohit Panchal",
-  },
-  {
-    title: "Design Agency",
-    category: "Website Design",
-    image: "/images/work/templates/design-agency-website.webp",
-    alt: "Design agency website design by Mohit Panchal",
-  },
-  {
-    title: "Digital Marketing",
-    category: "Website Design",
-    image: "/images/work/templates/digital-marketing-website.webp",
-    alt: "Digital marketing website design by Mohit Panchal",
-  },
-  {
-    title: "Builder / Real Estate",
-    category: "Website Design",
-    image: "/images/work/templates/builder-real-estate-website.webp",
-    alt: "Builder and real estate website design by Mohit Panchal",
-  },
-];
+import { ease } from "@/lib/motion";
+import { caseStudies, identityWork, webWork } from "@/data/projects";
 
 /* =====================================================
    CASE STUDY CARD
@@ -542,7 +433,7 @@ export default function Work() {
         </motion.div>
 
         <div className="work-gallery-grid">
-          {webWork.map((project, index) => (
+          {webWork.slice(0, 5).map((project, index) => (
             <WebWorkCard key={project.title} project={project} index={index} />
           ))}
         </div>

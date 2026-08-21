@@ -1,24 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-
-const projects = [
-  {
-    year: "2025",
-    title: "PowerPack Elements",
-    category: "Product Design · UX/UI",
-    image: "/images/work/case-studies/powerpack-elements-product-design.webp",
-    alt: "PowerPack Elements product design and UI/UX case study",
-    href: "/work/powerpack-elements",
-  },
-  {
-    year: "2025",
-    title: "Max Addons for Bricks",
-    category: "Product Design · UX/UI",
-    image: "/images/work/case-studies/max-addons-product-design.webp",
-    alt: "Max Addons for Bricks product design and UI/UX case study",
-    href: "/work/max-addons",
-  },
-];
+import { caseStudies as projects } from "@/data/projects";
 
 export default function NextProject() {
   return (
