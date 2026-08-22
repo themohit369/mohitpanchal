@@ -293,7 +293,7 @@ export default function Footer() {
             <p className="footer-copyright">
               © 2026 Mohit Panchal.
               <br />
-              Designed in India with Love ♥
+              Designed with Love ♥
             </p>
           </motion.div>
         </div>

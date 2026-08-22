@@ -43,6 +43,10 @@ export const metadata: Metadata = {
     template: "%s | Mohit Panchal",
   },
 
+  other: {
+    "p:domain_verify": "8e81d7931d4857897a45195b925f8273",
+  },
+
   description:
     "Mohit Panchal is a Product Designer and UI/UX Designer creating SaaS products, design systems, websites, and digital experiences for teams worldwide.",
 
@@ -98,8 +102,6 @@ export const metadata: Metadata = {
 
   manifest: "/site.webmanifest",
 };
-
-
 
 export default function RootLayout({
   children,
