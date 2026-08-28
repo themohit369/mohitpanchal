@@ -211,12 +211,12 @@ export default function Hero() {
           >
             <a href="#contact" className="action-link">
               <span>Let&apos;s work together</span>
-              <span className="action-link-arrow">↗</span>
+              <span className="action-link-arrow">•</span>
             </a>
 
             <a href="#work" className="action-link action-link-muted">
               <span>View case studies</span>
-              <span className="action-link-arrow">↓</span>
+              <span className="action-link-arrow">•</span>
             </a>
           </motion.div>
         </motion.div>
