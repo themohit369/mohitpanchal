@@ -51,7 +51,10 @@ export default function WorkPage() {
   });
 
   return (
-    <main className="work-page">
+    <main
+      className="work-page"
+      aria-label="Selected UI/UX, product design, web design and graphic design work by Mohit Panchal"
+    >
       {/* =====================================================
           HERO
       ===================================================== */}

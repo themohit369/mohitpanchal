@@ -98,7 +98,7 @@ export default function AboutPage() {
                   >
                     <Image
                       src="/images/about/about-image.png"
-                      alt="Portrait of Mohit Panchal, product and UI/UX designer"
+                      alt="Portrait of Mohit Panchal, UI/UX Designer and Product Designer in Rajasthan, India"
                       fill
                       priority
                       sizes="(max-width: 768px) 100vw, 35vw"

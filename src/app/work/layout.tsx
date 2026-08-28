@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Product Design & UI/UX Portfolio",
+  title: "Product Design & UI/UX Portfolio — Mohit Panchal",
 
   description:
     "Explore selected product design, UI/UX, brand identity, graphic design, and web design work by Mohit Panchal, including SaaS case studies and digital product experiences.",
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Product Design & UI/UX Portfolio — Mohit Panchal",
     description:
-      "Selected product design, UI/UX, brand identity, graphic design, and web design work by Mohit Panchal.",
+      "Explore selected product design, UI/UX, brand identity, graphic design, and web design work by Mohit Panchal, including SaaS case studies and digital product experiences.",
     url: "/work",
     type: "website",
   },
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Product Design & UI/UX Portfolio — Mohit Panchal",
     description:
-      "Selected product, UI/UX, brand identity, and web design work by Mohit Panchal.",
+      "Explore selected product design, UI/UX, brand identity, graphic design, and web design work by Mohit Panchal, including SaaS case studies and digital product experiences.",
   },
 };
 

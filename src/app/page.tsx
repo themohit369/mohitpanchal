@@ -9,20 +9,22 @@ import Footer from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Product Designer & UI/UX Designer — Mohit Panchal",
+    absolute:
+      "Mohit Panchal — UI/UX Designer & Product Designer in Kota, Udaipur",
   },
 
   description:
-    "Explore the portfolio of Mohit Panchal, a Product Designer and UI/UX Designer creating SaaS products, design systems, websites, and digital experiences for teams worldwide.",
+    "Explore the portfolio of Mohit Panchal, a UI/UX Designer and Product Designer serving Kota, Udaipur, Rajasthan and clients across India and worldwide.",
 
   alternates: {
     canonical: "/",
   },
 
   openGraph: {
-    title: "Product Designer & UI/UX Designer — Mohit Panchal",
+    title:
+      "Mohit Panchal — UI/UX Designer & Product Designer in Kota, Udaipur, Rajasthan",
     description:
-      "Product design, UI/UX, design systems, web design, and selected case studies by Mohit Panchal.",
+      "UI/UX design, product design, web design, SaaS interfaces, and selected work by Mohit Panchal.",
     url: "/",
     type: "website",
     images: [
@@ -30,16 +32,17 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Mohit Panchal — Product Designer and UI/UX Designer",
+        alt: "Mohit Panchal — UI/UX Designer and Product Designer",
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Product Designer & UI/UX Designer — Mohit Panchal",
+    title:
+      "Mohit Panchal — UI/UX Designer & Product Designer in Kota, Udaipur, Rajasthan",
     description:
-      "Product design, UI/UX, design systems, web design, and selected case studies by Mohit Panchal.",
+      "UI/UX design, product design, web design, SaaS interfaces, and selected work by Mohit Panchal.",
     images: ["/og-image.jpg"],
   },
 };
@@ -60,13 +63,15 @@ const structuredData = {
       name: "Mohit Panchal",
       url: "https://mohitpanchal.vercel.app/",
       image: "https://mohitpanchal.vercel.app/images/about/about-image.png",
-      jobTitle: "Product Designer & UI/UX Designer",
+      jobTitle: "UI/UX Designer & Product Designer",
       description:
-        "Product Designer and UI/UX Designer creating SaaS products, design systems, websites, and digital experiences for teams worldwide.",
+        "UI/UX Designer and Product Designer in Kota, Udaipur, Rajasthan, India, creating SaaS products, websites, digital experiences, and user interfaces for teams worldwide.",
       sameAs: [
         "https://www.linkedin.com/in/mohitpanchal/",
         "https://dribbble.com/mohitpanchal",
         "https://www.behance.net/mohituix/",
+        "https://www.instagram.com/themohit369/",
+        "https://github.com/mohitpanc",
       ],
     },
   ],

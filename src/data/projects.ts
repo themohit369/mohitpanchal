@@ -126,7 +126,7 @@ export const webWork: WebProject[] = [
     title: "Furniture",
     category: "E-commerce Website",
     image: "/images/work/templates/furniture-ecommerce-website.webp",
-    alt: "Furniture website design by Mohit Panchal",
+    alt: "Furniture e-commerce website design by Mohit Panchal",
   },
   {
     title: "Design Agency",

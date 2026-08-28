@@ -12,6 +12,25 @@ const ease = [0.16, 1, 0.3, 1] as const;
 export default function MaxAddonsPage() {
   return (
     <main className="case-page">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CreativeWork",
+            name: "Max Addons for Bricks — Product, Brand & UI/UX Case Study",
+            description:
+              "A design case study for Max Addons for Bricks covering product positioning, brand identity, UI/UX design, reusable components, and a scalable marketing website.",
+            creator: {
+              "@type": "Person",
+              name: "Mohit Panchal",
+              url: "https://mohitpanchal.vercel.app",
+            },
+            url: "https://mohitpanchal.vercel.app/work/max-addons",
+          }).replace(/</g, "\\u003c"),
+        }}
+      />
+
       <section className="case-hero">
         <div className="site-container">
           {/* TITLE */}

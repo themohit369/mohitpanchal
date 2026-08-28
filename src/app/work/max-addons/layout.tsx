@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Max Addons — Product, Brand & UI/UX Case Study",
+    title: "Max Addons — Product, Brand & UI/UX Case Study | Mohit Panchal",
     description:
       "Product, brand identity, UI/UX, and website design case study for Max Addons by Mohit Panchal.",
     images: ["/images/work/case-studies/max-addons-product-design.webp"],

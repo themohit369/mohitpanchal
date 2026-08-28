@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "PowerPack Elements — Product Design & UI/UX Case Study",
+  title:
+    "PowerPack Elements — Product Design & UI/UX Case Study | Mohit Panchal",
 
   description:
     "A product design and UI/UX case study for PowerPack Elements, exploring usability, interface consistency, reusable UI patterns, design systems, and scalable Elementor product design.",
@@ -27,9 +28,10 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "PowerPack Elements — Product Design & UI/UX Case Study",
+    title:
+      "PowerPack Elements — Product Design & UI/UX Case Study | Mohit Panchal",
     description:
-      "UI/UX and product design case study for PowerPack Elements by Mohit Panchal.",
+      "A product design case study covering UI/UX, reusable interface patterns, design systems, and scalable Elementor product design.",
     images: [
       "/images/work/case-studies/powerpack-elements-product-design.webp",
     ],

@@ -39,7 +39,8 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
 
   title: {
-    default: "Mohit Panchal — Product Designer & UI/UX Designer",
+    default:
+      "Mohit Panchal — UI/UX Designer & Product Designer in Kota, Udaipur, Rajasthan, India",
     template: "%s | Mohit Panchal",
   },
 
@@ -48,8 +49,34 @@ export const metadata: Metadata = {
   },
 
   description:
-    "Mohit Panchal is a Product Designer and UI/UX Designer creating SaaS products, design systems, websites, and digital experiences for teams worldwide.",
+    "Mohit Panchal is a UI/UX Designer and Product Designer in Kota, Udaipur, Rajasthan, India, creating SaaS products, websites, digital experiences, and user interfaces for teams worldwide.",
+  keywords: [
+    // Existing / core keywords
+    "Mohit Panchal",
+    "UI/UX Designer",
+    "UI Designer",
+    "UX Designer",
+    "Product Designer",
+    "Web Designer",
+    "Website Designer",
+    "SaaS Designer",
+    "Digital Product Designer",
+    "Freelance UI/UX Designer",
 
+    // New location keywords
+    "UI/UX Designer in Kota",
+    "Best UI/UX Designer in Kota",
+    "UI/UX Designer in Udaipur",
+    "Best UI/UX Designer in Udaipur",
+    "UI/UX Designer in Rajasthan",
+    "UI/UX Designer in India",
+    "UI Designer in Kota",
+    "UX Designer in Kota",
+    "Product Designer in Rajasthan",
+    "Product Designer in India",
+    "Web Designer in Kota",
+    "Web Designer in Rajasthan",
+  ],
   authors: [{ name: "Mohit Panchal", url: SITE_URL }],
   creator: "Mohit Panchal",
   publisher: "Mohit Panchal",
