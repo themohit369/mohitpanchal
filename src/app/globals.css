@@ -22,13 +22,13 @@
   /* =====================================================
      02 — FONT FAMILIES
 
-     BDO Grotesk is the single portfolio typeface.
+     WF Visual Sans VF is the single portfolio typeface.
      Display and reading roles stay separate through size,
      line-height, tracking and weight — not font-family.
   ===================================================== */
 
-  --font-display: var(--font-bdo), sans-serif;
-  --font-body: var(--font-bdo), sans-serif;
+  --font-display: var(--font-visual-sans), sans-serif;
+  --font-body: var(--font-visual-sans), sans-serif;
 
   /* =====================================================
      03 — TYPOGRAPHY ROLES
@@ -1476,7 +1476,7 @@ button {
   font-family: var(--font-body);
 }
 
-/* Existing expressive headings stay on BDO during migration. */
+/* Existing expressive headings stay on WF Visual Sans VF during migration. */
 .hero-title,
 .about-page-title,
 .work-page-heading,

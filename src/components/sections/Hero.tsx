@@ -16,12 +16,12 @@ const heroEase = [0.16, 1, 0.3, 1] as const;
 
 const titleLines = [
   {
-    text: "Product Designer +",
+    text: "UI/UX Designer +",
     className: "",
   },
   {
-    text: "UI/UX Designer.",
-    className: "",
+    text: "Product Designer.",
+    className: "hero-title-line-indent-1",
   },
   {
     text: "I design digital",

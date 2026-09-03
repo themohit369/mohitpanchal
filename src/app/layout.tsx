@@ -13,25 +13,9 @@ import "./globals.css";
 
 import { SITE_URL, personJsonLd, websiteJsonLd } from "@/lib/site";
 
-const bdoGrotesk = localFont({
-  src: [
-    {
-      path: "../../public/fonts/BDOGrotesk-Regular.ttf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../../public/fonts/BDOGrotesk-Medium.ttf",
-      weight: "500",
-      style: "normal",
-    },
-    {
-      path: "../../public/fonts/BDOGrotesk-Bold.ttf",
-      weight: "700",
-      style: "normal",
-    },
-  ],
-  variable: "--font-bdo",
+const visualSans = localFont({
+  src: "../../public/fonts/WFVisualSansVF.woff",
+  variable: "--font-visual",
   display: "swap",
 });
 
@@ -136,7 +120,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={bdoGrotesk.variable} suppressHydrationWarning>
+    <html lang="en" className={visualSans.variable} suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{

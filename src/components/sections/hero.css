@@ -53,13 +53,16 @@
 .hero-title-line-indent {
   padding-left: 8.333%;
 }
+.hero-title-line-indent-1 {
+  padding-left: 16.5%;
+}
 
 .hero-title-line-indent-2 {
-  padding-left: 16.666%;
+  padding-left: 8%;
 }
 
 .hero-title-line-last {
-  padding-left: 33.333%;
+  padding-left: 33.6%;
 }
 
 /* =====================================================
@@ -344,9 +347,7 @@ html[data-theme="light"] .hero-image::before {
 
 .hero-title-reveal {
   display: block;
-
   will-change: transform, opacity;
-
   transform: translateZ(0);
   backface-visibility: hidden;
 }
