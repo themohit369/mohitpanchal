@@ -173,33 +173,7 @@ export default function RootLayout({
             __html: JSON.stringify(personJsonLd).replace(/</g, "\\u003c"),
           }}
         />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-      (function () {
-        try {
-          var savedTheme = localStorage.getItem("theme");
 
-          var theme =
-            savedTheme === "dark"
-              ? "dark"
-              : "light";
-
-          document.documentElement.setAttribute("data-theme", theme);
-
-          document.documentElement.style.backgroundColor =
-            theme === "dark" ? "#0b0b0b" : "#ffffff";
-
-          document.documentElement.style.colorScheme = theme;
-        } catch (e) {
-          document.documentElement.setAttribute("data-theme", "light");
-          document.documentElement.style.backgroundColor = "#ffffff";
-          document.documentElement.style.colorScheme = "light";
-        }
-      })();
-    `,
-          }}
-        />
         <SmoothScroll />
         <SiteChrome />
         {children}

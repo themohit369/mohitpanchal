@@ -259,6 +259,11 @@ export default function Work() {
   return (
     <section id="work" className="work-section">
       {/* =====================================================
+          MARQUEE
+      ===================================================== */}
+
+      <Marquee className="work-marquee">Selected Work</Marquee>
+      {/* =====================================================
           MAIN META
       ===================================================== */}
 
@@ -290,50 +295,6 @@ export default function Work() {
           <span>(01 — 13)</span>
           <span>Product, UI/UX + Brand Design</span>
         </motion.div>
-      </div>
-
-      {/* =====================================================
-          MARQUEE
-      ===================================================== */}
-
-      <Marquee className="work-marquee">Selected Work</Marquee>
-
-      {/* =====================================================
-          INTRO
-      ===================================================== */}
-
-      <div className="site-container">
-        <div className="work-intro site-grid">
-          <motion.div
-            className="work-intro-content"
-            initial={
-              reduceMotion
-                ? false
-                : {
-                    opacity: 0,
-                    y: 36,
-                  }
-            }
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            viewport={{
-              once: true,
-              amount: 0.4,
-            }}
-            transition={{
-              duration: 0.85,
-              ease,
-            }}
-          >
-            <p className="body-text">
-              I design digital products and experiences, shaping complex ideas
-              into clear, useful and scalable systems built with purpose and
-              clarity.
-            </p>
-          </motion.div>
-        </div>
       </div>
 
       {/* =====================================================

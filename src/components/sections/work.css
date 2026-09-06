@@ -37,7 +37,7 @@
 ===================================================== */
 
 .work-projects-container {
-  padding-top: var(--work-featured-padding-top);
+  /* padding-top: var(--work-featured-padding-top); */
   padding-bottom: var(--work-featured-padding-bottom);
 }
 
@@ -93,7 +93,6 @@
   height: 100%;
   will-change: transform;
 }
-
 
 .work-project-image-inner {
   object-fit: cover;
