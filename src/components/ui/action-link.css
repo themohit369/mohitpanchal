@@ -5,20 +5,28 @@
 .action-link {
   display: inline-flex;
   align-items: center;
-  gap: var(--action-link-gap);
+  justify-content: center;
+  gap: 12px;
 
   width: fit-content;
+  min-height: 44px;
+  padding: 0 16px 0 18px;
 
-  color: var(--color-text);
+  border: 1px solid var(--color-text);
+  border-radius: 999px;
+  background: var(--color-text);
+  color: var(--color-bg);
 
   font-family: var(--font-body);
   font-size: var(--action-link-size);
   font-weight: var(--action-link-weight);
   line-height: var(--action-link-leading);
-
   text-decoration: none;
 
-  transition: color var(--duration-fast) var(--ease-premium);
+  transition:
+    background-color var(--duration-fast) var(--ease-premium),
+    border-color var(--duration-fast) var(--ease-premium),
+    color var(--duration-fast) var(--ease-premium);
 }
 
 /* =====================================================
@@ -26,7 +34,9 @@
 ===================================================== */
 
 .action-link-muted {
-  color: var(--color-text-soft);
+  border-color: var(--color-line);
+  background: var(--color-surface);
+  color: var(--color-text);
 }
 
 /* =====================================================
@@ -35,8 +45,7 @@
 
 .action-link-arrow {
   display: inline-block;
-
-  color: var(--color-text-muted);
+  color: currentColor;
 
   transition:
     color var(--duration-fast) var(--ease-premium),
@@ -49,12 +58,22 @@
 
 @media (hover: hover) and (pointer: fine) {
   .action-link:hover .action-link-arrow {
-    color: var(--color-text);
-
     transform: translate(
       var(--action-link-arrow-hover-x),
       var(--action-link-arrow-hover-y)
     );
+  }
+
+  .action-link:hover {
+    background: var(--color-text-soft);
+    border-color: var(--color-text-soft);
+    color: var(--color-bg);
+  }
+
+  .action-link-muted:hover {
+    background: var(--color-text);
+    border-color: var(--color-text);
+    color: var(--color-bg);
   }
 
   .action-link-muted:hover .action-link-arrow {

@@ -4,6 +4,7 @@ import { motion, useReducedMotion, type Variants } from "framer-motion";
 import Marquee from "@/components/ui/Marquee";
 import { useIndiaTime } from "@/lib/time";
 import "./footer.css";
+import { Radius } from "lucide-react";
 
 const EMAIL = "mohitp846@gmail.com";
 

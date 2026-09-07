@@ -210,6 +210,10 @@
   transform-origin: left center;
 }
 
+.contra-hire-me-button img {
+  border-radius: 999px;
+}
+
 /* =====================================================
    SOCIALS
 ===================================================== */
