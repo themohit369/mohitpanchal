@@ -57,7 +57,11 @@ export type Project = {
   showOnHome: boolean;
 };
 
-export type CaseStudy = Project & { type: "case-study"; year: string };
+export type CaseStudy = Project & {
+  type: "case-study";
+  year: string;
+  href: string;
+};
 export type IdentityProject = Project & { type: "identity" };
 export type WebProject = Project & { type: "selected-web" | "template" };
 export const projects: Project[] = [
