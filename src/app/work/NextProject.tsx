@@ -48,7 +48,7 @@ export default function NextProject() {
 
                   <span className="case-more-work-arrow" aria-hidden="true">
                     ↗
-                
+                  </span>
                 </Link>
               </article>
             ))}
