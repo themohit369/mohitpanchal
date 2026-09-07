@@ -108,12 +108,10 @@
 
 .hero-actions {
   grid-column: 5 / span 3;
-
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: var(--hero-actions-gap);
-
   padding-top: var(--hero-rule-padding-top);
   border-top: var(--border-subtle);
 }
@@ -331,6 +329,7 @@ html[data-theme="light"] .hero-image::before {
 
   .hero-actions {
     grid-column: 1 / -1;
+    flex-direction: row;
   }
 }
 
