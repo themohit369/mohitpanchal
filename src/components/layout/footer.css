@@ -441,12 +441,11 @@
 
   .footer-email-row {
     gap: var(--footer-email-row-gap);
-    margin-top: var(--footer-email-row-margin-top);
+    margin-top: 10px;
   }
 
   .footer-email {
-    font-size: var(--footer-email-size);
-    letter-spacing: var(--footer-email-tracking);
+    font-size: var(--footer-heading-size);
   }
 
   .footer-email-arrow {

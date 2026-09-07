@@ -257,16 +257,6 @@ export default function About() {
                 <span>More about me</span>
                 <span className="action-link-arrow">↗</span>
               </Link>
-
-              <a
-                href="/mohit-panchal-resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="action-link action-link-muted"
-              >
-                <span>View Resume</span>
-                <span className="action-link-arrow">↗</span>
-              </a>
             </motion.div>
           </div>
         </div>
