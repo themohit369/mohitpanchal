@@ -379,7 +379,7 @@ export default function Navbar({ gridVisible, onToggleGrid }: NavbarProps) {
                 }}
               >
                 <p>
-                  INDIA
+                  India
                   {localTime && (
                     <>
                       <span className="mobile-time-separator">{" · "}</span>
