@@ -161,7 +161,7 @@ export default function WorkPage() {
 
         <div className="work-project-grid">
           {caseStudies
-            .filter((project) => project.href)
+            .filter((project) => project.href!)
             .map((project, index) => (
               <motion.article
                 key={project.title}
