@@ -245,6 +245,16 @@ export default function Navbar({ gridVisible, onToggleGrid }: NavbarProps) {
                   duration: 0.45,
                 }}
               >
+                <p>
+                  India
+                  {localTime && (
+                    <>
+                      <span className="mobile-time-separator">{" · "}</span>
+
+                      <span className="mobile-time">{localTime}</span>
+                    </>
+                  )}
+                </p>
                 <p>Independent designer</p>
                 <p>Working globally</p>
               </motion.div>
@@ -377,20 +387,7 @@ export default function Navbar({ gridVisible, onToggleGrid }: NavbarProps) {
                   delay: 0.85,
                   duration: 0.45,
                 }}
-              >
-                <p>
-                  India
-                  {localTime && (
-                    <>
-                      <span className="mobile-time-separator">{" · "}</span>
-
-                      <span className="mobile-time">{localTime}</span>
-                    </>
-                  )}
-                </p>
-
-                <p>Working worldwide</p>
-              </motion.div>
+              ></motion.div>
             </div>
           </motion.aside>
         )}
