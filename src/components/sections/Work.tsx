@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
+
 import "./work.css";
 import "../ui/action-link.css";
 
@@ -15,7 +16,35 @@ import {
 
 import Marquee from "@/components/ui/Marquee";
 import { ease } from "@/lib/motion";
-import { caseStudies, identityWork, webWork } from "@/data/projects";
+
+import {
+  caseStudies,
+  identityWork,
+  selectedWebWork,
+  webWork,
+} from "@/data/projects";
+
+/* =====================================================
+   HELPERS
+===================================================== */
+
+function formatRange(start: number, total: number) {
+  if (total === 0) return "(00 — 00)";
+
+  const end = start + total - 1;
+
+  return `(${String(start).padStart(2, "0")} — ${String(end).padStart(
+    2,
+    "0",
+  )})`;
+}
+
+const homeCaseStudies = caseStudies.filter((project) => project.showOnHome);
+const homeIdentityWork = identityWork.filter((project) => project.showOnHome);
+const homeSelectedWebWork = selectedWebWork.filter(
+  (project) => project.showOnHome,
+);
+const homeWebWork = webWork.filter((project) => project.showOnHome);
 
 /* =====================================================
    CASE STUDY CARD
@@ -38,13 +67,13 @@ function CaseStudyCard({ project, index }: CaseStudyCardProps) {
   const imageY = useTransform(
     scrollYProgress,
     [0, 0.5, 1],
-    reduceMotion ? ["0%", "0%", "0%"] : ["-4%", "0%", "4%"],
+    reduceMotion ? ["0%", "0%", "4%"] : ["-4%", "0%", "4%"],
   );
 
   return (
     <motion.article
       ref={projectRef}
-      className={`work-project work-project-${index + 1}`}
+      className="work-project"
       initial={
         reduceMotion
           ? false
@@ -123,7 +152,8 @@ type IdentityCardProps = {
 
 function IdentityCard({ project, index }: IdentityCardProps) {
   const reduceMotion = useReducedMotion();
-  const hasLivePage = project.href !== "#";
+
+  const hasLivePage = Boolean(project.href && project.href !== "#");
 
   const imageContent = (
     <Image
@@ -144,7 +174,7 @@ function IdentityCard({ project, index }: IdentityCardProps) {
 
   return (
     <motion.article
-      className={`work-identity-item work-identity-item-${index + 1}`}
+      className="work-identity-item"
       initial={
         reduceMotion
           ? false
@@ -163,13 +193,13 @@ function IdentityCard({ project, index }: IdentityCardProps) {
       }}
       transition={{
         duration: 0.9,
-        delay: index * 0.08,
+        delay: Math.min(index * 0.06, 0.35),
         ease,
       }}
     >
       {hasLivePage ? (
         <Link
-          href={project.href}
+          href={project.href!}
           aria-label={`View ${project.title} design work`}
           className="media-frame work-identity-image"
         >
@@ -181,7 +211,7 @@ function IdentityCard({ project, index }: IdentityCardProps) {
 
       {hasLivePage ? (
         <Link
-          href={project.href}
+          href={project.href!}
           className="work-gallery-info"
           aria-label={`View ${project.title} design work`}
         >
@@ -195,20 +225,41 @@ function IdentityCard({ project, index }: IdentityCardProps) {
 }
 
 /* =====================================================
-   WEB WORK CARD
+   GENERIC GALLERY CARD
 ===================================================== */
 
-type WebWorkCardProps = {
-  project: (typeof webWork)[number];
+type GalleryCardProps = {
+  project: (typeof selectedWebWork)[number];
   index: number;
 };
 
-function WebWorkCard({ project, index }: WebWorkCardProps) {
+function GalleryCard({ project, index }: GalleryCardProps) {
   const reduceMotion = useReducedMotion();
+
+  const cardContent = (
+    <>
+      <div className="media-frame work-gallery-image">
+        <Image
+          src={project.image}
+          alt={project.alt}
+          fill
+          sizes="(max-width: 768px) 100vw, 50vw"
+          className="work-gallery-image-inner"
+        />
+      </div>
+
+      <div className="work-gallery-info">
+        <h3>{project.title}</h3>
+        <span>{project.category}</span>
+      </div>
+    </>
+  );
+
+  const hasLivePage = Boolean(project.href && project.href !== "#");
 
   return (
     <motion.article
-      className={`work-gallery-item work-gallery-item-${index + 1}`}
+      className="work-gallery-item"
       initial={
         reduceMotion
           ? false
@@ -227,25 +278,66 @@ function WebWorkCard({ project, index }: WebWorkCardProps) {
       }}
       transition={{
         duration: 0.85,
-        delay: (index % 2) * 0.08,
+        delay: Math.min((index % 4) * 0.07, 0.21),
         ease,
       }}
     >
-      <div className="media-frame work-gallery-image">
-        <Image
-          src={project.image}
-          alt={project.alt}
-          fill
-          sizes="(max-width: 768px) 100vw, 50vw"
-          className="work-gallery-image-inner"
-        />
-      </div>
-
-      <div className="work-gallery-info">
-        <h3>{project.title}</h3>
-        <span>{project.category}</span>
-      </div>
+      {hasLivePage ? (
+        <Link
+          href={project.href!}
+          className="work-gallery-link"
+          aria-label={`View ${project.title} design work`}
+        >
+          {cardContent}
+        </Link>
+      ) : (
+        cardContent
+      )}
     </motion.article>
+  );
+}
+
+/* =====================================================
+   SECTION META
+===================================================== */
+
+type SectionMetaProps = {
+  label: string;
+  count: string;
+  description: string;
+};
+
+function SectionMeta({ label, count, description }: SectionMetaProps) {
+  const reduceMotion = useReducedMotion();
+
+  return (
+    <motion.div
+      className="section-meta work-section-meta"
+      initial={
+        reduceMotion
+          ? false
+          : {
+              opacity: 0,
+              y: 20,
+            }
+      }
+      whileInView={{
+        opacity: 1,
+        y: 0,
+      }}
+      viewport={{
+        once: true,
+        amount: 0.6,
+      }}
+      transition={{
+        duration: 0.7,
+        ease,
+      }}
+    >
+      <span>{label}</span>
+      <span>{count}</span>
+      <span>{description}</span>
+    </motion.div>
   );
 }
 
@@ -256,6 +348,22 @@ function WebWorkCard({ project, index }: WebWorkCardProps) {
 export default function Work() {
   const reduceMotion = useReducedMotion();
 
+  const totalSelectedWork =
+    homeCaseStudies.length +
+    homeIdentityWork.length +
+    homeSelectedWebWork.length +
+    homeWebWork.length;
+
+  const identityStart = homeCaseStudies.length + 1;
+
+  const selectedWebStart = homeCaseStudies.length + homeIdentityWork.length + 1;
+
+  const templatesStart =
+    homeCaseStudies.length +
+    homeIdentityWork.length +
+    homeSelectedWebWork.length +
+    1;
+
   return (
     <section id="work" className="work-section">
       {/* =====================================================
@@ -263,6 +371,7 @@ export default function Work() {
       ===================================================== */}
 
       <Marquee className="work-marquee">Selected Work</Marquee>
+
       {/* =====================================================
           MAIN META
       ===================================================== */}
@@ -292,21 +401,29 @@ export default function Work() {
           }}
         >
           <span>Selected Work</span>
-          <span>(01 — 13)</span>
+          <span>{formatRange(1, totalSelectedWork)}</span>
           <span>Product, UI/UX + Brand Design</span>
         </motion.div>
       </div>
 
       {/* =====================================================
-          CASE STUDIES
+          FEATURED CASE STUDIES
       ===================================================== */}
 
       <div
         id="work-projects"
         className="site-container work-projects-container"
       >
+        <div className="work-divider" />
+
+        <SectionMeta
+          label="Featured Case Studies"
+          count={formatRange(1, homeCaseStudies.length)}
+          description="Product Design · UX/UI"
+        />
+
         <div className="work-project-grid">
-          {caseStudies.map((project, index) => (
+          {homeCaseStudies.map((project, index) => (
             <CaseStudyCard
               key={project.title}
               project={project}
@@ -317,85 +434,61 @@ export default function Work() {
       </div>
 
       {/* =====================================================
-          IDENTITY & VISUAL WORK
+          BRAND IDENTITY & GRAPHIC DESIGN
       ===================================================== */}
 
       <div className="site-container work-identity-container">
         <div className="work-divider" />
 
-        <motion.div
-          className="section-meta work-section-meta"
-          initial={
-            reduceMotion
-              ? false
-              : {
-                  opacity: 0,
-                  y: 20,
-                }
-          }
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          viewport={{
-            once: true,
-            amount: 0.6,
-          }}
-          transition={{
-            duration: 0.7,
-            ease,
-          }}
-        >
-          <span>Brand Identity & Graphic Design</span>
-          <span>(03 — 08)</span>
-          <span>Logo Design + Brand Identity</span>
-        </motion.div>
+        <SectionMeta
+          label="Brand Identity & Graphic Design"
+          count={formatRange(identityStart, homeIdentityWork.length)}
+          description="Logo Design · Visual Identity · Icon Systems"
+        />
 
         <div className="work-identity-grid">
-          {identityWork.map((project, index) => (
+          {homeIdentityWork.map((project, index) => (
             <IdentityCard key={project.title} project={project} index={index} />
           ))}
         </div>
       </div>
 
       {/* =====================================================
-          SELECTED WEB WORK
+          SELECTED PRODUCT & WEBSITE WORK
+      ===================================================== */}
+
+      <div className="site-container work-selected-web-container">
+        <div className="work-divider" />
+
+        <SectionMeta
+          label="Selected Product & Website Work"
+          count={formatRange(selectedWebStart, homeSelectedWebWork.length)}
+          description="Product Websites · UI · Web Design"
+        />
+
+        <div className="work-gallery-grid work-selected-web-grid">
+          {homeSelectedWebWork.map((project, index) => (
+            <GalleryCard key={project.title} project={project} index={index} />
+          ))}
+        </div>
+      </div>
+
+      {/* =====================================================
+          WEBSITE TEMPLATES
       ===================================================== */}
 
       <div className="site-container work-gallery-container">
         <div className="work-divider" />
 
-        <motion.div
-          className="section-meta work-section-meta"
-          initial={
-            reduceMotion
-              ? false
-              : {
-                  opacity: 0,
-                  y: 20,
-                }
-          }
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          viewport={{
-            once: true,
-            amount: 0.6,
-          }}
-          transition={{
-            duration: 0.7,
-            ease,
-          }}
-        >
-          <span>Selected Web Work</span>
-          <span>(09 — 13)</span>
-          <span>Website Design + UI</span>
-        </motion.div>
+        <SectionMeta
+          label="Website Templates"
+          count={formatRange(templatesStart, homeWebWork.length)}
+          description="Website Design · E-commerce · Campaign UI"
+        />
 
-        <div className="work-gallery-grid">
-          {webWork.slice(0, 5).map((project, index) => (
-            <WebWorkCard key={project.title} project={project} index={index} />
+        <div className="work-gallery-grid work-template-grid">
+          {homeWebWork.map((project, index) => (
+            <GalleryCard key={project.title} project={project} index={index} />
           ))}
         </div>
 
@@ -405,8 +498,8 @@ export default function Work() {
 
         <div className="work-view-all">
           <p>
-            More websites, templates, visual design and selected work from
-            across the years.
+            A selection of websites, templates, visual systems and digital
+            experiences created across the years.
           </p>
 
           <Link href="/work" className="action-link">

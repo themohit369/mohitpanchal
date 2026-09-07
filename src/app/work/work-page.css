@@ -85,59 +85,49 @@
   padding-bottom: var(--work-page-gallery-padding-bottom);
 }
 
-.work-page-explorations {
-  padding-top: var(--work-page-explorations-padding-top);
-}
-
 .work-page-bottom-divider {
   margin-top: var(--work-page-bottom-divider-margin-top);
 }
 
 /* ==========================================================
-   EXTRA WEB PROJECTS — ARCHIVE CONTINUATION
+   ARCHIVE GRID CONTINUATION
 
-   Homepage work.css defines cards 01–05.
-   Archive continues the same asymmetric rhythm.
+   Grid rhythm is inherited from work.css. The shared grid uses
+   nth-child patterns, so new projects require no item CSS here.
 ========================================================== */
 
-.work-page-gallery .work-gallery-item-6 {
-  grid-column: var(--work-page-item-6-column);
+/* ==========================================================
+   ARCHIVE GALLERY GRID
 
-  margin-top: var(--work-page-item-6-margin-top);
+   Uses the same 4-step editorial rhythm as the homepage.
+   No item-specific classes are required, so new projects
+   automatically inherit the layout.
+========================================================== */
+
+.work-page-gallery .work-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+  row-gap: var(--work-gallery-row-gap);
+  align-items: start;
 }
 
-.work-page-gallery .work-gallery-item-7 {
-  grid-column: var(--work-page-item-7-column);
+.work-page-gallery .work-gallery-item:nth-child(4n + 1) {
+  grid-column: 1 / span 7;
 }
 
-.work-page-gallery .work-gallery-item-8 {
-  grid-column: var(--work-page-item-8-column);
-
-  margin-top: var(--work-page-item-8-margin-top);
+.work-page-gallery .work-gallery-item:nth-child(4n + 2) {
+  grid-column: 9 / span 4;
+  margin-top: var(--work-identity-stagger-margin-top);
 }
 
-.work-page-gallery .work-gallery-item-9 {
-  grid-column: var(--work-page-item-9-column);
+.work-page-gallery .work-gallery-item:nth-child(4n + 3) {
+  grid-column: 1 / span 5;
 }
 
-.work-page-gallery .work-gallery-item-10 {
-  grid-column: var(--work-page-item-10-column);
-
-  margin-top: var(--work-page-item-10-margin-top);
-}
-
-.work-page-gallery .work-gallery-item-11 {
-  grid-column: var(--work-page-item-11-column);
-}
-
-.work-page-gallery .work-gallery-item-12 {
-  grid-column: var(--work-page-item-12-column);
-
-  margin-top: var(--work-page-item-12-margin-top);
-}
-
-.work-page-gallery .work-gallery-item-13 {
-  grid-column: var(--work-page-item-13-column);
+.work-page-gallery .work-gallery-item:nth-child(4n + 4) {
+  grid-column: 7 / span 6;
+  margin-top: var(--work-identity-stagger-margin-top);
 }
 
 /* ==========================================================
@@ -152,24 +142,19 @@
 
 /* ==========================================================
    MOBILE
+
+   Mobile stacking is handled by the shared work.css grid.
 ========================================================== */
 
 @media (max-width: 768px) {
-  /*
-   * Shared work.css switches the gallery to a vertical
-   * mobile stack. Remove archive-only desktop staggering.
-   */
+  .work-page-gallery .work-gallery-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--work-mobile-stack-gap);
+  }
 
-  .work-page-gallery .work-gallery-item-6,
-  .work-page-gallery .work-gallery-item-7,
-  .work-page-gallery .work-gallery-item-8,
-  .work-page-gallery .work-gallery-item-9,
-  .work-page-gallery .work-gallery-item-10,
-  .work-page-gallery .work-gallery-item-11,
-  .work-page-gallery .work-gallery-item-12,
-  .work-page-gallery .work-gallery-item-13 {
+  .work-page-gallery .work-gallery-item {
     width: 100%;
-
     margin-top: 0;
   }
 }

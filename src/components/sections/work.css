@@ -33,11 +33,19 @@
 }
 
 /* =====================================================
+   SECTION META
+===================================================== */
+
+.work-section-meta {
+  margin-top: var(--work-section-meta-margin-top);
+  margin-bottom: var(--work-section-meta-margin-bottom);
+}
+
+/* =====================================================
    FEATURED CASE STUDIES
 ===================================================== */
 
 .work-projects-container {
-  /* padding-top: var(--work-featured-padding-top); */
   padding-bottom: var(--work-featured-padding-bottom);
 }
 
@@ -52,38 +60,23 @@
   min-width: 0;
 }
 
-/* POWERPACK */
-
-.work-project-1 {
+.work-project:first-child {
   grid-column: var(--work-project-1-column);
   grid-row: 1;
 }
 
-.work-project-1 .work-project-image {
-  aspect-ratio: var(--work-project-image-ratio);
-}
-
-/* MAX ADDONS */
-
-.work-project-2 {
+.work-project:nth-child(2) {
   grid-column: var(--work-project-2-column);
   grid-row: 1;
   align-self: end;
 }
-
-.work-project-2 .work-project-image {
-  aspect-ratio: var(--work-project-image-ratio);
-}
-
-/* =====================================================
-   CASE STUDY IMAGE
-===================================================== */
 
 .work-project-image {
   position: relative;
   display: block;
   width: 100%;
   overflow: hidden;
+  aspect-ratio: var(--work-project-image-ratio);
 }
 
 .work-project-image-motion {
@@ -118,6 +111,8 @@
   gap: var(--work-project-info-gap);
   align-items: start;
   padding-top: var(--work-project-info-padding-top);
+  color: inherit;
+  text-decoration: none;
 }
 
 .work-project-year {
@@ -197,44 +192,30 @@
 }
 
 /*
- * Six identity projects use three explicit rows.
- * Columns never overlap inside the same row.
- *
- * Row 1: large left  / small right
- * Row 2: small left  / large right
- * Row 3: large left  / small right
- */
+   Editorial rhythm
+   Every pair alternates:
+   large left / small right
+   small left / large right
 
-.work-identity-item-1 {
+   This remains automatic regardless
+   of the number of identity projects.
+*/
+
+.work-identity-item:nth-child(4n + 1) {
   grid-column: 1 / span 6;
-  grid-row: 1;
 }
 
-.work-identity-item-2 {
+.work-identity-item:nth-child(4n + 2) {
   grid-column: 8 / span 5;
-  grid-row: 1;
   margin-top: var(--work-identity-stagger-margin-top);
 }
 
-.work-identity-item-3 {
+.work-identity-item:nth-child(4n + 3) {
   grid-column: 1 / span 5;
-  grid-row: 2;
 }
 
-.work-identity-item-4 {
+.work-identity-item:nth-child(4n + 4) {
   grid-column: 7 / span 6;
-  grid-row: 2;
-  margin-top: var(--work-identity-stagger-margin-top);
-}
-
-.work-identity-item-5 {
-  grid-column: 1 / span 6;
-  grid-row: 3;
-}
-
-.work-identity-item-6 {
-  grid-column: 8 / span 5;
-  grid-row: 3;
   margin-top: var(--work-identity-stagger-margin-top);
 }
 
@@ -306,14 +287,14 @@
 }
 
 /* =====================================================
-   SELECTED WEB WORK
+   SELECTED PRODUCT & WEBSITE WORK
 ===================================================== */
 
-.work-gallery-container {
+.work-selected-web-container {
   padding-bottom: var(--work-gallery-padding-bottom);
 }
 
-.work-gallery-grid {
+.work-selected-web-grid {
   display: grid;
   grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
   column-gap: var(--grid-gap);
@@ -321,30 +302,90 @@
   align-items: start;
 }
 
+/*
+   Four selected websites:
+   1 — large left
+   2 — small right + stagger
+   3 — small left
+   4 — large right + stagger
+*/
+
+.work-selected-web-grid .work-gallery-item:nth-child(4n + 1) {
+  grid-column: 1 / span 7;
+}
+
+.work-selected-web-grid .work-gallery-item:nth-child(4n + 2) {
+  grid-column: 9 / span 4;
+  margin-top: var(--work-identity-stagger-margin-top);
+}
+
+.work-selected-web-grid .work-gallery-item:nth-child(4n + 3) {
+  grid-column: 1 / span 5;
+}
+
+.work-selected-web-grid .work-gallery-item:nth-child(4n + 4) {
+  grid-column: 7 / span 6;
+  margin-top: var(--work-identity-stagger-margin-top);
+}
+
+/* =====================================================
+   WEBSITE TEMPLATE GRID
+===================================================== */
+
+.work-gallery-container {
+  padding-bottom: var(--work-gallery-padding-bottom);
+}
+
+.work-template-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+  row-gap: var(--work-gallery-row-gap);
+  align-items: start;
+}
+
+/*
+   Automatic editorial rhythm for any
+   number of templates.
+
+   1 — wide left
+   2 — narrow right
+   3 — narrow left
+   4 — wide right
+
+   Then the rhythm repeats.
+*/
+
+.work-template-grid .work-gallery-item:nth-child(4n + 1) {
+  grid-column: 1 / span 7;
+}
+
+.work-template-grid .work-gallery-item:nth-child(4n + 2) {
+  grid-column: 9 / span 4;
+  margin-top: var(--work-identity-stagger-margin-top);
+}
+
+.work-template-grid .work-gallery-item:nth-child(4n + 3) {
+  grid-column: 1 / span 5;
+}
+
+.work-template-grid .work-gallery-item:nth-child(4n + 4) {
+  grid-column: 7 / span 6;
+  margin-top: var(--work-identity-stagger-margin-top);
+}
+
+/* =====================================================
+   GALLERY ITEM
+===================================================== */
+
 .work-gallery-item {
   min-width: 0;
 }
 
-.work-gallery-item-1 {
-  grid-column: var(--work-gallery-item-1-column);
-}
-
-.work-gallery-item-2 {
-  grid-column: var(--work-gallery-item-2-column);
-  margin-top: var(--work-gallery-item-2-margin-top);
-}
-
-.work-gallery-item-3 {
-  grid-column: var(--work-gallery-item-3-column);
-}
-
-.work-gallery-item-4 {
-  grid-column: var(--work-gallery-item-4-column);
-  margin-top: var(--work-gallery-item-4-margin-top);
-}
-
-.work-gallery-item-5 {
-  grid-column: var(--work-gallery-item-5-column);
+.work-gallery-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
 }
 
 /* =====================================================
@@ -398,7 +439,12 @@
 ===================================================== */
 
 @media (max-width: 1024px) {
-  /* Numeric values are controlled by globals.css. */
+  .work-project-grid,
+  .work-identity-grid,
+  .work-selected-web-grid,
+  .work-template-grid {
+    column-gap: var(--grid-gap);
+  }
 }
 
 /* =====================================================
@@ -414,28 +460,16 @@
 
   .work-project-grid,
   .work-identity-grid,
-  .work-gallery-grid {
+  .work-selected-web-grid,
+  .work-template-grid {
     display: flex;
     flex-direction: column;
     gap: var(--work-mobile-stack-gap);
   }
 
   .work-project,
-  .work-project-1,
-  .work-project-2,
   .work-identity-item,
-  .work-identity-item-1,
-  .work-identity-item-2,
-  .work-identity-item-3,
-  .work-identity-item-4,
-  .work-identity-item-5,
-  .work-identity-item-6,
-  .work-gallery-item,
-  .work-gallery-item-1,
-  .work-gallery-item-2,
-  .work-gallery-item-3,
-  .work-gallery-item-4,
-  .work-gallery-item-5 {
+  .work-gallery-item {
     width: 100%;
     margin: 0;
   }
@@ -447,6 +481,14 @@
   .work-view-all {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .work-gallery-info {
+    flex-direction: row;
+  }
+
+  .work-gallery-info span {
+    text-align: right;
   }
 }
 
