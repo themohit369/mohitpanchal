@@ -160,49 +160,51 @@ export default function WorkPage() {
         </motion.div>
 
         <div className="work-project-grid">
-          {caseStudies.map((project, index) => (
-            <motion.article
-              key={project.title}
-              className="work-project"
-              {...cardMotion(index)}
-            >
-              <Link
-                href={project.href}
-                aria-label={`View ${project.title} product design and UI/UX case study`}
-                className="media-frame work-project-image"
+          {caseStudies
+            .filter((project) => project.href)
+            .map((project, index) => (
+              <motion.article
+                key={project.title}
+                className="work-project"
+                {...cardMotion(index)}
               >
-                <Image
-                  src={project.image}
-                  alt={project.alt}
-                  fill
-                  priority={index === 0}
-                  sizes={
-                    index === 0
-                      ? "(max-width: 768px) 100vw, 58vw"
-                      : "(max-width: 768px) 100vw, 34vw"
-                  }
-                  className="work-project-image-inner"
-                />
-              </Link>
+                <Link
+                  href={project.href!}
+                  aria-label={`View ${project.title} product design and UI/UX case study`}
+                  className="media-frame work-project-image"
+                >
+                  <Image
+                    src={project.image}
+                    alt={project.alt}
+                    fill
+                    priority={index === 0}
+                    sizes={
+                      index === 0
+                        ? "(max-width: 768px) 100vw, 58vw"
+                        : "(max-width: 768px) 100vw, 34vw"
+                    }
+                    className="work-project-image-inner"
+                  />
+                </Link>
 
-              <Link
-                href={project.href}
-                className="work-project-info"
-                aria-label={`Read the ${project.title} case study`}
-              >
-                <span className="work-project-year">{project.year}</span>
+                <Link
+                  href={project.href!}
+                  className="work-project-info"
+                  aria-label={`Read the ${project.title} case study`}
+                >
+                  <span className="work-project-year">{project.year}</span>
 
-                <div className="work-project-copy">
-                  <h3>{project.title}</h3>
-                  <p>{project.category}</p>
-                </div>
+                  <div className="work-project-copy">
+                    <h3>{project.title}</h3>
+                    <p>{project.category}</p>
+                  </div>
 
-                <span className="work-project-arrow" aria-hidden="true">
-                  ↗
-                </span>
-              </Link>
-            </motion.article>
-          ))}
+                  <span className="work-project-arrow" aria-hidden="true">
+                    ↗
+                  </span>
+                </Link>
+              </motion.article>
+            ))}
         </div>
       </section>
 
@@ -260,7 +262,7 @@ export default function WorkPage() {
 
         <div className="work-identity-grid">
           {identityWork.map((project, index) => {
-            const hasLivePage = project.href !== "#";
+            const hasLivePage = Boolean(project.href && project.href !== "#");
 
             const imageContent = (
               <Image
@@ -287,7 +289,7 @@ export default function WorkPage() {
               >
                 {hasLivePage ? (
                   <Link
-                    href={project.href}
+                    href={project.href!}
                     aria-label={`View ${project.title} design work`}
                     className="media-frame work-identity-image"
                   >
@@ -301,7 +303,7 @@ export default function WorkPage() {
 
                 {hasLivePage ? (
                   <Link
-                    href={project.href}
+                    href={project.href!}
                     className="work-gallery-info"
                     aria-label={`View ${project.title} design work`}
                   >
