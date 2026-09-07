@@ -7,9 +7,9 @@ type Theme = "light" | "dark";
 export default function ThemeToggle() {
   const [theme, setTheme] = useState<Theme>(() => {
     if (typeof window !== "undefined") {
-      return (localStorage.getItem("theme") as Theme | null) ?? "dark";
+      return (localStorage.getItem("theme") as Theme | null) ?? "light";
     }
-    return "dark";
+    return "light";
   });
   const [mounted, setMounted] = useState(false);
 

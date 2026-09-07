@@ -132,9 +132,7 @@ export default function RootLayout({
           var theme =
             savedTheme === "light" || savedTheme === "dark"
               ? savedTheme
-              : window.matchMedia("(prefers-color-scheme: dark)").matches
-                ? "dark"
-                : "light";
+              : "light";
 
           document.documentElement.setAttribute("data-theme", theme);
 
@@ -143,9 +141,7 @@ export default function RootLayout({
 
           document.documentElement.style.colorScheme = theme;
         } catch (e) {
-          var theme = window.matchMedia("(prefers-color-scheme: dark)").matches
-            ? "dark"
-            : "light";
+          var theme = "light";
 
           document.documentElement.setAttribute("data-theme", theme);
 
